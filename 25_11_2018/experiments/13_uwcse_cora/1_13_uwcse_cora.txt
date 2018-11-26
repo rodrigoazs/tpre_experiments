@@ -1,0 +1,2571 @@
+Starting experiment #1 for 13_uwcse_cora
+
+Start learning from source dataset
+
+Source train facts examples: 2274
+Source train pos examples: 113
+Source train neg examples: 113
+
+WILL Produced-Tree #1
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( tempadvisedby(D, B), ta(E, A, F) )
+%   | | then if ( ta(G, D, H) )
+%   | | | then return 0.8581489350995123;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.6581489350995122;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.8581489350995123;  // std dev = 0,000, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(I, A), tempadvisedby(J, B) )
+%   | | then if ( publication(I, K), ta(L, K, M) )
+%   | | | then return 0.7470378239884012;  // std dev = 0,943, 9,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=8 */
+%   | | | else return -0.14185106490048777;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | else if ( publication(N, B) )
+%   | | | then return 0.7734031723876481;  // std dev = 2,139, 59,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=54 */
+%   | | | else return 0.6273797043302815;  // std dev = 1,519, 13,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=10 */
+%   else return -0.14185106490048768;  // std dev = 7,30e-08, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #2
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( tempadvisedby(C, B), ta(D, C, E) )
+%   | then if ( ta(F, A, G), ta(F, H, E) )
+%   | | then if ( samecourse(D, F) )
+%   | | | then return 0.5261862825807958;  // std dev = 0,883, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.7312209353581769;  // std dev = 0,024, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else return 0.7308104757005569;  // std dev = 0,064, 26,000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | else if ( publication(I, A), publication(I, B) )
+%   | | then if ( tempadvisedby(J, B), ta(K, A, L) )
+%   | | | then return 0.5580193346218546;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.7194734122109543;  // std dev = 4,21e-08, 19,000 (wgt'ed) examples reached here.  /* #pos=19 */
+%   | | else if ( tempadvisedby(M, B), publication(N, A) )
+%   | | | then return 0.36908066213317675;  // std dev = 1,530, 12,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=7 */
+%   | | | else return 0.6022753891158077;  // std dev = 2,439, 50,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=43 */
+%   else return -0.12544463852839158;  // std dev = 0,000, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #3
+% FOR advisedby(A, B):
+%   if ( student(A), hasposition(B, C) )
+%   then if ( tempadvisedby(D, B), ta(E, D, F) )
+%   | then if ( ta(G, A, H), ta(G, I, F) )
+%   | | then if ( samecourse(E, G) )
+%   | | | then return 0.4104895662080564;  // std dev = 0,881, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.5670573234148749;  // std dev = 0,030, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else return 0.5667517210998663;  // std dev = 0,081, 26,000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | else if ( publication(J, A), tempadvisedby(K, B) )
+%   | | then if ( publication(J, B) )
+%   | | | then return 0.5081090089455164;  // std dev = 0,915, 12,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=11 */
+%   | | | else return 0.3024623706773498;  // std dev = 1,492, 12,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=7 */
+%   | | else if ( hasposition(L, C), tempadvisedby(M, L) )
+%   | | | then return 0.5171363622026371;  // std dev = 1,893, 50,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=46 */
+%   | | | else return 0.41333218051658055;  // std dev = 1,254, 10,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=8 */
+%   else if ( student(B) )
+%   | then return -0.11231637819360621;  // std dev = 7,30e-08, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+%   | else return -0.06665108093539125;  // std dev = 0,234, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+WILL Produced-Tree #4
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( tempadvisedby(D, B), publication(C, D) )
+%   | | then return 0.4832804849449028;  // std dev = 0,087, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( ta(E, A, F), tempadvisedby(G, B) )
+%   | | | then return 0.3708118645753268;  // std dev = 0,910, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | | else return 0.4231366907787059;  // std dev = 0,050, 29,000 (wgt'ed) examples reached here.  /* #pos=29 */
+%   | else if ( publication(H, A) )
+%   | | then if ( publication(H, I), professor(I) )
+%   | | | then return 0.17622837139648692;  // std dev = 1,781, 17,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=10 */
+%   | | | else return 0.5323405353860747;  // std dev = 0,145, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | else if ( tempadvisedby(J, B) )
+%   | | | then return 0.4000172157399381;  // std dev = 1,323, 34,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=32 */
+%   | | | else return 0.3525662203675458;  // std dev = 1,769, 27,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=23 */
+%   else return -0.10198219881178268;  // std dev = 0,012, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #5
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( tempadvisedby(D, B), ta(E, D, F) )
+%   | then if ( publication(G, A), ta(H, A, I) )
+%   | | then return 0.36605834300894613;  // std dev = 0,040, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else if ( ta(J, A, K), ta(E, L, K) )
+%   | | | then return 0.23438028808223332;  // std dev = 0,871, 8,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=7 */
+%   | | | else return 0.32999273138997975;  // std dev = 0,086, 25,000 (wgt'ed) examples reached here.  /* #pos=25 */
+%   | else if ( publication(M, B), tempadvisedby(N, B) )
+%   | | then if ( publication(M, A), publication(P, N) )
+%   | | | then return 0.3577085523634852;  // std dev = 0,076, 5,000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   | | | else return 0.19789244101110526;  // std dev = 1,749, 24,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=18 */
+%   | | else if ( tempadvisedby(Q, B) )
+%   | | | then return 0.37785344743893995;  // std dev = 0,699, 7,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=6 */
+%   | | | else return 0.28303010264104084;  // std dev = 2,031, 48,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=43 */
+%   else if ( professor(B) )
+%   | then return -0.06616976182491295;  // std dev = 0,223, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+%   | else return -0.09265882983204124;  // std dev = 0,000, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+WILL Produced-Tree #6
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( publication(C, A), publication(C, B) )
+%   | then if ( ta(D, A, E), tempadvisedby(F, B) )
+%   | | then if ( ta(G, F, H) )
+%   | | | then return 0.2826563931623987;  // std dev = 0,097, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.15451645497947167;  // std dev = 0,869, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.26275744552760566;  // std dev = 0,081, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(I, B), publication(J, A) )
+%   | | then if ( publication(I, K), publication(J, K) )
+%   | | | then return -0.14087552708901988;  // std dev = 1,042, 6,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=2 */
+%   | | | else return 0.29338287886308356;  // std dev = 0,635, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | else if ( ta(L, A, M) )
+%   | | | then return 0.25909729625877753;  // std dev = 1,332, 31,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=29 */
+%   | | | else return 0.19234692952750185;  // std dev = 2,044, 38,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=32 */
+%   else return -0.08568376642463045;  // std dev = 0,017, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #7
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( hasposition(D, C), tempadvisedby(E, D) )
+%   | then if ( publication(F, A), publication(F, E) )
+%   | | then if ( publication(F, B) )
+%   | | | then return 0.24579307473529155;  // std dev = 0,081, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.40440033165595013;  // std dev = 0,013, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( publication(G, A), publication(G, D) )
+%   | | | then return 0.13433112626293273;  // std dev = 1,761, 41,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=35 */
+%   | | | else return 0.2018313681985659;  // std dev = 1,816, 67,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=62 */
+%   | else if ( publication(H, A) )
+%   | | then return 0.31338151496982575;  // std dev = 0,100, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( publication(I, B) )
+%   | | | then return 0.04241073278084051;  // std dev = 0,866, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | | else return 0.004955178336688608;  // std dev = 0,816, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   else if ( student(B) )
+%   | then return -0.078714914680283;  // std dev = 0,000, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+%   | else return -0.06163820970546856;  // std dev = 0,218, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+WILL Produced-Tree #8
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( ta(D, A, E), tempadvisedby(F, B) )
+%   | | then if ( ta(G, F, H) )
+%   | | | then return 0.20655454892587757;  // std dev = 0,078, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.0834177164784278;  // std dev = 0,864, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.18956309909025468;  // std dev = 0,067, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( ta(I, A, J) )
+%   | | then if ( tempadvisedby(K, B), publication(L, K) )
+%   | | | then return -0.017749462553536082;  // std dev = 0,587, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | | else return 0.17138285540539994;  // std dev = 1,603, 37,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=34 */
+%   | | else if ( tempadvisedby(M, B), ta(N, M, P) )
+%   | | | then return 0.20299800700877216;  // std dev = 0,031, 11,000 (wgt'ed) examples reached here.  /* #pos=11 */
+%   | | | else return 0.0652662825789895;  // std dev = 2,143, 34,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=25 */
+%   else return -0.07376424474643667;  // std dev = 0,018, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #9
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( ta(D, A, E), tempadvisedby(F, B) )
+%   | | then if ( ta(G, F, H) )
+%   | | | then return 0.17489339677867127;  // std dev = 0,069, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.06689633580061653;  // std dev = 0,865, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.16216019620842995;  // std dev = 0,059, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(I, A) )
+%   | | then if ( publication(I, J), ta(K, J, L) )
+%   | | | then return 0.15194156067537;  // std dev = 1,155, 15,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=13 */
+%   | | | else return -0.12388805395370436;  // std dev = 1,071, 9,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=4 */
+%   | | else if ( tempadvisedby(M, B), publication(N, M) )
+%   | | | then return 0.21453284290118466;  // std dev = 0,061, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.11968558784604917;  // std dev = 2,170, 57,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=51 */
+%   else return -0.06888043653295983;  // std dev = 0,017, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #10
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( publication(D, B), publication(D, A) )
+%   | then if ( tempadvisedby(E, B), ta(F, A, G) )
+%   | | then if ( ta(H, E, I) )
+%   | | | then return 0.15117048873691966;  // std dev = 0,061, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.054095230712979524;  // std dev = 0,866, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.14133193020476742;  // std dev = 0,053, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( tempadvisedby(J, B), publication(K, J) )
+%   | | then return -0.029704197631637185;  // std dev = 0,740, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( tempadvisedby(L, B), ta(M, A, N) )
+%   | | | then return 0.14707685988096428;  // std dev = 0,993, 20,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=19 */
+%   | | | else return 0.08095607171993094;  // std dev = 2,321, 57,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=48 */
+%   else if ( student(B) )
+%   | then return -0.06408607125076551;  // std dev = 0,000, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+%   | else if ( publication(P, B) )
+%   | | then return -0.06965082663068843;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | | else return -0.017394378062867383;  // std dev = 0,710, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+
+
+Predicates from source: ['advisedby(person,person).', 'samecourse(course,course).', 'student(person).', 'hasposition(person,faculty).', 'tempadvisedby(person,person).', 'publication(title,person).', 'professor(person).', 'ta(course,person,quarter).']
+
+Starting fold 1
+
+Target predicate: sameauthor
+Mapping Results
+   Knowledge compiling time   = 0.16371512413024902
+   Generating paths time   = 4.391237020492554
+   Generating mappings time   = 0.21481037139892578
+   Possible mappings   = [126]
+   Max mapping   = 161051
+   Numbers predicates mapping   = [8]
+   Finding best mapping   = 1.6689300537109375e-06
+   Total time   = 4.769773483276367
+
+
+Best mapping found: ['advisedby(A,B) -> sameauthor(A,B)', 'publication(A,B) -> haswordauthor(B,A)', 'hasposition(A,B) -> author(B,A)', 'samecourse(A,B) -> sametitle(A,B)'] 
+
+Transferred target predicate: sameauthor 
+
+Target train facts examples: 7254
+Target train pos examples: 209
+Target train neg examples: 16
+
+Target test facts examples: 34492
+Target test pos examples: 603
+Target test neg examples: 58
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+1;;sameauthor(A, B) :- sametitle(D, F).;false;false
+2;;sameauthor(A, B) :- author(C, B).;true;false
+2;true;sametitle(E, G).;false;true
+2;true,false,true;haswordauthor(B, J).;false;false
+2;true,false,false;author(C, L).;false;false
+2;true,false;haswordauthor(A, J).;true;true
+3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;false
+3;true;haswordauthor(D, C).;false;true
+3;true,false,true;haswordauthor(I, H).;false;false
+3;true,false;haswordauthor(A, H).;true;false
+4;;sameauthor(A, B) :- author(C, B).;true;false
+4;true;haswordauthor(A, G).;false;true
+4;true,false,true;haswordauthor(A, M), haswordauthor(N, P).;false;false
+4;true,false;haswordauthor(B, M).;true;false
+5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;false;false
+6;;sameauthor(A, B) :- author(C, B).;true;false
+6;true;author(C, D).;true;true
+6;true,true;haswordauthor(A, F), haswordauthor(E, F).;true;true
+6;true,false,false;haswordauthor(B, I).;false;false
+6;true,true,false;haswordauthor(A, G), haswordauthor(D, G).;false;false
+6;true,false;haswordauthor(A, H).;false;true
+6;true,true,true;haswordauthor(B, F).;false;false
+7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+9;;sameauthor(A, B) :- author(C, B).;true;true
+9;true;haswordauthor(B, D), haswordauthor(A, D).;false;true
+9;false;haswordauthor(B, P).;false;false
+9;true,false;haswordauthor(J, K).;false;false
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.7870378239883978;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( sametitle(C, D) )
+%   then return 0.662488340457355;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( sametitle(D, E) )
+%   | then return 0.5156213669758928;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(D, C) )
+%   | then return 0.3876955880049945;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(A, D) )
+%   | then return 0.2940939243456708;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then return 0.22896466584551245;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( author(C, D) )
+%   | then if ( haswordauthor(A, E), haswordauthor(F, E) )
+%   | | then if ( haswordauthor(B, E) )
+%   | | | then return 0.18317125213999816;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.15002240685857746;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.12526566858187835;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(B, D), haswordauthor(A, D) )
+%   | then return 0.10624539867445687;  // std dev = 3,855, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.724138
+   AUC PR    = 0.949606
+   CLL	      = -0.270992
+   Precision = 0.949606 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.974152
+
+
+Total learning time: 10.998 seconds
+Total inference time: 4.71 seconds
+AUC ROC: 0.724138
+
+
+Structure after Parameter Learning
+[['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [3.855, 16, 209], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'sametitle(C, D)'}, {'true': [3.855, 16, 209], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'sametitle(D, E)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.855, 16, 209]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)', 'true': 'haswordauthor(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.855, 16, 209]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(A, D)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.855, 16, 209]}], ['sameauthor(A, B)', {'': 'haswordauthor(A, C), haswordauthor(B, C)'}, {'true': [3.855, 16, 209], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'author(C, D)', 'true,true': 'haswordauthor(A, E), haswordauthor(F, E)', 'true,true,true': 'haswordauthor(B, E)'}, {'true,true,true,false': [0.0, 0, 0], 'true,true,true,true': [3.855, 16, 209], 'false': [0.0, 0, 0], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [3.855, 16, 209], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [3.855, 16, 209], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(B, D), haswordauthor(A, D)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.855, 16, 209]}]]
+[{'': [0.06605432098765972, nan]}, {'': [0.06605432098765264, nan]}, {'': [0.06605432098765675, nan], 'true': [0.06605432098765675, nan]}, {'': [0.06605432098765261, nan], 'true': [0.06605432098765261, nan]}, {'': [0.06605432098765453, nan], 'true': [0.06605432098765453, nan]}, {'': [0.06605432098765375, nan]}, {'': [0.06605432098765465, nan], 'true': [0.06605432098765465, nan], 'true,true,true': [0.06605432098765465, nan], 'true,true': [0.06605432098765465, nan]}, {'': [0.06605432098765432, nan]}, {'': [0.066054320987654, nan]}, {'': [0.06605432098765424, nan], 'true': [0.06605432098765424, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Pruning resulted in null theory
+
+Candidate for revision
+['0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '1;;sameauthor(A, B) :- sametitle(C, D).;true;true', '2;;sameauthor(A, B) :- author(C, B).;true;true', '2;true;sametitle(D, E).;true;true', '3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '3;true;haswordauthor(D, C).;true;true', '4;;sameauthor(A, B) :- author(C, B).;true;true', '4;true;haswordauthor(A, D).;true;true', '5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;true;true', '6;;sameauthor(A, B) :- author(C, B).;true;true', '6;true;author(C, D).;true;true', '6;true,true,true;haswordauthor(B, E).;true;true', '6;true,true;haswordauthor(A, E), haswordauthor(F, E).;true;true', '7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '9;;sameauthor(A, B) :- author(C, B).;true;true', '9;true;haswordauthor(B, D), haswordauthor(A, D).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordauthor(B, D) )
+%   | | then return 0.6530207299713078;  // std dev = 0,404, 78,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=62 */
+%   | | else return 0.8581489350995123;  // std dev = 0,000, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | else return 0.8581489350995104;  // std dev = 7,54e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( sametitle(C, D) )
+%   then if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | then if ( haswordauthor(B, E) )
+%   | | then if ( author(G, A), title(G, F) )
+%   | | | then return 0.7589587358414972;  // std dev = 2,98e-08, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return 0.5367365136192742;  // std dev = 3,528, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | | else return 0.7194734122109542;  // std dev = 7,30e-08, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | else return 0.7194734122109555;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( sametitle(D, E) )
+%   | then if ( haswordauthor(A, F), haswordtitle(G, F) )
+%   | | then if ( haswordauthor(B, F) )
+%   | | | then return 0.4388533491677178;  // std dev = 3,550, 78,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=62 */
+%   | | | else return 0.5553664367462846;  // std dev = 0,000, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | | else return 0.5553664367462834;  // std dev = 4,77e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(D, C) )
+%   | then if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then if ( author(G, B), title(G, F) )
+%   | | | then return 0.5242600270989324;  // std dev = 0,064, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return 0.3374547924255289;  // std dev = 3,536, 90,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=74 */
+%   | | else return 0.4175135841583092;  // std dev = 3,77e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(A, D) )
+%   | then if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then if ( author(G, B), title(G, F) )
+%   | | | then return 0.3765368278096697;  // std dev = 0,110, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | | else return 0.2504247784712866;  // std dev = 3,532, 88,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=72 */
+%   | | else return 0.32235702637487346;  // std dev = 0,058, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordauthor(A, D) )
+%   | | then if ( author(F, A), title(F, E) )
+%   | | | then return 0.32321084297282204;  // std dev = 0,077, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return 0.17113291883068793;  // std dev = 3,512, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | | else return 0.2714274182582512;  // std dev = 0,051, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | else return 0.25630150768162513;  // std dev = 0,051, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( author(C, D) )
+%   | then if ( haswordauthor(A, E), haswordauthor(F, E) )
+%   | | then if ( haswordauthor(B, E) )
+%   | | | then return 0.18724786745911293;  // std dev = 3,563, 225,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=209 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordauthor(A, D) )
+%   | | then if ( author(F, B), title(F, E) )
+%   | | | then return 0.23073937163977473;  // std dev = 0,074, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return 0.08904937363096774;  // std dev = 3,512, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | | else return 0.1906528112704331;  // std dev = 0,039, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | else return 0.1811184209296307;  // std dev = 0,040, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordauthor(A, D) )
+%   | | then if ( author(F, B), title(F, E) )
+%   | | | then return 0.19251035226326538;  // std dev = 0,064, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return 0.07031120462781157;  // std dev = 3,512, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | | else return 0.1629655245770879;  // std dev = 0,035, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | else return 0.15578997404952596;  // std dev = 0,036, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(B, D), haswordauthor(A, D) )
+%   | then if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then if ( haswordauthor(A, E) )
+%   | | | then return 0.06433566393717828;  // std dev = 3,522, 78,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=62 */
+%   | | | else return 0.1419464980377073;  // std dev = 0,031, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | | else return 0.13638191197911237;  // std dev = 0,032, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.788643
+   AUC PR    = 0.971699
+   CLL	      = -0.303077
+   Precision = 0.949606 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.974152
+
+
+Total learning time: 48.86 seconds
+Total inference time: 207.917 seconds
+AUC ROC: 0.788643
+
+
+Refined model AUC ROC: 0.788643
+
+
+Dataset: 13_uwcse_cora, Fold: 1, Type: Transfer (trRDN-B), Time: 04:09:47
+{'CLL': -0.303077, 'Recall': 1.0, 'F1': 0.974152, 'parameter': {'CLL': -0.270992, 'Recall': 1.0, 'F1': 0.974152, 'AUC ROC': 0.724138, 'Inference time': 4.71, 'Learning time': 10.998, 'Precision': [0.949606, 0.5], 'AUC PR': 0.949606}, 'AUC ROC': 0.788643, 'Inference time': 207.917, 'Mapping results': {'Knowledge compiling time': 0.16371512413024902, 'Generating paths time': 4.391237020492554, 'Possible mappings': [126], 'Max mapping': 161051, 'Finding best mapping': 1.6689300537109375e-06, 'Generating mappings time': 0.21481037139892578, 'Numbers preds mapping': [8], 'Total time': 4.769773483276367}, 'Learning time': 59.858, 'Precision': [0.949606, 0.5], 'AUC PR': 0.971699}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(B, C) )
+%   | then if ( author(E, A), title(E, D) )
+%   | | then return 0.8581489350995123;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | else if ( author(F, B), title(F, D) )
+%   | | | then return 0.8581489350995122;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.6228548174524539;  // std dev = 3,498, 68,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=52 */
+%   | else return 0.8581489350995123;  // std dev = 0,000, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   else return 0.8581489350995104;  // std dev = 7,54e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(B, C) )
+%   | then return 0.5535417144099151;  // std dev = 0,401, 78,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=62 */
+%   | else return 0.7194734122109542;  // std dev = 7,30e-08, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   else return 0.7194734122109555;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(A, C) )
+%   | then if ( author(E, B), title(E, D) )
+%   | | then return 0.5958756436822695;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | else return 0.42575087835689346;  // std dev = 0,414, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | else return 0.5553664367462846;  // std dev = 0,000, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   else return 0.5553664367462834;  // std dev = 4,77e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( author(E, A), title(E, D) )
+%   | then return 0.4617722353652778;  // std dev = 0,087, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | else if ( haswordauthor(B, C) )
+%   | | then return 0.3214686162088508;  // std dev = 0,413, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | | else return 0.41751358415831025;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   else return 0.4175135841583092;  // std dev = 3,77e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(B, C) )
+%   | then return 0.25092768333139165;  // std dev = 0,399, 78,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=62 */
+%   | else return 0.31964911986809647;  // std dev = 0,013, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   else return 0.3207118471601498;  // std dev = 2,49e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(B, C) )
+%   | then if ( author(E, B), title(E, D) )
+%   | | then return 0.30451985045936286;  // std dev = 0,034, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | else return 0.18040727694458214;  // std dev = 0,414, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | else return 0.2544493142178774;  // std dev = 0,011, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   else return 0.2551722425694898;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( author(E, A), title(E, D) )
+%   | then return 0.24888156952522403;  // std dev = 0,099, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | else if ( haswordauthor(B, C) )
+%   | | then return 0.13626885060418412;  // std dev = 0,413, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | | else return 0.21005385827383752;  // std dev = 1,49e-08, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   else return 0.20975771563253534;  // std dev = 2,09e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(B, C) )
+%   | then return 0.11436419922414377;  // std dev = 0,398, 78,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=62 */
+%   | else return 0.17600289301804373;  // std dev = 0,016, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   else return 0.17709649774527814;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( author(E, A), title(E, D) )
+%   | then return 0.1856744496368058;  // std dev = 0,088, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | else if ( haswordauthor(B, C) )
+%   | | then return 0.08102576116504806;  // std dev = 0,413, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | | else return 0.15307844749428756;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   else return 0.1527438580936714;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( author(E, B), title(E, D) )
+%   | then return 0.17853882468470597;  // std dev = 0,058, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | else if ( haswordauthor(B, C) )
+%   | | then if ( author(F, A), title(F, D) )
+%   | | | then return 0.1855076458826309;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.056515823667790475;  // std dev = 3,498, 68,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=52 */
+%   | | else return 0.13283625899466545;  // std dev = 0,017, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   else return 0.13400703000801106;  // std dev = 5,58e-08, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+
+
+Results
+   AUC ROC   = 0.43804
+   AUC PR    = 0.900269
+   CLL	      = -0.369159
+   Precision = 0.912254 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.954114
+
+
+Total learning time: 19.436 seconds
+Total inference time: 5.999 seconds
+AUC ROC: 0.43804
+
+
+Dataset: 13_uwcse_cora, Fold: 1, Type: Scratch (RDN-B), Time: 04:10:13
+{'CLL': -0.369159, 'Recall': 1.0, 'F1': 0.954114, 'AUC ROC': 0.43804, 'Inference time': 5.999, 'Learning time': 19.436, 'Precision': [0.912254, 0.5], 'AUC PR': 0.900269}
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(B, C) )
+%   | then if ( author(E, A), title(E, D) )
+%   | | then return 0.8581489350995123;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | else return 0.6359267128772905;  // std dev = 0,416, 72,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=56 */
+%   | else return 0.8581489350995123;  // std dev = 0,000, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   else return 0.8581489350995104;  // std dev = 7,54e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+
+
+Results
+   AUC ROC   = 0.357694
+   AUC PR    = 0.866927
+   CLL	      = -1.26245
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 4.923 seconds
+Total inference time: 3.858 seconds
+AUC ROC: 0.357694
+
+
+Dataset: 13_uwcse_cora, Fold: 1, Type: Scratch (RDN), Time: 04:10:22
+{'CLL': -1.26245, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 0.357694, 'Inference time': 3.858, 'Learning time': 4.923, 'Precision': [nan, 0.5], 'AUC PR': 0.866927}
+
+
+Starting fold 2
+
+Target predicate: sameauthor
+Mapping Results
+   Knowledge compiling time   = 0.20503520965576172
+   Generating paths time   = 3.8500735759735107
+   Generating mappings time   = 0.11359810829162598
+   Possible mappings   = [126]
+   Max mapping   = 161051
+   Numbers predicates mapping   = [8]
+   Finding best mapping   = 1.1920928955078125e-06
+   Total time   = 4.1687164306640625
+
+
+Best mapping found: ['advisedby(A,B) -> sameauthor(A,B)', 'publication(A,B) -> haswordauthor(B,A)', 'hasposition(A,B) -> author(B,A)', 'samecourse(A,B) -> sametitle(A,B)'] 
+
+Transferred target predicate: sameauthor 
+
+Target train facts examples: 8894
+Target train pos examples: 122
+Target train neg examples: 20
+
+Target test facts examples: 32852
+Target test pos examples: 690
+Target test neg examples: 54
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+1;;sameauthor(A, B) :- sametitle(D, F).;false;false
+2;;sameauthor(A, B) :- author(C, B).;true;false
+2;true;sametitle(E, G).;false;true
+2;true,false,true;haswordauthor(B, J).;false;false
+2;true,false,false;author(C, L).;false;false
+2;true,false;haswordauthor(A, J).;true;true
+3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;false
+3;true;haswordauthor(D, C).;false;true
+3;true,false,true;haswordauthor(I, H).;false;false
+3;true,false;haswordauthor(A, H).;true;false
+4;;sameauthor(A, B) :- author(C, B).;true;false
+4;true;haswordauthor(A, G).;false;true
+4;true,false,true;haswordauthor(A, M), haswordauthor(N, P).;false;false
+4;true,false;haswordauthor(B, M).;true;false
+5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;false;false
+6;;sameauthor(A, B) :- author(C, B).;true;false
+6;true;author(C, D).;true;true
+6;true,true;haswordauthor(A, F), haswordauthor(E, F).;true;true
+6;true,false,false;haswordauthor(B, I).;false;false
+6;true,true,false;haswordauthor(A, G), haswordauthor(D, G).;false;false
+6;true,false;haswordauthor(A, H).;false;true
+6;true,true,true;haswordauthor(B, F).;false;false
+7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+9;;sameauthor(A, B) :- author(C, B).;true;true
+9;true;haswordauthor(B, D), haswordauthor(A, D).;false;true
+9;false;haswordauthor(B, P).;false;false
+9;true,false;haswordauthor(J, K).;false;false
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.7966104735610489;  // std dev = 2,740, 130,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=122 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( sametitle(C, D) )
+%   then return 0.6029496229173522;  // std dev = 3,803, 142,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=122 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( sametitle(D, E) )
+%   | then return 0.4743017311994579;  // std dev = 3,688, 142,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=122 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(D, C) )
+%   | then return 0.42000447193010065;  // std dev = 2,740, 130,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=122 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.2963792309415204;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(A, D) )
+%   | then return 0.27046437533896983;  // std dev = 3,302, 142,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=122 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then return 0.25616830760396425;  // std dev = 2,740, 130,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=122 */
+%   else return -0.2910036504102851;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( author(C, D) )
+%   | then if ( haswordauthor(A, E), haswordauthor(F, E) )
+%   | | then if ( haswordauthor(B, E) )
+%   | | | then return 0.2033917546396349;  // std dev = 2,740, 130,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=122 */
+%   | | | else return -0.23477932662954396;  // std dev = 2,11e-08, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.16571401642620107;  // std dev = 2,740, 130,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=122 */
+%   else return -0.1952426682289676;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.13793240164043374;  // std dev = 2,740, 130,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=122 */
+%   else return -0.1663748852418458;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(B, D), haswordauthor(A, D) )
+%   | then return 0.11681585363969646;  // std dev = 2,740, 130,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=122 */
+%   | else if ( haswordauthor(E, F) )
+%   | | then return -0.1445607683493146;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.62963
+   AUC PR    = 0.945205
+   CLL	      = -0.264238
+   Precision = 0.945205 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.971831
+
+
+Total learning time: 7.083 seconds
+Total inference time: 4.623 seconds
+AUC ROC: 0.62963
+
+
+Structure after Parameter Learning
+[['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [2.74, 8, 122], 'false': [0.0, 12, 0]}], ['sameauthor(A, B)', {'': 'sametitle(C, D)'}, {'true': [3.803, 20, 122], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'sametitle(D, E)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.688, 20, 122]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)', 'true': 'haswordauthor(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 12, 0], 'true,true': [2.74, 8, 122]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(A, D)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.302, 20, 122]}], ['sameauthor(A, B)', {'': 'haswordauthor(A, C), haswordauthor(B, C)'}, {'true': [2.74, 8, 122], 'false': [0.0, 12, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'author(C, D)', 'true,true': 'haswordauthor(A, E), haswordauthor(F, E)', 'true,true,true': 'haswordauthor(B, E)'}, {'true,true,true,false': [2.11e-08, 12, 0], 'true,true,true,true': [2.74, 8, 122], 'false': [0.0, 0, 0], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [2.74, 8, 122], 'false': [0.0, 12, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [2.74, 8, 122], 'false': [0.0, 12, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(B, D), haswordauthor(A, D)', 'true,false': 'haswordauthor(E, F)'}, {'true,false,true': [0.0, 12, 0], 'true,true': [2.74, 8, 122], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}]]
+[{'': [0.05775147928994478, -1.1564823173178714e-17]}, {'': [0.10184567567618664, nan]}, {'': [0.09580465202756812, nan], 'true': [0.09580465202756812, nan]}, {'': [0.05775147928994224, -3.700743415417188e-17], 'true': [0.05775147928994224, nan]}, {'': [0.07678190319363849, nan], 'true': [0.07678190319363849, nan]}, {'': [0.05775147928994128, -1.850371707708594e-17]}, {'': [0.06772479598149364, nan], 'true': [0.06772479598149364, nan], 'true,true,true': [0.05775147928994048, 3.700743415417188e-17], 'true,true': [0.06772479598149364, nan]}, {'': [0.05775147928994099, 0.0]}, {'': [0.05775147928994087, -9.25185853854297e-18]}, {'': [0.05815651556175523, nan], 'true': [0.05775147928994092, -4.625929269271485e-18], 'true,false': [-4.625929269271485e-18, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;true;true', '6;;sameauthor(A, B) :- haswordauthor(B, E).;true;true', '7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '9;;sameauthor(A, B) :- haswordauthor(B, D), haswordauthor(A, D).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordvenue(E, D) )
+%   | then return 0.8581489350995122;  // std dev = 1,46e-07, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else return 0.758148935099513;  // std dev = 0,300, 80,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=72 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.7242094762470882;  // std dev = 0,060, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then return 0.7194734122109544;  // std dev = 4,21e-08, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.6215599535379817;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.12544463852839138;  // std dev = 5,27e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.5600892937443024;  // std dev = 0,074, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then return 0.5553664367462846;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.4859058493344546;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.11231637819360636;  // std dev = 9,13e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.42108739528248806;  // std dev = 0,074, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then return 0.4175135841583098;  // std dev = 4,21e-08, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.36595513937430685;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.1015963294878363;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.32317525765478194;  // std dev = 0,067, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else return 0.28279557054222954;  // std dev = 0,297, 80,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=72 */
+%   else return -0.09269127618926097;  // std dev = 5,27e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.2568760264477807;  // std dev = 0,058, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then return 0.26244522970254675;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.21098789550797986;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.08518475138839687;  // std dev = 5,27e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordauthor(B, D) )
+%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | | then return 0.2109748439178615;  // std dev = 0,051, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | | then return 0.2148823064147445;  // std dev = 2,11e-08, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | | else return 0.1662213117145189;  // std dev = 2,657, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   | else return -0.07877675473109172;  // std dev = 3,73e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.17799776985476623;  // std dev = 0,045, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then return 0.18084611630738098;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.13367481773328263;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.07324622576333704;  // std dev = 3,73e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.153433242143627;  // std dev = 0,040, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then return 0.1555824095865833;  // std dev = 1,05e-08, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.10936690164742435;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.06842697784420272;  // std dev = 2,63e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.13454915111716367;  // std dev = 0,036, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then return 0.13621916225358985;  // std dev = 1,05e-08, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.09074972913371901;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.06419184008202619;  // std dev = 5,89e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+
+
+Results
+   AUC ROC   = 0.569243
+   AUC PR    = 0.934792
+   CLL	      = -0.253572
+   Precision = 0.945205 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.971831
+
+
+Total learning time: 11.662 seconds
+Total inference time: 4.461 seconds
+AUC ROC: 0.569243
+
+
+Refined model AUC ROC: 0.569243
+
+
+Dataset: 13_uwcse_cora, Fold: 2, Type: Transfer (trRDN-B), Time: 04:10:55
+{'CLL': -0.253572, 'Recall': 1.0, 'F1': 0.971831, 'parameter': {'CLL': -0.264238, 'Recall': 1.0, 'F1': 0.971831, 'AUC ROC': 0.62963, 'Inference time': 4.623, 'Learning time': 7.083, 'Precision': [0.945205, 0.5], 'AUC PR': 0.945205}, 'AUC ROC': 0.569243, 'Inference time': 4.461, 'Mapping results': {'Knowledge compiling time': 0.20503520965576172, 'Generating paths time': 3.8500735759735107, 'Possible mappings': [126], 'Max mapping': 161051, 'Finding best mapping': 1.1920928955078125e-06, 'Generating mappings time': 0.11359810829162598, 'Numbers preds mapping': [8], 'Total time': 4.1687164306640625}, 'Learning time': 18.745, 'Precision': [0.945205, 0.5], 'AUC PR': 0.934792}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordvenue(E, D) )
+%   | then return 0.8581489350995122;  // std dev = 1,46e-07, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | then return 0.8581489350995123;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.7405018762759833;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordvenue(E, D) )
+%   | then return 0.7194734122109547;  // std dev = 0,000, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else return 0.6391264425827672;  // std dev = 0,299, 80,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=72 */
+%   else return -0.12544463852839138;  // std dev = 5,27e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.5601045170241867;  // std dev = 0,060, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then return 0.5553664367462844;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.48592512765204937;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.11231637819360636;  // std dev = 9,13e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.42107682854768397;  // std dev = 0,059, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else return 0.3737019165320212;  // std dev = 0,298, 80,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=72 */
+%   else return -0.1015963294878363;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.32315400077390444;  // std dev = 0,053, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then return 0.3303304863024126;  // std dev = 1,49e-08, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.27427135680731;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.09269127618926097;  // std dev = 5,27e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then return 0.25685311169812003;  // std dev = 0,047, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else return 0.21875580294006505;  // std dev = 0,298, 80,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=72 */
+%   else return -0.08518475138839687;  // std dev = 5,27e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordvenue(E, D) )
+%   | then return 0.21106473574247506;  // std dev = 0,042, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | then return 0.22123844768966985;  // std dev = 1,83e-08, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.1648148108244733;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.07877675473109172;  // std dev = 3,73e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordvenue(E, D) )
+%   | then return 0.17806077730987532;  // std dev = 0,037, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | then return 0.1854723918354535;  // std dev = 7,45e-09, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.13263710281767122;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.07324622576333704;  // std dev = 3,73e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordvenue(E, D) )
+%   | then return 0.15347910017317282;  // std dev = 0,033, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | then return 0.15906858075375507;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.10858085012227202;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.06842697784420272;  // std dev = 2,63e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordvenue(E, D) )
+%   | then return 0.13458361349237813;  // std dev = 0,030, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | then return 0.13892549446727465;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.09014018676746087;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.06419184008202619;  // std dev = 5,89e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+
+
+Results
+   AUC ROC   = 0.569243
+   AUC PR    = 0.934792
+   CLL	      = -0.253584
+   Precision = 0.945205 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.971831
+
+
+Total learning time: 11.038 seconds
+Total inference time: 3.543 seconds
+AUC ROC: 0.569243
+
+
+Dataset: 13_uwcse_cora, Fold: 2, Type: Scratch (RDN-B), Time: 04:11:10
+{'CLL': -0.253584, 'Recall': 1.0, 'F1': 0.971831, 'AUC ROC': 0.569243, 'Inference time': 3.543, 'Learning time': 11.038, 'Precision': [0.945205, 0.5], 'AUC PR': 0.934792}
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordvenue(E, D) )
+%   | then return 0.8581489350995122;  // std dev = 1,46e-07, 50,000 (wgt'ed) examples reached here.  /* #pos=50 */
+%   | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | then return 0.8581489350995123;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.7405018762759833;  // std dev = 0,322, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+
+
+Results
+   AUC ROC   = 0.580515
+   AUC PR    = 0.938127
+   CLL	      = -1.222152
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 3.781 seconds
+Total inference time: 3.708 seconds
+AUC ROC: 0.580515
+
+
+Dataset: 13_uwcse_cora, Fold: 2, Type: Scratch (RDN), Time: 04:11:19
+{'CLL': -1.222152, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 0.580515, 'Inference time': 3.708, 'Learning time': 3.781, 'Precision': [nan, 0.5], 'AUC PR': 0.938127}
+
+
+Starting fold 3
+
+Target predicate: sameauthor
+Mapping Results
+   Knowledge compiling time   = 0.1628270149230957
+   Generating paths time   = 3.8787975311279297
+   Generating mappings time   = 0.2136085033416748
+   Possible mappings   = [126]
+   Max mapping   = 161051
+   Numbers predicates mapping   = [8]
+   Finding best mapping   = 1.6689300537109375e-06
+   Total time   = 4.255244016647339
+
+
+Best mapping found: ['advisedby(A,B) -> sameauthor(A,B)', 'publication(A,B) -> haswordauthor(B,A)', 'hasposition(A,B) -> author(B,A)', 'samecourse(A,B) -> sametitle(A,B)'] 
+
+Transferred target predicate: sameauthor 
+
+Target train facts examples: 9155
+Target train pos examples: 151
+Target train neg examples: 4
+
+Target test facts examples: 32591
+Target test pos examples: 661
+Target test neg examples: 70
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+1;;sameauthor(A, B) :- sametitle(D, F).;false;false
+2;;sameauthor(A, B) :- author(C, B).;true;false
+2;true;sametitle(E, G).;false;true
+2;true,false,true;haswordauthor(B, J).;false;false
+2;true,false,false;author(C, L).;false;false
+2;true,false;haswordauthor(A, J).;true;true
+3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;false
+3;true;haswordauthor(D, C).;false;true
+3;true,false,true;haswordauthor(I, H).;false;false
+3;true,false;haswordauthor(A, H).;true;false
+4;;sameauthor(A, B) :- author(C, B).;true;false
+4;true;haswordauthor(A, G).;false;true
+4;true,false,true;haswordauthor(A, M), haswordauthor(N, P).;false;false
+4;true,false;haswordauthor(B, M).;true;false
+5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;false;false
+6;;sameauthor(A, B) :- author(C, B).;true;false
+6;true;author(C, D).;true;true
+6;true,true;haswordauthor(A, F), haswordauthor(E, F).;true;true
+6;true,false,false;haswordauthor(B, I).;false;false
+6;true,true,false;haswordauthor(A, G), haswordauthor(D, G).;false;false
+6;true,false;haswordauthor(A, H).;false;true
+6;true,true,true;haswordauthor(B, F).;false;false
+7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+9;;sameauthor(A, B) :- author(C, B).;true;true
+9;true;haswordauthor(B, D), haswordauthor(A, D).;false;true
+9;false;haswordauthor(B, P).;false;false
+9;true,false;haswordauthor(J, K).;false;false
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.8323424834866066;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( sametitle(C, D) )
+%   then return 0.698845893395818;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( sametitle(D, E) )
+%   | then return 0.5409946853316354;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(D, C) )
+%   | then return 0.40656478352990505;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(A, D) )
+%   | then return 0.31073437611251203;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then return 0.2452079090461179;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( author(C, D) )
+%   | then if ( haswordauthor(A, E), haswordauthor(F, E) )
+%   | | then if ( haswordauthor(B, E) )
+%   | | | then return 0.19955514587821926;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.1666316310048982;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.14205263897659914;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(B, D), haswordauthor(A, D) )
+%   | then return 0.1231347582007454;  // std dev = 1,974, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.685714
+   AUC PR    = 0.937589
+   CLL	      = -0.271566
+   Precision = 0.937589 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.967789
+
+
+Total learning time: 8.884 seconds
+Total inference time: 3.954 seconds
+AUC ROC: 0.685714
+
+
+Structure after Parameter Learning
+[['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [1.974, 4, 151], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'sametitle(C, D)'}, {'true': [1.974, 4, 151], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'sametitle(D, E)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [1.974, 4, 151]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)', 'true': 'haswordauthor(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [1.974, 4, 151]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(A, D)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [1.974, 4, 151]}], ['sameauthor(A, B)', {'': 'haswordauthor(A, C), haswordauthor(B, C)'}, {'true': [1.974, 4, 151], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'author(C, D)', 'true,true': 'haswordauthor(A, E), haswordauthor(F, E)', 'true,true,true': 'haswordauthor(B, E)'}, {'true,true,true,false': [0.0, 0, 0], 'true,true,true,true': [1.974, 4, 151], 'false': [0.0, 0, 0], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [1.974, 4, 151], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [1.974, 4, 151], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(B, D), haswordauthor(A, D)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [1.974, 4, 151]}]]
+[{'': [0.02514047866805994, nan]}, {'': [0.025140478668053523, nan]}, {'': [0.02514047866805412, nan], 'true': [0.02514047866805412, nan]}, {'': [0.025140478668053523, nan], 'true': [0.025140478668053523, nan]}, {'': [0.025140478668054807, nan], 'true': [0.025140478668054807, nan]}, {'': [0.025140478668053867, nan]}, {'': [0.025140478668053995, nan], 'true': [0.025140478668053995, nan], 'true,true,true': [0.025140478668053995, nan], 'true,true': [0.025140478668053995, nan]}, {'': [0.025140478668053936, nan]}, {'': [0.025140478668054293, nan]}, {'': [0.025140478668054102, nan], 'true': [0.025140478668054102, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Pruning resulted in null theory
+
+Candidate for revision
+['0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '1;;sameauthor(A, B) :- sametitle(C, D).;true;true', '2;;sameauthor(A, B) :- author(C, B).;true;true', '2;true;sametitle(D, E).;true;true', '3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '3;true;haswordauthor(D, C).;true;true', '4;;sameauthor(A, B) :- author(C, B).;true;true', '4;true;haswordauthor(A, D).;true;true', '5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;true;true', '6;;sameauthor(A, B) :- author(C, B).;true;true', '6;true;author(C, D).;true;true', '6;true,true,true;haswordauthor(B, E).;true;true', '6;true,true;haswordauthor(A, E), haswordauthor(F, E).;true;true', '7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '9;;sameauthor(A, B) :- author(C, B).;true;true', '9;true;haswordauthor(B, D), haswordauthor(A, D).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | then if ( haswordauthor(B, F), haswordauthor(B, D) )
+%   | | | then return 0.8581489350995122;  // std dev = 0,000, 5,000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   | | | else return 0.6081489350995122;  // std dev = 0,866, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | else if ( haswordauthor(B, D) )
+%   | | | then return 0.7781489350995119;  // std dev = 1,356, 25,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=23 */
+%   | | | else return 0.8581489350995123;  // std dev = 0,000, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | else if ( haswordauthor(A, H), haswordvenue(I, H) )
+%   | | then if ( haswordauthor(B, H) )
+%   | | | then return 0.7672398441904213;  // std dev = 0,953, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | | | else return 0.8581489350995122;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else return 0.8581489350995117;  // std dev = 2,38e-07, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( sametitle(C, D) )
+%   then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | then if ( haswordauthor(A, E) )
+%   | | then if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | | then return 0.5558029534382117;  // std dev = 0,896, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | | else return 0.6492344143619725;  // std dev = 0,925, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | | else return 0.7262703816665473;  // std dev = 0,021, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | else if ( haswordauthor(A, I), haswordtitle(J, I) )
+%   | | then if ( haswordauthor(B, I) )
+%   | | | then return 0.6591416821628638;  // std dev = 1,363, 25,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=23 */
+%   | | | else return 0.7194734122109542;  // std dev = 5,16e-08, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | | else return 0.7194734122109538;  // std dev = 2,53e-07, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( sametitle(D, E) )
+%   | then if ( haswordauthor(B, F), haswordtitle(G, F) )
+%   | | then if ( haswordauthor(A, F) )
+%   | | | then return 0.5321333335395207;  // std dev = 1,377, 33,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=31 */
+%   | | | else return 0.49281061465988424;  // std dev = 0,907, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | | else if ( haswordauthor(A, H), haswordtitle(I, H) )
+%   | | | then return 0.4938367347712822;  // std dev = 0,892, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | | | else return 0.5595713429530617;  // std dev = 0,118, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(D, C) )
+%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | | then if ( haswordauthor(A, E) )
+%   | | | then return 0.34629211619005534;  // std dev = 1,268, 17,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=15 */
+%   | | | else return 0.4261099871046742;  // std dev = 0,034, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | | then return 0.4523424760696548;  // std dev = 0,110, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.4113358477189732;  // std dev = 1,370, 124,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=122 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(A, D) )
+%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | | then if ( haswordauthor(A, E) )
+%   | | | then return 0.2621371816623075;  // std dev = 1,271, 17,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=15 */
+%   | | | else return 0.32660779450837696;  // std dev = 0,031, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | else if ( haswordauthor(A, G), haswordtitle(H, G) )
+%   | | | then return 0.3014980220514462;  // std dev = 1,372, 39,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=37 */
+%   | | | else return 0.32299672368811855;  // std dev = 0,055, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordauthor(A, D) )
+%   | | then if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | | then return 0.31994040774153987;  // std dev = 0,000372, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | | else return 0.21011165161097725;  // std dev = 1,353, 25,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=23 */
+%   | | else return 0.20672566301881798;  // std dev = 0,229, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | else if ( haswordauthor(A, H), haswordtitle(I, H) )
+%   | | then return 0.2114799852062563;  // std dev = 0,227, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | | else return 0.2609015704814715;  // std dev = 0,177, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( author(C, D) )
+%   | then if ( haswordauthor(A, E), haswordauthor(F, E) )
+%   | | then if ( haswordauthor(B, E) )
+%   | | | then return 0.20010779907740142;  // std dev = 1,880, 155,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=151 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then if ( haswordauthor(A, D) )
+%   | | then if ( haswordauthor(B, F), haswordtitle(G, F) )
+%   | | | then return 0.05920895226043893;  // std dev = 0,872, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | | else return 0.13722382725043036;  // std dev = 0,905, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | | else return 0.18422695664413652;  // std dev = 0,031, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | else if ( haswordauthor(B, H), haswordtitle(I, H) )
+%   | | then if ( haswordauthor(A, H) )
+%   | | | then return 0.13582463075964218;  // std dev = 1,357, 25,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=23 */
+%   | | | else return 0.19598197529819122;  // std dev = 0,000, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | | else return 0.18053845582040673;  // std dev = 0,074, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then if ( haswordauthor(A, D) )
+%   | | then if ( haswordauthor(A, F), haswordtitle(G, F) )
+%   | | | then return 0.048473127739624276;  // std dev = 0,877, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | | else return 0.11430011437335287;  // std dev = 0,905, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | | else return 0.1581533597118597;  // std dev = 0,028, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | else if ( haswordauthor(B, H), haswordtitle(I, H) )
+%   | | then if ( haswordauthor(A, H) )
+%   | | | then return 0.11372421655759272;  // std dev = 1,357, 25,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=23 */
+%   | | | else return 0.16692473489592663;  // std dev = 0,000, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | | else return 0.15535889991291335;  // std dev = 0,066, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(B, D), haswordauthor(A, D) )
+%   | then if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then if ( haswordauthor(A, E) )
+%   | | | then return 0.1171179472806573;  // std dev = 1,375, 33,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=31 */
+%   | | | else return 0.08402759750309027;  // std dev = 0,883, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | | else if ( haswordauthor(A, G), haswordtitle(H, G) )
+%   | | | then return 0.08961791918095129;  // std dev = 0,880, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | | | else return 0.1387043367323814;  // std dev = 0,148, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.67534
+   AUC PR    = 0.951644
+   CLL	      = -0.28433
+   Precision = 0.937589 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.967789
+
+
+Total learning time: 49.536 seconds
+Total inference time: 108.586 seconds
+AUC ROC: 0.67534
+
+
+Refined model AUC ROC: 0.67534
+
+
+Dataset: 13_uwcse_cora, Fold: 3, Type: Transfer (trRDN-B), Time: 04:14:16
+{'CLL': -0.28433, 'Recall': 1.0, 'F1': 0.967789, 'parameter': {'CLL': -0.271566, 'Recall': 1.0, 'F1': 0.967789, 'AUC ROC': 0.685714, 'Inference time': 3.954, 'Learning time': 8.884, 'Precision': [0.937589, 0.5], 'AUC PR': 0.937589}, 'AUC ROC': 0.67534, 'Inference time': 108.586, 'Mapping results': {'Knowledge compiling time': 0.1628270149230957, 'Generating paths time': 3.8787975311279297, 'Possible mappings': [126], 'Max mapping': 161051, 'Finding best mapping': 1.6689300537109375e-06, 'Generating mappings time': 0.2136085033416748, 'Numbers preds mapping': [8], 'Total time': 4.255244016647339}, 'Learning time': 58.42, 'Precision': [0.937589, 0.5], 'AUC PR': 0.951644}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(B, C) )
+%   | then if ( haswordauthor(A, E), haswordvenue(F, E) )
+%   | | then return 0.8581489350995123;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else if ( haswordauthor(B, G), haswordvenue(H, G) )
+%   | | | then return 0.8581489350995121;  // std dev = 2,11e-08, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.7672398441904211;  // std dev = 1,348, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | else return 0.7914822684328456;  // std dev = 0,249, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   else if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | then if ( haswordauthor(B, I) )
+%   | | then return 0.7672398441904213;  // std dev = 0,287, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | | else return 0.8581489350995122;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | else return 0.8581489350995117;  // std dev = 2,38e-07, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(A, E), haswordvenue(F, E) )
+%   | then if ( haswordauthor(B, E), haswordauthor(A, C) )
+%   | | then return 0.7194734122109544;  // std dev = 0,000, 5,000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   | | else return 0.4739677240518402;  // std dev = 0,850, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | else if ( haswordauthor(A, C) )
+%   | | then if ( haswordauthor(B, G), haswordvenue(H, G) )
+%   | | | then return 0.7194734122109545;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.6465415686654065;  // std dev = 1,348, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | | else return 0.7194734122109543;  // std dev = 4,21e-08, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   else if ( haswordauthor(B, I), haswordvenue(J, I) )
+%   | then if ( haswordauthor(A, I) )
+%   | | then return 0.646112414771778;  // std dev = 0,289, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | | else return 0.7194734122109545;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | else return 0.7214907139878111;  // std dev = 0,046, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordvenue(D, C) )
+%   then if ( haswordauthor(A, C) )
+%   | then if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then return 0.39440912536705214;  // std dev = 0,882, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else return 0.5082661454820955;  // std dev = 0,276, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | else return 0.5553664367462846;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | then if ( haswordauthor(A, G) )
+%   | | then if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | | then return 0.6148826493597588;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.5044629797645589;  // std dev = 1,348, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | | else return 0.5553664367462846;  // std dev = 0,000, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | else return 0.5573638770979413;  // std dev = 0,057, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordvenue(D, C) )
+%   then if ( haswordauthor(A, C) )
+%   | then if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then return 0.2962481937827495;  // std dev = 0,881, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else return 0.3826324621233886;  // std dev = 0,275, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | else return 0.41751358415830986;  // std dev = 2,58e-08, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | then if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | then return 0.46331620681309715;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( haswordauthor(A, G) )
+%   | | | then return 0.37956420580342326;  // std dev = 1,348, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | | | else return 0.4175135841583098;  // std dev = 4,21e-08, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | else return 0.4190159745530592;  // std dev = 0,056, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordvenue(D, C) )
+%   then if ( haswordauthor(A, C) )
+%   | then if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then return 0.2238076279468407;  // std dev = 0,883, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else return 0.28946256408021925;  // std dev = 0,275, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | else return 0.3207118471601497;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | then if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | then return 0.351987227968402;  // std dev = 7,45e-09, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( haswordauthor(A, G) )
+%   | | | then return 0.2871467034260754;  // std dev = 1,348, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | | | else return 0.3207118471601497;  // std dev = 0,000, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | else return 0.3217428746278269;  // std dev = 0,051, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordvenue(D, C) )
+%   then if ( haswordauthor(A, C) )
+%   | then if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then return 0.1696909902996884;  // std dev = 0,898, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else return 0.22529202345950464;  // std dev = 0,272, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | else return 0.2551722425694894;  // std dev = 1,29e-08, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | then if ( haswordauthor(A, G) )
+%   | | then if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | | then return 0.2764173842690859;  // std dev = 5,27e-09, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.22234379807937277;  // std dev = 1,348, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | | else return 0.2551722425694894;  // std dev = 2,11e-08, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | else return 0.25588296977184943;  // std dev = 0,044, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(A, C) )
+%   | then if ( haswordauthor(A, E), haswordvenue(F, E) )
+%   | | then return 0.269852032334882;  // std dev = 0,099, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else return 0.18057862922399814;  // std dev = 0,270, 25,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=23 */
+%   | else return 0.15004453864947223;  // std dev = 0,223, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   else if ( haswordauthor(A, G), haswordtitle(H, G) )
+%   | then return 0.15930496630571447;  // std dev = 0,226, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | else return 0.2147683724485268;  // std dev = 0,169, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordtitle(D, C) )
+%   then if ( haswordauthor(A, C) )
+%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | | then return 0.22043359923788447;  // std dev = 0,086, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | | then return 0.18115049538765116;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.1427296261657962;  // std dev = 1,348, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | else return 0.1257473688196476;  // std dev = 0,225, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   else if ( haswordauthor(A, I), haswordtitle(J, I) )
+%   | then return 0.13273629243640997;  // std dev = 0,228, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | else return 0.18081841770774523;  // std dev = 0,150, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordvenue(D, C) )
+%   then if ( haswordauthor(A, C) )
+%   | then if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then return 0.04687941231198715;  // std dev = 0,869, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else return 0.11027191826683737;  // std dev = 0,270, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | else return 0.15131864885465265;  // std dev = 0,000912, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | then if ( haswordauthor(A, G) )
+%   | | then return 0.12266932701207565;  // std dev = 0,270, 25,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=23 */
+%   | | else return 0.1676773784171843;  // std dev = 1,05e-08, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | else return 0.1542012700978645;  // std dev = 0,080, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordvenue(D, C) )
+%   then if ( haswordauthor(A, C) )
+%   | then if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then return 0.03787801262552282;  // std dev = 0,877, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else return 0.09384575923774387;  // std dev = 0,268, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | else return 0.13289342075404503;  // std dev = 0,000818, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | then if ( haswordauthor(A, G) )
+%   | | then if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | | then return 0.14034928146672188;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.09858870267987709;  // std dev = 1,348, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | | else return 0.14556026951675638;  // std dev = 0,000, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | else return 0.13515282081862087;  // std dev = 0,071, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+
+
+Results
+   AUC ROC   = 0.48499
+   AUC PR    = 0.925712
+   CLL	      = -0.334664
+   Precision = 0.904241 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.949713
+
+
+Total learning time: 18.003 seconds
+Total inference time: 3.977 seconds
+AUC ROC: 0.48499
+
+
+Dataset: 13_uwcse_cora, Fold: 3, Type: Scratch (RDN-B), Time: 04:14:38
+{'CLL': -0.334664, 'Recall': 1.0, 'F1': 0.949713, 'AUC ROC': 0.48499, 'Inference time': 3.977, 'Learning time': 18.003, 'Precision': [0.904241, 0.5], 'AUC PR': 0.925712}
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordvenue(D, C) )
+%   then if ( haswordauthor(B, C) )
+%   | then if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then return 0.6914822684328455;  // std dev = 0,913, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else return 0.7672398441904213;  // std dev = 0,287, 11,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=10 */
+%   | else return 0.8581489350995123;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   else if ( haswordauthor(A, G), haswordtitle(H, G) )
+%   | then if ( haswordauthor(B, G) )
+%   | | then if ( haswordauthor(B, I), haswordvenue(J, I) )
+%   | | | then return 0.8581489350995121;  // std dev = 2,11e-08, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.7672398441904211;  // std dev = 1,348, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | | else return 0.8581489350995123;  // std dev = 0,000, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | else return 0.8581489350995117;  // std dev = 2,38e-07, 92,000 (wgt'ed) examples reached here.  /* #pos=92 */
+
+
+Results
+   AUC ROC   = 0.361184
+   AUC PR    = 0.867023
+   CLL	      = -1.221808
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 8.739 seconds
+Total inference time: 4.544 seconds
+AUC ROC: 0.361184
+
+
+Dataset: 13_uwcse_cora, Fold: 3, Type: Scratch (RDN), Time: 04:14:52
+{'CLL': -1.221808, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 0.361184, 'Inference time': 4.544, 'Learning time': 8.739, 'Precision': [nan, 0.5], 'AUC PR': 0.867023}
+
+
+Starting fold 4
+
+Target predicate: sameauthor
+Mapping Results
+   Knowledge compiling time   = 0.22407913208007812
+   Generating paths time   = 4.104462385177612
+   Generating mappings time   = 0.17319416999816895
+   Possible mappings   = [126]
+   Max mapping   = 161051
+   Numbers predicates mapping   = [8]
+   Finding best mapping   = 9.5367431640625e-07
+   Total time   = 4.501745700836182
+
+
+Best mapping found: ['advisedby(A,B) -> sameauthor(A,B)', 'publication(A,B) -> haswordauthor(B,A)', 'hasposition(A,B) -> author(B,A)', 'samecourse(A,B) -> sametitle(A,B)'] 
+
+Transferred target predicate: sameauthor 
+
+Target train facts examples: 7971
+Target train pos examples: 158
+Target train neg examples: 16
+
+Target test facts examples: 33775
+Target test pos examples: 654
+Target test neg examples: 58
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+1;;sameauthor(A, B) :- sametitle(D, F).;false;false
+2;;sameauthor(A, B) :- author(C, B).;true;false
+2;true;sametitle(E, G).;false;true
+2;true,false,true;haswordauthor(B, J).;false;false
+2;true,false,false;author(C, L).;false;false
+2;true,false;haswordauthor(A, J).;true;true
+3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;false
+3;true;haswordauthor(D, C).;false;true
+3;true,false,true;haswordauthor(I, H).;false;false
+3;true,false;haswordauthor(A, H).;true;false
+4;;sameauthor(A, B) :- author(C, B).;true;false
+4;true;haswordauthor(A, G).;false;true
+4;true,false,true;haswordauthor(A, M), haswordauthor(N, P).;false;false
+4;true,false;haswordauthor(B, M).;true;false
+5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;false;false
+6;;sameauthor(A, B) :- author(C, B).;true;false
+6;true;author(C, D).;true;true
+6;true,true;haswordauthor(A, F), haswordauthor(E, F).;true;true
+6;true,false,false;haswordauthor(B, I).;false;false
+6;true,true,false;haswordauthor(A, G), haswordauthor(D, G).;false;false
+6;true,false;haswordauthor(A, H).;false;true
+6;true,true,true;haswordauthor(B, F).;false;false
+7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+9;;sameauthor(A, B) :- author(C, B).;true;true
+9;true;haswordauthor(B, D), haswordauthor(A, D).;false;true
+9;false;haswordauthor(B, P).;false;false
+9;true,false;haswordauthor(J, K).;false;false
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.8099561640151723;  // std dev = 2,759, 166,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=158 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( sametitle(C, D) )
+%   then return 0.6438303177375626;  // std dev = 3,546, 174,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=158 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( sametitle(D, E) )
+%   | then return 0.5029313712991859;  // std dev = 3,454, 174,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=158 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(D, C) )
+%   | then return 0.41270775807964166;  // std dev = 2,759, 166,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=158 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.31107692773052514;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(A, D) )
+%   | then return 0.28734842223899654;  // std dev = 3,166, 174,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=158 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then return 0.24982101179969904;  // std dev = 2,759, 166,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=158 */
+%   else return -0.3060146484699353;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( author(C, D) )
+%   | then if ( haswordauthor(A, E), haswordauthor(F, E) )
+%   | | then if ( haswordauthor(B, E) )
+%   | | | then return 0.20031345112011095;  // std dev = 2,759, 166,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=158 */
+%   | | | else return -0.24511599951045454;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.16481185329104542;  // std dev = 2,759, 166,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=158 */
+%   else return -0.20262816241857878;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.1384884990393338;  // std dev = 2,759, 166,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=158 */
+%   else return -0.17184937413773577;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(B, D), haswordauthor(A, D) )
+%   | then return 0.11836684862605377;  // std dev = 2,759, 166,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=158 */
+%   | else if ( haswordauthor(E, F) )
+%   | | then return -0.14875161409467316;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.655172
+   AUC PR    = 0.942363
+   CLL	      = -0.259951
+   Precision = 0.942363 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.970326
+
+
+Total learning time: 12.243 seconds
+Total inference time: 4.486 seconds
+AUC ROC: 0.655172
+
+
+Structure after Parameter Learning
+[['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [2.759, 8, 158], 'false': [0.0, 8, 0]}], ['sameauthor(A, B)', {'': 'sametitle(C, D)'}, {'true': [3.546, 16, 158], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'sametitle(D, E)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.454, 16, 158]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)', 'true': 'haswordauthor(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 8, 0], 'true,true': [2.759, 8, 158]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(A, D)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.166, 16, 158]}], ['sameauthor(A, B)', {'': 'haswordauthor(A, C), haswordauthor(B, C)'}, {'true': [2.759, 8, 158], 'false': [0.0, 8, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'author(C, D)', 'true,true': 'haswordauthor(A, E), haswordauthor(F, E)', 'true,true,true': 'haswordauthor(B, E)'}, {'true,true,true,false': [0.0, 8, 0], 'true,true,true,true': [2.759, 8, 158], 'false': [0.0, 0, 0], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [2.759, 8, 158], 'false': [0.0, 8, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [2.759, 8, 158], 'false': [0.0, 8, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(B, D), haswordauthor(A, D)', 'true,false': 'haswordauthor(E, F)'}, {'true,false,true': [0.0, 8, 0], 'true,true': [2.759, 8, 158], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}]]
+[{'': [0.045870227899556054, -6.938893903907228e-18]}, {'': [0.0722809607397316, nan]}, {'': [0.06856632892623532, nan], 'true': [0.06856632892623532, nan]}, {'': [0.04587022789955028, 0.0], 'true': [0.04587022789955028, nan]}, {'': [0.05760346998186987, nan], 'true': [0.05760346998186987, nan]}, {'': [0.0458702278995505, 0.0]}, {'': [0.05246402047364471, nan], 'true': [0.05246402047364471, nan], 'true,true,true': [0.045870227899550406, -2.7755575615628914e-17], 'true,true': [0.05246402047364471, nan]}, {'': [0.04587022789954988, -2.0816681711721685e-17]}, {'': [0.04587022789955001, -6.938893903907228e-18]}, {'': [0.04689098564415086, nan], 'true': [0.04587022789955013, 0.0], 'true,false': [0.0, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;true;true', '6;;sameauthor(A, B) :- haswordauthor(B, E).;true;true', '7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '9;;sameauthor(A, B) :- haswordauthor(B, D), haswordauthor(A, D).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.8581489350995115;  // std dev = 2,53e-07, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordauthor(B, D) )
+%   | | | then return 0.6914822684328453;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.5248156017661789;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.8581489350995123;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.5248156017661789;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.8581489350995125;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.7194734122109548;  // std dev = 0,000, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.5851860008555358;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.448295606241962;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.7194734122109542;  // std dev = 5,96e-08, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.448295606241962;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.7194734122109538;  // std dev = 2,23e-07, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.12544463852839138;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.5553664367462843;  // std dev = 1,03e-07, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.4612598391067553;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.36236334632262296;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(A, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.5553664367462846;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.36236334632262296;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.5553664367462836;  // std dev = 3,32e-07, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.11231637819360639;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.4175135841583102;  // std dev = 0,000, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordauthor(B, D) )
+%   | | | then return 0.3488463256948424;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.2807538536965854;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.4175135841583098;  // std dev = 5,16e-08, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.2807538536965854;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.41751358415831047;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.10159632948783627;  // std dev = 3,73e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.3207118471601495;  // std dev = 2,11e-08, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.26212705508354195;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.21248070121827137;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordvenue(H, G) )
+%   | | then return 0.3207118471601496;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | else if ( haswordauthor(A, I), haswordtitle(J, I) )
+%   | | | then return 0.28463479851285667;  // std dev = 1,175, 18,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=16 */
+%   | | | else return 0.32071184716015;  // std dev = 0,000, 75,000 (wgt'ed) examples reached here.  /* #pos=75 */
+%   else return -0.09269127618926097;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.25747795174593985;  // std dev = 0,020, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordauthor(B, D) )
+%   | | | then return 0.19945264276423416;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.14147222081367142;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.25517224256948967;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.15948988228171151;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.2551722425694895;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.08518475138839687;  // std dev = 3,73e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordauthor(B, D) )
+%   | then if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then if ( haswordvenue(G, E) )
+%   | | | then return 0.21138735353153912;  // std dev = 0,017, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | | else return 0.1448862067344006;  // std dev = 2,163, 30,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=24 */
+%   | | else if ( haswordauthor(B, H), haswordtitle(I, H) )
+%   | | | then return 0.18521160210954646;  // std dev = 1,170, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | | | else return 0.20975771563253573;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   | else return -0.07877675473109173;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.17829225271501448;  // std dev = 0,015, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordauthor(B, D) )
+%   | | | then return 0.12377492151383866;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.07105298093714356;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.18070208148262118;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.07438382635519407;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.17709649774527716;  // std dev = 3,65e-08, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.07324622576333704;  // std dev = 2,63e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.1536512884689304;  // std dev = 0,013, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordauthor(B, D) )
+%   | | | then return 0.09894253260226632;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.05406187952849998;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.15547358858166627;  // std dev = 7,45e-09, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.056551956909822655;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.15274385809367055;  // std dev = 8,30e-08, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.06842697784420272;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.13471569271061412;  // std dev = 0,012, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordauthor(B, D) )
+%   | | | then return 0.0800951743730941;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.0413126232573248;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else return 0.12889819111764816;  // std dev = 0,117, 100,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=98 */
+%   else return -0.0641918400820262;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+
+
+Results
+   AUC ROC   = 0.630839
+   AUC PR    = 0.928611
+   CLL	      = -0.260915
+   Precision = 0.942363 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.970326
+
+
+Total learning time: 25.711 seconds
+Total inference time: 7.123 seconds
+AUC ROC: 0.630839
+
+
+Refined model AUC ROC: 0.630839
+
+
+Dataset: 13_uwcse_cora, Fold: 4, Type: Transfer (trRDN-B), Time: 04:15:48
+{'CLL': -0.260915, 'Recall': 1.0, 'F1': 0.970326, 'parameter': {'CLL': -0.259951, 'Recall': 1.0, 'F1': 0.970326, 'AUC ROC': 0.655172, 'Inference time': 4.486, 'Learning time': 12.243, 'Precision': [0.942363, 0.5], 'AUC PR': 0.942363}, 'AUC ROC': 0.630839, 'Inference time': 7.123, 'Mapping results': {'Knowledge compiling time': 0.22407913208007812, 'Generating paths time': 4.104462385177612, 'Possible mappings': [126], 'Max mapping': 161051, 'Finding best mapping': 9.5367431640625e-07, 'Generating mappings time': 0.17319416999816895, 'Numbers preds mapping': [8], 'Total time': 4.501745700836182}, 'Learning time': 37.954, 'Precision': [0.942363, 0.5], 'AUC PR': 0.928611}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.8581489350995115;  // std dev = 2,53e-07, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.6914822684328453;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.5248156017661789;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.8581489350995123;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.5248156017661789;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.8581489350995125;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.7194734122109548;  // std dev = 0,000, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.5851860008555358;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.448295606241962;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.7194734122109542;  // std dev = 5,96e-08, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.448295606241962;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.7194734122109538;  // std dev = 2,23e-07, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.12544463852839138;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.5553664367462843;  // std dev = 1,03e-07, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.4612598391067553;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.36236334632262296;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(A, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.5553664367462846;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.36236334632262296;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.5553664367462836;  // std dev = 3,32e-07, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.11231637819360639;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.4175135841583102;  // std dev = 0,000, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.3488463256948424;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.2807538536965854;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.4175135841583098;  // std dev = 5,16e-08, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.2807538536965854;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.41751358415831047;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.10159632948783627;  // std dev = 3,73e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.3207118471601495;  // std dev = 2,11e-08, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.26212705508354195;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.21248070121827137;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else return 0.3142179784036375;  // std dev = 0,118, 100,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=98 */
+%   else return -0.09269127618926097;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.2557216566294535;  // std dev = 0,004, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.19945264276423416;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.13410123545412392;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.25517224256948967;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.15948988228171151;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.2564084242044086;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.08518475138839687;  // std dev = 3,73e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.21014581758060905;  // std dev = 0,003, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.15451336627983223;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.10091279910328003;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else return 0.2050383867125622;  // std dev = 0,117, 100,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=98 */
+%   else return -0.07877675473109173;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.17732675527500424;  // std dev = 0,002, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.12179491558002786;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.06960487799110876;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(A, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.17790769686280933;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.07630506429697338;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.1785551686729151;  // std dev = 5,96e-08, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.07324622576333704;  // std dev = 2,63e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.15291853409876482;  // std dev = 0,002, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.09745354768081692;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.052978445313374846;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(A, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.15335895587020687;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.057987036615950206;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.15384950803380076;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.06842697784420272;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.13414339933036498;  // std dev = 0,002, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.07895233872555119;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.04049667826791662;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(A, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.13448704435615172;  // std dev = 1,49e-08, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.04426549549899298;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.13486960315820615;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.0641918400820262;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+
+
+Results
+   AUC ROC   = 0.633555
+   AUC PR    = 0.928998
+   CLL	      = -0.261627
+   Precision = 0.942363 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.970326
+
+
+Total learning time: 22.644 seconds
+Total inference time: 6.546 seconds
+AUC ROC: 0.633555
+
+
+Dataset: 13_uwcse_cora, Fold: 4, Type: Scratch (RDN-B), Time: 04:16:18
+{'CLL': -0.261627, 'Recall': 1.0, 'F1': 0.970326, 'AUC ROC': 0.633555, 'Inference time': 6.546, 'Learning time': 22.644, 'Precision': [0.942363, 0.5], 'AUC PR': 0.928998}
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordvenue(F, D) )
+%   | | then return 0.8581489350995115;  // std dev = 2,53e-07, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else if ( haswordtitle(E, C) )
+%   | | | then return 0.6914822684328453;  // std dev = 1,826, 24,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=20 */
+%   | | | else return 0.5248156017661789;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordtitle(H, G) )
+%   | | then if ( haswordvenue(I, G) )
+%   | | | then return 0.8581489350995123;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.5248156017661789;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else return 0.8581489350995125;  // std dev = 0,000, 78,000 (wgt'ed) examples reached here.  /* #pos=78 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+
+
+Results
+   AUC ROC   = 0.783745
+   AUC PR    = 0.973723
+   CLL	      = -1.221459
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 6.286 seconds
+Total inference time: 5.107 seconds
+AUC ROC: 0.783745
+
+
+Dataset: 13_uwcse_cora, Fold: 4, Type: Scratch (RDN), Time: 04:16:30
+{'CLL': -1.221459, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 0.783745, 'Inference time': 5.107, 'Learning time': 6.286, 'Precision': [nan, 0.5], 'AUC PR': 0.973723}
+
+
+Starting fold 5
+
+Target predicate: sameauthor
+Mapping Results
+   Knowledge compiling time   = 0.17442536354064941
+   Generating paths time   = 3.276323080062866
+   Generating mappings time   = 0.14096665382385254
+   Possible mappings   = [126]
+   Max mapping   = 161051
+   Numbers predicates mapping   = [8]
+   Finding best mapping   = 1.6689300537109375e-06
+   Total time   = 3.591724157333374
+
+
+Best mapping found: ['advisedby(A,B) -> sameauthor(A,B)', 'publication(A,B) -> haswordauthor(B,A)', 'hasposition(A,B) -> author(B,A)', 'samecourse(A,B) -> sametitle(A,B)'] 
+
+Transferred target predicate: sameauthor 
+
+Target train facts examples: 8472
+Target train pos examples: 172
+Target train neg examples: 18
+
+Target test facts examples: 33274
+Target test pos examples: 640
+Target test neg examples: 56
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+1;;sameauthor(A, B) :- sametitle(D, F).;false;false
+2;;sameauthor(A, B) :- author(C, B).;true;false
+2;true;sametitle(E, G).;false;true
+2;true,false,true;haswordauthor(B, J).;false;false
+2;true,false,false;author(C, L).;false;false
+2;true,false;haswordauthor(A, J).;true;true
+3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;false
+3;true;haswordauthor(D, C).;false;true
+3;true,false,true;haswordauthor(I, H).;false;false
+3;true,false;haswordauthor(A, H).;true;false
+4;;sameauthor(A, B) :- author(C, B).;true;false
+4;true;haswordauthor(A, G).;false;true
+4;true,false,true;haswordauthor(A, M), haswordauthor(N, P).;false;false
+4;true,false;haswordauthor(B, M).;true;false
+5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;false;false
+6;;sameauthor(A, B) :- author(C, B).;true;false
+6;true;author(C, D).;true;true
+6;true,true;haswordauthor(A, F), haswordauthor(E, F).;true;true
+6;true,false,false;haswordauthor(B, I).;false;false
+6;true,true,false;haswordauthor(A, G), haswordauthor(D, G).;false;false
+6;true,false;haswordauthor(A, H).;false;true
+6;true,true,true;haswordauthor(B, F).;false;false
+7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;false;false
+9;;sameauthor(A, B) :- author(C, B).;true;true
+9;true;haswordauthor(B, D), haswordauthor(A, D).;false;true
+9;false;haswordauthor(B, P).;false;false
+9;true,false;haswordauthor(J, K).;false;false
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.7929315437951615;  // std dev = 3,349, 184,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=172 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( sametitle(C, D) )
+%   then return 0.6421968700106191;  // std dev = 3,856, 190,000 (wgt'ed) examples reached here.  /* #neg=18 #pos=172 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( sametitle(D, E) )
+%   | then return 0.5016578546355673;  // std dev = 3,794, 190,000 (wgt'ed) examples reached here.  /* #neg=18 #pos=172 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(D, C) )
+%   | then return 0.4006392615350675;  // std dev = 3,349, 184,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=172 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.3104542841841125;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(A, D) )
+%   | then return 0.28614625598100946;  // std dev = 3,604, 190,000 (wgt'ed) examples reached here.  /* #neg=18 #pos=172 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then return 0.23978860401763138;  // std dev = 3,349, 184,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=172 */
+%   else return -0.305274725487628;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( author(C, D) )
+%   | then if ( haswordauthor(A, E), haswordauthor(F, E) )
+%   | | then if ( haswordauthor(B, E) )
+%   | | | then return 0.19145041239541574;  // std dev = 3,349, 184,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=172 */
+%   | | | else return -0.24460814720722382;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.1566510856712174;  // std dev = 3,349, 184,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=172 */
+%   else return -0.20226669456318813;  // std dev = 5,27e-09, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then return 0.1307861893293391;  // std dev = 3,349, 184,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=172 */
+%   else return -0.17158237465099338;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( author(C, B) )
+%   then if ( haswordauthor(B, D), haswordauthor(A, D) )
+%   | then return 0.11099131679073046;  // std dev = 3,349, 184,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=172 */
+%   | else if ( haswordauthor(E, F) )
+%   | | then return -0.14854783288007187;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.678571
+   AUC PR    = 0.946746
+   CLL	      = -0.259658
+   Precision = 0.946746 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.972644
+
+
+Total learning time: 10.451 seconds
+Total inference time: 4.0 seconds
+AUC ROC: 0.678571
+
+
+Structure after Parameter Learning
+[['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [3.349, 12, 172], 'false': [0.0, 6, 0]}], ['sameauthor(A, B)', {'': 'sametitle(C, D)'}, {'true': [3.856, 18, 172], 'false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'sametitle(D, E)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.794, 18, 172]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)', 'true': 'haswordauthor(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 6, 0], 'true,true': [3.349, 12, 172]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(A, D)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,true': [3.604, 18, 172]}], ['sameauthor(A, B)', {'': 'haswordauthor(A, C), haswordauthor(B, C)'}, {'true': [3.349, 12, 172], 'false': [0.0, 6, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'author(C, D)', 'true,true': 'haswordauthor(A, E), haswordauthor(F, E)', 'true,true,true': 'haswordauthor(B, E)'}, {'true,true,true,false': [0.0, 6, 0], 'true,true,true,true': [3.349, 12, 172], 'false': [0.0, 0, 0], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [3.349, 12, 172], 'false': [5.27e-09, 6, 0]}], ['sameauthor(A, B)', {'': 'haswordauthor(B, C), haswordauthor(A, C)'}, {'true': [3.349, 12, 172], 'false': [0.0, 6, 0]}], ['sameauthor(A, B)', {'': 'author(C, B)', 'true': 'haswordauthor(B, D), haswordauthor(A, D)', 'true,false': 'haswordauthor(E, F)'}, {'true,false,true': [0.0, 6, 0], 'true,true': [3.349, 12, 172], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}]]
+[{'': [0.060964083175810056, -6.938893903907228e-18]}, {'': [0.07825434135069885, nan]}, {'': [0.07575039229723139, nan], 'true': [0.07575039229723139, nan]}, {'': [0.06096408317580241, 0.0], 'true': [0.06096408317580241, nan]}, {'': [0.06834813044862767, nan], 'true': [0.06834813044862767, nan]}, {'': [0.06096408317580364, -1.850371707708594e-17]}, {'': [0.06485392549137727, nan], 'true': [0.06485392549137727, nan], 'true,true,true': [0.06096408317580394, -9.25185853854297e-18], 'true,true': [0.06485392549137727, nan]}, {'': [0.06096408317580315, 4.625929269271485e-18]}, {'': [0.06096408317580345, -4.625929269271485e-18]}, {'': [0.061098903527422685, nan], 'true': [0.0609640831758033, -4.625929269271485e-18], 'true,false': [-4.625929269271485e-18, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '3;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '5;;sameauthor(A, B) :- haswordauthor(A, C), haswordauthor(B, C).;true;true', '6;;sameauthor(A, B) :- haswordauthor(B, E).;true;true', '7;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '8;;sameauthor(A, B) :- haswordauthor(B, C), haswordauthor(A, C).;true;true', '9;;sameauthor(A, B) :- haswordauthor(B, D), haswordauthor(A, D).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordauthor(B, D) )
+%   | | then return 0.8581489350995115;  // std dev = 2,92e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | | else if ( haswordvenue(F, D) )
+%   | | | then return -0.14185106490048777;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.5248156017661789;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | then if ( haswordauthor(B, G) )
+%   | | | then return 0.8581489350995116;  // std dev = 2,23e-07, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return 0.5854216623722396;  // std dev = 1,477, 11,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=8 */
+%   | | else if ( haswordauthor(B, I), haswordvenue(J, I) )
+%   | | | then return 0.524815601766179;  // std dev = 1,633, 12,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=8 */
+%   | | | else return 0.858148935099512;  // std dev = 1,03e-07, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.719473412210954;  // std dev = 2,06e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then if ( haswordvenue(G, E) )
+%   | | | then return -0.12544463852839138;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.448295606241962;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( haswordvenue(H, C) )
+%   | | | then return 0.7194734122109547;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return 0.5984914362372483;  // std dev = 2,362, 47,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=40 */
+%   else return -0.12544463852839138;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.5553664367462835;  // std dev = 4,04e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then if ( haswordvenue(G, E) )
+%   | | | then return -0.11231637819360639;  // std dev = 2,63e-09, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.36236334632262296;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( haswordvenue(H, C) )
+%   | | | then return 0.5553664367462845;  // std dev = 5,96e-08, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return 0.47103753726761866;  // std dev = 2,345, 47,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=40 */
+%   else return -0.11231637819360639;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then if ( haswordauthor(A, D) )
+%   | | then return 0.4175135841583104;  // std dev = 0,000, 62,000 (wgt'ed) examples reached here.  /* #pos=62 */
+%   | | else if ( author(F, B), venue(F, E) )
+%   | | | then return 0.5512334105287235;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.2662771113818613;  // std dev = 1,918, 30,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=24 */
+%   | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | then if ( haswordtitle(I, G) )
+%   | | | then return 0.3498035954218565;  // std dev = 0,838, 23,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=20 */
+%   | | | else return 0.2634716238724022;  // std dev = 1,477, 11,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=8 */
+%   | | else if ( haswordauthor(B, J), haswordtitle(K, J) )
+%   | | | then return 0.42426161479759766;  // std dev = 0,094, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | | | else return 0.4924510427991229;  // std dev = 0,266, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   else return -0.10159632948783627;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.33056816646284126;  // std dev = 0,135, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordvenue(E, C) )
+%   | | then return 0.3207118471601494;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | else if ( haswordauthor(B, F), haswordtitle(G, F) )
+%   | | | then return -0.025690445201391836;  // std dev = 1,113, 9,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=4 */
+%   | | | else return 0.2777732255345434;  // std dev = 2,202, 47,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=40 */
+%   else return -0.09269127618926097;  // std dev = 2,63e-09, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then if ( haswordauthor(A, D) )
+%   | | then return 0.2542981445926493;  // std dev = 0,007, 62,000 (wgt'ed) examples reached here.  /* #pos=62 */
+%   | | else if ( haswordauthor(A, F), haswordtitle(G, F) )
+%   | | | then return 0.21684870083003246;  // std dev = 0,981, 22,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=20 */
+%   | | | else return 0.0667285558445813;  // std dev = 1,552, 12,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=8 */
+%   | else if ( haswordauthor(A, H), haswordvenue(I, H) )
+%   | | then if ( author(J, A), venue(J, I) )
+%   | | | then return 0.4022267576534857;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.1565597242615608;  // std dev = 1,571, 30,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=24 */
+%   | | else if ( haswordauthor(B, K), haswordtitle(L, K) )
+%   | | | then return 0.2679443293990945;  // std dev = 0,222, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | | | else return 0.3119289849943876;  // std dev = 0,246, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   else return -0.08518475138839687;  // std dev = 2,63e-09, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C) )
+%   then if ( haswordauthor(A, D), haswordauthor(B, D) )
+%   | then if ( haswordtitle(E, D) )
+%   | | then return 0.22028822816603624;  // std dev = 0,156, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | | else if ( haswordauthor(B, F), haswordtitle(G, F) )
+%   | | | then return -0.0651088765138937;  // std dev = 1,082, 9,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=4 */
+%   | | | else return 0.1832352623021847;  // std dev = 2,156, 80,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=73 */
+%   | else return -0.07877675473109173;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(B, D), haswordvenue(E, D) )
+%   | then if ( haswordauthor(A, D) )
+%   | | then return 0.17791869105293381;  // std dev = 0,027, 62,000 (wgt'ed) examples reached here.  /* #pos=62 */
+%   | | else if ( author(F, B), venue(F, E) )
+%   | | | then return 0.2945649818214102;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.06960737203305305;  // std dev = 1,776, 30,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=24 */
+%   | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | then if ( author(I, A), venue(I, H) )
+%   | | | then return 0.27256302222138473;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.09109290654939822;  // std dev = 1,560, 30,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=24 */
+%   | | else if ( haswordauthor(A, J), haswordtitle(K, J) )
+%   | | | then return 0.18982019503633368;  // std dev = 0,258, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | | | else return 0.21999816788729928;  // std dev = 0,231, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   else return -0.07324622576333704;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordauthor(B, D) )
+%   | | then return 0.1652357530491084;  // std dev = 0,196, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | | else if ( haswordvenue(F, D) )
+%   | | | then return -0.18728655664083468;  // std dev = 0,072, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.014067392572048995;  // std dev = 0,889, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordvenue(H, G) )
+%   | | then if ( haswordauthor(A, G) )
+%   | | | then return 0.1562147556156885;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return -0.015765380754840592;  // std dev = 1,506, 12,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=8 */
+%   | | else if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | | then return 0.001610590343294239;  // std dev = 1,421, 11,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=8 */
+%   | | | else return 0.18498119758607223;  // std dev = 0,206, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   else return -0.06842697784420272;  // std dev = 1,86e-09, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(B, C), haswordauthor(A, C) )
+%   then if ( haswordauthor(A, D), haswordtitle(E, D) )
+%   | then if ( haswordauthor(B, D) )
+%   | | then return 0.14374204195920912;  // std dev = 0,175, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | | else if ( haswordvenue(F, D) )
+%   | | | then return -0.160699593359804;  // std dev = 0,064, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.011049300577285889;  // std dev = 0,890, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | else if ( haswordauthor(B, G), haswordvenue(H, G) )
+%   | | then if ( haswordauthor(A, G) )
+%   | | | then return 0.13671090980191633;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return -0.012410502243838458;  // std dev = 1,505, 12,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=8 */
+%   | | else if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | | then return 0.0012925970987654517;  // std dev = 1,421, 11,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=8 */
+%   | | | else return 0.15897624733250446;  // std dev = 0,185, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   else return -0.0641918400820262;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+
+
+Results
+   AUC ROC   = 0.509738
+   AUC PR    = 0.896555
+   CLL	      = -0.425153
+   Precision = 0.943987 at threshold = 0.5
+   Recall    = 0.895313
+   F1        = 0.919006
+
+
+Total learning time: 26.024 seconds
+Total inference time: 5.908 seconds
+AUC ROC: 0.509738
+
+
+Refined model AUC ROC: 0.509738
+
+
+Dataset: 13_uwcse_cora, Fold: 5, Type: Transfer (trRDN-B), Time: 04:17:21
+{'CLL': -0.425153, 'Recall': 0.895313, 'F1': 0.919006, 'parameter': {'CLL': -0.259658, 'Recall': 1.0, 'F1': 0.972644, 'AUC ROC': 0.678571, 'Inference time': 4.0, 'Learning time': 10.451, 'Precision': [0.946746, 0.5], 'AUC PR': 0.946746}, 'AUC ROC': 0.509738, 'Inference time': 5.908, 'Mapping results': {'Knowledge compiling time': 0.17442536354064941, 'Generating paths time': 3.276323080062866, 'Possible mappings': [126], 'Max mapping': 161051, 'Finding best mapping': 1.6689300537109375e-06, 'Generating mappings time': 0.14096665382385254, 'Numbers preds mapping': [8], 'Total time': 3.591724157333374}, 'Learning time': 36.475, 'Precision': [0.943987, 0.5], 'AUC PR': 0.896555}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.8581489350995115;  // std dev = 2,92e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then if ( haswordauthor(A, G), haswordtitle(F, G) )
+%   | | | then return -0.14185106490048777;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | | else return 0.6581489350995122;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else if ( haswordvenue(H, C) )
+%   | | | then return 0.8581489350995116;  // std dev = 2,23e-07, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return 0.7092127648867461;  // std dev = 2,441, 47,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=40 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #2
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.719473412210954;  // std dev = 2,06e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordvenue(E, C) )
+%   | | then return 0.7194734122109547;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | else if ( haswordauthor(A, F), haswordtitle(G, F) )
+%   | | | then return 0.24898567961160062;  // std dev = 1,345, 9,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=4 */
+%   | | | else return 0.6006032746021331;  // std dev = 2,440, 47,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=40 */
+%   else return -0.12544463852839138;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #3
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.5553664367462835;  // std dev = 4,04e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then if ( haswordauthor(A, G), haswordtitle(F, G) )
+%   | | | then return -0.15539938565221903;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | | else return 0.43210263778996155;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else if ( haswordvenue(H, C) )
+%   | | | then return 0.5553664367462845;  // std dev = 5,96e-08, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return 0.4795853785164779;  // std dev = 2,438, 47,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=40 */
+%   else return -0.11231637819360639;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #4
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.4175135841583099;  // std dev = 2,15e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then if ( haswordvenue(G, E) )
+%   | | | then return -0.2482980968030195;  // std dev = 0,275, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.30614723459399346;  // std dev = 0,766, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( haswordauthor(A, H), haswordvenue(I, H) )
+%   | | | then return 0.3532593534851843;  // std dev = 1,752, 45,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=41 */
+%   | | | else return 0.4268698699824977;  // std dev = 1,682, 35,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=32 */
+%   else return -0.10159632948783627;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #5
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.3207118471601504;  // std dev = 4,21e-08, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then if ( haswordvenue(G, E) )
+%   | | | then return -0.2101471021783643;  // std dev = 0,247, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.24186287887397748;  // std dev = 0,724, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( haswordvenue(H, C) )
+%   | | | then return 0.3348682127826201;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return 0.2622147612143151;  // std dev = 2,423, 47,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=40 */
+%   else return -0.09269127618926097;  // std dev = 2,63e-09, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #6
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.2551722425694897;  // std dev = 0,000, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then if ( haswordvenue(G, E) )
+%   | | | then return -0.3304075168556441;  // std dev = 0,285, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.2491455917494482;  // std dev = 0,588, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( haswordvenue(H, C) )
+%   | | | then return 0.2648100060709109;  // std dev = 3,65e-08, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return 0.2026882999832677;  // std dev = 2,358, 47,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=40 */
+%   else return -0.08518475138839687;  // std dev = 2,63e-09, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #7
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.2097577156325357;  // std dev = 1,23e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordauthor(B, E), haswordtitle(F, E) )
+%   | | then if ( haswordvenue(G, E) )
+%   | | | then return -0.2121179935569926;  // std dev = 0,242, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.17535044799924457;  // std dev = 0,587, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( haswordauthor(A, H), haswordvenue(I, H) )
+%   | | | then return 0.1568379826970966;  // std dev = 1,693, 45,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=41 */
+%   | | | else return 0.21486771743992544;  // std dev = 1,675, 35,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=32 */
+%   else return -0.07877675473109173;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #8
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.1770964977452772;  // std dev = 8,16e-08, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordvenue(E, C) )
+%   | | then return 0.19111763978702864;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | | then return -0.061593374446534344;  // std dev = 1,572, 14,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=8 */
+%   | | | else return 0.15932387668108378;  // std dev = 1,813, 42,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=36 */
+%   else return -0.07324622576333704;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #9
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.1527438580936713;  // std dev = 0,000, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordvenue(E, C) )
+%   | | then return 0.16329926278995358;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | | then return -0.08383980069719453;  // std dev = 1,514, 14,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=8 */
+%   | | | else return 0.141767675928566;  // std dev = 1,804, 42,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=36 */
+%   else return -0.06842697784420272;  // std dev = 1,86e-09, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #10
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordvenue(D, C) )
+%   | then return 0.13836489663931756;  // std dev = 0,032, 62,000 (wgt'ed) examples reached here.  /* #pos=62 */
+%   | else if ( haswordauthor(A, E), haswordvenue(F, E) )
+%   | | then if ( haswordtitle(G, C) )
+%   | | | then return 0.13400703000801123;  // std dev = 2,24e-08, 20,000 (wgt'ed) examples reached here.  /* #pos=20 */
+%   | | | else return -0.07717964360734211;  // std dev = 1,573, 14,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=8 */
+%   | | else if ( haswordauthor(A, H), haswordtitle(I, H) )
+%   | | | then return 0.13401472075041437;  // std dev = 0,406, 52,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=50 */
+%   | | | else return 0.11600423045253071;  // std dev = 1,698, 36,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=32 */
+%   else return -0.0641918400820262;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+
+
+Results
+   AUC ROC   = 0.558398
+   AUC PR    = 0.922583
+   CLL	      = -0.39996
+   Precision = 0.943709 at threshold = 0.5
+   Recall    = 0.890625
+   F1        = 0.916399
+
+
+Total learning time: 16.784 seconds
+Total inference time: 4.526 seconds
+AUC ROC: 0.558398
+
+
+Dataset: 13_uwcse_cora, Fold: 5, Type: Scratch (RDN-B), Time: 04:17:43
+{'CLL': -0.39996, 'Recall': 0.890625, 'F1': 0.916399, 'AUC ROC': 0.558398, 'Inference time': 4.526, 'Learning time': 16.784, 'Precision': [0.943709, 0.5], 'AUC PR': 0.922583}
+
+
+WILL Produced-Tree #1
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then return 0.8581489350995115;  // std dev = 2,92e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | else if ( haswordauthor(A, E), haswordtitle(F, E) )
+%   | | then if ( haswordvenue(G, E) )
+%   | | | then return -0.14185106490048777;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0.5248156017661789;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( haswordvenue(H, C) )
+%   | | | then return 0.8581489350995116;  // std dev = 2,23e-07, 33,000 (wgt'ed) examples reached here.  /* #pos=33 */
+%   | | | else return 0.7092127648867461;  // std dev = 2,441, 47,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=40 */
+%   else return -0.1418510649004878;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+
+
+Results
+   AUC ROC   = 0.539983
+   AUC PR    = 0.919619
+   CLL	      = -1.310142
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 4.879 seconds
+Total inference time: 3.2 seconds
+AUC ROC: 0.539983
+
+
+Dataset: 13_uwcse_cora, Fold: 5, Type: Scratch (RDN), Time: 04:17:51
+{'CLL': -1.310142, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 0.539983, 'Inference time': 3.2, 'Learning time': 4.879, 'Precision': [nan, 0.5], 'AUC PR': 0.919619}
+
+

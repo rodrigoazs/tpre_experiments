@@ -1,0 +1,2528 @@
+Starting experiment #5 for 2_uwcse_imdb
+
+Start learning from source dataset
+
+Source train facts examples: 2274
+Source train pos examples: 113
+Source train neg examples: 113
+
+WILL Produced-Tree #1
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( tempadvisedby(D, B), ta(E, A, F) )
+%   | | then if ( ta(G, D, H) )
+%   | | | then return 0.8581489350995123;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.6581489350995122;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.8581489350995123;  // std dev = 0,000, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( tempadvisedby(I, B), ta(J, I, K) )
+%   | | then if ( ta(L, M, K), ta(L, A, N) )
+%   | | | then return 0.7470378239884012;  // std dev = 0,943, 9,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=8 */
+%   | | | else return 0.8581489350995123;  // std dev = 0,000, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | | else if ( publication(P, A), tempadvisedby(Q, B) )
+%   | | | then return 0.44148226843284566;  // std dev = 1,708, 12,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=7 */
+%   | | | else return 0.7181489350995116;  // std dev = 2,454, 50,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=43 */
+%   else return -0.14185106490048768;  // std dev = 7,30e-08, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #2
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( publication(D, B), publication(D, A) )
+%   | then if ( ta(E, A, F), tempadvisedby(G, B) )
+%   | | then if ( ta(H, G, I) )
+%   | | | then return 0.7194734122109543;  // std dev = 2,11e-08, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.5580193346218546;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.7194734122109544;  // std dev = 0,000, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(J, A), tempadvisedby(K, B) )
+%   | | then if ( hasposition(L, C), publication(J, L) )
+%   | | | then return 0.2879141574002339;  // std dev = 1,559, 10,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=5 */
+%   | | | else return 0.7955186846434872;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( hasposition(M, C), tempadvisedby(N, M) )
+%   | | | then return 0.6582322108791598;  // std dev = 2,131, 61,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=56 */
+%   | | | else return 0.5246218981036934;  // std dev = 1,247, 9,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=7 */
+%   else if ( professor(B) )
+%   | then return -0.05775577328215378;  // std dev = 0,257, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+%   | else return -0.1254446385283914;  // std dev = 0,000, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+WILL Produced-Tree #3
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( tempadvisedby(C, B), ta(D, C, E) )
+%   | then if ( ta(F, A, G), ta(F, H, E) )
+%   | | then if ( samecourse(D, F) )
+%   | | | then return 0.3721881907159238;  // std dev = 0,867, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.5848045061931534;  // std dev = 0,061, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else return 0.5668433099118132;  // std dev = 0,100, 26,000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | else if ( publication(I, A), publication(I, B) )
+%   | | then if ( publication(I, J), tempadvisedby(J, K) )
+%   | | | then return 0.6130878855983888;  // std dev = 0,071, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.5201162710241165;  // std dev = 0,907, 21,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=20 */
+%   | | else if ( ta(L, A, M) )
+%   | | | then return 0.520205829659174;  // std dev = 1,589, 28,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=25 */
+%   | | | else return 0.3780941901675994;  // std dev = 2,437, 34,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=25 */
+%   else return -0.1129461808734157;  // std dev = 0,020, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #4
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( tempadvisedby(C, B), ta(D, C, E) )
+%   | then if ( ta(F, A, G), ta(F, H, E) )
+%   | | then if ( samecourse(D, F) )
+%   | | | then return 0.2798244350240764;  // std dev = 0,866, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.439948405788223;  // std dev = 0,061, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else return 0.42631099270930395;  // std dev = 0,104, 26,000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | else if ( tempadvisedby(I, B), publication(J, A) )
+%   | | then if ( publication(J, K), ta(L, K, M) )
+%   | | | then return 0.4116053947771999;  // std dev = 1,307, 14,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=12 */
+%   | | | else return 0.12227620135867409;  // std dev = 1,177, 10,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=6 */
+%   | | else if ( publication(N, B) )
+%   | | | then return 0.40039813931766544;  // std dev = 1,887, 51,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=47 */
+%   | | | else return 0.27849185522716696;  // std dev = 1,435, 11,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=8 */
+%   else return -0.10211557250783594;  // std dev = 0,018, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #5
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( tempadvisedby(D, B), ta(E, A, F) )
+%   | | then if ( ta(G, D, H) )
+%   | | | then return 0.34678637101319115;  // std dev = 0,109, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.2049507990494061;  // std dev = 0,885, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.3384885406291094;  // std dev = 0,164, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(I, A), publication(J, B) )
+%   | | then if ( publication(I, K), publication(J, K) )
+%   | | | then return -0.14943036243224403;  // std dev = 1,077, 6,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=2 */
+%   | | | else return 0.33032845715251113;  // std dev = 0,731, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | else if ( ta(L, A, M) )
+%   | | | then return 0.31870240608973893;  // std dev = 1,326, 31,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=29 */
+%   | | | else return 0.2653055840421561;  // std dev = 2,100, 38,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=32 */
+%   else return -0.09312616616517112;  // std dev = 0,017, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #6
+% FOR advisedby(A, B):
+%   if ( student(A), hasposition(B, C) )
+%   then if ( publication(D, A), publication(D, B) )
+%   | then if ( tempadvisedby(E, B), ta(F, A, G) )
+%   | | then if ( ta(H, E, I) )
+%   | | | then return 0.2733807690065489;  // std dev = 0,096, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.15669688675353727;  // std dev = 0,885, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.26752033639343187;  // std dev = 0,145, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(J, B), publication(K, A) )
+%   | | then if ( hasposition(L, C), publication(K, L) )
+%   | | | then return -0.0986337183653831;  // std dev = 1,212, 8,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=3 */
+%   | | | else return 0.3300099839177874;  // std dev = 0,051, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else if ( hasposition(M, C), tempadvisedby(N, M) )
+%   | | | then return 0.24273933433979278;  // std dev = 2,012, 59,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=54 */
+%   | | | else return 0.122814617322852;  // std dev = 1,229, 8,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=6 */
+%   else if ( professor(B) )
+%   | then return -0.06417140586172078;  // std dev = 0,220, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+%   | else return -0.08506139903210497;  // std dev = 5,27e-08, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+WILL Produced-Tree #7
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( publication(C, A), publication(C, B) )
+%   | then if ( tempadvisedby(D, B), publication(C, D) )
+%   | | then return 0.27350126814179715;  // std dev = 0,088, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( ta(E, A, F), tempadvisedby(G, B) )
+%   | | | then return 0.15489394619320906;  // std dev = 0,884, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | | else return 0.2191864776593227;  // std dev = 0,126, 29,000 (wgt'ed) examples reached here.  /* #pos=29 */
+%   | else if ( tempadvisedby(H, B), publication(I, A) )
+%   | | then if ( publication(I, J), ta(K, J, L) )
+%   | | | then return 0.2867759600120638;  // std dev = 0,797, 9,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=8 */
+%   | | | else return -0.37821823472038807;  // std dev = 0,152, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | else if ( publication(M, B) )
+%   | | | then return 0.18616440112935975;  // std dev = 2,027, 59,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=54 */
+%   | | | else return 0.13010999663209025;  // std dev = 1,436, 13,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=10 */
+%   else return -0.0792767080134263;  // std dev = 0,019, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #8
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( tempadvisedby(D, B), ta(E, A, F) )
+%   | | then if ( ta(G, D, H) )
+%   | | | then return 0.1972982052931997;  // std dev = 0,076, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.07955327145791244;  // std dev = 0,877, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.18331455662054552;  // std dev = 0,114, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(I, A) )
+%   | | then if ( publication(I, J), ta(K, J, L) )
+%   | | | then return 0.1787870732779832;  // std dev = 1,151, 15,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=13 */
+%   | | | else return -0.07738356848230481;  // std dev = 1,084, 9,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=4 */
+%   | | else if ( projectmember(M, B) )
+%   | | | then return 0.218728953289411;  // std dev = 0,087, 5,000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   | | | else return 0.1430696642747382;  // std dev = 2,173, 56,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=50 */
+%   else return -0.07368002203518943;  // std dev = 0,018, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #9
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( publication(D, B), publication(D, A) )
+%   | then if ( publication(D, E), tempadvisedby(E, B) )
+%   | | then return 0.20558613916461943;  // std dev = 0,083, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( publication(D, F), ta(G, F, H) )
+%   | | | then return 0.1174800973426423;  // std dev = 0,884, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | | | else return 0.1600785690492639;  // std dev = 0,096, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   | else if ( tempadvisedby(I, B), publication(J, I) )
+%   | | then return -0.0072309585412606665;  // std dev = 0,724, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( tempadvisedby(K, B), ta(L, A, M) )
+%   | | | then return 0.16269125332581022;  // std dev = 0,994, 20,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=19 */
+%   | | | else return 0.10357263231612494;  // std dev = 2,324, 57,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=48 */
+%   else if ( professor(B) )
+%   | then if ( publication(N, B) )
+%   | | then return -0.07412935714991888;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | | else return -0.02325863593429084;  // std dev = 0,710, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | else return -0.06827450937291596;  // std dev = 0,000, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+WILL Produced-Tree #10
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( publication(D, A), publication(D, B) )
+%   | then if ( tempadvisedby(E, B), ta(F, A, G) )
+%   | | then if ( ta(H, E, I) )
+%   | | | then return 0.15231779403712875;  // std dev = 0,062, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.035839151637791965;  // std dev = 0,872, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.13811747200151442;  // std dev = 0,090, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(J, A), tempadvisedby(K, B) )
+%   | | then if ( publication(L, B) )
+%   | | | then return -0.04399615341813004;  // std dev = 0,861, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+%   | | | else return 0.132189629024321;  // std dev = 0,603, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else if ( hasposition(M, C), tempadvisedby(N, M) )
+%   | | | then return 0.11420091778621394;  // std dev = 2,036, 61,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=56 */
+%   | | | else return 0.03518848532075772;  // std dev = 1,251, 9,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=7 */
+%   else if ( professor(B) )
+%   | then return -0.05546934900880687;  // std dev = 0,215, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+%   | else return -0.06405729999517627;  // std dev = 1,67e-08, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+
+
+Predicates from source: ['advisedby(person,person).', 'samecourse(course,course).', 'student(person).', 'hasposition(person,faculty).', 'tempadvisedby(person,person).', 'publication(title,person).', 'professor(person).', 'ta(course,person,quarter).', 'projectmember(project,person).']
+
+Starting fold 1
+
+Target predicate: workedunder
+Mapping Results
+   Knowledge compiling time   = 0.030305147171020508
+   Generating paths time   = 4.515630006790161
+   Generating mappings time   = 0.52018141746521
+   Possible mappings   = [864]
+   Max mapping   = 65536
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 1.6689300537109375e-06
+   Total time   = 5.066127061843872
+
+
+Best mapping found: ['professor(A) -> director(A)', 'student(A) -> actor(A)', 'projectmember(A,B) -> genre(B,A)', 'advisedby(A,B) -> workedunder(A,B)', 'publication(A,B) -> movie(A,B)', 'hasposition(A,B) -> genre(A,B)'] 
+
+Transferred target predicate: workedunder 
+
+Target train facts examples: 159
+Target train pos examples: 56
+Target train neg examples: 56
+
+Target test facts examples: 537
+Target test pos examples: 326
+Target test neg examples: 326
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;workedunder(A, B) :- actor(A), director(B).;true;false
+0;true;movie(C, B), movie(C, A).;false;true
+0;true,false;movie(P, A).;false;false
+1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+1;true;movie(D, B), movie(D, A).;false;true
+1;false;director(B).;false;false
+1;true,false,false;genre(M, C).;false;false
+1;true,false;movie(J, A).;true;true
+1;true,false,true;genre(L, C), movie(J, L).;false;false
+2;;workedunder(A, B) :- actor(A), director(B).;true;false
+2;true;movie(I, A), movie(I, B).;true;false
+2;true,true;movie(I, J).;false;false
+3;;workedunder(A, B) :- actor(A), director(B).;true;false
+3;true;movie(J, A).;true;true
+3;true,true;movie(J, K).;false;false
+3;true,false;movie(N, B).;false;false
+4;;workedunder(A, B) :- director(B), actor(A).;true;false
+4;true;movie(C, B), movie(C, A).;false;true
+4;true,false,true;movie(I, K), movie(J, K).;false;false
+4;true,false;movie(I, A), movie(J, B).;true;false
+5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true
+5;true;movie(D, A), movie(D, B).;false;true
+5;false;director(B).;false;false
+5;true,false,false;genre(M, C).;false;false
+5;true,false;movie(J, B), movie(K, A).;true;true
+5;true,false,true;genre(L, C), movie(K, L).;false;false
+6;;workedunder(A, B) :- director(B), actor(A).;true;false
+6;true;movie(C, A), movie(C, B).;true;true
+6;true,false,false;movie(M, B).;false;false
+6;true,false;movie(I, A).;true;true
+6;true,true;movie(C, D).;false;false
+6;true,false,true;movie(I, J).;false;false
+7;;workedunder(A, B) :- director(B), actor(A).;true;false
+7;true;movie(C, B), movie(C, A).;false;true
+7;true,false,true;movie(I, J).;false;false
+7;true,false,false;genre(B, M).;false;false
+7;true,false;movie(I, A).;true;true
+8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+8;true;movie(D, B), movie(D, A).;true;true
+8;false;director(B).;true;false
+8;true,true,false;movie(D, F).;false;false
+8;true,false;movie(J, I).;false;false
+8;false,true;movie(N, B).;false;false
+8;true,true;movie(D, E).;false;true
+9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+9;true;movie(D, A), movie(D, B).;false;true
+9;false;director(B).;false;false
+9;true,false,false;genre(M, C).;false;false
+9;true,false;movie(J, A).;true;true
+9;true,false,true;movie(L, B).;false;false
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.8581489350995124;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else if ( movie(D, A) )
+%   | | then return -0.14185106490048777;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.14185106490048768;  // std dev = 5,16e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.7194734122109544;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else if ( movie(E, A) )
+%   | | then if ( genre(F, C), movie(E, F) )
+%   | | | then return -0.12544463852839138;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.12544463852839158;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.5553664367462837;  // std dev = 1,03e-07, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.11231637819360639;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.1123163781936063;  // std dev = 3,49e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.40840639269083406;  // std dev = 0,515, 57,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=56 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.10159632948783624;  // std dev = 2,98e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.3226991323894946;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else if ( movie(D, A), movie(E, B) )
+%   | | then if ( movie(D, F), movie(E, F) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return -0.1453924538211226;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.09269127618926107;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.2565278046803617;  // std dev = 2,11e-08, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else if ( movie(E, B), movie(F, A) )
+%   | | then if ( genre(G, C), movie(F, G) )
+%   | | | then return -0.12824139806545654;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.08518475138839679;  // std dev = 1,83e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.21071480857110975;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(E, F) )
+%   | | | then return -0.11457485640222213;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.07877675473109176;  // std dev = 1,49e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.17779816228798603;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else if ( movie(D, A) )
+%   | | then if ( movie(D, E) )
+%   | | | then return -0.10345475459844485;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.07324622576333704;  // std dev = 1,05e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then if ( movie(D, E) )
+%   | | then return 0.1532759329105317;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(F, G) )
+%   | | then return -0.09424516421313463;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.06842697784420268;  // std dev = 1,49e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.1344222756533729;  // std dev = 3,94e-08, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(F, B) )
+%   | | | then return -0.08650194747931804;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.06419184008202625;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.122885
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 5.667 seconds
+Total inference time: 2.149 seconds
+AUC ROC: 1.0
+
+
+Structure after Parameter Learning
+[['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)'}, {'true,false,true': [0.0, 1, 0], 'true,true': [0.0, 0, 56], 'true,false,false': [0.0, 0, 0], 'false': [5.16e-08, 55, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'genre(F, C), movie(E, F)'}, {'true,true': [0.0, 0, 56], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,false,true,true': [0.0, 1, 0], 'false,false': [0.0, 55, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A), movie(C, B)', 'true,true': 'movie(C, D)'}, {'true,false': [0.0, 1, 0], 'false': [3.49e-08, 55, 0], 'true,true,true': [1.03e-07, 0, 56], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A)', 'true,true': 'movie(C, D)'}, {'true,false': [0.0, 0, 0], 'false': [2.98e-08, 55, 0], 'true,true,true': [0.515, 1, 56], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A), movie(E, B)', 'true,false,true': 'movie(D, F), movie(E, F)'}, {'true,true': [0.0, 0, 56], 'true,false,true,true': [0.0, 0, 0], 'false': [0.0, 55, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 1, 0]}], ['workedunder(A, B)', {'': 'actor(A), genre(B, C)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, B), movie(F, A)', 'true,false,true': 'genre(G, C), movie(F, G)'}, {'true,true': [2.11e-08, 0, 56], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,false,true,true': [0.0, 1, 0], 'false,false': [1.83e-08, 55, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, A), movie(C, B)', 'true,false': 'movie(E, A)', 'true,true': 'movie(C, D)', 'true,false,true': 'movie(E, F)'}, {'true,true,true': [0.0, 0, 56], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'true,false,true,true': [0.0, 1, 0], 'false': [1.49e-08, 55, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)', 'true,false,true': 'movie(D, E)'}, {'true,true': [0.0, 0, 56], 'true,false,true,true': [0.0, 1, 0], 'false': [1.05e-08, 55, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'true,true': 'movie(D, E)', 'true,false': 'movie(F, G)'}, {'true,false,true': [0.0, 1, 0], 'false,false': [1.49e-08, 55, 0], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,true,true': [0.0, 0, 56]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'movie(F, B)'}, {'true,true': [3.94e-08, 0, 56], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,false,true,true': [0.0, 1, 0], 'false,false': [0.0, 55, 0]}]]
+[{'': [0.017236072637734554, 4.844609562000683e-17], 'true': [-1.2688263138573217e-16, 0.0], 'true,false': [0.0, nan]}, {'': [0.012304599783948732, -3.633457171500512e-17], 'true': [-1.9032394707859825e-16, 0.0], 'true,false,true': [0.0, nan], 'false': [nan, -3.633457171500512e-17], 'true,false': [0.0, nan]}, {'': [0.007683847065712494, 2.2204460492503132e-17], 'true': [1.9032394707859825e-16, 0.0], 'true,true': [1.9032394707859825e-16, nan]}, {'': [0.004644692439814939, 1.6148698540002276e-17], 'true': [0.004644692439814939, nan], 'true,true': [0.004644692439814939, nan]}, {'': [0.0037765912750214957, -2.0185873175002845e-18], 'true': [-2.854859206178974e-16, 0.0], 'true,false,true': [nan, 0.0], 'true,false': [0.0, nan]}, {'': [0.002551754695405539, 7.065055611250995e-18], 'true': [7.93016446160826e-18, 0.0], 'true,false,true': [0.0, nan], 'false': [nan, 6.0557619525008536e-18], 'true,false': [0.0, nan]}, {'': [0.0018238068648056061, 4.037174635000569e-18], 'true': [-1.427429603089487e-16, 0.0], 'true,false,true': [0.0, nan], 'true,true': [-1.427429603089487e-16, nan], 'true,false': [0.0, nan]}, {'': [0.0013634285572173034, 2.0185873175002845e-18], 'true': [-3.96508223080413e-18, 0.0], 'true,false,true': [0.0, nan], 'true,false': [0.0, nan]}, {'': [0.0010559971798069778, 4.037174635000569e-18], 'true': [-3.568574007723718e-17, 0.0], 'false': [nan, 4.037174635000569e-18], 'true,true': [-3.568574007723718e-17, nan], 'true,false': [0.0, nan]}, {'': [0.0008412498284210345, -3.0278809762504268e-18], 'true': [2.7755575615628914e-17, 0.0], 'true,false,true': [0.0, nan], 'false': [nan, -3.0278809762504268e-18], 'true,false': [0.0, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;workedunder(A, B) :- actor(A), director(B).;true;true', '0;true;movie(C, B), movie(C, A).;true;true', '1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '1;true;movie(D, B), movie(D, A).;true;true', '2;;workedunder(A, B) :- actor(A), director(B).;true;true', '2;true;movie(C, A), movie(C, B).;true;true', '3;;workedunder(A, B) :- actor(A), director(B).;true;true', '4;;workedunder(A, B) :- director(B), actor(A).;true;true', '4;true;movie(C, B), movie(C, A).;true;true', '5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true', '5;true;movie(D, A), movie(D, B).;true;true', '6;;workedunder(A, B) :- director(B), actor(A).;true;true', '6;true;movie(C, A), movie(C, B).;true;true', '7;;workedunder(A, B) :- director(B), actor(A).;true;true', '7;true;movie(C, B), movie(C, A).;true;true', '8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '8;true;movie(D, B), movie(D, A).;true;true', '9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '9;true;movie(D, A), movie(D, B).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.8581489350995124;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else return -0.14185106490048777;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.14185106490048768;  // std dev = 5,16e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.7194734122109544;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else return -0.12544463852839138;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.12544463852839158;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then return 0.5553664367462837;  // std dev = 1,03e-07, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else return -0.11231637819360639;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.1123163781936063;  // std dev = 3,49e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( female(A) )
+%   | then return 0.41751358415831;  // std dev = 0,000, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.40020992037010517;  // std dev = 0,093, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+%   else return -0.10159632948783624;  // std dev = 2,98e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.32267004080584744;  // std dev = 0,014, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else return -0.14437697076250944;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.09269127618926107;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.25650891042196095;  // std dev = 0,012, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else return -0.127440736362325;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.08518475138839679;  // std dev = 1,97e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then return 0.21070204388169209;  // std dev = 0,011, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else return -0.11392917838795563;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.07877675473109176;  // std dev = 1,49e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.17778916794127833;  // std dev = 0,009, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else return -0.10292406341045114;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.07324622576333704;  // std dev = 1,05e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.15326935288397553;  // std dev = 0,008, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else return -0.09380187566508012;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.06842697784420268;  // std dev = 1,49e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.13441730599413249;  // std dev = 0,008, 56,000 (wgt'ed) examples reached here.  /* #pos=56 */
+%   | else return -0.08612650217875403;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.06419184008202625;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.131996
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 3.497 seconds
+Total inference time: 3.547 seconds
+AUC ROC: 1.0
+
+
+Refined model AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 1, Type: Transfer (trRDN-B), Time: 19:07:02
+{'CLL': -0.131996, 'Recall': 1.0, 'F1': 1.0, 'parameter': {'CLL': -0.122885, 'Recall': 1.0, 'F1': 1.0, 'AUC ROC': 1.0, 'Inference time': 2.149, 'Learning time': 5.667, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}, 'AUC ROC': 1.0, 'Inference time': 3.547, 'Mapping results': {'Knowledge compiling time': 0.030305147171020508, 'Generating paths time': 4.515630006790161, 'Possible mappings': [864], 'Max mapping': 65536, 'Finding best mapping': 1.6689300537109375e-06, 'Generating mappings time': 0.52018141746521, 'Numbers preds mapping': [9], 'Total time': 5.066127061843872}, 'Learning time': 9.164, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.14185106490048766;  // std dev = 5,77e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.8581489350995118;  // std dev = 1,58e-07, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.8248156017661784;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.12544463852839158;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.7194734122109545;  // std dev = 0,000, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.692818318046742;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.11231637819360629;  // std dev = 3,80e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.5553664367462846;  // std dev = 0,000, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.5367928709789455;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.10159632948783623;  // std dev = 3,80e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.41751358415831;  // std dev = 0,000, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.40340088328536905;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.09269127618926107;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.3207118471601494;  // std dev = 0,000, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.3078944297924054;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.08518475138839679;  // std dev = 1,83e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.25517224256948956;  // std dev = 0,000, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.24240066496454704;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.07877675473109176;  // std dev = 1,49e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.2097577156325355;  // std dev = 2,98e-08, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.19670004057326632;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.07324622576333704;  // std dev = 1,05e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.17709649774527747;  // std dev = 0,000, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.16371858628713248;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.06842697784420268;  // std dev = 1,49e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.15274385809367083;  // std dev = 0,000, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.139091093402249;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.06419184008202625;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.13400703000801117;  // std dev = 7,45e-09, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.1201377116837435;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+
+
+Results
+   AUC ROC   = 0.903675
+   AUC PR    = 0.837662
+   CLL	      = -0.289355
+   Precision = 0.840206 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.913165
+
+
+Total learning time: 8.368 seconds
+Total inference time: 1.925 seconds
+AUC ROC: 0.903675
+
+
+Dataset: 2_uwcse_imdb, Fold: 1, Type: Scratch (RDN-B), Time: 19:07:14
+{'CLL': -0.289355, 'Recall': 1.0, 'F1': 0.913165, 'AUC ROC': 0.903675, 'Inference time': 1.925, 'Learning time': 8.368, 'Precision': [0.840206, 0.5], 'AUC PR': 0.837662}
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.14185106490048766;  // std dev = 5,77e-08, 55,000 (wgt'ed) examples reached here.  /* #neg=55 */
+%   else if ( female(A) )
+%   | then return 0.8581489350995118;  // std dev = 1,58e-07, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return 0.8248156017661784;  // std dev = 0,180, 30,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=29 */
+
+
+Results
+   AUC ROC   = 0.903675
+   AUC PR    = 0.837662
+   CLL	      = -0.727406
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 1.758 seconds
+Total inference time: 1.523 seconds
+AUC ROC: 0.903675
+
+
+Dataset: 2_uwcse_imdb, Fold: 1, Type: Scratch (RDN), Time: 19:07:18
+{'CLL': -0.727406, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 0.903675, 'Inference time': 1.523, 'Learning time': 1.758, 'Precision': [nan, 0.5], 'AUC PR': 0.837662}
+
+
+Starting fold 2
+
+Target predicate: workedunder
+Mapping Results
+   Knowledge compiling time   = 0.031682491302490234
+   Generating paths time   = 3.8859241008758545
+   Generating mappings time   = 0.4489402770996094
+   Possible mappings   = [864]
+   Max mapping   = 65536
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 9.5367431640625e-07
+   Total time   = 4.366556406021118
+
+
+Best mapping found: ['professor(A) -> director(A)', 'student(A) -> actor(A)', 'projectmember(A,B) -> genre(B,A)', 'advisedby(A,B) -> workedunder(A,B)', 'publication(A,B) -> movie(A,B)', 'hasposition(A,B) -> genre(A,B)'] 
+
+Transferred target predicate: workedunder 
+
+Target train facts examples: 150
+Target train pos examples: 58
+Target train neg examples: 58
+
+Target test facts examples: 546
+Target test pos examples: 324
+Target test neg examples: 324
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;workedunder(A, B) :- actor(A), director(B).;true;false
+0;true;movie(C, B), movie(C, A).;false;true
+0;true,false;movie(P, A).;false;false
+1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+1;true;movie(D, B), movie(D, A).;false;true
+1;false;director(B).;false;false
+1;true,false,false;genre(M, C).;false;false
+1;true,false;movie(J, A).;true;true
+1;true,false,true;genre(L, C), movie(J, L).;false;false
+2;;workedunder(A, B) :- actor(A), director(B).;true;false
+2;true;movie(I, A), movie(I, B).;true;false
+2;true,true;movie(I, J).;false;false
+3;;workedunder(A, B) :- actor(A), director(B).;true;false
+3;true;movie(J, A).;true;true
+3;true,true;movie(J, K).;false;false
+3;true,false;movie(N, B).;false;false
+4;;workedunder(A, B) :- director(B), actor(A).;true;false
+4;true;movie(C, B), movie(C, A).;false;true
+4;true,false,true;movie(I, K), movie(J, K).;false;false
+4;true,false;movie(I, A), movie(J, B).;true;false
+5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true
+5;true;movie(D, A), movie(D, B).;false;true
+5;false;director(B).;false;false
+5;true,false,false;genre(M, C).;false;false
+5;true,false;movie(J, B), movie(K, A).;true;true
+5;true,false,true;genre(L, C), movie(K, L).;false;false
+6;;workedunder(A, B) :- director(B), actor(A).;true;false
+6;true;movie(C, A), movie(C, B).;true;true
+6;true,false,false;movie(M, B).;false;false
+6;true,false;movie(I, A).;true;true
+6;true,true;movie(C, D).;false;false
+6;true,false,true;movie(I, J).;false;false
+7;;workedunder(A, B) :- director(B), actor(A).;true;false
+7;true;movie(C, B), movie(C, A).;false;true
+7;true,false,true;movie(I, J).;false;false
+7;true,false,false;genre(B, M).;false;false
+7;true,false;movie(I, A).;true;true
+8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+8;true;movie(D, B), movie(D, A).;true;true
+8;false;director(B).;true;false
+8;true,true,false;movie(D, F).;false;false
+8;true,false;movie(J, I).;false;false
+8;false,true;movie(N, B).;false;false
+8;true,true;movie(D, E).;false;true
+9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+9;true;movie(D, A), movie(D, B).;false;true
+9;false;director(B).;false;false
+9;true,false,false;genre(M, C).;false;false
+9;true,false;movie(J, A).;true;true
+9;true,false,true;movie(L, B).;false;false
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.8581489350995125;  // std dev = 0,000, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else if ( movie(D, A) )
+%   | | then return -0.14185106490048777;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.14185106490048768;  // std dev = 5,16e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.7194734122109544;  // std dev = 0,000, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else if ( movie(E, A) )
+%   | | then if ( genre(F, C), movie(E, F) )
+%   | | | then return -0.12544463852839138;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return -0.12544463852839138;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.12544463852839158;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.5553664367462838;  // std dev = 1,19e-07, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.11231637819360639;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   else return -0.11231637819360632;  // std dev = 2,98e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.40020992037010544;  // std dev = 0,722, 60,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=58 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.10159632948783626;  // std dev = 2,79e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.32449318661391086;  // std dev = 1,37e-07, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else if ( movie(D, A), movie(E, B) )
+%   | | then if ( movie(D, F), movie(E, F) )
+%   | | | then return -0.1443769707625095;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.09269127618926103;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.25775078433578225;  // std dev = 1,01e-07, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else if ( movie(E, B), movie(F, A) )
+%   | | then if ( genre(G, C), movie(F, G) )
+%   | | | then return -0.12744073636232503;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return -0.12744073636232503;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.08518475138839679;  // std dev = 1,83e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.21157751279124123;  // std dev = 8,16e-08, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(E, F) )
+%   | | | then return -0.11392917838795563;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.07877675473109176;  // std dev = 1,83e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.17843008622846843;  // std dev = 0,000, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else if ( movie(D, A) )
+%   | | then if ( movie(D, E) )
+%   | | | then return -0.10292406341045114;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.07324622576333704;  // std dev = 7,45e-09, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then if ( movie(D, E) )
+%   | | then return 0.15375476773425767;  // std dev = 0,000, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(F, G) )
+%   | | then return -0.09380187566508015;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.06842697784420268;  // std dev = 1,67e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.13479573767312458;  // std dev = 0,000, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(F, B) )
+%   | | | then return -0.08612650217875403;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.06419184008202625;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.123614
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 3.721 seconds
+Total inference time: 2.26 seconds
+AUC ROC: 1.0
+
+
+Structure after Parameter Learning
+[['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)'}, {'true,false,true': [0.0, 2, 0], 'true,true': [0.0, 0, 58], 'true,false,false': [0.0, 0, 0], 'false': [5.16e-08, 56, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'genre(F, C), movie(E, F)'}, {'true,true': [0.0, 0, 58], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 1, 0], 'false,true': [0.0, 0, 0], 'true,false,true,true': [0.0, 1, 0], 'false,false': [0.0, 56, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A), movie(C, B)', 'true,true': 'movie(C, D)'}, {'true,false': [0.0, 2, 0], 'false': [2.98e-08, 56, 0], 'true,true,true': [1.19e-07, 0, 58], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A)', 'true,true': 'movie(C, D)'}, {'true,false': [0.0, 0, 0], 'false': [2.79e-08, 56, 0], 'true,true,true': [0.722, 2, 58], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A), movie(E, B)', 'true,false,true': 'movie(D, F), movie(E, F)'}, {'true,true': [1.37e-07, 0, 58], 'true,false,true,true': [0.0, 2, 0], 'false': [0.0, 56, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'actor(A), genre(B, C)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, B), movie(F, A)', 'true,false,true': 'genre(G, C), movie(F, G)'}, {'true,true': [1.01e-07, 0, 58], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 1, 0], 'false,true': [0.0, 0, 0], 'true,false,true,true': [0.0, 1, 0], 'false,false': [1.83e-08, 56, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, A), movie(C, B)', 'true,false': 'movie(E, A)', 'true,true': 'movie(C, D)', 'true,false,true': 'movie(E, F)'}, {'true,true,true': [8.16e-08, 0, 58], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'true,false,true,true': [0.0, 2, 0], 'false': [1.83e-08, 56, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)', 'true,false,true': 'movie(D, E)'}, {'true,true': [0.0, 0, 58], 'true,false,true,true': [0.0, 2, 0], 'false': [7.45e-09, 56, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'true,true': 'movie(D, E)', 'true,false': 'movie(F, G)'}, {'true,false,true': [0.0, 2, 0], 'false,false': [1.67e-08, 56, 0], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,true,true': [0.0, 0, 58]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'movie(F, B)'}, {'true,true': [0.0, 0, 58], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,false,true,true': [0.0, 2, 0], 'false,false': [0.0, 56, 0]}]]
+[{'': [0.03222222222222181, 4.7580986769649563e-17], 'true': [-3.675221047035001e-16, 0.0], 'true,false': [0.0, nan]}, {'': [0.0230030098461001, -3.766828119263924e-17], 'true': [-1.2250736823450003e-16, 0.0], 'true,false,true': [0.0, 0.0], 'false': [nan, -3.766828119263924e-17], 'true,false': [0.0, nan]}, {'': [0.014364677666239759, 1.586032892321652e-17], 'true': [2.4501473646900006e-16, 0.0], 'true,true': [2.4501473646900006e-16, nan]}, {'': [0.008683086634361459, 1.3877787807814457e-17], 'true': [0.008683086634361459, nan], 'true,true': [0.008683086634361459, nan]}, {'': [0.0070837083442974935, -2.3790493384824782e-17], 'true': [3.215818416155626e-16, 0.0], 'true,false,true': [0.0, nan], 'true,false': [0.0, nan]}, {'': [0.004780891912126732, 5.9476233462061954e-18], 'true': [1.761043418370938e-16, 0.0], 'true,false,true': [0.0, 0.0], 'false': [nan, 5.9476233462061954e-18], 'true,false': [0.0, nan]}, {'': [0.003414092860078381, 5.9476233462061954e-18], 'true': [1.148506577198438e-16, 0.0], 'true,false,true': [0.0, nan], 'true,true': [1.148506577198438e-16, nan], 'true,false': [0.0, nan]}, {'': [0.0025507161867246147, 9.912705577010326e-19], 'true': [0.0, 0.0], 'true,false,true': [0.0, nan], 'true,false': [0.0, nan]}, {'': [0.001974716065603621, 4.956352788505163e-18], 'true': [-7.656710514656252e-18, 0.0], 'false': [nan, 4.956352788505163e-18], 'true,true': [-7.656710514656252e-18, nan], 'true,false': [0.0, nan]}, {'': [0.0015726582730821391, -2.9738116731030977e-18], 'true': [-3.828355257328126e-17, 0.0], 'true,false,true': [0.0, nan], 'false': [nan, -2.9738116731030977e-18], 'true,false': [0.0, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;workedunder(A, B) :- actor(A), director(B).;true;true', '0;true;movie(C, B), movie(C, A).;true;true', '1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '1;true;movie(D, B), movie(D, A).;true;true', '1;true,false;genre(F, C), movie(E, F).;true;true', '2;;workedunder(A, B) :- actor(A), director(B).;true;true', '2;true;movie(C, A), movie(C, B).;true;true', '3;;workedunder(A, B) :- actor(A), director(B).;true;true', '4;;workedunder(A, B) :- director(B), actor(A).;true;true', '4;true;movie(C, B), movie(C, A).;true;true', '5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true', '5;true;movie(D, A), movie(D, B).;true;true', '5;true,false;genre(G, C), movie(F, G).;true;true', '6;;workedunder(A, B) :- director(B), actor(A).;true;true', '6;true;movie(C, A), movie(C, B).;true;true', '7;;workedunder(A, B) :- director(B), actor(A).;true;true', '7;true;movie(C, B), movie(C, A).;true;true', '8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '8;true;movie(D, B), movie(D, A).;true;true', '9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '9;true;movie(D, A), movie(D, B).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.8581489350995125;  // std dev = 0,000, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else return -0.14185106490048777;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   else return -0.14185106490048768;  // std dev = 5,16e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.7194734122109544;  // std dev = 0,000, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else if ( genre(E, C), movie(F, E) )
+%   | | then return -0.12544463852839138;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.12544463852839158;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( female(A) )
+%   | | then return 0.5553664367462845;  // std dev = 0,000, 20,000 (wgt'ed) examples reached here.  /* #pos=20 */
+%   | | else return 0.5553664367462842;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #pos=38 */
+%   | else return -0.11231637819360639;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   else if ( female(A) )
+%   | then if ( movie(D, A), movie(D, B) )
+%   | | then return -0.11231637819360639;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | else return -0.11231637819360638;  // std dev = 0,000, 10,000 (wgt'ed) examples reached here.  /* #neg=10 */
+%   | else return -0.11231637819360639;  // std dev = 0,000, 39,000 (wgt'ed) examples reached here.  /* #neg=39 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then return 0.40020992037010544;  // std dev = 0,093, 60,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=58 */
+%   else if ( female(B) )
+%   | then return -0.10159632948783633;  // std dev = 0,000, 23,000 (wgt'ed) examples reached here.  /* #neg=23 */
+%   | else return -0.10159632948783634;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #neg=33 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then if ( female(A) )
+%   | | then return 0.32449318661391124;  // std dev = 0,000, 20,000 (wgt'ed) examples reached here.  /* #pos=20 */
+%   | | else return 0.32449318661391097;  // std dev = 1,39e-08, 38,000 (wgt'ed) examples reached here.  /* #pos=38 */
+%   | else return -0.1443769707625095;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   else return -0.09269127618926103;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.25775078433578213;  // std dev = 3,73e-09, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else if ( genre(E, C), movie(F, E) )
+%   | | then return -0.12744073636232503;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( actor(A) )
+%   | then if ( female(A) )
+%   | | then return -0.08518475138839683;  // std dev = 0,000, 17,000 (wgt'ed) examples reached here.  /* #neg=17 */
+%   | | else return -0.0851847513883968;  // std dev = 2,79e-09, 33,000 (wgt'ed) examples reached here.  /* #neg=33 */
+%   | else return -0.08518475138839683;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( female(A) )
+%   | | then return 0.2115775127912412;  // std dev = 6,45e-09, 20,000 (wgt'ed) examples reached here.  /* #pos=20 */
+%   | | else return 0.2115775127912415;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #pos=38 */
+%   | else return -0.11392917838795563;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   else if ( actor(A) )
+%   | then return -0.07877675473109177;  // std dev = 0,000, 50,000 (wgt'ed) examples reached here.  /* #neg=50 */
+%   | else return -0.07877675473109173;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.1784300862284683;  // std dev = 0,000, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else return -0.10292406341045114;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   else return -0.07324622576333704;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.1537547677342576;  // std dev = 0,000, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else return -0.09380187566508015;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   else if ( female(B) )
+%   | then return -0.06842697784420275;  // std dev = 0,000, 23,000 (wgt'ed) examples reached here.  /* #neg=23 */
+%   | else return -0.06842697784420272;  // std dev = 0,000, 33,000 (wgt'ed) examples reached here.  /* #neg=33 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.13479573767312414;  // std dev = 7,21e-09, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else return -0.08612650217875403;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   else return -0.06419184008202625;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.132559
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 5.912 seconds
+Total inference time: 1.65 seconds
+AUC ROC: 1.0
+
+
+Refined model AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 2, Type: Transfer (trRDN-B), Time: 19:07:37
+{'CLL': -0.132559, 'Recall': 1.0, 'F1': 1.0, 'parameter': {'CLL': -0.123614, 'Recall': 1.0, 'F1': 1.0, 'AUC ROC': 1.0, 'Inference time': 2.26, 'Learning time': 3.721, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}, 'AUC ROC': 1.0, 'Inference time': 1.65, 'Mapping results': {'Knowledge compiling time': 0.031682491302490234, 'Generating paths time': 3.8859241008758545, 'Possible mappings': [864], 'Max mapping': 65536, 'Finding best mapping': 9.5367431640625e-07, 'Generating mappings time': 0.4489402770996094, 'Numbers preds mapping': [9], 'Total time': 4.366556406021118}, 'Learning time': 9.633, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.14185106490048766;  // std dev = 5,77e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+%   else if ( female(A) )
+%   | then return 0.8105298874804645;  // std dev = 0,213, 21,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=20 */
+%   | else return 0.832507909458486;  // std dev = 0,158, 39,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=38 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.12544463852839158;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+%   else if ( female(A) )
+%   | then return 0.6813641993271577;  // std dev = 0,213, 21,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=20 */
+%   | else return 0.6989783104778774;  // std dev = 0,158, 39,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=38 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.11231637819360629;  // std dev = 3,94e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+%   else if ( female(A) )
+%   | then return 0.5288038212098718;  // std dev = 0,213, 21,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=20 */
+%   | else return 0.541086978177925;  // std dev = 0,158, 39,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=38 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.10159632948783623;  // std dev = 3,80e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+%   else if ( female(A) )
+%   | then return 0.39742934112412265;  // std dev = 0,213, 21,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=20 */
+%   | else return 0.4066344623991659;  // std dev = 0,158, 39,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=38 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.09269127618926107;  // std dev = 0,000, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+%   else if ( female(A) )
+%   | then return 0.3025884514838787;  // std dev = 0,213, 21,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=20 */
+%   | else return 0.3107971418551718;  // std dev = 0,158, 39,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=38 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.08518475138839679;  // std dev = 1,83e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+%   else if ( female(A) )
+%   | then return 0.23719304019103774;  // std dev = 0,213, 21,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=20 */
+%   | else return 0.2452701034529891;  // std dev = 0,158, 39,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=38 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.07877675473109176;  // std dev = 1,83e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+%   else if ( female(A) )
+%   | then return 0.19142843787805347;  // std dev = 0,213, 21,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=20 */
+%   | else return 0.19961850189633581;  // std dev = 0,158, 39,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=38 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( actor(B) )
+%   | then return -0.07324622576333704;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #neg=16 */
+%   | else return 0.19704130244869125;  // std dev = 0,049, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   else if ( actor(A), actor(B) )
+%   | then return -0.07324622576333704;  // std dev = 9,13e-09, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   | else return -0.36428450834325343;  // std dev = 0,797, 5,000 (wgt'ed) examples reached here.  /* #neg=5 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( actor(B) )
+%   | then return -0.06842697784420272;  // std dev = 0,000, 16,000 (wgt'ed) examples reached here.  /* #neg=16 */
+%   | else return 0.16771875489870317;  // std dev = 0,044, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   else if ( actor(A), actor(B) )
+%   | then return -0.06842697784420274;  // std dev = 0,000, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   | else return -0.3257930210983801;  // std dev = 0,750, 5,000 (wgt'ed) examples reached here.  /* #neg=5 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( director(B) )
+%   | then return 0.14559662832943784;  // std dev = 0,039, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | else return -0.06419184008202619;  // std dev = 7,45e-09, 16,000 (wgt'ed) examples reached here.  /* #neg=16 */
+%   else if ( actor(A), actor(B) )
+%   | then return -0.06419184008202623;  // std dev = 0,000, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   | else return -0.2903050856307372;  // std dev = 0,691, 5,000 (wgt'ed) examples reached here.  /* #neg=5 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.179547
+   Precision = 0.841558 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.913963
+
+
+Total learning time: 5.347 seconds
+Total inference time: 1.62 seconds
+AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 2, Type: Scratch (RDN-B), Time: 19:07:44
+{'CLL': -0.179547, 'Recall': 1.0, 'F1': 0.913963, 'AUC ROC': 1.0, 'Inference time': 1.62, 'Learning time': 5.347, 'Precision': [0.841558, 0.5], 'AUC PR': 1.0}
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.14185106490048766;  // std dev = 5,77e-08, 56,000 (wgt'ed) examples reached here.  /* #neg=56 */
+%   else if ( female(A) )
+%   | then return 0.8105298874804645;  // std dev = 0,213, 21,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=20 */
+%   | else return 0.832507909458486;  // std dev = 0,158, 39,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=38 */
+
+
+Results
+   AUC ROC   = 0.903949
+   AUC PR    = 0.837936
+   CLL	      = -0.732972
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 1.969 seconds
+Total inference time: 1.606 seconds
+AUC ROC: 0.903949
+
+
+Dataset: 2_uwcse_imdb, Fold: 2, Type: Scratch (RDN), Time: 19:07:48
+{'CLL': -0.732972, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 0.903949, 'Inference time': 1.606, 'Learning time': 1.969, 'Precision': [nan, 0.5], 'AUC PR': 0.837936}
+
+
+Starting fold 3
+
+Target predicate: workedunder
+Mapping Results
+   Knowledge compiling time   = 0.02414536476135254
+   Generating paths time   = 4.809471607208252
+   Generating mappings time   = 0.6363627910614014
+   Possible mappings   = [864]
+   Max mapping   = 65536
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 1.430511474609375e-06
+   Total time   = 5.469993829727173
+
+
+Best mapping found: ['professor(A) -> director(A)', 'student(A) -> actor(A)', 'projectmember(A,B) -> genre(B,A)', 'advisedby(A,B) -> workedunder(A,B)', 'publication(A,B) -> movie(A,B)', 'hasposition(A,B) -> genre(A,B)'] 
+
+Transferred target predicate: workedunder 
+
+Target train facts examples: 163
+Target train pos examples: 178
+Target train neg examples: 178
+
+Target test facts examples: 533
+Target test pos examples: 204
+Target test neg examples: 204
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;workedunder(A, B) :- actor(A), director(B).;true;false
+0;true;movie(C, B), movie(C, A).;false;true
+0;true,false;movie(P, A).;false;false
+1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+1;true;movie(D, B), movie(D, A).;false;true
+1;false;director(B).;false;false
+1;true,false,false;genre(M, C).;false;false
+1;true,false;movie(J, A).;true;true
+1;true,false,true;genre(L, C), movie(J, L).;false;false
+2;;workedunder(A, B) :- actor(A), director(B).;true;false
+2;true;movie(I, A), movie(I, B).;true;false
+2;true,true;movie(I, J).;false;false
+3;;workedunder(A, B) :- actor(A), director(B).;true;false
+3;true;movie(J, A).;true;true
+3;true,true;movie(J, K).;false;false
+3;true,false;movie(N, B).;false;false
+4;;workedunder(A, B) :- director(B), actor(A).;true;false
+4;true;movie(C, B), movie(C, A).;false;true
+4;true,false,true;movie(I, K), movie(J, K).;false;false
+4;true,false;movie(I, A), movie(J, B).;true;false
+5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true
+5;true;movie(D, A), movie(D, B).;false;true
+5;false;director(B).;false;false
+5;true,false,false;genre(M, C).;false;false
+5;true,false;movie(J, B), movie(K, A).;true;true
+5;true,false,true;genre(L, C), movie(K, L).;false;false
+6;;workedunder(A, B) :- director(B), actor(A).;true;false
+6;true;movie(C, A), movie(C, B).;true;true
+6;true,false,false;movie(M, B).;false;false
+6;true,false;movie(I, A).;true;true
+6;true,true;movie(C, D).;false;false
+6;true,false,true;movie(I, J).;false;false
+7;;workedunder(A, B) :- director(B), actor(A).;true;false
+7;true;movie(C, B), movie(C, A).;false;true
+7;true,false,true;movie(I, J).;false;false
+7;true,false,false;genre(B, M).;false;false
+7;true,false;movie(I, A).;true;true
+8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+8;true;movie(D, B), movie(D, A).;true;true
+8;false;director(B).;true;false
+8;true,true,false;movie(D, F).;false;false
+8;true,false;movie(J, I).;false;false
+8;false,true;movie(N, B).;false;false
+8;true,true;movie(D, E).;false;true
+9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+9;true;movie(D, A), movie(D, B).;false;true
+9;false;director(B).;false;false
+9;true,false,false;genre(M, C).;false;false
+9;true,false;movie(J, A).;true;true
+9;true,false,true;movie(L, B).;false;false
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.8581489350995095;  // std dev = 1,09e-06, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else if ( movie(D, A) )
+%   | | then return -0.14185106490048768;  // std dev = 4,59e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.14185106490048766;  // std dev = 9,42e-08, 134,000 (wgt'ed) examples reached here.  /* #neg=134 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.7194734122109556;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else if ( movie(E, A) )
+%   | | then if ( genre(F, C), movie(E, F) )
+%   | | | then return -0.1254446385283914;  // std dev = 7,45e-09, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+%   | | | else return -0.1254446385283914;  // std dev = 5,27e-09, 11,000 (wgt'ed) examples reached here.  /* #neg=11 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0.40533721385914645;  // std dev = 3,606, 78,000 (wgt'ed) examples reached here.  /* #neg=29 #pos=49 */
+%   | else return -0.12544463852839127;  // std dev = 0,000, 126,000 (wgt'ed) examples reached here.  /* #neg=126 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.5761872089517358;  // std dev = 0,451, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.14320845284726594;  // std dev = 0,214, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else return -0.11618063202377267;  // std dev = 0,178, 134,000 (wgt'ed) examples reached here.  /* #neg=134 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.32274248501876446;  // std dev = 3,367, 222,000 (wgt'ed) examples reached here.  /* #neg=44 #pos=178 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.10479645976754808;  // std dev = 0,163, 134,000 (wgt'ed) examples reached here.  /* #neg=134 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.357221377154241;  // std dev = 0,437, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else if ( movie(D, A), movie(E, B) )
+%   | | then if ( movie(D, F), movie(E, F) )
+%   | | | then return -0.13149989296521433;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | | else return -0.16994653880500357;  // std dev = 0,231, 40,000 (wgt'ed) examples reached here.  /* #neg=40 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.09538281095299947;  // std dev = 0,151, 134,000 (wgt'ed) examples reached here.  /* #neg=134 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.26235320257652794;  // std dev = 1,98e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else if ( movie(E, B), movie(F, A) )
+%   | | then if ( genre(G, C), movie(F, G) )
+%   | | | then return -0.1145823385147922;  // std dev = 0,006, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+%   | | | else return -0.1132758236216437;  // std dev = 0,000, 11,000 (wgt'ed) examples reached here.  /* #neg=11 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0.14377645479683504;  // std dev = 2,111, 78,000 (wgt'ed) examples reached here.  /* #neg=29 #pos=49 */
+%   | else return -0.08442755941159788;  // std dev = 7,67e-08, 126,000 (wgt'ed) examples reached here.  /* #neg=126 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.2373380778646822;  // std dev = 0,488, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(E, F) )
+%   | | | then return -0.14950823751181927;  // std dev = 0,323, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.08261302396862841;  // std dev = 0,206, 134,000 (wgt'ed) examples reached here.  /* #neg=134 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.19733830921367904;  // std dev = 0,430, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else if ( movie(D, A) )
+%   | | then if ( movie(D, E) )
+%   | | | then return -0.13177864060773994;  // std dev = 0,291, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.0765876947510738;  // std dev = 0,193, 134,000 (wgt'ed) examples reached here.  /* #neg=134 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then if ( movie(D, E) )
+%   | | then return 0.15048489502659163;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(F, G) )
+%   | | then return -0.07971836123210507;  // std dev = 0,005, 23,000 (wgt'ed) examples reached here.  /* #neg=23 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then if ( movie(H, B) )
+%   | | then return 0.0781720667788595;  // std dev = 1,566, 78,000 (wgt'ed) examples reached here.  /* #neg=29 #pos=49 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.0674029846582967;  // std dev = 0,000, 126,000 (wgt'ed) examples reached here.  /* #neg=126 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.13224101236232894;  // std dev = 6,99e-08, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(F, B) )
+%   | | | then return -0.07406252824398389;  // std dev = 0,005, 23,000 (wgt'ed) examples reached here.  /* #neg=23 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0.06623486725506313;  // std dev = 1,555, 78,000 (wgt'ed) examples reached here.  /* #neg=29 #pos=49 */
+%   | else return -0.06328760069609808;  // std dev = 0,000, 126,000 (wgt'ed) examples reached here.  /* #neg=126 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.095842
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 11.274 seconds
+Total inference time: 2.792 seconds
+AUC ROC: 1.0
+
+
+Structure after Parameter Learning
+[['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)'}, {'true,false,true': [4.59e-08, 44, 0], 'true,true': [1.09e-06, 0, 178], 'true,false,false': [0.0, 0, 0], 'false': [9.42e-08, 134, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'genre(F, C), movie(E, F)'}, {'true,true': [0.0, 0, 129], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [5.27e-09, 11, 0], 'false,true': [3.606, 29, 49], 'true,false,true,true': [7.45e-09, 12, 0], 'false,false': [0.0, 126, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A), movie(C, B)', 'true,true': 'movie(C, D)'}, {'true,false': [0.214, 44, 0], 'false': [0.178, 134, 0], 'true,true,true': [0.451, 0, 178], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A)', 'true,true': 'movie(C, D)'}, {'true,false': [0.0, 0, 0], 'false': [0.163, 134, 0], 'true,true,true': [3.367, 44, 178], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A), movie(E, B)', 'true,false,true': 'movie(D, F), movie(E, F)'}, {'true,true': [0.437, 0, 178], 'true,false,true,true': [0.0, 4, 0], 'false': [0.151, 134, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.231, 40, 0]}], ['workedunder(A, B)', {'': 'actor(A), genre(B, C)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, B), movie(F, A)', 'true,false,true': 'genre(G, C), movie(F, G)'}, {'true,true': [1.98e-07, 0, 129], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 11, 0], 'false,true': [2.111, 29, 49], 'true,false,true,true': [0.006, 12, 0], 'false,false': [7.67e-08, 126, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, A), movie(C, B)', 'true,false': 'movie(E, A)', 'true,true': 'movie(C, D)', 'true,false,true': 'movie(E, F)'}, {'true,true,true': [0.488, 0, 178], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'true,false,true,true': [0.323, 44, 0], 'false': [0.206, 134, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)', 'true,false,true': 'movie(D, E)'}, {'true,true': [0.43, 0, 178], 'true,false,true,true': [0.291, 44, 0], 'false': [0.193, 134, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'false,true': 'movie(H, B)', 'true,false': 'movie(F, G)', 'true,true': 'movie(D, E)'}, {'true,false,true': [0.005, 23, 0], 'false,true,false': [0.0, 0, 0], 'false,false': [0.0, 126, 0], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false,true,true': [1.566, 29, 49], 'true,true,true': [0.0, 0, 129]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'movie(F, B)'}, {'true,true': [6.99e-08, 0, 129], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'false,true': [1.555, 29, 49], 'true,false,true,true': [0.005, 23, 0], 'false,false': [0.0, 126, 0]}]]
+[{'': [0.15891567242919188, 6.628197161941232e-17], 'true': [6.706246045376226e-15, 4.794144879063176e-17], 'true,false': [4.794144879063176e-17, nan]}, {'': [0.09167682143715958, 0.13028566085575385], 'true': [-1.6524249668839539e-15, -7.240584943207542e-18], 'true,false,true': [4.625929269271485e-18, 2.523234146875356e-18], 'false': [0.16673779326315238, -1.76225876924628e-18], 'true,false': [-7.240584943207542e-18, nan]}, {'': [0.08336587507798462, 0.00023518620820733445], 'true': [0.0011412670943863022, 0.0010452079217794306], 'true,true': [0.0011412670943863022, nan]}, {'': [0.05105230584627736, 0.00019874615976183814], 'true': [0.05105230584627736, nan], 'true,true': [0.05105230584627736, nan]}, {'': [0.044705600420581505, 0.0001698520865765935], 'true': [0.0010731742019766683, 0.0013379506200548073], 'true,false,true': [0.0, 0.001337368902393915], 'true,false': [0.0013379506200548073, nan]}, {'': [0.01818575971653777, 0.03415113260993662], 'true': [3.029445772620582e-16, 2.2071363280821203e-06], 'true,false,true': [3.413962332027287e-06, -5.046468293750712e-18], 'false': [0.057153096410761925, 4.6699857385026426e-17], 'true,false': [2.2071363280821203e-06, nan]}, {'': [0.025323096228148722, 0.00031707554180877113], 'true': [0.0013352051061611152, 0.0023753222582960742], 'true,false,true': [0.0023753222582960742, nan], 'true,true': [0.0013352051061611152, nan], 'true,false': [0.0023753222582960742, nan]}, {'': [0.018425413643116513, 0.0002788849149040861], 'true': [0.0010374274698283655, 0.0019181805088468375], 'true,false,true': [0.0019181805088468375, nan], 'true,false': [0.0019181805088468375, nan]}, {'': [0.0068055642762497315, 0.017027651842467247], 'true': [-3.7868072157757277e-17, 1.1230707930757249e-06], 'false': [0.031444623146692566, -8.8112938462314e-19], 'false,true': [0.031444623146692566, nan], 'true,false': [1.1230707930757249e-06, nan], 'true,true': [-3.7868072157757277e-17, nan]}, {'': [0.005465822639355464, 0.01582198687930905], 'true': [3.7868072157757277e-17, 9.81589864851548e-07], 'true,false,true': [9.81589864851548e-07, nan], 'false': [0.031018890957569302, -8.8112938462314e-19], 'true,false': [9.81589864851548e-07, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;workedunder(A, B) :- actor(A), director(B).;true;true', '0;true;movie(C, B), movie(C, A).;true;true', '1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '1;true;movie(D, B), movie(D, A).;true;true', '1;false;director(B).;true;true', '1;true,false;genre(F, C), movie(E, F).;true;true', '2;;workedunder(A, B) :- actor(A), director(B).;true;true', '2;true;movie(C, A), movie(C, B).;true;true', '3;;workedunder(A, B) :- actor(A), director(B).;true;true', '4;;workedunder(A, B) :- director(B), actor(A).;true;true', '4;true;movie(C, B), movie(C, A).;true;true', '4;true,false;movie(D, F), movie(E, F).;true;true', '5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true', '5;true;movie(D, A), movie(D, B).;true;true', '5;false;director(B).;true;true', '5;true,false;genre(G, C), movie(F, G).;true;true', '6;;workedunder(A, B) :- director(B), actor(A).;true;true', '6;true;movie(C, A), movie(C, B).;true;true', '7;;workedunder(A, B) :- director(B), actor(A).;true;true', '7;true;movie(C, B), movie(C, A).;true;true', '8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '8;true;movie(D, B), movie(D, A).;true;true', '8;false;director(B).;true;true', '9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '9;true;movie(D, A), movie(D, B).;true;true', '9;false;director(B).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.8581489350995095;  // std dev = 1,09e-06, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else return -0.14185106490048768;  // std dev = 4,59e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else return -0.14185106490048766;  // std dev = 9,42e-08, 134,000 (wgt'ed) examples reached here.  /* #neg=134 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.7194734122109556;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else if ( genre(E, C), movie(F, E) )
+%   | | then return -0.1254446385283914;  // std dev = 0,000, 23,000 (wgt'ed) examples reached here.  /* #neg=23 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then if ( movie(G, A), movie(G, B) )
+%   | | then return 0.7194734122109553;  // std dev = 0,000, 49,000 (wgt'ed) examples reached here.  /* #pos=49 */
+%   | | else return -0.1254446385283914;  // std dev = 0,000, 29,000 (wgt'ed) examples reached here.  /* #neg=29 */
+%   | else return -0.12544463852839127;  // std dev = 0,000, 126,000 (wgt'ed) examples reached here.  /* #neg=126 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( female(A) )
+%   | | then return 0.5553664367462839;  // std dev = 3,57e-08, 89,000 (wgt'ed) examples reached here.  /* #pos=89 */
+%   | | else return 0.5553664367462835;  // std dev = 4,15e-08, 89,000 (wgt'ed) examples reached here.  /* #pos=89 */
+%   | else if ( female(A) )
+%   | | then return -0.11231637819360639;  // std dev = 1,86e-09, 24,000 (wgt'ed) examples reached here.  /* #neg=24 */
+%   | | else return -0.11231637819360636;  // std dev = 3,48e-09, 20,000 (wgt'ed) examples reached here.  /* #neg=20 */
+%   else if ( female(A) )
+%   | then if ( female(B) )
+%   | | then return -0.11231637819360647;  // std dev = 0,000, 25,000 (wgt'ed) examples reached here.  /* #neg=25 */
+%   | | else return -0.11231637819360647;  // std dev = 0,000, 21,000 (wgt'ed) examples reached here.  /* #neg=21 */
+%   | else if ( female(B) )
+%   | | then return -0.11231637819360644;  // std dev = 0,000, 40,000 (wgt'ed) examples reached here.  /* #neg=40 */
+%   | | else if ( actor(A) )
+%   | | | then return -0.11231637819360646;  // std dev = 0,000, 17,000 (wgt'ed) examples reached here.  /* #neg=17 */
+%   | | | else return -0.11231637819360647;  // std dev = 0,000, 31,000 (wgt'ed) examples reached here.  /* #neg=31 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then return 0.41751358415831097;  // std dev = 0,000, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else if ( female(A) )
+%   | | then return -0.10159632948783635;  // std dev = 0,000, 24,000 (wgt'ed) examples reached here.  /* #neg=24 */
+%   | | else return -0.10159632948783634;  // std dev = 0,000, 20,000 (wgt'ed) examples reached here.  /* #neg=20 */
+%   else if ( actor(B) )
+%   | then return -0.1015963294878364;  // std dev = 0,000, 126,000 (wgt'ed) examples reached here.  /* #neg=126 */
+%   | else return -0.10159632948783627;  // std dev = 1,32e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then if ( female(A) )
+%   | | then return 0.3207118471601503;  // std dev = 0,000, 89,000 (wgt'ed) examples reached here.  /* #pos=89 */
+%   | | else return 0.32071184716015033;  // std dev = 0,000, 89,000 (wgt'ed) examples reached here.  /* #pos=89 */
+%   | else if ( movie(D, E), movie(F, E) )
+%   | | then return -0.09269127618926101;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( actor(A) )
+%   | then if ( female(B) )
+%   | | then return -0.09269127618926105;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #neg=45 */
+%   | | else return -0.09269127618926105;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   | else return -0.09269127618926105;  // std dev = 0,000, 51,000 (wgt'ed) examples reached here.  /* #neg=51 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.25517224256948967;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else if ( genre(E, C), movie(F, E) )
+%   | | then if ( female(A) )
+%   | | | then return -0.08518475138839685;  // std dev = 9,13e-09, 15,000 (wgt'ed) examples reached here.  /* #neg=15 */
+%   | | | else return -0.08518475138839687;  // std dev = 3,73e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then if ( movie(G, A), movie(G, B) )
+%   | | then return 0.2551722425694897;  // std dev = 0,000, 49,000 (wgt'ed) examples reached here.  /* #pos=49 */
+%   | | else if ( director(A) )
+%   | | | then return -0.08518475138839687;  // std dev = 3,73e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | | | else return -0.08518475138839683;  // std dev = 1,49e-08, 21,000 (wgt'ed) examples reached here.  /* #neg=21 */
+%   | else if ( female(B) )
+%   | | then return -0.08518475138839679;  // std dev = 2,08e-09, 65,000 (wgt'ed) examples reached here.  /* #neg=65 */
+%   | | else return -0.08518475138839679;  // std dev = 2,28e-09, 61,000 (wgt'ed) examples reached here.  /* #neg=61 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( female(A) )
+%   | | then return 0.20975771563253562;  // std dev = 0,000, 89,000 (wgt'ed) examples reached here.  /* #pos=89 */
+%   | | else return 0.20975771563253578;  // std dev = 0,000, 89,000 (wgt'ed) examples reached here.  /* #pos=89 */
+%   | else return -0.07877675473109179;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else if ( actor(A) )
+%   | then if ( female(B) )
+%   | | then if ( female(A) )
+%   | | | then return -0.07877675473109179;  // std dev = 0,000, 25,000 (wgt'ed) examples reached here.  /* #neg=25 */
+%   | | | else return -0.07877675473109179;  // std dev = 0,000, 20,000 (wgt'ed) examples reached here.  /* #neg=20 */
+%   | | else if ( female(A) )
+%   | | | then return -0.07877675473109179;  // std dev = 0,000, 21,000 (wgt'ed) examples reached here.  /* #neg=21 */
+%   | | | else return -0.07877675473109179;  // std dev = 0,000, 17,000 (wgt'ed) examples reached here.  /* #neg=17 */
+%   | else if ( female(B) )
+%   | | then return -0.07877675473109179;  // std dev = 0,000, 20,000 (wgt'ed) examples reached here.  /* #neg=20 */
+%   | | else return -0.07877675473109179;  // std dev = 0,000, 31,000 (wgt'ed) examples reached here.  /* #neg=31 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.17709649774527778;  // std dev = 0,000, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else if ( female(A) )
+%   | | then return -0.07324622576333704;  // std dev = 0,000, 24,000 (wgt'ed) examples reached here.  /* #neg=24 */
+%   | | else return -0.07324622576333704;  // std dev = 0,000, 20,000 (wgt'ed) examples reached here.  /* #neg=20 */
+%   else if ( female(A) )
+%   | then if ( female(B) )
+%   | | then if ( movie(D, A), movie(D, B) )
+%   | | | then return -0.07324622576333704;  // std dev = 2,63e-09, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | | else return -0.07324622576333704;  // std dev = 0,000, 18,000 (wgt'ed) examples reached here.  /* #neg=18 */
+%   | | else if ( movie(E, A), movie(E, B) )
+%   | | | then return -0.07324622576333704;  // std dev = 2,63e-09, 10,000 (wgt'ed) examples reached here.  /* #neg=10 */
+%   | | | else return -0.07324622576333704;  // std dev = 2,63e-09, 11,000 (wgt'ed) examples reached here.  /* #neg=11 */
+%   | else return -0.07324622576333704;  // std dev = 0,000, 88,000 (wgt'ed) examples reached here.  /* #neg=88 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.15274385809367094;  // std dev = 0,000, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   | else return -0.06842697784420275;  // std dev = 0,000, 23,000 (wgt'ed) examples reached here.  /* #neg=23 */
+%   else if ( director(B) )
+%   | then if ( movie(E, A), movie(E, B) )
+%   | | then if ( female(A) )
+%   | | | then return 0.1527438580936709;  // std dev = 4,08e-08, 42,000 (wgt'ed) examples reached here.  /* #pos=42 */
+%   | | | else return 0.152743858093671;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | else return -0.06842697784420276;  // std dev = 0,000, 29,000 (wgt'ed) examples reached here.  /* #neg=29 */
+%   | else if ( female(B) )
+%   | | then if ( female(A) )
+%   | | | then return -0.06842697784420276;  // std dev = 0,000, 25,000 (wgt'ed) examples reached here.  /* #neg=25 */
+%   | | | else return -0.06842697784420272;  // std dev = 5,27e-09, 40,000 (wgt'ed) examples reached here.  /* #neg=40 */
+%   | | else if ( actor(A) )
+%   | | | then return -0.06842697784420272;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   | | | else return -0.06842697784420275;  // std dev = 0,000, 23,000 (wgt'ed) examples reached here.  /* #neg=23 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then if ( female(A) )
+%   | | then return 0.13400703000801104;  // std dev = 4,17e-09, 47,000 (wgt'ed) examples reached here.  /* #pos=47 */
+%   | | else return 0.1340070300080109;  // std dev = 6,18e-09, 82,000 (wgt'ed) examples reached here.  /* #pos=82 */
+%   | else return -0.0641918400820262;  // std dev = 0,000, 23,000 (wgt'ed) examples reached here.  /* #neg=23 */
+%   else if ( director(B) )
+%   | then if ( movie(E, A), movie(E, B) )
+%   | | then if ( female(A) )
+%   | | | then return 0.13400703000801106;  // std dev = 2,11e-08, 42,000 (wgt'ed) examples reached here.  /* #pos=42 */
+%   | | | else return 0.13400703000801117;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | else if ( actor(A) )
+%   | | | then return -0.0641918400820262;  // std dev = 0,000, 21,000 (wgt'ed) examples reached here.  /* #neg=21 */
+%   | | | else return -0.06419184008202618;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | else return -0.06419184008202626;  // std dev = 0,000, 126,000 (wgt'ed) examples reached here.  /* #neg=126 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.094637
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 12.607 seconds
+Total inference time: 2.523 seconds
+AUC ROC: 1.0
+
+
+Refined model AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 3, Type: Transfer (trRDN-B), Time: 19:08:25
+{'CLL': -0.094637, 'Recall': 1.0, 'F1': 1.0, 'parameter': {'CLL': -0.095842, 'Recall': 1.0, 'F1': 1.0, 'AUC ROC': 1.0, 'Inference time': 2.792, 'Learning time': 11.274, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}, 'AUC ROC': 1.0, 'Inference time': 2.523, 'Mapping results': {'Knowledge compiling time': 0.02414536476135254, 'Generating paths time': 4.809471607208252, 'Possible mappings': [864], 'Max mapping': 65536, 'Finding best mapping': 1.430511474609375e-06, 'Generating mappings time': 0.6363627910614014, 'Numbers preds mapping': [9], 'Total time': 5.469993829727173}, 'Learning time': 23.881, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( actor(B) )
+%   | then return -0.14185106490048768;  // std dev = 3,80e-08, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   | else return 0.8581489350995095;  // std dev = 1,09e-06, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   else return -0.141851064900488;  // std dev = 0,000, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( director(B) )
+%   | then return 0.7194734122109567;  // std dev = 0,000, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else return -0.12544463852839147;  // std dev = 0,000, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   else return -0.12544463852839122;  // std dev = 6,66e-08, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( director(B) )
+%   | then return 0.5553664367462833;  // std dev = 5,90e-07, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else return -0.1123163781936064;  // std dev = 0,000, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   else return -0.11231637819360615;  // std dev = 1,04e-07, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( actor(B) )
+%   | then return -0.10159632948783634;  // std dev = 0,000, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   | else return 0.4175135841583096;  // std dev = 3,77e-07, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   else return -0.10159632948783644;  // std dev = 0,000, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( director(B) )
+%   | then return 0.32071184716014917;  // std dev = 3,58e-07, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else return -0.092691276189261;  // std dev = 0,000, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   else return -0.09269127618926074;  // std dev = 8,30e-08, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( actor(B) )
+%   | then return -0.0851847513883968;  // std dev = 2,24e-08, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   | else return 0.2551722425694888;  // std dev = 3,63e-07, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   else return -0.0851847513883968;  // std dev = 7,15e-08, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( actor(B) )
+%   | then return -0.07877675473109179;  // std dev = 5,27e-09, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   | else return 0.20975771563253506;  // std dev = 3,00e-07, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   else return -0.07877675473109153;  // std dev = 7,88e-08, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( actor(B) )
+%   | then return -0.07324622576333704;  // std dev = 9,13e-09, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   | else return 0.17709649774527825;  // std dev = 0,000, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   else return -0.07324622576333727;  // std dev = 0,000, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( director(B) )
+%   | then return 0.1527438580936715;  // std dev = 0,000, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else return -0.06842697784420274;  // std dev = 0,000, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   else return -0.06842697784420264;  // std dev = 6,41e-08, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( actor(B) )
+%   | then return -0.06419184008202623;  // std dev = 0,000, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   | else return 0.13400703000801098;  // std dev = 7,60e-08, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   else return -0.06419184008202626;  // std dev = 0,000, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.094637
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 10.945 seconds
+Total inference time: 2.165 seconds
+AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 3, Type: Scratch (RDN-B), Time: 19:08:38
+{'CLL': -0.094637, 'Recall': 1.0, 'F1': 1.0, 'AUC ROC': 1.0, 'Inference time': 2.165, 'Learning time': 10.945, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( director(B) )
+%   | then return 0.8581489350995095;  // std dev = 1,09e-06, 178,000 (wgt'ed) examples reached here.  /* #pos=178 */
+%   | else return -0.14185106490048768;  // std dev = 3,80e-08, 37,000 (wgt'ed) examples reached here.  /* #neg=37 */
+%   else return -0.141851064900488;  // std dev = 0,000, 141,000 (wgt'ed) examples reached here.  /* #neg=141 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.702563
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 4.016 seconds
+Total inference time: 2.594 seconds
+AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 3, Type: Scratch (RDN), Time: 19:08:46
+{'CLL': -0.702563, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 1.0, 'Inference time': 2.594, 'Learning time': 4.016, 'Precision': [nan, 0.5], 'AUC PR': 1.0}
+
+
+Starting fold 4
+
+Target predicate: workedunder
+Mapping Results
+   Knowledge compiling time   = 0.05064654350280762
+   Generating paths time   = 4.8506920337677
+   Generating mappings time   = 0.5104880332946777
+   Possible mappings   = [864]
+   Max mapping   = 65536
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 1.430511474609375e-06
+   Total time   = 5.411838054656982
+
+
+Best mapping found: ['professor(A) -> director(A)', 'student(A) -> actor(A)', 'projectmember(A,B) -> movie(A,B)', 'advisedby(A,B) -> workedunder(A,B)', 'publication(A,B) -> movie(A,B)', 'hasposition(A,B) -> genre(A,B)'] 
+
+Transferred target predicate: workedunder 
+
+Target train facts examples: 106
+Target train pos examples: 45
+Target train neg examples: 45
+
+Target test facts examples: 590
+Target test pos examples: 337
+Target test neg examples: 337
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;workedunder(A, B) :- actor(A), director(B).;true;false
+0;true;movie(C, B), movie(C, A).;false;true
+0;true,false;movie(P, A).;false;false
+1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+1;true;movie(D, B), movie(D, A).;false;true
+1;false;director(B).;false;false
+1;true,false,false;genre(M, C).;false;false
+1;true,false;movie(J, A).;true;true
+1;true,false,true;genre(L, C), movie(J, L).;false;false
+2;;workedunder(A, B) :- actor(A), director(B).;true;false
+2;true;movie(I, A), movie(I, B).;true;false
+2;true,true;movie(I, J).;false;false
+3;;workedunder(A, B) :- actor(A), director(B).;true;false
+3;true;movie(J, A).;true;true
+3;true,true;movie(J, K).;false;false
+3;true,false;movie(N, B).;false;false
+4;;workedunder(A, B) :- director(B), actor(A).;true;false
+4;true;movie(C, B), movie(C, A).;false;true
+4;true,false,true;movie(I, K), movie(J, K).;false;false
+4;true,false;movie(I, A), movie(J, B).;true;false
+5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true
+5;true;movie(D, A), movie(D, B).;false;true
+5;false;director(B).;false;false
+5;true,false,false;genre(M, C).;false;false
+5;true,false;movie(J, B), movie(K, A).;true;true
+5;true,false,true;genre(L, C), movie(K, L).;false;false
+6;;workedunder(A, B) :- director(B), actor(A).;true;false
+6;true;movie(C, A), movie(C, B).;true;true
+6;true,false,false;movie(M, B).;false;false
+6;true,false;movie(I, A).;true;true
+6;true,true;movie(C, D).;false;false
+6;true,false,true;movie(I, J).;false;false
+7;;workedunder(A, B) :- director(B), actor(A).;true;false
+7;true;movie(C, B), movie(C, A).;false;true
+7;true,false,true;movie(I, J).;false;false
+7;true,false,false;movie(M, B).;false;false
+7;true,false;movie(I, A).;true;true
+8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+8;true;movie(D, B), movie(D, A).;true;true
+8;false;director(B).;true;false
+8;true,true,false;movie(D, F).;false;false
+8;true,false;movie(J, I).;false;false
+8;false,true;movie(N, B).;false;false
+8;true,true;movie(D, E).;false;true
+9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+9;true;movie(D, A), movie(D, B).;false;true
+9;false;director(B).;false;false
+9;true,false,false;genre(M, C).;false;false
+9;true,false;movie(J, A).;true;true
+9;true,false,true;movie(L, B).;false;false
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.858148935099512;  // std dev = 2,23e-07, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(D, A) )
+%   | | then return -0.1418510649004878;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.14185106490048768;  // std dev = 3,80e-08, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.719473412210955;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(E, A) )
+%   | | then if ( genre(F, C), movie(E, F) )
+%   | | | then return -0.12544463852839138;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.12544463852839147;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.5553664367462839;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.11231637819360639;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.11231637819360642;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.3476334034751751;  // std dev = 1,278, 52,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=45 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.10159632948783634;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.336122450935179;  // std dev = 5,16e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(D, A), movie(E, B) )
+%   | | then if ( movie(D, F), movie(E, F) )
+%   | | | then return -0.1380027249904151;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | | else return -0.1380027249904151;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.092691276189261;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.2656619903474768;  // std dev = 8,69e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(E, B), movie(F, A) )
+%   | | then if ( genre(G, C), movie(F, G) )
+%   | | | then return -0.12239088432321141;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.0851847513883968;  // std dev = 2,24e-08, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.21714084058527894;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(E, F) )
+%   | | | then return -0.10984040800950476;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.07877675473109179;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.18249302683967603;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(D, A) )
+%   | | then if ( movie(D, E) )
+%   | | | then return -0.0995519642390181;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.07324622576333704;  // std dev = 1,05e-08, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then if ( movie(D, E) )
+%   | | then return 0.15682546256663965;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(F, G) )
+%   | | then return -0.09097691807392438;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.06842697784420272;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.13718546883916122;  // std dev = 2,79e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(F, B) )
+%   | | | then return -0.08372786470193064;  // std dev = 4,56e-09, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.06419184008202623;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.123358
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 4.956 seconds
+Total inference time: 2.576 seconds
+AUC ROC: 1.0
+
+
+Structure after Parameter Learning
+[['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)'}, {'true,false,true': [0.0, 7, 0], 'true,true': [2.23e-07, 0, 45], 'true,false,false': [0.0, 0, 0], 'false': [3.8e-08, 38, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'genre(F, C), movie(E, F)'}, {'true,true': [0.0, 0, 45], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,false,true,true': [0.0, 7, 0], 'false,false': [0.0, 38, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A), movie(C, B)', 'true,true': 'movie(C, D)'}, {'true,false': [0.0, 7, 0], 'false': [0.0, 38, 0], 'true,true,true': [0.0, 0, 45], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A)', 'true,true': 'movie(C, D)'}, {'true,false': [0.0, 0, 0], 'false': [0.0, 38, 0], 'true,true,true': [1.278, 7, 45], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A), movie(E, B)', 'true,false,true': 'movie(D, F), movie(E, F)'}, {'true,true': [5.16e-08, 0, 45], 'true,false,true,true': [0.0, 4, 0], 'false': [0.0, 38, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 3, 0]}], ['workedunder(A, B)', {'': 'actor(A), genre(B, C)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, B), movie(F, A)', 'true,false,true': 'genre(G, C), movie(F, G)'}, {'true,true': [8.69e-08, 0, 45], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,false,true,true': [0.0, 7, 0], 'false,false': [2.24e-08, 38, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, A), movie(C, B)', 'true,false': 'movie(E, A)', 'true,true': 'movie(C, D)', 'true,false,true': 'movie(E, F)'}, {'true,true,true': [0.0, 0, 45], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'true,false,true,true': [0.0, 7, 0], 'false': [0.0, 38, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)', 'true,false,true': 'movie(D, E)'}, {'true,true': [0.0, 0, 45], 'true,false,true,true': [0.0, 7, 0], 'false': [1.05e-08, 38, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'true,true': 'movie(D, E)', 'true,false': 'movie(F, G)'}, {'true,false,true': [0.0, 7, 0], 'false,false': [0.0, 38, 0], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,true,true': [0.0, 0, 45]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'movie(F, B)'}, {'true,true': [2.79e-08, 0, 45], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 0], 'true,false,true,true': [4.56e-09, 7, 0], 'false,false': [0.0, 38, 0]}]]
+[{'': [0.11649408284023735, 3.7981314000334304e-17], 'true': [1.105288700071267e-15, -7.93016446160826e-18], 'true,false': [-7.93016446160826e-18, nan]}, {'': [0.0831635545216455, -2.0451476769410777e-17], 'true': [-9.473903143468002e-16, -1.982541115402065e-18], 'true,false,true': [-1.982541115402065e-18, nan], 'false': [nan, -2.0451476769410777e-17], 'true,false': [-1.982541115402065e-18, nan]}, {'': [0.05193310189730332, -1.1686558153949016e-17], 'true': [-3.947459643111668e-17, -1.982541115402065e-18], 'true,true': [-3.947459643111668e-17, nan]}, {'': [0.0313922549076915, -1.0225738384705389e-17], 'true': [0.0313922549076915, nan], 'true,true': [0.0313922549076915, nan]}, {'': [0.026187250358964444, -1.1686558153949016e-17], 'true': [5.921189464667501e-17, 0.0], 'true,false,true': [0.0, -2.3129646346357427e-18], 'true,false': [0.0, nan]}, {'': [0.01754226537173022, 1.3147377923192643e-17], 'true': [1.6776703483224587e-16, 0.0], 'true,false,true': [0.0, nan], 'false': [nan, 1.3147377923192643e-17], 'true,false': [0.0, nan]}, {'': [0.012455167209234555, 0.0], 'true': [-1.973729821555834e-17, -5.9476233462061954e-18], 'true,false,true': [-5.9476233462061954e-18, nan], 'true,true': [-1.973729821555834e-17, nan], 'true,false': [-5.9476233462061954e-18, nan]}, {'': [0.009267031713262822, 2.921639538487254e-18], 'true': [-1.1348946473946044e-16, -1.982541115402065e-18], 'true,false,true': [-1.982541115402065e-18, nan], 'true,false': [-1.982541115402065e-18, nan]}, {'': [0.007153437963426851, -7.304098846218135e-19], 'true': [-4.934324553889585e-18, -9.912705577010326e-19], 'false': [nan, -7.304098846218135e-19], 'true,true': [-4.934324553889585e-18, nan], 'true,false': [-9.912705577010326e-19, nan]}, {'': [0.005685225885693396, -1.460819769243627e-18], 'true': [1.7270135938613546e-17, 2.9738116731030977e-18], 'true,false,true': [2.9738116731030977e-18, nan], 'false': [nan, -1.460819769243627e-18], 'true,false': [2.9738116731030977e-18, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;workedunder(A, B) :- actor(A), director(B).;true;true', '0;true;movie(C, B), movie(C, A).;true;true', '1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '1;true;movie(D, B), movie(D, A).;true;true', '2;;workedunder(A, B) :- actor(A), director(B).;true;true', '2;true;movie(C, A), movie(C, B).;true;true', '3;;workedunder(A, B) :- actor(A), director(B).;true;true', '4;;workedunder(A, B) :- director(B), actor(A).;true;true', '4;true;movie(C, B), movie(C, A).;true;true', '4;true,false;movie(D, F), movie(E, F).;true;true', '5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true', '5;true;movie(D, A), movie(D, B).;true;true', '6;;workedunder(A, B) :- director(B), actor(A).;true;true', '6;true;movie(C, A), movie(C, B).;true;true', '7;;workedunder(A, B) :- director(B), actor(A).;true;true', '7;true;movie(C, B), movie(C, A).;true;true', '8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '8;true;movie(D, B), movie(D, A).;true;true', '9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '9;true;movie(D, A), movie(D, B).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.858148935099512;  // std dev = 2,23e-07, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.1418510649004878;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.14185106490048768;  // std dev = 3,80e-08, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.719473412210955;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.12544463852839138;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.12544463852839147;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then return 0.5553664367462839;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.11231637819360639;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.11231637819360642;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then return 0.41751358415831025;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.10159632948783627;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.10159632948783634;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.32071184716014944;  // std dev = 2,98e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(D, E), movie(F, E) )
+%   | | then return -0.09269127618926097;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.092691276189261;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.2551722425694896;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.08518475138839687;  // std dev = 9,31e-10, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else if ( female(A) )
+%   | then if ( movie(E, A), movie(E, B) )
+%   | | then return -0.08518475138839687;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | else return -0.08518475138839687;  // std dev = 1,32e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | else if ( female(B) )
+%   | | then return -0.08518475138839687;  // std dev = 9,31e-10, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   | | else if ( movie(F, A), movie(F, B) )
+%   | | | then return -0.08518475138839687;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | | else return -0.08518475138839685;  // std dev = 9,13e-09, 15,000 (wgt'ed) examples reached here.  /* #neg=15 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( female(A) )
+%   | | then return 0.20975771563253562;  // std dev = 0,000, 11,000 (wgt'ed) examples reached here.  /* #pos=11 */
+%   | | else return 0.20975771563253542;  // std dev = 9,13e-09, 34,000 (wgt'ed) examples reached here.  /* #pos=34 */
+%   | else return -0.07877675473109173;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.07877675473109176;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.17709649774527753;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.07324622576333704;  // std dev = 9,31e-10, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else if ( female(A) )
+%   | then if ( movie(D, A), movie(D, B) )
+%   | | then return -0.07324622576333704;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | else return -0.07324622576333704;  // std dev = 9,31e-10, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | else return -0.07324622576333704;  // std dev = 0,000, 26,000 (wgt'ed) examples reached here.  /* #neg=26 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.15274385809367086;  // std dev = 4,93e-09, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.06842697784420272;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.06842697784420272;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then if ( female(A) )
+%   | | then return 0.13400703000801117;  // std dev = 0,000, 11,000 (wgt'ed) examples reached here.  /* #pos=11 */
+%   | | else return 0.13400703000801115;  // std dev = 0,000, 34,000 (wgt'ed) examples reached here.  /* #pos=34 */
+%   | else return -0.0641918400820262;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.06419184008202623;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.128598
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 4.804 seconds
+Total inference time: 2.708 seconds
+AUC ROC: 1.0
+
+
+Refined model AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 4, Type: Transfer (trRDN-B), Time: 19:09:07
+{'CLL': -0.128598, 'Recall': 1.0, 'F1': 1.0, 'parameter': {'CLL': -0.123358, 'Recall': 1.0, 'F1': 1.0, 'AUC ROC': 1.0, 'Inference time': 2.576, 'Learning time': 4.956, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}, 'AUC ROC': 1.0, 'Inference time': 2.708, 'Mapping results': {'Knowledge compiling time': 0.05064654350280762, 'Generating paths time': 4.8506920337677, 'Possible mappings': [864], 'Max mapping': 65536, 'Finding best mapping': 1.430511474609375e-06, 'Generating mappings time': 0.5104880332946777, 'Numbers preds mapping': [9], 'Total time': 5.411838054656982}, 'Learning time': 9.760000000000002, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then return 0.858148935099512;  // std dev = 2,23e-07, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.1418510649004878;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.14185106490048768;  // std dev = 3,94e-08, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.12544463852839147;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   else if ( movie(C, A), movie(C, B) )
+%   | then return 0.719473412210955;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.12544463852839138;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.1123163781936064;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   else if ( movie(C, A), movie(C, B) )
+%   | then return 0.5553664367462839;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.11231637819360639;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.10159632948783634;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   else if ( movie(C, A), movie(C, B) )
+%   | then return 0.41751358415831025;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.10159632948783627;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.092691276189261;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   else if ( movie(C, A), movie(C, B) )
+%   | then return 0.32071184716014944;  // std dev = 2,98e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.09269127618926097;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.0851847513883968;  // std dev = 2,24e-08, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   else if ( movie(C, A), movie(C, B) )
+%   | then return 0.2551722425694896;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.08518475138839687;  // std dev = 2,63e-09, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.07877675473109179;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   else if ( movie(C, A), movie(C, B) )
+%   | then return 0.2097577156325355;  // std dev = 5,58e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.07877675473109173;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then return 0.17709649774527753;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.07324622576333704;  // std dev = 2,63e-09, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+%   else return -0.07324622576333704;  // std dev = 1,05e-08, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.06842697784420272;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   else if ( movie(C, A), movie(C, B) )
+%   | then return 0.15274385809367083;  // std dev = 0,000, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.06842697784420272;  // std dev = 2,63e-09, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.06419184008202623;  // std dev = 0,000, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   else if ( movie(C, A), movie(C, B) )
+%   | then return 0.13400703000801104;  // std dev = 2,36e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.0641918400820262;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.094637
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 9.282 seconds
+Total inference time: 2.897 seconds
+AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 4, Type: Scratch (RDN-B), Time: 19:09:21
+{'CLL': -0.094637, 'Recall': 1.0, 'F1': 1.0, 'AUC ROC': 1.0, 'Inference time': 2.897, 'Learning time': 9.282, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.14185106490048768;  // std dev = 3,94e-08, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   else if ( movie(C, A), movie(C, B) )
+%   | then return 0.858148935099512;  // std dev = 2,23e-07, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.1418510649004878;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #neg=7 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.702563
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 1.842 seconds
+Total inference time: 2.126 seconds
+AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 4, Type: Scratch (RDN), Time: 19:09:26
+{'CLL': -0.702563, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 1.0, 'Inference time': 2.126, 'Learning time': 1.842, 'Precision': [nan, 0.5], 'AUC PR': 1.0}
+
+
+Starting fold 5
+
+Target predicate: workedunder
+Mapping Results
+   Knowledge compiling time   = 0.03392624855041504
+   Generating paths time   = 4.457080841064453
+   Generating mappings time   = 0.4655745029449463
+   Possible mappings   = [864]
+   Max mapping   = 65536
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 1.1920928955078125e-06
+   Total time   = 4.956592559814453
+
+
+Best mapping found: ['professor(A) -> director(A)', 'student(A) -> actor(A)', 'projectmember(A,B) -> movie(A,B)', 'advisedby(A,B) -> workedunder(A,B)', 'publication(A,B) -> movie(A,B)', 'hasposition(A,B) -> genre(A,B)'] 
+
+Transferred target predicate: workedunder 
+
+Target train facts examples: 118
+Target train pos examples: 45
+Target train neg examples: 45
+
+Target test facts examples: 578
+Target test pos examples: 337
+Target test neg examples: 337
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;workedunder(A, B) :- actor(A), director(B).;true;false
+0;true;movie(C, B), movie(C, A).;false;true
+0;true,false;movie(P, A).;false;false
+1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+1;true;movie(D, B), movie(D, A).;false;true
+1;false;director(B).;false;false
+1;true,false,false;genre(M, C).;false;false
+1;true,false;movie(J, A).;true;true
+1;true,false,true;genre(L, C), movie(J, L).;false;false
+2;;workedunder(A, B) :- actor(A), director(B).;true;false
+2;true;movie(I, A), movie(I, B).;true;false
+2;true,true;movie(I, J).;false;false
+3;;workedunder(A, B) :- actor(A), director(B).;true;false
+3;true;movie(J, A).;true;true
+3;true,true;movie(J, K).;false;false
+3;true,false;movie(N, B).;false;false
+4;;workedunder(A, B) :- director(B), actor(A).;true;false
+4;true;movie(C, B), movie(C, A).;false;true
+4;true,false,true;movie(I, K), movie(J, K).;false;false
+4;true,false;movie(I, A), movie(J, B).;true;false
+5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true
+5;true;movie(D, A), movie(D, B).;false;true
+5;false;director(B).;false;false
+5;true,false,false;genre(M, C).;false;false
+5;true,false;movie(J, B), movie(K, A).;true;true
+5;true,false,true;genre(L, C), movie(K, L).;false;false
+6;;workedunder(A, B) :- director(B), actor(A).;true;false
+6;true;movie(C, A), movie(C, B).;true;true
+6;true,false,false;movie(M, B).;false;false
+6;true,false;movie(I, A).;true;true
+6;true,true;movie(C, D).;false;false
+6;true,false,true;movie(I, J).;false;false
+7;;workedunder(A, B) :- director(B), actor(A).;true;false
+7;true;movie(C, B), movie(C, A).;false;true
+7;true,false,true;movie(I, J).;false;false
+7;true,false,false;movie(M, B).;false;false
+7;true,false;movie(I, A).;true;true
+8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+8;true;movie(D, B), movie(D, A).;true;true
+8;false;director(B).;true;false
+8;true,true,false;movie(D, F).;false;false
+8;true,false;movie(J, I).;false;false
+8;false,true;movie(N, B).;false;false
+8;true,true;movie(D, E).;false;true
+9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true
+9;true;movie(D, A), movie(D, B).;false;true
+9;false;director(B).;false;false
+9;true,false,false;genre(M, C).;false;false
+9;true,false;movie(J, A).;true;true
+9;true,false,true;movie(L, B).;false;false
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.858148935099512;  // std dev = 2,23e-07, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(D, A) )
+%   | | then return -0.14185106490048777;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.1418510649004877;  // std dev = 4,21e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.7194734122109548;  // std dev = 0,000, 35,000 (wgt'ed) examples reached here.  /* #pos=35 */
+%   | else if ( movie(E, A) )
+%   | | then if ( genre(F, C), movie(E, F) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return -0.12544463852839138;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0.7194734122109544;  // std dev = 2,98e-08, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | else return -0.12544463852839127;  // std dev = 3,94e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.5553664367462839;  // std dev = 1,03e-07, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.11231637819360639;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.11231637819360638;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.406228586035568;  // std dev = 0,513, 46,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=45 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.10159632948783633;  // std dev = 1,49e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.3231753070752301;  // std dev = 2,98e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(D, A), movie(E, B) )
+%   | | then if ( movie(D, F), movie(E, F) )
+%   | | | then return -0.14512206266854047;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.09269127618926105;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.2568524765581167;  // std dev = 0,000, 35,000 (wgt'ed) examples reached here.  /* #pos=35 */
+%   | else if ( movie(E, B), movie(F, A) )
+%   | | then if ( genre(G, C), movie(F, G) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return -0.1280283086816164;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0.25685247655811677;  // std dev = 0,000, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | else return -0.08518475138839679;  // std dev = 2,24e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then if ( movie(C, D) )
+%   | | then return 0.2109439076410313;  // std dev = 8,43e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(E, F) )
+%   | | | then return -0.11440308353822351;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.07877675473109179;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.17796602553612414;  // std dev = 4,94e-08, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else if ( movie(D, A) )
+%   | | then if ( movie(D, E) )
+%   | | | then return -0.1033136201781555;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.07324622576333704;  // std dev = 1,18e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then if ( movie(D, E) )
+%   | | then return 0.1534031626155219;  // std dev = 0,000, 35,000 (wgt'ed) examples reached here.  /* #pos=35 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( movie(F, G) )
+%   | | then return -0.09412730821795154;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then if ( movie(H, B) )
+%   | | then return 0.1534031626155219;  // std dev = 0,000, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return -0.06842697784420271;  // std dev = 9,13e-09, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.13452152865102104;  // std dev = 0,000, 35,000 (wgt'ed) examples reached here.  /* #pos=35 */
+%   | else if ( movie(E, A) )
+%   | | then if ( movie(F, B) )
+%   | | | then return -0.0864021537053271;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( director(B) )
+%   | then return 0.134521528651021;  // std dev = 0,000, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | else return -0.06419184008202625;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.111318
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 3.856 seconds
+Total inference time: 4.039 seconds
+AUC ROC: 1.0
+
+
+Structure after Parameter Learning
+[['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)'}, {'true,false,true': [0.0, 1, 0], 'true,true': [2.23e-07, 0, 45], 'true,false,false': [0.0, 0, 0], 'false': [4.21e-08, 44, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'genre(F, C), movie(E, F)'}, {'true,true': [0.0, 0, 35], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 1, 0], 'false,true': [2.98e-08, 0, 10], 'true,false,true,true': [0.0, 0, 0], 'false,false': [3.94e-08, 44, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A), movie(C, B)', 'true,true': 'movie(C, D)'}, {'true,false': [0.0, 1, 0], 'false': [0.0, 44, 0], 'true,true,true': [1.03e-07, 0, 45], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'actor(A), director(B)', 'true': 'movie(C, A)', 'true,true': 'movie(C, D)'}, {'true,false': [0.0, 0, 0], 'false': [1.49e-08, 44, 0], 'true,true,true': [0.513, 1, 45], 'true,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A), movie(E, B)', 'true,false,true': 'movie(D, F), movie(E, F)'}, {'true,true': [2.98e-08, 0, 45], 'true,false,true,true': [0.0, 1, 0], 'false': [0.0, 44, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'actor(A), genre(B, C)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, B), movie(F, A)', 'true,false,true': 'genre(G, C), movie(F, G)'}, {'true,true': [0.0, 0, 35], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 1, 0], 'false,true': [0.0, 0, 10], 'true,false,true,true': [0.0, 0, 0], 'false,false': [2.24e-08, 44, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, A), movie(C, B)', 'true,false': 'movie(E, A)', 'true,true': 'movie(C, D)', 'true,false,true': 'movie(E, F)'}, {'true,true,true': [8.43e-08, 0, 45], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'true,false,true,true': [0.0, 1, 0], 'false': [0.0, 44, 0]}], ['workedunder(A, B)', {'': 'director(B), actor(A)', 'true': 'movie(C, B), movie(C, A)', 'true,false': 'movie(D, A)', 'true,false,true': 'movie(D, E)'}, {'true,true': [4.94e-08, 0, 45], 'true,false,true,true': [0.0, 1, 0], 'false': [1.18e-08, 44, 0], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, B), movie(D, A)', 'false': 'director(B)', 'false,true': 'movie(H, B)', 'true,false': 'movie(F, G)', 'true,true': 'movie(D, E)'}, {'true,false,true': [0.0, 1, 0], 'false,true,false': [0.0, 0, 0], 'false,false': [9.13e-09, 44, 0], 'true,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false,true,true': [0.0, 0, 10], 'true,true,true': [0.0, 0, 35]}], ['workedunder(A, B)', {'': 'genre(B, C), actor(A)', 'true': 'movie(D, A), movie(D, B)', 'false': 'director(B)', 'true,false': 'movie(E, A)', 'true,false,true': 'movie(F, B)'}, {'true,true': [0.0, 0, 35], 'true,false,false': [0.0, 0, 0], 'true,false,true,false': [0.0, 0, 0], 'false,true': [0.0, 0, 10], 'true,false,true,true': [0.0, 1, 0], 'false,false': [0.0, 44, 0]}]]
+[{'': [0.021266540642723226, 4.0371746350005693e-17], 'true': [1.105288700071267e-15, 0.0], 'true,false': [0.0, nan]}, {'': [0.019279342543426163, 0.10771950119501977], 'true': [-6.0903663065151445e-16, 0.0], 'true,false,true': [nan, 0.0], 'false': [8.881784197001253e-17, 3.532527805625498e-17], 'true,false': [0.0, nan]}, {'': [0.009480631078200914, 0.0], 'true': [2.3684757858670006e-16, 0.0], 'true,true': [2.3684757858670006e-16, nan]}, {'': [0.005730803218363071, 5.046468293750712e-18], 'true': [0.005730803218363071, nan], 'true,true': [0.005730803218363071, nan]}, {'': [0.004663803966399847, -3.784851220313033e-18], 'true': [1.973729821555834e-17, 0.0], 'true,false,true': [0.0, nan], 'true,false': [0.0, nan]}, {'': [0.004000511311447765, 0.017652731389776268], 'true': [-5.075305255429287e-17, 0.0], 'true,false,true': [nan, 0.0], 'false': [-4.4408920985006264e-17, 1.1354553660939102e-17], 'true,false': [0.0, nan]}, {'': [0.0022510774622509643, 0.0], 'true': [1.5789838572446671e-16, 0.0], 'true,false,true': [0.0, nan], 'true,true': [1.5789838572446671e-16, nan], 'true,false': [0.0, nan]}, {'': [0.0016825712472551462, 3.1540426835941946e-18], 'true': [5.427757009278543e-17, 0.0], 'true,false,true': [0.0, nan], 'true,false': [0.0, nan]}, {'': [0.0016547042358691613, 0.007425167673253691], 'true': [-6.3441315692866086e-18, 0.0], 'false': [0.0, 1.8924256101565167e-18], 'false,true': [0.0, nan], 'true,false': [0.0, nan], 'true,true': [-6.3441315692866086e-18, nan]}, {'': [0.0013180976619645598, 0.005958258327100065], 'true': [-2.5376526277146434e-17, 0.0], 'true,false,true': [0.0, nan], 'false': [-5.551115123125783e-18, -2.523234146875356e-18], 'true,false': [0.0, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;workedunder(A, B) :- actor(A), director(B).;true;true', '0;true;movie(C, B), movie(C, A).;true;true', '1;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '1;true;movie(D, B), movie(D, A).;true;true', '1;false;director(B).;true;true', '2;;workedunder(A, B) :- actor(A), director(B).;true;true', '2;true;movie(C, A), movie(C, B).;true;true', '3;;workedunder(A, B) :- actor(A), director(B).;true;true', '4;;workedunder(A, B) :- director(B), actor(A).;true;true', '4;true;movie(C, B), movie(C, A).;true;true', '5;;workedunder(A, B) :- actor(A), genre(B, C).;true;true', '5;true;movie(D, A), movie(D, B).;true;true', '5;false;director(B).;true;true', '6;;workedunder(A, B) :- director(B), actor(A).;true;true', '6;true;movie(C, A), movie(C, B).;true;true', '7;;workedunder(A, B) :- director(B), actor(A).;true;true', '7;true;movie(C, B), movie(C, A).;true;true', '8;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '8;true;movie(D, B), movie(D, A).;true;true', '8;false;director(B).;true;true', '9;;workedunder(A, B) :- genre(B, C), actor(A).;true;true', '9;true;movie(D, A), movie(D, B).;true;true', '9;false;director(B).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.858148935099512;  // std dev = 2,23e-07, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.14185106490048777;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.1418510649004877;  // std dev = 4,21e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.7194734122109548;  // std dev = 0,000, 35,000 (wgt'ed) examples reached here.  /* #pos=35 */
+%   | else return -0.12544463852839138;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else if ( director(B) )
+%   | then return 0.7194734122109544;  // std dev = 2,98e-08, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | else return -0.12544463852839127;  // std dev = 3,94e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then return 0.5553664367462839;  // std dev = 1,03e-07, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.11231637819360639;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.11231637819360638;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(A), director(B) )
+%   then if ( female(A) )
+%   | then return 0.3958840044230539;  // std dev = 0,104, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.4175135841583099;  // std dev = 4,21e-08, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+%   else return -0.10159632948783633;  // std dev = 1,49e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.32312954980851977;  // std dev = 0,016, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.14384340225572628;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.09269127618926105;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(A), genre(B, C) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.2567179267411736;  // std dev = 0,012, 35,000 (wgt'ed) examples reached here.  /* #pos=35 */
+%   | else return -0.1270196243455632;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else if ( director(B) )
+%   | then return 0.2571896724252977;  // std dev = 0,006, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | else return -0.08518475138839679;  // std dev = 2,24e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, A), movie(C, B) )
+%   | then return 0.2109238154533313;  // std dev = 0,012, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.11358929715147498;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.07877675473109179;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B), actor(A) )
+%   then if ( movie(C, B), movie(C, A) )
+%   | then return 0.17795186714865838;  // std dev = 0,011, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.10264451305727536;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else return -0.07324622576333704;  // std dev = 1,18e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, B), movie(D, A) )
+%   | then return 0.15333510596502398;  // std dev = 0,008, 35,000 (wgt'ed) examples reached here.  /* #pos=35 */
+%   | else return -0.09356822516994766;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else if ( director(B) )
+%   | then return 0.15359474675004903;  // std dev = 0,004, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | else return -0.06842697784420271;  // std dev = 9,13e-09, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( genre(B, C), actor(A) )
+%   then if ( movie(D, A), movie(D, B) )
+%   | then return 0.13446869572487558;  // std dev = 0,007, 35,000 (wgt'ed) examples reached here.  /* #pos=35 */
+%   | else return -0.0859285079866195;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else if ( director(B) )
+%   | then return 0.1346712024756062;  // std dev = 0,004, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | else return -0.06419184008202625;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.10858
+   Precision = 1.0 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 1.0
+
+
+Total learning time: 4.59 seconds
+Total inference time: 2.829 seconds
+AUC ROC: 1.0
+
+
+Refined model AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 5, Type: Transfer (trRDN-B), Time: 19:09:48
+{'CLL': -0.10858, 'Recall': 1.0, 'F1': 1.0, 'parameter': {'CLL': -0.111318, 'Recall': 1.0, 'F1': 1.0, 'AUC ROC': 1.0, 'Inference time': 4.039, 'Learning time': 3.856, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}, 'AUC ROC': 1.0, 'Inference time': 2.829, 'Mapping results': {'Knowledge compiling time': 0.03392624855041504, 'Generating paths time': 4.457080841064453, 'Possible mappings': [864], 'Max mapping': 65536, 'Finding best mapping': 1.1920928955078125e-06, 'Generating mappings time': 0.4655745029449463, 'Numbers preds mapping': [9], 'Total time': 4.956592559814453}, 'Learning time': 8.446, 'Precision': [1.0, 0.5], 'AUC PR': 1.0}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.14185106490048768;  // std dev = 4,59e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else if ( female(A) )
+%   | then return 0.8164822684328453;  // std dev = 0,200, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.8581489350995121;  // std dev = 5,96e-08, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+WILL Produced-Tree #2
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.12544463852839152;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else if ( female(A) )
+%   | then return 0.6861389866026452;  // std dev = 0,200, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.7194734122109542;  // std dev = 7,30e-08, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+WILL Produced-Tree #3
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.11231637819360635;  // std dev = 1,49e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else if ( female(A) )
+%   | then return 0.5321349378684588;  // std dev = 0,200, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.5553664367462846;  // std dev = 0,000, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+WILL Produced-Tree #4
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.10159632948783631;  // std dev = 7,45e-09, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else if ( female(A) )
+%   | then return 0.3999123396959217;  // std dev = 0,200, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.4175135841583099;  // std dev = 3,65e-08, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+WILL Produced-Tree #5
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.09269127618926101;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else if ( female(A) )
+%   | then return 0.3047860505335217;  // std dev = 0,200, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.32071184716014955;  // std dev = 2,11e-08, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+WILL Produced-Tree #6
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.08518475138839679;  // std dev = 2,24e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else if ( female(A) )
+%   | then return 0.23934386074685432;  // std dev = 0,200, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.2551722425694895;  // std dev = 0,000, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+WILL Produced-Tree #7
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.07877675473109179;  // std dev = 0,000, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else if ( female(A) )
+%   | then return 0.19360164133068228;  // std dev = 0,200, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.20975771563253573;  // std dev = 2,11e-08, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+WILL Produced-Tree #8
+% FOR workedunder(A, B):
+%   if ( director(B) )
+%   then if ( female(A) )
+%   | then return 0.1605656866455847;  // std dev = 0,200, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.17709649774527747;  // std dev = 0,000, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+%   else return -0.07324622576333704;  // std dev = 1,18e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+WILL Produced-Tree #9
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( director(B) )
+%   | then return 0.16542775201789628;  // std dev = 0,083, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.06842697784420272;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   else if ( actor(A), actor(B) )
+%   | then return -0.06842697784420274;  // std dev = 0,000, 34,000 (wgt'ed) examples reached here.  /* #neg=34 */
+%   | else return -0.3197645944650544;  // std dev = 0,616, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+WILL Produced-Tree #10
+% FOR workedunder(A, B):
+%   if ( movie(C, A), movie(C, B) )
+%   then if ( director(B) )
+%   | then return 0.14385447188457903;  // std dev = 0,074, 45,000 (wgt'ed) examples reached here.  /* #pos=45 */
+%   | else return -0.0641918400820262;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   else if ( actor(A), actor(B) )
+%   | then return -0.06419184008202623;  // std dev = 0,000, 34,000 (wgt'ed) examples reached here.  /* #neg=34 */
+%   | else return -0.2907205430207032;  // std dev = 0,588, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+
+
+Results
+   AUC ROC   = 1.0
+   AUC PR    = 1.0
+   CLL	      = -0.213649
+   Precision = 0.844612 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.915761
+
+
+Total learning time: 6.789 seconds
+Total inference time: 2.271 seconds
+AUC ROC: 1.0
+
+
+Dataset: 2_uwcse_imdb, Fold: 5, Type: Scratch (RDN-B), Time: 19:09:58
+{'CLL': -0.213649, 'Recall': 1.0, 'F1': 0.915761, 'AUC ROC': 1.0, 'Inference time': 2.271, 'Learning time': 6.789, 'Precision': [0.844612, 0.5], 'AUC PR': 1.0}
+
+
+WILL Produced-Tree #1
+% FOR workedunder(A, B):
+%   if ( actor(B) )
+%   then return -0.14185106490048768;  // std dev = 4,59e-08, 44,000 (wgt'ed) examples reached here.  /* #neg=44 */
+%   else if ( female(A) )
+%   | then return 0.8164822684328453;  // std dev = 0,200, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | else return 0.8581489350995121;  // std dev = 5,96e-08, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+
+
+Results
+   AUC ROC   = 0.907946
+   AUC PR    = 0.844488
+   CLL	      = -0.726634
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 3.174 seconds
+Total inference time: 2.015 seconds
+AUC ROC: 0.907946
+
+
+Dataset: 2_uwcse_imdb, Fold: 5, Type: Scratch (RDN), Time: 19:10:04
+{'CLL': -0.726634, 'Recall': 0.0, 'F1': nan, 'AUC ROC': 0.907946, 'Inference time': 2.015, 'Learning time': 3.174, 'Precision': [nan, 0.5], 'AUC PR': 0.844488}
+
+
