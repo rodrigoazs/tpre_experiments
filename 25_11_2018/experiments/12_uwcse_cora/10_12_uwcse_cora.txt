@@ -1,0 +1,2689 @@
+Starting experiment #10 for 12_uwcse_cora
+
+Start learning from source dataset
+
+Source train facts examples: 2274
+Source train pos examples: 113
+Source train neg examples: 113
+
+WILL Produced-Tree #1
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( tempadvisedby(D, B), ta(E, A, F) )
+%   | | then if ( ta(G, D, H) )
+%   | | | then return 0.8581489350995123;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.6581489350995122;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.8581489350995123;  // std dev = 0,000, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(I, A), tempadvisedby(J, B) )
+%   | | then if ( publication(I, K), ta(L, K, M) )
+%   | | | then return 0.7470378239884012;  // std dev = 0,943, 9,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=8 */
+%   | | | else return -0.14185106490048777;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | else if ( publication(N, B) )
+%   | | | then return 0.7734031723876481;  // std dev = 2,139, 59,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=54 */
+%   | | | else return 0.6273797043302815;  // std dev = 1,519, 13,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=10 */
+%   else return -0.14185106490048768;  // std dev = 7,30e-08, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #2
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( tempadvisedby(C, B), ta(D, C, E) )
+%   | then if ( ta(F, A, G), ta(F, H, E) )
+%   | | then if ( samecourse(D, F) )
+%   | | | then return 0.5261862825807958;  // std dev = 0,883, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.7312209353581769;  // std dev = 0,024, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else return 0.7308104757005569;  // std dev = 0,064, 26,000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | else if ( publication(I, A), publication(I, B) )
+%   | | then if ( tempadvisedby(J, B), ta(K, A, L) )
+%   | | | then return 0.5580193346218546;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.7194734122109543;  // std dev = 4,21e-08, 19,000 (wgt'ed) examples reached here.  /* #pos=19 */
+%   | | else if ( tempadvisedby(M, B), publication(N, A) )
+%   | | | then return 0.36908066213317675;  // std dev = 1,530, 12,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=7 */
+%   | | | else return 0.6022753891158077;  // std dev = 2,439, 50,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=43 */
+%   else return -0.12544463852839158;  // std dev = 0,000, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #3
+% FOR advisedby(A, B):
+%   if ( student(A), hasposition(B, C) )
+%   then if ( tempadvisedby(D, B), ta(E, D, F) )
+%   | then if ( ta(E, A, G) )
+%   | | then return 0.4104895662080564;  // std dev = 0,881, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.5668366106318129;  // std dev = 0,087, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | else if ( publication(H, A), tempadvisedby(I, B) )
+%   | | then if ( publication(H, B) )
+%   | | | then return 0.5081090089455164;  // std dev = 0,915, 12,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=11 */
+%   | | | else return 0.3024623706773498;  // std dev = 1,492, 12,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=7 */
+%   | | else if ( hasposition(J, C), tempadvisedby(K, J) )
+%   | | | then return 0.5171363622026371;  // std dev = 1,893, 50,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=46 */
+%   | | | else return 0.41333218051658055;  // std dev = 1,254, 10,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=8 */
+%   else if ( professor(B) )
+%   | then if ( publication(L, B) )
+%   | | then return -0.11231637819360639;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | | else return 0.0551230450865158;  // std dev = 0,736, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | else return -0.11231637819360621;  // std dev = 7,30e-08, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+WILL Produced-Tree #4
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( publication(D, A), publication(D, B) )
+%   | then if ( tempadvisedby(E, B), publication(D, E) )
+%   | | then return 0.48327363000572143;  // std dev = 0,087, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( publication(D, F), ta(G, F, H) )
+%   | | | then return 0.38865353829143223;  // std dev = 0,915, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | | | else return 0.42288390752635974;  // std dev = 0,048, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   | else if ( publication(I, A) )
+%   | | then if ( hasposition(J, C), publication(I, J) )
+%   | | | then return 0.10550917636692224;  // std dev = 1,665, 14,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=7 */
+%   | | | else return 0.5245116684321666;  // std dev = 0,156, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else if ( hasposition(K, C), tempadvisedby(L, K) )
+%   | | | then return 0.4073716438140398;  // std dev = 1,644, 52,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=49 */
+%   | | | else return 0.23264390853184744;  // std dev = 1,192, 7,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5 */
+%   else if ( student(B) )
+%   | then return -0.10159632948783621;  // std dev = 5,05e-08, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+%   | else return -0.06169471073240645;  // std dev = 0,231, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+WILL Produced-Tree #5
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( publication(C, A), publication(C, B) )
+%   | then if ( ta(D, A, E), tempadvisedby(F, B) )
+%   | | then if ( ta(G, F, H) )
+%   | | | then return 0.35767479478711905;  // std dev = 0,109, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.21323951779735575;  // std dev = 0,884, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.3251043613214755;  // std dev = 0,054, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(I, A), publication(J, B) )
+%   | | then if ( publication(I, K), publication(J, K) )
+%   | | | then return -0.07289077924897386;  // std dev = 1,047, 6,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=2 */
+%   | | | else return 0.33815748330598644;  // std dev = 0,628, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | else if ( ta(L, A, M) )
+%   | | | then return 0.3210462650597213;  // std dev = 1,325, 31,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=29 */
+%   | | | else return 0.2574428922904926;  // std dev = 2,038, 38,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=32 */
+%   else return -0.09315851941394428;  // std dev = 0,021, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #6
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( tempadvisedby(C, B), ta(D, C, E) )
+%   | then if ( ta(D, A, F) )
+%   | | then return 0.1318857799453525;  // std dev = 0,879, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.2680811139417088;  // std dev = 0,127, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | else if ( ta(G, A, H) )
+%   | | then if ( ta(G, I, J), tempadvisedby(I, K) )
+%   | | | then return 0.31783041482486346;  // std dev = 0,106, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | | else return 0.19697409259562754;  // std dev = 1,693, 23,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=19 */
+%   | | else if ( publication(L, A), publication(L, B) )
+%   | | | then return 0.26332765932741814;  // std dev = 0,021, 17,000 (wgt'ed) examples reached here.  /* #pos=17 */
+%   | | | else return 0.14570611089910623;  // std dev = 2,158, 34,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=25 */
+%   else return -0.08558151638263352;  // std dev = 0,019, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #7
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( hasposition(D, C), tempadvisedby(E, D) )
+%   | then if ( publication(F, B), sameperson(B, D) )
+%   | | then if ( ta(G, E, H) )
+%   | | | then return 0.20004971216386372;  // std dev = 0,913, 38,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=37 */
+%   | | | else return 0.13084008459736673;  // std dev = 1,690, 29,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=23 */
+%   | | else if ( sameperson(B, D) )
+%   | | | then return 0.2787655545731881;  // std dev = 0,677, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | | else return 0.18608382450605596;  // std dev = 1,506, 38,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=35 */
+%   | else if ( publication(I, A) )
+%   | | then return 0.26896472556740814;  // std dev = 0,061, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( publication(J, B) )
+%   | | | then return 0.05369006424236117;  // std dev = 0,844, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | | else return 0.04920687462692012;  // std dev = 0,816, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   else if ( student(B) )
+%   | then return -0.0787140756253058;  // std dev = 4,08e-08, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+%   | else return -0.06015572027308143;  // std dev = 0,219, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+WILL Produced-Tree #8
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( tempadvisedby(D, B), publication(C, D) )
+%   | | then return 0.2406153113452394;  // std dev = 0,094, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( tempadvisedby(E, B), ta(F, A, G) )
+%   | | | then return 0.1348786108484316;  // std dev = 0,895, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | | else return 0.18302812171980795;  // std dev = 0,049, 29,000 (wgt'ed) examples reached here.  /* #pos=29 */
+%   | else if ( publication(H, A) )
+%   | | then if ( publication(H, I), ta(J, I, K) )
+%   | | | then return 0.19603888204364622;  // std dev = 1,198, 15,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=13 */
+%   | | | else return -0.10282797891545403;  // std dev = 1,017, 9,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=4 */
+%   | | else if ( tempadvisedby(L, B), publication(M, L) )
+%   | | | then return 0.21649433901367646;  // std dev = 0,058, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.14335436398762838;  // std dev = 2,146, 57,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=51 */
+%   else return -0.07369090851193724;  // std dev = 0,020, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #9
+% FOR advisedby(A, B):
+%   if ( student(A), hasposition(B, C) )
+%   then if ( publication(D, A), publication(D, B) )
+%   | then if ( publication(D, E), tempadvisedby(E, F) )
+%   | | then return 0.1905840388250798;  // std dev = 0,088, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else if ( ta(G, A, H), tempadvisedby(I, B) )
+%   | | | then return 0.11186164211643819;  // std dev = 0,898, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | | else return 0.1570593769421997;  // std dev = 0,043, 28,000 (wgt'ed) examples reached here.  /* #pos=28 */
+%   | else if ( publication(J, A), publication(K, B) )
+%   | | then if ( hasposition(L, C), publication(J, L) )
+%   | | | then return -0.1204567664864111;  // std dev = 1,138, 8,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=3 */
+%   | | | else return 0.22102753685896995;  // std dev = 0,121, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else if ( hasposition(M, C), tempadvisedby(N, M) )
+%   | | | then return 0.13347490442770454;  // std dev = 1,906, 59,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=54 */
+%   | | | else return 0.0438777973148292;  // std dev = 1,203, 8,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=6 */
+%   else if ( professor(B) )
+%   | then return -0.056025526942092396;  // std dev = 0,216, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+%   | else return -0.06834759385742273;  // std dev = 0,000, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+WILL Produced-Tree #10
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( publication(C, A), publication(C, B) )
+%   | then if ( tempadvisedby(D, B), ta(E, D, F) )
+%   | | then return 0.14420642470313963;  // std dev = 0,129, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | | else if ( tempadvisedby(G, B), ta(H, A, I) )
+%   | | | then return 0.030178666941617992;  // std dev = 0,874, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.14174361378084308;  // std dev = 0,020, 19,000 (wgt'ed) examples reached here.  /* #pos=19 */
+%   | else if ( tempadvisedby(J, B), publication(K, J) )
+%   | | then return -0.029433822008343186;  // std dev = 0,683, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( ta(L, A, M), tempadvisedby(N, B) )
+%   | | | then return 0.15005675871388088;  // std dev = 1,010, 20,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=19 */
+%   | | | else return 0.0827482858656029;  // std dev = 2,381, 59,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=49 */
+%   else return -0.06463610074944988;  // std dev = 0,019, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+
+
+Predicates from source: ['advisedby(person,person).', 'tempadvisedby(person,person).', 'ta(course,person,quarter).', 'samecourse(course,course).', 'student(person).', 'professor(person).', 'sameperson(person,person).', 'hasposition(person,faculty).', 'publication(title,person).']
+
+Starting fold 1
+
+Target predicate: samebib
+Mapping Results
+   Knowledge compiling time   = 0.09562826156616211
+   Generating paths time   = 2.7648119926452637
+   Generating mappings time   = 0.13344383239746094
+   Possible mappings   = [224]
+   Max mapping   = 1771561
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 1.430511474609375e-06
+   Total time   = 2.9938952922821045
+
+
+Best mapping found: ['samecourse(A,B) -> sameauthor(A,B)', 'hasposition(A,B) -> venue(A,B)', 'publication(A,B) -> title(B,A)', 'advisedby(A,B) -> samebib(A,B)'] 
+
+Transferred target predicate: samebib 
+
+Target train facts examples: 2232
+Target train pos examples: 5231
+Target train neg examples: 4038
+
+Target test facts examples: 9355
+Target test pos examples: 25740
+Target test neg examples: 15140
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;samebib(A, B) :- title(B, C), title(A, C).;false;false
+1;;samebib(A, B) :- sameauthor(D, F).;false;false
+2;;samebib(A, B) :- venue(B, C).;true;true
+2;true,false;venue(J, C).;false;false
+2;true,true;title(B, H).;false;false
+2;true;title(A, H).;true;true
+2;false;title(B, L).;false;false
+3;;samebib(A, B) :- venue(B, C).;true;false
+3;true,true;title(E, D).;false;true
+3;true;title(A, D), title(B, D).;true;true
+3;true,false,true;venue(J, C), title(J, I).;false;false
+3;true,false,false;venue(K, C).;false;false
+3;true,false;title(A, I).;true;true
+3;true,true,false;title(F, D).;false;false
+4;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+5;;samebib(A, B) :- title(A, L), title(B, L).;false;false
+6;;samebib(A, B) :- venue(B, C).;true;false
+6;true,false;title(A, I).;false;true
+6;true,true;title(B, F).;false;false
+6;true;venue(D, C).;true;true
+6;true,false,false;title(B, J).;false;false
+7;;samebib(A, B) :- title(B, C), title(A, C).;true;false
+7;true,false;title(A, H).;true;true
+7;true;title(D, C).;false;true
+7;true,false,true;title(I, H).;false;false
+7;true,false,false;title(L, M).;false;false
+8;;samebib(A, B) :- venue(B, C).;true;false
+8;true,true;title(E, D).;false;false
+8;true;title(A, D), title(B, D).;true;true
+8;true,false,true;venue(L, C), title(L, J).;false;false
+8;true,false,false;venue(M, C).;false;false
+8;true,false;title(A, J), title(B, K).;true;true
+9;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then return 0.8521705492636829;  // std dev = 5,084, 4.349,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=4.323 */
+%   else return 0.04270178062796245;  // std dev = 27,211, 4.920,000 (wgt'ed) examples reached here.  /* #neg=4.012 #pos=908 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( sameauthor(C, D) )
+%   then return 0.35520074541795493;  // std dev = 42,722, 9.269,000 (wgt'ed) examples reached here.  /* #neg=4.038 #pos=5.231 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D) )
+%   | then if ( title(B, D) )
+%   | | then return 0.6379896793562014;  // std dev = 5,084, 4.349,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=4.323 */
+%   | | else return -0.012930639421770616;  // std dev = 27,211, 4.920,000 (wgt'ed) examples reached here.  /* #neg=4.012 #pos=908 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.4826833147454816;  // std dev = 5,084, 4.349,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=4.323 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F) )
+%   | | then if ( venue(G, C), title(G, F) )
+%   | | | then return 0.17251032024168206;  // std dev = 19,796, 1.685,000 (wgt'ed) examples reached here.  /* #neg=1.065 #pos=620 */
+%   | | | else return -0.10641592689759503;  // std dev = 16,198, 3.235,000 (wgt'ed) examples reached here.  /* #neg=2.947 #pos=288 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.36499475618113997;  // std dev = 5,084, 4.349,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=4.323 */
+%   else return -0.010021772148242099;  // std dev = 26,739, 4.920,000 (wgt'ed) examples reached here.  /* #neg=4.012 #pos=908 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.2845046877630012;  // std dev = 5,084, 4.349,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=4.323 */
+%   else return -0.008460490885609044;  // std dev = 26,742, 4.920,000 (wgt'ed) examples reached here.  /* #neg=4.012 #pos=908 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( venue(D, C) )
+%   | then if ( title(B, E) )
+%   | | then return 0.1038932653270691;  // std dev = 29,502, 9.269,000 (wgt'ed) examples reached here.  /* #neg=4.038 #pos=5.231 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( title(D, C) )
+%   | then return 0.2113273281639052;  // std dev = 5,084, 4.349,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=4.323 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.023715403579871203;  // std dev = 26,717, 4.920,000 (wgt'ed) examples reached here.  /* #neg=4.012 #pos=908 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.17752879382367778;  // std dev = 5,084, 4.349,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=4.323 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F), title(B, G) )
+%   | | then if ( venue(H, C), title(H, F) )
+%   | | | then return 0.13304812655891723;  // std dev = 19,796, 1.685,000 (wgt'ed) examples reached here.  /* #neg=1.065 #pos=620 */
+%   | | | else return -0.09947952832063636;  // std dev = 16,198, 3.235,000 (wgt'ed) examples reached here.  /* #neg=2.947 #pos=288 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.15240671641133388;  // std dev = 5,084, 4.349,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=4.323 */
+%   else return -0.01862200979841441;  // std dev = 26,373, 4.920,000 (wgt'ed) examples reached here.  /* #neg=4.012 #pos=908 */
+
+
+Results
+   AUC ROC   = 0.950729
+   AUC PR    = 0.968461
+   CLL	      = -0.308101
+   Precision = 0.983533 at threshold = 0.5
+   Recall    = 0.856255
+   F1        = 0.915491
+
+
+Total learning time: 126.081 seconds
+Total inference time: 12.098 seconds
+AUC ROC: 0.950729
+
+
+Structure after Parameter Learning
+[['samebib(A, B)', {'': 'title(B, C), title(A, C)'}, {'false': [27.211, 4012, 908], 'true': [5.084, 26, 4323]}], ['samebib(A, B)', {'': 'sameauthor(C, D)'}, {'false': [0.0, 0, 0], 'true': [42.722, 4038, 5231]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, D)', 'true': 'title(A, D)'}, {'true,true,true': [5.084, 26, 4323], 'true,false': [0.0, 0, 0], 'true,true,false': [27.211, 4012, 908], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(G, C), title(G, F)'}, {'true,true,true': [5.084, 26, 4323], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [16.198, 2947, 288], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [19.796, 1065, 620]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [26.739, 4012, 908], 'true': [5.084, 26, 4323]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [26.742, 4012, 908], 'true': [5.084, 26, 4323]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, E)', 'true': 'venue(D, C)'}, {'true,true,true': [29.502, 4038, 5231], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'title(B, C), title(A, C)', 'true': 'title(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [26.717, 4012, 908], 'true,true': [5.084, 26, 4323]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F), title(B, G)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(H, C), title(H, F)'}, {'true,true,true': [5.084, 26, 4323], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [16.198, 2947, 288], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [19.796, 1065, 620]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [26.373, 4012, 908], 'true': [5.084, 26, 4323]}]]
+[{'': [0.005942644738653048, 0.1504930927358319]}, {'': [0.19691084852098872, nan]}, {'': [0.1881925908465286, nan], 'true,true': [0.0059426447386896975, 0.15049309273584788], 'true': [0.1881925908465286, nan]}, {'': [0.1433426228588361, nan], 'true,false': [0.15049309273577732, nan], 'true,true': [0.00594264473855332, nan], 'true': [0.00594264473855332, 0.15049309273577732], 'true,false,true': [0.23256346362124639, 0.08110059745491091]}, {'': [0.0059426447386166335, 0.14532258982430965]}, {'': [0.0059426447386370885, 0.14535082266650487]}, {'': [0.09390289653581325, nan], 'true,true': [0.09390289653581325, nan], 'true': [0.09390289653581325, nan]}, {'': [0.005942644738619195, 0.1450828840622778], 'true': [0.005942644738619195, nan]}, {'': [0.08953572245182227, nan], 'true,false': [0.1451492301107986, nan], 'true,true': [0.0059426447386236, nan], 'true': [0.0059426447386236, 0.1451492301107986], 'true,false,true': [0.23256346362124886, 0.08110059745490414]}, {'': [0.005942644738620159, 0.1413642431198088]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Pruning resulted in null theory
+
+Candidate for revision
+['0;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '1;;samebib(A, B) :- sameauthor(C, D).;true;true', '2;;samebib(A, B) :- venue(B, C).;true;true', '2;true,true;title(B, D).;true;true', '2;true;title(A, D).;true;true', '3;;samebib(A, B) :- venue(B, C).;true;true', '3;true,false;title(A, F).;true;true', '3;true,true;title(E, D).;true;true', '3;true;title(A, D), title(B, D).;true;true', '3;true,false,true;venue(G, C), title(G, F).;true;true', '4;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '5;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '6;;samebib(A, B) :- venue(B, C).;true;true', '6;true,true;title(B, E).;true;true', '6;true;venue(D, C).;true;true', '7;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '7;true;title(D, C).;true;true', '8;;samebib(A, B) :- venue(B, C).;true;true', '8;true,false;title(A, F), title(B, G).;true;true', '8;true,true;title(E, D).;true;true', '8;true;title(A, D), title(B, D).;true;true', '8;true,false,true;venue(H, C), title(H, F).;true;true', '9;;samebib(A, B) :- title(A, C), title(B, C).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.8581489350995073;  // std dev = 0,000, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.8400329930705224;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.8432513559561183;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.2690016482778033;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.3053034066442231;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return 0.0010060779566533865;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.027976719350752858;  // std dev = 0,318, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( sameauthor(C, D) )
+%   then if ( title(A, E), title(B, E) )
+%   | then if ( venue(A, F), venue(B, F) )
+%   | | then return 0.7194734122109049;  // std dev = 1,39e-05, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | | else if ( author(A, G), author(B, G) )
+%   | | | then return 0.7049992572843945;  // std dev = 3,134, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | | else return 0.7075727783329769;  // std dev = 3,970, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   | else if ( venue(A, H), venue(B, H) )
+%   | | then if ( author(A, I), author(B, I) )
+%   | | | then return 0.23300505120772294;  // std dev = 7,903, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | | else return 0.26393663086941804;  // std dev = 13,507, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | | else if ( author(A, J), author(B, J) )
+%   | | | then return 8.83564616335466E-4;  // std dev = 10,309, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | | else return -0.02460513438441301;  // std dev = 17,561, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D) )
+%   | then if ( title(B, D) )
+%   | | then if ( author(A, E), author(B, E) )
+%   | | | then return 0.55133594720768;  // std dev = 3,139, 1.381,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1.371 */
+%   | | | else return 0.552366483740577;  // std dev = 3,976, 2.968,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=2.952 */
+%   | | else if ( author(A, F), author(B, F) )
+%   | | | then return 0.04558767464624794;  // std dev = 13,279, 1.126,000 (wgt'ed) examples reached here.  /* #neg=896 #pos=230 */
+%   | | | else return 0.025533526401325016;  // std dev = 22,932, 3.794,000 (wgt'ed) examples reached here.  /* #neg=3.116 #pos=678 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then if ( author(A, F), author(B, F) )
+%   | | | then return 0.4144312505573738;  // std dev = 3,139, 1.381,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1.371 */
+%   | | | else return 0.4152170258846019;  // std dev = 3,976, 2.968,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=2.952 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, G) )
+%   | | then if ( venue(H, C), title(H, G) )
+%   | | | then return 0.17553990932887623;  // std dev = 19,553, 1.685,000 (wgt'ed) examples reached here.  /* #neg=1.065 #pos=620 */
+%   | | | else return -0.051634759598605764;  // std dev = 16,197, 3.235,000 (wgt'ed) examples reached here.  /* #neg=2.947 #pos=288 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.3219875505177821;  // std dev = 0,010, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then if ( haswordauthor(E, F), haswordtitle(G, F) )
+%   | | | then return 0.23186123984134388;  // std dev = 2,687, 82,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=74 */
+%   | | | else return 0.3251668963021664;  // std dev = 1,411, 470,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=468 */
+%   | | else return 0.31284614778358816;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( author(A, H), author(B, H) )
+%   | then if ( venue(A, I), venue(B, I) )
+%   | | then return 0.15675310435647216;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return -0.003135436202695608;  // std dev = 0,346, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | else if ( venue(A, J), venue(B, J) )
+%   | | then return 0.18400958953802726;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | | else return -0.023807944771703515;  // std dev = 0,316, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.25604253633555657;  // std dev = 0,008, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then if ( haswordauthor(E, F), haswordvenue(G, F) )
+%   | | | then return 0.2619290399873996;  // std dev = 2,36e-08, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | | | else return 0.24615134834501626;  // std dev = 3,098, 538,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=528 */
+%   | | else return 0.2479435235643512;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, H), venue(B, H) )
+%   | then return 0.1414010953673914;  // std dev = 0,496, 996,000 (wgt'ed) examples reached here.  /* #neg=560 #pos=436 */
+%   | else if ( author(A, I), author(B, I) )
+%   | | then return -0.002745314107050804;  // std dev = 0,346, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.021008402224849617;  // std dev = 0,316, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( venue(D, C) )
+%   | then if ( title(B, E) )
+%   | | then if ( author(A, F), author(B, F) )
+%   | | | then return 0.12305781794141137;  // std dev = 14,137, 2.507,000 (wgt'ed) examples reached here.  /* #neg=906 #pos=1.601 */
+%   | | | else return 0.09540283517478289;  // std dev = 24,099, 6.762,000 (wgt'ed) examples reached here.  /* #neg=3.132 #pos=3.630 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( title(D, C) )
+%   | then if ( venue(A, E), venue(B, E) )
+%   | | then return 0.1936505595176966;  // std dev = 0,097, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | | else if ( author(A, F), author(B, F) )
+%   | | | then return 0.1810718827449647;  // std dev = 3,104, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | | else return 0.18698006042174292;  // std dev = 3,970, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( author(A, G), author(B, G) )
+%   | then if ( venue(A, H), venue(B, H) )
+%   | | then return 0.06913609062795273;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return -0.018343520823706463;  // std dev = 0,346, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | else if ( venue(A, I), venue(B, I) )
+%   | | then return 0.09483814836939224;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | | else return -0.02991830140289778;  // std dev = 0,316, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then if ( author(A, F), author(B, F) )
+%   | | | then return 0.15913695503134387;  // std dev = 3,111, 1.381,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1.371 */
+%   | | | else return 0.16346711286279167;  // std dev = 3,975, 2.968,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=2.952 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, G), title(B, H) )
+%   | | then if ( venue(I, C), title(I, G) )
+%   | | | then return 0.08060421230839353;  // std dev = 19,478, 1.685,000 (wgt'ed) examples reached here.  /* #neg=1.065 #pos=620 */
+%   | | | else return -0.05017640371417347;  // std dev = 16,201, 3.235,000 (wgt'ed) examples reached here.  /* #neg=2.947 #pos=288 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.14402309281416495;  // std dev = 0,063, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.13227602106508574;  // std dev = 0,132, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.13632459907500596;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.03470070473154414;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.053847048320372654;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return -0.012406530185139208;  // std dev = 0,344, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.02362491580505701;  // std dev = 0,315, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+
+
+Results
+   AUC ROC   = 0.952242
+   AUC PR    = 0.975638
+   CLL	      = -0.298388
+   Precision = 0.983533 at threshold = 0.5
+   Recall    = 0.856255
+   F1        = 0.915491
+
+
+Total learning time: 456.128 seconds
+Total inference time: 110.475 seconds
+AUC ROC: 0.952242
+
+
+Refined model AUC ROC: 0.952242
+
+
+Dataset: 12_uwcse_cora, Fold: 1, Type: Transfer (trRDN-B), Time: 04:17:59
+{'Recall': 0.856255, 'F1': 0.915491, 'AUC PR': 0.975638, 'Learning time': 582.209, 'AUC ROC': 0.952242, 'Inference time': 110.475, 'Precision': [0.983533, 0.5], 'Mapping results': {'Generating mappings time': 0.13344383239746094, 'Possible mappings': [224], 'Generating paths time': 2.7648119926452637, 'Total time': 2.9938952922821045, 'Numbers preds mapping': [9], 'Finding best mapping': 1.430511474609375e-06, 'Max mapping': 1771561, 'Knowledge compiling time': 0.09562826156616211}, 'parameter': {'Recall': 0.856255, 'F1': 0.915491, 'AUC PR': 0.968461, 'Learning time': 126.081, 'AUC ROC': 0.950729, 'Inference time': 12.098, 'Precision': [0.983533, 0.5], 'CLL': -0.308101}, 'CLL': -0.298388}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.8581489350995073;  // std dev = 0,000, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.8400329930705224;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.8432513559561183;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.2690016482778033;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.3053034066442231;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return 0.0010060779566533865;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.027976719350752858;  // std dev = 0,318, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.7194734122109049;  // std dev = 1,39e-05, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else return 0.7066991106707255;  // std dev = 0,125, 1.626,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=1.600 */
+%   else if ( venue(A, E), venue(B, E) )
+%   | then if ( author(A, F), author(B, F) )
+%   | | then return 0.23300505120772294;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.26393663086941804;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, G), author(B, G) )
+%   | | then return 8.83564616335466E-4;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.02460513438441301;  // std dev = 0,318, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.5553664367462875;  // std dev = 8,22e-06, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.5448647353915836;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.5472911135562262;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.19634977827222955;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.2211060293443922;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else return -0.01672491631807275;  // std dev = 0,325, 3.924,000 (wgt'ed) examples reached here.  /* #neg=3.452 #pos=472 */
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.41751358415831547;  // std dev = 6,68e-06, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.40949703740311066;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.41133436076411894;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( author(A, F), author(B, F) )
+%   | then if ( venue(A, G), venue(B, G) )
+%   | | then return 0.16142063865988907;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.0028023888710973117;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | else return 0.0191276195987965;  // std dev = 0,368, 3.794,000 (wgt'ed) examples reached here.  /* #neg=3.116 #pos=678 */
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.3207118471601672;  // std dev = 0,000, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.31345380392822314;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.31501600236390953;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.12999738984105957;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.17634633813822628;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return 0.002464530202065922;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.021977518516330265;  // std dev = 0,318, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.25517224256949683;  // std dev = 3,37e-07, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.2479748639973108;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.24943074515416755;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.10301026674781594;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.140153987281148;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return 0.0021668407889808804;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.01941802957979882;  // std dev = 0,318, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.2097577156325362;  // std dev = 2,95e-06, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.202424013868448;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.2038426776396395;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.08063824821714981;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.10955852985134452;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return 0.0019046732203416676;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.017190682005110276;  // std dev = 0,318, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.17709649774526864;  // std dev = 3,17e-06, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.16959598560516556;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.17100377502319236;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.06256561111252498;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.08464006400491018;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return 0.0016738883526039635;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.015245273207925127;  // std dev = 0,318, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.15274385809368185;  // std dev = 0,000, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.14509308610362703;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.14649957010363418;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.048232897534548194;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.06486158715544309;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return 0.0014708065532747993;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.013540647908460567;  // std dev = 0,318, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.13400703000801686;  // std dev = 0,000, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.12623219020096352;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.12764036232886886;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.03701281594683036;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.04943245792451189;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else return -0.009093047176879906;  // std dev = 0,325, 3.924,000 (wgt'ed) examples reached here.  /* #neg=3.452 #pos=472 */
+
+
+Results
+   AUC ROC   = 0.93372
+   AUC PR    = 0.967303
+   CLL	      = -0.301195
+   Precision = 0.983533 at threshold = 0.5
+   Recall    = 0.856255
+   F1        = 0.915491
+
+
+Total learning time: 264.062 seconds
+Total inference time: 6.837 seconds
+AUC ROC: 0.93372
+
+
+Dataset: 12_uwcse_cora, Fold: 1, Type: Scratch (RDN-B), Time: 04:22:31
+{'Recall': 0.856255, 'F1': 0.915491, 'AUC PR': 0.967303, 'Learning time': 264.062, 'AUC ROC': 0.93372, 'Inference time': 6.837, 'Precision': [0.983533, 0.5], 'CLL': -0.301195}
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.8581489350995073;  // std dev = 0,000, 2.723,000 (wgt'ed) examples reached here.  /* #pos=2.723 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.8400329930705224;  // std dev = 0,133, 552,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=542 */
+%   | | else return 0.8432513559561183;  // std dev = 0,121, 1.074,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=1.058 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.2690016482778033;  // std dev = 0,492, 258,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=106 */
+%   | | else return 0.3053034066442231;  // std dev = 0,497, 738,000 (wgt'ed) examples reached here.  /* #neg=408 #pos=330 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return 0.0010060779566533865;  // std dev = 0,350, 868,000 (wgt'ed) examples reached here.  /* #neg=744 #pos=124 */
+%   | | else return -0.027976719350752858;  // std dev = 0,318, 3.056,000 (wgt'ed) examples reached here.  /* #neg=2.708 #pos=348 */
+
+
+Results
+   AUC ROC   = 0.93372
+   AUC PR    = 0.967303
+   CLL	      = -0.91886
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 34.03 seconds
+Total inference time: 4.38 seconds
+AUC ROC: 0.93372
+
+
+Dataset: 12_uwcse_cora, Fold: 1, Type: Scratch (RDN), Time: 04:23:10
+{'Recall': 0.0, 'F1': nan, 'AUC PR': 0.967303, 'Learning time': 34.03, 'AUC ROC': 0.93372, 'Inference time': 4.38, 'Precision': [nan, 0.5], 'CLL': -0.91886}
+
+
+Starting fold 2
+
+Target predicate: samebib
+Mapping Results
+   Knowledge compiling time   = 0.0878455638885498
+   Generating paths time   = 2.8737025260925293
+   Generating mappings time   = 0.13723206520080566
+   Possible mappings   = [224]
+   Max mapping   = 1771561
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 1.6689300537109375e-06
+   Total time   = 3.0987906455993652
+
+
+Best mapping found: ['samecourse(A,B) -> sameauthor(A,B)', 'hasposition(A,B) -> venue(A,B)', 'publication(A,B) -> title(B,A)', 'advisedby(A,B) -> samebib(A,B)'] 
+
+Transferred target predicate: samebib 
+
+Target train facts examples: 2423
+Target train pos examples: 6593
+Target train neg examples: 588
+
+Target test facts examples: 9164
+Target test pos examples: 24378
+Target test neg examples: 18590
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;samebib(A, B) :- title(B, C), title(A, C).;false;false
+1;;samebib(A, B) :- sameauthor(D, F).;false;false
+2;;samebib(A, B) :- venue(B, C).;true;true
+2;true,false;venue(J, C).;false;false
+2;true,true;title(B, H).;false;false
+2;true;title(A, H).;true;true
+2;false;title(B, L).;false;false
+3;;samebib(A, B) :- venue(B, C).;true;false
+3;true,true;title(E, D).;false;true
+3;true;title(A, D), title(B, D).;true;true
+3;true,false,true;venue(J, C), title(J, I).;false;false
+3;true,false,false;venue(K, C).;false;false
+3;true,false;title(A, I).;true;true
+3;true,true,false;title(F, D).;false;false
+4;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+5;;samebib(A, B) :- title(A, L), title(B, L).;false;false
+6;;samebib(A, B) :- venue(B, C).;true;false
+6;true,false;title(A, I).;false;true
+6;true,true;title(B, F).;false;false
+6;true;venue(D, C).;true;true
+6;true,false,false;title(B, J).;false;false
+7;;samebib(A, B) :- title(B, C), title(A, C).;true;false
+7;true,false;title(A, H).;true;true
+7;true;title(D, C).;false;true
+7;true,false,true;title(I, H).;false;false
+7;true,false,false;title(L, M).;false;false
+8;;samebib(A, B) :- venue(B, C).;true;false
+8;true,true;title(E, D).;false;false
+8;true;title(A, D), title(B, D).;true;true
+8;true,false,true;venue(L, C), title(L, J).;false;false
+8;true,false,false;venue(M, C).;false;false
+8;true,false;title(A, J), title(B, K).;true;true
+9;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then return 0.8581489350995557;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else return 0.5382359862420536;  // std dev = 19,997, 1.838,000 (wgt'ed) examples reached here.  /* #neg=588 #pos=1.250 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( sameauthor(C, D) )
+%   then return 0.6529110554729792;  // std dev = 22,190, 7.181,000 (wgt'ed) examples reached here.  /* #neg=588 #pos=6.593 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D) )
+%   | then if ( title(B, D) )
+%   | | then return 0.5717366099079605;  // std dev = 8,96e-06, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   | | else return 0.32776615312072066;  // std dev = 19,997, 1.838,000 (wgt'ed) examples reached here.  /* #neg=588 #pos=1.250 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.4297682859644006;  // std dev = 7,58e-06, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F) )
+%   | | then if ( venue(G, C), title(G, F) )
+%   | | | then return 0.5306518093801779;  // std dev = 5,187, 715,000 (wgt'ed) examples reached here.  /* #neg=28 #pos=687 */
+%   | | | else return 0.07114835646621741;  // std dev = 16,756, 1.123,000 (wgt'ed) examples reached here.  /* #neg=560 #pos=563 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.32903234195100256;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else return 0.18789175627979618;  // std dev = 18,966, 1.838,000 (wgt'ed) examples reached here.  /* #neg=588 #pos=1.250 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.26084192521238553;  // std dev = 8,60e-07, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else return 0.14157647579114252;  // std dev = 18,975, 1.838,000 (wgt'ed) examples reached here.  /* #neg=588 #pos=1.250 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( venue(D, C) )
+%   | then if ( title(B, E) )
+%   | | then return 0.18644613202832488;  // std dev = 19,398, 7.181,000 (wgt'ed) examples reached here.  /* #neg=588 #pos=6.593 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( title(D, C) )
+%   | then return 0.1840890988969181;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.06270053375403678;  // std dev = 19,028, 1.838,000 (wgt'ed) examples reached here.  /* #neg=588 #pos=1.250 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.15802801895810809;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F), title(B, G) )
+%   | | then if ( venue(H, C), title(H, F) )
+%   | | | then return 0.26486921863446256;  // std dev = 5,187, 715,000 (wgt'ed) examples reached here.  /* #neg=28 #pos=687 */
+%   | | | else return -0.08980341528938626;  // std dev = 16,756, 1.123,000 (wgt'ed) examples reached here.  /* #neg=560 #pos=563 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.13811890169305827;  // std dev = 3,38e-06, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else return 0.04091770311201419;  // std dev = 18,489, 1.838,000 (wgt'ed) examples reached here.  /* #neg=588 #pos=1.250 */
+
+
+Results
+   AUC ROC   = 0.952333
+   AUC PR    = 0.962818
+   CLL	      = -0.498561
+   Precision = 0.567352 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.723963
+
+
+Total learning time: 91.168 seconds
+Total inference time: 12.957 seconds
+AUC ROC: 0.952333
+
+
+Structure after Parameter Learning
+[['samebib(A, B)', {'': 'title(B, C), title(A, C)'}, {'false': [19.997, 588, 1250], 'true': [0.0, 0, 5343]}], ['samebib(A, B)', {'': 'sameauthor(C, D)'}, {'false': [0.0, 0, 0], 'true': [22.19, 588, 6593]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, D)', 'true': 'title(A, D)'}, {'true,true,true': [8.96e-06, 0, 5343], 'true,false': [0.0, 0, 0], 'true,true,false': [19.997, 588, 1250], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(G, C), title(G, F)'}, {'true,true,true': [7.58e-06, 0, 5343], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [16.756, 560, 563], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [5.187, 28, 687]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [18.966, 588, 1250], 'true': [0.0, 0, 5343]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [18.975, 588, 1250], 'true': [8.6e-07, 0, 5343]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, E)', 'true': 'venue(D, C)'}, {'true,true,true': [19.398, 588, 6593], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'title(B, C), title(A, C)', 'true': 'title(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [19.028, 588, 1250], 'true,true': [0.0, 0, 5343]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F), title(B, G)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(H, C), title(H, F)'}, {'true,true,true': [0.0, 0, 5343], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [16.756, 560, 563], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [5.187, 28, 687]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [18.489, 588, 1250], 'true': [3.38e-06, 0, 5343]}]]
+[{'': [-3.1916574318252676e-14, 0.21756865401080544]}, {'': [0.06856683736552874, nan]}, {'': [0.06702275507120853, nan], 'true,true': [1.5022067645790926e-14, 0.21756865401080047], 'true': [0.06702275507120853, nan]}, {'': [0.06184868279909542, nan], 'true,false': [0.21756865401078795, nan], 'true,true': [1.0745246687145067e-14, nan], 'true': [1.0745246687145067e-14, 0.21756865401078795], 'true,false,true': [0.03762726783706251, 0.24999821588434162]}, {'': [-2.2043713995806514e-14, 0.1956970222408336]}, {'': [1.3830515537909493e-16, 0.19589388455207626]}, {'': [0.05239914743832872, nan], 'true,true': [0.05239914743832872, nan], 'true': [0.05239914743832872, nan]}, {'': [-1.0356928366272994e-14, 0.19697823356166386], 'true': [-1.0356928366272994e-14, nan]}, {'': [0.05279354963259816, nan], 'true,false': [0.19728238850265334, nan], 'true,true': [-1.5000789929578757e-15, nan], 'true': [-1.5000789929578757e-15, 0.19728238850265334], 'true,false,true': [0.03762726783705845, 0.2499982158843364]}, {'': [2.14107019384945e-15, 0.18599381257126538]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '2;;samebib(A, B) :- title(B, D).;true;true', '3;;samebib(A, B) :- title(A, D), title(B, D).;true;true', '4;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '5;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '7;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '8;;samebib(A, B) :- title(A, D), title(B, D).;true;true', '9;;samebib(A, B) :- title(A, C), title(B, C).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then return 0.8581489350995557;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.8189332488249994;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.7987429945054497;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.3695644602136633;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.5020121141739542;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.7194734122108756;  // std dev = 2,45e-05, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.6881041455291494;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.6718997085241697;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.3183846939533912;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.429359331838382;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then if ( haswordvenue(D, E), haswordauthor(F, E) )
+%   | | then return 0.557623704306788;  // std dev = 0,068, 108,000 (wgt'ed) examples reached here.  /* #pos=108 */
+%   | | else if ( author(A, G), author(B, G) )
+%   | | | then return 0.5515375839870753;  // std dev = 2,786, 1.201,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=1.193 */
+%   | | | else return 0.5505263495218901;  // std dev = 3,387, 1.406,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=1.394 */
+%   | else return 0.48070201202094365;  // std dev = 0,296, 4.466,000 (wgt'ed) examples reached here.  /* #neg=568 #pos=3.898 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.42831520431985426;  // std dev = 0,625, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.396439697657934;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.38549139221212353;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.16421076833830284;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.23964663607261258;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.328071287121147;  // std dev = 0,562, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.3025910493690358;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.29338337342264303;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.12612167668837868;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.18086538330475474;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.2602037224241587;  // std dev = 0,491, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.23809436613145699;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.22960671468710817;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.09585291989115408;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.13571753047222718;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.21331521746085036;  // std dev = 0,428, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.1929828561313335;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.18479376500541073;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.07240123508088459;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.10188646604697109;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then return 0.17970741224626471;  // std dev = 0,376, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.16036435073075084;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.15231475235372177;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.05449897827240421;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.07672375912690217;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.15472559457164167;  // std dev = 0,333, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.13597379944495883;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.1280084241173015;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.0409469276839572;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.05799433269272991;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.13555497318478596;  // std dev = 0,298, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.11718462121800788;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.10928859833698555;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.030734984025207683;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.04399699669796793;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+
+
+Results
+   AUC ROC   = 0.942698
+   AUC PR    = 0.965884
+   CLL	      = -0.49557
+   Precision = 0.646731 at threshold = 0.5
+   Recall    = 0.970547
+   F1        = 0.776221
+
+
+Total learning time: 83.306 seconds
+Total inference time: 7.204 seconds
+AUC ROC: 0.942698
+
+
+Refined model AUC ROC: 0.942698
+
+
+Dataset: 12_uwcse_cora, Fold: 2, Type: Transfer (trRDN-B), Time: 04:26:33
+{'Recall': 0.970547, 'F1': 0.776221, 'AUC PR': 0.965884, 'Learning time': 174.474, 'AUC ROC': 0.942698, 'Inference time': 7.204, 'Precision': [0.646731, 0.5], 'Mapping results': {'Generating mappings time': 0.13723206520080566, 'Possible mappings': [224], 'Generating paths time': 2.8737025260925293, 'Total time': 3.0987906455993652, 'Numbers preds mapping': [9], 'Finding best mapping': 1.6689300537109375e-06, 'Max mapping': 1771561, 'Knowledge compiling time': 0.0878455638885498}, 'parameter': {'Recall': 1.0, 'F1': 0.723963, 'AUC PR': 0.962818, 'Learning time': 91.168, 'AUC ROC': 0.952333, 'Inference time': 12.957, 'Precision': [0.567352, 0.5], 'CLL': -0.498561}, 'CLL': -0.49557}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.8581489350995557;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.8189332488249994;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.7987429945054497;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.3695644602136633;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.5020121141739542;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.7194734122108756;  // std dev = 2,45e-05, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.6881041455291494;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.6718997085241697;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.3183846939533912;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.429359331838382;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.5553664367462561;  // std dev = 1,84e-05, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.5335055863706168;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.5221970484879556;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.26392677987919494;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.3483234275757889;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.41751358415831497;  // std dev = 1,14e-05, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.40093685973597126;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.39253296729777;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.21158899960814764;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.2710822913793411;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.32071184716012285;  // std dev = 1,09e-05, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.30569640981296115;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.2982913297845128;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.16538531330399617;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.2058483839397722;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.2551722425694955;  // std dev = 3,08e-06, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.24023736899545156;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.2330131332215723;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.12707137650380423;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.15470509212115172;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.20975771563257042;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.19450614072141004;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.1872222116540386;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.0965963930528276;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.11605923091657072;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.17709649774530278;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.1614851685766138;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.15410354630017242;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.07297215959503768;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.08725939814753307;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.15274385809368374;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.13682515712444202;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.12936701982303703;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.05493259918430688;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.06584349140720365;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.13400703000800976;  // std dev = 2,48e-06, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( author(A, D), author(B, D) )
+%   | then if ( venue(A, E), venue(B, E) )
+%   | | then return 0.11784931787670026;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.041274261308991096;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | else if ( venue(A, F), venue(B, F) )
+%   | | then return 0.11034830641253027;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | | else return 0.049871233557997004;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+
+
+Results
+   AUC ROC   = 0.938989
+   AUC PR    = 0.956127
+   CLL	      = -0.490456
+   Precision = 0.646731 at threshold = 0.5
+   Recall    = 0.970547
+   F1        = 0.776221
+
+
+Total learning time: 87.349 seconds
+Total inference time: 6.701 seconds
+AUC ROC: 0.938989
+
+
+Dataset: 12_uwcse_cora, Fold: 2, Type: Scratch (RDN-B), Time: 04:28:08
+{'Recall': 0.970547, 'F1': 0.776221, 'AUC PR': 0.956127, 'Learning time': 87.349, 'AUC ROC': 0.938989, 'Inference time': 6.701, 'Precision': [0.646731, 0.5], 'CLL': -0.490456}
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.8581489350995557;  // std dev = 0,000, 5.343,000 (wgt'ed) examples reached here.  /* #pos=5.343 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.8189332488249994;  // std dev = 0,194, 204,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=196 */
+%   | | else return 0.7987429945054497;  // std dev = 0,236, 202,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=190 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return 0.3695644602136633;  // std dev = 0,500, 438,000 (wgt'ed) examples reached here.  /* #neg=214 #pos=224 */
+%   | | else return 0.5020121141739542;  // std dev = 0,479, 994,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=640 */
+
+
+Results
+   AUC ROC   = 0.938989
+   AUC PR    = 0.956127
+   CLL	      = -0.841401
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 12.784 seconds
+Total inference time: 4.578 seconds
+AUC ROC: 0.938989
+
+
+Dataset: 12_uwcse_cora, Fold: 2, Type: Scratch (RDN), Time: 04:28:26
+{'Recall': 0.0, 'F1': nan, 'AUC PR': 0.956127, 'Learning time': 12.784, 'AUC ROC': 0.938989, 'Inference time': 4.578, 'Precision': [nan, 0.5], 'CLL': -0.841401}
+
+
+Starting fold 3
+
+Target predicate: samebib
+Mapping Results
+   Knowledge compiling time   = 0.1797318458557129
+   Generating paths time   = 2.723994731903076
+   Generating mappings time   = 0.20781683921813965
+   Possible mappings   = [224]
+   Max mapping   = 1771561
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 1.1920928955078125e-06
+   Total time   = 3.1115527153015137
+
+
+Best mapping found: ['samecourse(A,B) -> sameauthor(A,B)', 'hasposition(A,B) -> venue(A,B)', 'publication(A,B) -> title(B,A)', 'advisedby(A,B) -> samebib(A,B)'] 
+
+Transferred target predicate: samebib 
+
+Target train facts examples: 2252
+Target train pos examples: 7054
+Target train neg examples: 7054
+
+Target test facts examples: 9335
+Target test pos examples: 23917
+Target test neg examples: 12124
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;samebib(A, B) :- title(B, C), title(A, C).;false;false
+1;;samebib(A, B) :- sameauthor(D, F).;false;false
+2;;samebib(A, B) :- venue(B, C).;true;true
+2;true,false;venue(J, C).;false;false
+2;true,true;title(B, H).;false;false
+2;true;title(A, H).;true;true
+2;false;title(B, L).;false;false
+3;;samebib(A, B) :- venue(B, C).;true;false
+3;true,true;title(E, D).;false;true
+3;true;title(A, D), title(B, D).;true;true
+3;true,false,true;venue(J, C), title(J, I).;false;false
+3;true,false,false;venue(K, C).;false;false
+3;true,false;title(A, I).;true;true
+3;true,true,false;title(F, D).;false;false
+4;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+5;;samebib(A, B) :- title(A, L), title(B, L).;false;false
+6;;samebib(A, B) :- venue(B, C).;true;false
+6;true,false;title(A, I).;false;true
+6;true,true;title(B, F).;false;false
+6;true;venue(D, C).;true;true
+6;true,false,false;title(B, J).;false;false
+7;;samebib(A, B) :- title(B, C), title(A, C).;true;false
+7;true,false;title(A, H).;true;true
+7;true;title(D, C).;false;true
+7;true,false,true;title(I, H).;false;false
+7;true,false,false;title(L, M).;false;false
+8;;samebib(A, B) :- venue(B, C).;true;false
+8;true,true;title(E, D).;false;false
+8;true;title(A, D), title(B, D).;true;true
+8;true,false,true;venue(L, C), title(L, J).;false;false
+8;true,false,false;venue(M, C).;false;false
+8;true,false;title(A, J), title(B, K).;true;true
+9;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then return 0.8405067257014177;  // std dev = 10,252, 6.065,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=5.958 */
+%   else return -0.005583503045463127;  // std dev = 30,768, 8.043,000 (wgt'ed) examples reached here.  /* #neg=6.947 #pos=1.096 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( sameauthor(C, D) )
+%   then return 0.300444141657021;  // std dev = 52,879, 14.108,000 (wgt'ed) examples reached here.  /* #neg=7.054 #pos=7.054 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D) )
+%   | then if ( title(B, D) )
+%   | | then return 0.6414045475557113;  // std dev = 10,252, 6.065,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=5.958 */
+%   | | else return -0.04539269513368956;  // std dev = 30,768, 8.043,000 (wgt'ed) examples reached here.  /* #neg=6.947 #pos=1.096 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.48676882243277814;  // std dev = 10,252, 6.065,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=5.958 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F) )
+%   | | then if ( venue(G, C), title(G, F) )
+%   | | | then return 0.7586640334308574;  // std dev = 6,034, 588,000 (wgt'ed) examples reached here.  /* #neg=39 #pos=549 */
+%   | | | else return -0.10163586117487161;  // std dev = 22,514, 7.455,000 (wgt'ed) examples reached here.  /* #neg=6.908 #pos=547 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.36718133641992406;  // std dev = 10,252, 6.065,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=5.958 */
+%   else return -0.035584224755862925;  // std dev = 28,592, 8.043,000 (wgt'ed) examples reached here.  /* #neg=6.947 #pos=1.096 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.28467123350313245;  // std dev = 10,252, 6.065,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=5.958 */
+%   else return -0.03063218015427376;  // std dev = 28,631, 8.043,000 (wgt'ed) examples reached here.  /* #neg=6.947 #pos=1.096 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( venue(D, C) )
+%   | then if ( title(B, E) )
+%   | | then return 0.08301226222034747;  // std dev = 33,926, 14.108,000 (wgt'ed) examples reached here.  /* #neg=7.054 #pos=7.054 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( title(D, C) )
+%   | then return 0.21312413407641614;  // std dev = 10,252, 6.065,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=5.958 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.037961473309271;  // std dev = 28,574, 8.043,000 (wgt'ed) examples reached here.  /* #neg=6.947 #pos=1.096 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.17747233174474455;  // std dev = 10,252, 6.065,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=5.958 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F), title(B, G) )
+%   | | then if ( venue(H, C), title(H, F) )
+%   | | | then return 0.6264290467698669;  // std dev = 6,034, 588,000 (wgt'ed) examples reached here.  /* #neg=39 #pos=549 */
+%   | | | else return -0.08460666339418878;  // std dev = 22,514, 7.455,000 (wgt'ed) examples reached here.  /* #neg=6.908 #pos=547 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.15109751258251874;  // std dev = 10,252, 6.065,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=5.958 */
+%   else return -0.03318351846223378;  // std dev = 26,655, 8.043,000 (wgt'ed) examples reached here.  /* #neg=6.947 #pos=1.096 */
+
+
+Results
+   AUC ROC   = 0.946839
+   AUC PR    = 0.970464
+   CLL	      = -0.300566
+   Precision = 0.986082 at threshold = 0.5
+   Recall    = 0.853159
+   F1        = 0.914817
+
+
+Total learning time: 289.25 seconds
+Total inference time: 10.975 seconds
+AUC ROC: 0.946839
+
+
+Structure after Parameter Learning
+[['samebib(A, B)', {'': 'title(B, C), title(A, C)'}, {'false': [30.768, 6947, 1096], 'true': [10.252, 107, 5958]}], ['samebib(A, B)', {'': 'sameauthor(C, D)'}, {'false': [0.0, 0, 0], 'true': [52.879, 7054, 7054]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, D)', 'true': 'title(A, D)'}, {'true,true,true': [10.252, 107, 5958], 'true,false': [0.0, 0, 0], 'true,true,false': [30.768, 6947, 1096], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(G, C), title(G, F)'}, {'true,true,true': [10.252, 107, 5958], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [22.514, 6908, 547], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [6.034, 39, 549]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [28.592, 6947, 1096], 'true': [10.252, 107, 5958]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [28.631, 6947, 1096], 'true': [10.252, 107, 5958]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, E)', 'true': 'venue(D, C)'}, {'true,true,true': [33.926, 7054, 7054], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'title(B, C), title(A, C)', 'true': 'title(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [28.574, 6947, 1096], 'true,true': [10.252, 107, 5958]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F), title(B, G)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(H, C), title(H, F)'}, {'true,true,true': [10.252, 107, 5958], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [22.514, 6908, 547], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [6.034, 39, 549]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [26.655, 6947, 1096], 'true': [10.252, 107, 5958]}]]
+[{'': [0.017330961845598486, 0.11769871344114215]}, {'': [0.19819714528896631, nan]}, {'': [0.1901554094303099, nan], 'true,true': [0.017330961845640626, 0.11769871344113962], 'true': [0.1901554094303099, nan]}, {'': [0.14223405733774463, nan], 'true,false': [0.11769871344107227, nan], 'true,true': [0.017330961845772326, nan], 'true': [0.017330961845772326, 0.11769871344107227], 'true,false,true': [0.06192732194918526, 0.0679898933057225]}, {'': [0.017330961845731425, 0.10164303220542954]}, {'': [0.017330961845711864, 0.10191652109528185]}, {'': [0.08158132125179265, nan], 'true,true': [0.08158132125179265, nan], 'true': [0.08158132125179265, nan]}, {'': [0.0173309618457285, 0.10151475595109764], 'true': [0.0173309618457285, nan]}, {'': [0.07630833024194576, nan], 'true,false': [0.1018054383649354, nan], 'true,true': [0.017330961845729607, nan], 'true': [0.017330961845729607, 0.1018054383649354], 'true,false,true': [0.06192732194918405, 0.06798989330573282]}, {'': [0.017330961845734336, 0.08833388275490928]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Pruning resulted in null theory
+
+Candidate for revision
+['0;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '1;;samebib(A, B) :- sameauthor(C, D).;true;true', '2;;samebib(A, B) :- venue(B, C).;true;true', '2;true,true;title(B, D).;true;true', '2;true;title(A, D).;true;true', '3;;samebib(A, B) :- venue(B, C).;true;true', '3;true,false;title(A, F).;true;true', '3;true,true;title(E, D).;true;true', '3;true;title(A, D), title(B, D).;true;true', '3;true,false,true;venue(G, C), title(G, F).;true;true', '4;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '5;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '6;;samebib(A, B) :- venue(B, C).;true;true', '6;true,true;title(B, E).;true;true', '6;true;venue(D, C).;true;true', '7;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '7;true;title(D, C).;true;true', '8;;samebib(A, B) :- venue(B, C).;true;true', '8;true,false;title(A, F), title(B, G).;true;true', '8;true,true;title(E, D).;true;true', '8;true;title(A, D), title(B, D).;true;true', '8;true,false,true;venue(H, C), title(H, F).;true;true', '9;;samebib(A, B) :- title(A, C), title(B, C).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.8581489350995074;  // std dev = 4,79e-06, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.8316802456224254;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.8364384087837178;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return 0.006344811388167628;  // std dev = 0,355, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else return -0.01308005862391758;  // std dev = 0,335, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( sameauthor(C, D) )
+%   then if ( title(A, E), title(B, E) )
+%   | then if ( venue(A, F), venue(B, F) )
+%   | | then return 0.719473412210955;  // std dev = 0,000, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | | else if ( author(A, G), author(B, G) )
+%   | | | then return 0.698315773069036;  // std dev = 6,318, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | | else return 0.7021238017336434;  // std dev = 8,035, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return 0.005570705211392432;  // std dev = 0,355, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | | else return -0.01149527838724313;  // std dev = 0,335, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D) )
+%   | then if ( title(B, D) )
+%   | | then if ( author(A, E), author(B, E) )
+%   | | | then return 0.5458798614542689;  // std dev = 6,327, 2.407,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=2.366 */
+%   | | | else return 0.5453212531673365;  // std dev = 8,040, 3.658,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=3.592 */
+%   | | else if ( author(A, F), author(B, F) )
+%   | | | then return 0.004888144278047613;  // std dev = 19,795, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | | | else return -0.010114767696543616;  // std dev = 23,539, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then if ( author(A, F), author(B, F) )
+%   | | | then return 0.410281343376942;  // std dev = 6,327, 2.407,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=2.366 */
+%   | | | else return 0.40984699530947005;  // std dev = 8,040, 3.658,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=3.592 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, G) )
+%   | | then if ( venue(H, C), title(H, G) )
+%   | | | then return 0.7932601026474614;  // std dev = 6,031, 588,000 (wgt'ed) examples reached here.  /* #neg=39 #pos=549 */
+%   | | | else return -0.0666846589566169;  // std dev = 22,513, 7.455,000 (wgt'ed) examples reached here.  /* #neg=6.908 #pos=547 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.32445613117849204;  // std dev = 0,004, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.3084197730247666;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.31149320219065646;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return 0.0010848592399913322;  // std dev = 0,331, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else return -0.00992947074793572;  // std dev = 0,315, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.25772553455880826;  // std dev = 0,004, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.2435402941584931;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.24620510136656693;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return 9.501997021391753E-4;  // std dev = 0,331, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else return -0.008758029636323566;  // std dev = 0,315, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( venue(D, C) )
+%   | then if ( title(B, E) )
+%   | | then if ( author(A, F), author(B, F) )
+%   | | | then return 0.08913101471357204;  // std dev = 20,873, 5.511,000 (wgt'ed) examples reached here.  /* #neg=2.685 #pos=2.826 */
+%   | | | else return 0.08175800696367172;  // std dev = 25,478, 8.597,000 (wgt'ed) examples reached here.  /* #neg=4.369 #pos=4.228 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( title(D, C) )
+%   | then if ( venue(A, E), venue(B, E) )
+%   | | then return 0.19756419982028672;  // std dev = 0,025, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | | else if ( author(A, F), author(B, F) )
+%   | | | then return 0.1831462025564251;  // std dev = 6,318, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | | else return 0.1869221984123689;  // std dev = 8,035, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( author(A, G), author(B, G) )
+%   | then return -0.010587570624907184;  // std dev = 0,330, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else if ( venue(A, H), venue(B, H) )
+%   | | then return 0.7267825831374627;  // std dev = 0,000, 124,000 (wgt'ed) examples reached here.  /* #pos=124 */
+%   | | else return -0.03673460248516414;  // std dev = 0,295, 4.815,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=512 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then if ( author(A, F), author(B, F) )
+%   | | | then return 0.15911637449187385;  // std dev = 6,325, 2.407,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=2.366 */
+%   | | | else return 0.1596010449180617;  // std dev = 8,039, 3.658,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=3.592 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, G), title(B, H) )
+%   | | then if ( venue(I, C), title(I, G) )
+%   | | | then return 0.6222541016185649;  // std dev = 5,997, 588,000 (wgt'ed) examples reached here.  /* #neg=39 #pos=549 */
+%   | | | else return -0.06442279424193499;  // std dev = 22,516, 7.455,000 (wgt'ed) examples reached here.  /* #neg=6.908 #pos=547 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.1469818672346279;  // std dev = 0,019, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.13202071232716978;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.1354233454670876;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then if ( venue(A, G), venue(B, G) )
+%   | | then return 0.5712869066504637;  // std dev = 0,000, 110,000 (wgt'ed) examples reached here.  /* #pos=110 */
+%   | | else return -0.03527533201592666;  // std dev = 0,290, 2.994,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=350 */
+%   | else return -0.020200401769471098;  // std dev = 0,288, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+
+
+Results
+   AUC ROC   = 0.949529
+   AUC PR    = 0.977298
+   CLL	      = -0.290351
+   Precision = 0.95501 at threshold = 0.5
+   Recall    = 0.901744
+   F1        = 0.927613
+
+
+Total learning time: 674.791 seconds
+Total inference time: 96.009 seconds
+AUC ROC: 0.949529
+
+
+Refined model AUC ROC: 0.949529
+
+
+Dataset: 12_uwcse_cora, Fold: 3, Type: Transfer (trRDN-B), Time: 04:46:22
+{'Recall': 0.901744, 'F1': 0.927613, 'AUC PR': 0.977298, 'Learning time': 964.041, 'AUC ROC': 0.949529, 'Inference time': 96.009, 'Precision': [0.95501, 0.5], 'Mapping results': {'Generating mappings time': 0.20781683921813965, 'Possible mappings': [224], 'Generating paths time': 2.723994731903076, 'Total time': 3.1115527153015137, 'Numbers preds mapping': [9], 'Finding best mapping': 1.1920928955078125e-06, 'Max mapping': 1771561, 'Knowledge compiling time': 0.1797318458557129}, 'parameter': {'Recall': 0.853159, 'F1': 0.914817, 'AUC PR': 0.970464, 'Learning time': 289.25, 'AUC ROC': 0.946839, 'Inference time': 10.975, 'Precision': [0.986082, 0.5], 'CLL': -0.300566}, 'CLL': -0.290351}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.8581489350995074;  // std dev = 4,79e-06, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.8316802456224254;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.8364384087837178;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return 0.006344811388167628;  // std dev = 0,355, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else return -0.01308005862391758;  // std dev = 0,335, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( author(A, D), author(B, D) )
+%   | then return 0.7058576319737655;  // std dev = 0,129, 2.407,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=2.366 */
+%   | else if ( venue(A, E), venue(B, E) )
+%   | | then return 0.7194734122109586;  // std dev = 0,000, 618,000 (wgt'ed) examples reached here.  /* #pos=618 */
+%   | | else return 0.7021238017336434;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then return 0.8586248371076386;  // std dev = 0,018, 234,000 (wgt'ed) examples reached here.  /* #pos=234 */
+%   | else if ( author(A, G), author(B, G) )
+%   | | then return -0.025724703475395055;  // std dev = 0,321, 2.994,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=350 */
+%   | | else return -0.03393191290888666;  // std dev = 0,308, 4.815,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=512 */
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.5573193877997088;  // std dev = 0,064, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.5387727499379059;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.543279173084523;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return 0.0036412938240777243;  // std dev = 0,344, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else return -0.011012311008129435;  // std dev = 0,326, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.4189650985741287;  // std dev = 0,063, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.4048898165073705;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.4082918679547712;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return 0.0031929660613504887;  // std dev = 0,344, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else return -0.009698753328222598;  // std dev = 0,326, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.32169701374791476;  // std dev = 0,056, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.3095247391315923;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.31229290511569574;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return 0.002798891662140279;  // std dev = 0,344, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else if ( venue(A, G), venue(B, G) )
+%   | | then return 0.726148049619964;  // std dev = 0,000, 124,000 (wgt'ed) examples reached here.  /* #pos=124 */
+%   | | else return -0.027471034404269335;  // std dev = 0,308, 4.815,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=512 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.2558449219281259;  // std dev = 0,049, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.2443001747171456;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.2467541511895102;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return 0.0024527257437963164;  // std dev = 0,344, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else if ( venue(A, G), venue(B, G) )
+%   | | then return 0.5619348406292916;  // std dev = 2,38e-07, 124,000 (wgt'ed) examples reached here.  /* #pos=124 */
+%   | | else return -0.02431900659264061;  // std dev = 0,308, 4.815,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=512 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.21023311545027265;  // std dev = 0,043, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.1988343915703698;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.2011315373941415;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.715641682540641;  // std dev = 0,000, 110,000 (wgt'ed) examples reached here.  /* #pos=110 */
+%   | | else return 0.42240298892900846;  // std dev = 3,21e-07, 124,000 (wgt'ed) examples reached here.  /* #pos=124 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return -0.024065019050429577;  // std dev = 0,321, 2.994,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=350 */
+%   | | else return -0.021581502656554227;  // std dev = 0,308, 4.815,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=512 */
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( author(A, D), author(B, D) )
+%   | then return 0.17039506141279323;  // std dev = 0,129, 2.407,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=2.366 */
+%   | else if ( venue(A, E), venue(B, E) )
+%   | | then return 0.17629091122174465;  // std dev = 0,000, 618,000 (wgt'ed) examples reached here.  /* #pos=618 */
+%   | | else return 0.16824305105136397;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return -8.764183135673018E-4;  // std dev = 0,333, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else return -0.010576255883155618;  // std dev = 0,309, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.15360541573339076;  // std dev = 0,048, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.140919096670483;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.1436937377695358;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.551857651207023;  // std dev = 3,04e-07, 110,000 (wgt'ed) examples reached here.  /* #pos=110 */
+%   | | else return 0.32634932412399126;  // std dev = 2,06e-07, 124,000 (wgt'ed) examples reached here.  /* #pos=124 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return -0.021071714911656228;  // std dev = 0,321, 2.994,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=350 */
+%   | | else return -0.018036913100696758;  // std dev = 0,308, 4.815,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=512 */
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.13467947982983397;  // std dev = 0,043, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.12218825436117335;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.12479841157097396;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return -0.003222133064241434;  // std dev = 0,326, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else return -0.009179135727124855;  // std dev = 0,307, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+
+
+Results
+   AUC ROC   = 0.935975
+   AUC PR    = 0.972238
+   CLL	      = -0.306375
+   Precision = 0.95501 at threshold = 0.5
+   Recall    = 0.901744
+   F1        = 0.927613
+
+
+Total learning time: 461.76800000000003 seconds
+Total inference time: 6.828 seconds
+AUC ROC: 0.935975
+
+
+Dataset: 12_uwcse_cora, Fold: 3, Type: Scratch (RDN-B), Time: 04:54:13
+{'Recall': 0.901744, 'F1': 0.927613, 'AUC PR': 0.972238, 'Learning time': 461.76800000000003, 'AUC ROC': 0.935975, 'Inference time': 6.828, 'Precision': [0.95501, 0.5], 'CLL': -0.306375}
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.8581489350995074;  // std dev = 4,79e-06, 1.476,000 (wgt'ed) examples reached here.  /* #pos=1.476 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.8316802456224254;  // std dev = 0,161, 1.549,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1.508 */
+%   | | else return 0.8364384087837178;  // std dev = 0,146, 3.040,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2.974 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return 0.006344811388167628;  // std dev = 0,355, 3.104,000 (wgt'ed) examples reached here.  /* #neg=2.644 #pos=460 */
+%   | else return -0.01308005862391758;  // std dev = 0,335, 4.939,000 (wgt'ed) examples reached here.  /* #neg=4.303 #pos=636 */
+
+
+Results
+   AUC ROC   = 0.917722
+   AUC PR    = 0.964951
+   CLL	      = -0.968178
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 44.982 seconds
+Total inference time: 3.945 seconds
+AUC ROC: 0.917722
+
+
+Dataset: 12_uwcse_cora, Fold: 3, Type: Scratch (RDN), Time: 04:55:02
+{'Recall': 0.0, 'F1': nan, 'AUC PR': 0.964951, 'Learning time': 44.982, 'AUC ROC': 0.917722, 'Inference time': 3.945, 'Precision': [nan, 0.5], 'CLL': -0.968178}
+
+
+Starting fold 4
+
+Target predicate: samebib
+Mapping Results
+   Knowledge compiling time   = 0.08188080787658691
+   Generating paths time   = 2.9229466915130615
+   Generating mappings time   = 0.14463400840759277
+   Possible mappings   = [224]
+   Max mapping   = 1771561
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 1.1920928955078125e-06
+   Total time   = 3.14947247505188
+
+
+Best mapping found: ['samecourse(A,B) -> sameauthor(A,B)', 'hasposition(A,B) -> venue(A,B)', 'publication(A,B) -> title(B,A)', 'advisedby(A,B) -> samebib(A,B)'] 
+
+Transferred target predicate: samebib 
+
+Target train facts examples: 2478
+Target train pos examples: 5651
+Target train neg examples: 4504
+
+Target test facts examples: 9109
+Target test pos examples: 25320
+Target test neg examples: 14674
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;samebib(A, B) :- title(B, C), title(A, C).;false;false
+1;;samebib(A, B) :- sameauthor(D, F).;false;false
+2;;samebib(A, B) :- venue(B, C).;true;true
+2;true,false;venue(J, C).;false;false
+2;true,true;title(B, H).;false;false
+2;true;title(A, H).;true;true
+2;false;title(B, L).;false;false
+3;;samebib(A, B) :- venue(B, C).;true;false
+3;true,true;title(E, D).;false;true
+3;true;title(A, D), title(B, D).;true;true
+3;true,false,true;venue(J, C), title(J, I).;false;false
+3;true,false,false;venue(K, C).;false;false
+3;true,false;title(A, I).;true;true
+3;true,true,false;title(F, D).;false;false
+4;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+5;;samebib(A, B) :- title(A, L), title(B, L).;false;false
+6;;samebib(A, B) :- venue(B, C).;true;false
+6;true,false;title(A, I).;false;true
+6;true,true;title(B, F).;false;false
+6;true;venue(D, C).;true;true
+6;true,false,false;title(B, J).;false;false
+7;;samebib(A, B) :- title(B, C), title(A, C).;true;false
+7;true,false;title(A, H).;true;true
+7;true;title(D, C).;false;true
+7;true,false,true;title(I, H).;false;false
+7;true,false,false;title(L, M).;false;false
+8;;samebib(A, B) :- venue(B, C).;true;false
+8;true,true;title(E, D).;false;false
+8;true;title(A, D), title(B, D).;true;true
+8;true,false,true;venue(L, C), title(L, J).;false;false
+8;true,false,false;venue(M, C).;false;false
+8;true,false;title(A, J), title(B, K).;true;true
+9;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then return 0.8577546910624751;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else return -0.02772276895401405;  // std dev = 22,667, 5.082,000 (wgt'ed) examples reached here.  /* #neg=4.502 #pos=580 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( sameauthor(C, D) )
+%   then return 0.3470591381024962;  // std dev = 43,810, 10.155,000 (wgt'ed) examples reached here.  /* #neg=4.504 #pos=5.651 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D) )
+%   | then if ( title(B, D) )
+%   | | then return 0.6441599633150781;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   | | else return -0.07119890675236469;  // std dev = 22,667, 5.082,000 (wgt'ed) examples reached here.  /* #neg=4.502 #pos=580 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.48736475434636645;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F) )
+%   | | then if ( venue(G, C), title(G, F) )
+%   | | | then return 0.8251825773558037;  // std dev = 0,000, 243,000 (wgt'ed) examples reached here.  /* #pos=243 */
+%   | | | else return -0.10517493452681655;  // std dev = 17,707, 4.839,000 (wgt'ed) examples reached here.  /* #neg=4.502 #pos=337 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.36864549587335643;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else return -0.053957909950943565;  // std dev = 21,185, 5.082,000 (wgt'ed) examples reached here.  /* #neg=4.502 #pos=580 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.28763310886428295;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else return -0.04661177170622643;  // std dev = 21,223, 5.082,000 (wgt'ed) examples reached here.  /* #neg=4.502 #pos=580 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( venue(D, C) )
+%   | then if ( title(B, E) )
+%   | | then return 0.0958397519816567;  // std dev = 25,355, 10.155,000 (wgt'ed) examples reached here.  /* #neg=4.504 #pos=5.651 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( title(D, C) )
+%   | then return 0.21571986638907306;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.053303440221993105;  // std dev = 21,188, 5.082,000 (wgt'ed) examples reached here.  /* #neg=4.502 #pos=580 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.1814091554646033;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F), title(B, G) )
+%   | | then if ( venue(H, C), title(H, F) )
+%   | | | then return 0.686695054371606;  // std dev = 8,09e-07, 243,000 (wgt'ed) examples reached here.  /* #pos=243 */
+%   | | | else return -0.08286467227658911;  // std dev = 17,707, 4.839,000 (wgt'ed) examples reached here.  /* #neg=4.502 #pos=337 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.15596297225278932;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else return -0.0439166542332718;  // std dev = 19,899, 5.082,000 (wgt'ed) examples reached here.  /* #neg=4.502 #pos=580 */
+
+
+Results
+   AUC ROC   = 0.943663
+   AUC PR    = 0.96417
+   CLL	      = -0.297026
+   Precision = 0.981877 at threshold = 0.5
+   Recall    = 0.840916
+   F1        = 0.905946
+
+
+Total learning time: 162.838 seconds
+Total inference time: 12.686 seconds
+AUC ROC: 0.943663
+
+
+Structure after Parameter Learning
+[['samebib(A, B)', {'': 'title(B, C), title(A, C)'}, {'false': [22.667, 4502, 580], 'true': [1.414, 2, 5071]}], ['samebib(A, B)', {'': 'sameauthor(C, D)'}, {'false': [0.0, 0, 0], 'true': [43.81, 4504, 5651]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, D)', 'true': 'title(A, D)'}, {'true,true,true': [1.414, 2, 5071], 'true,false': [0.0, 0, 0], 'true,true,false': [22.667, 4502, 580], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(G, C), title(G, F)'}, {'true,true,true': [1.414, 2, 5071], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [17.707, 4502, 337], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [0.0, 0, 243]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [21.185, 4502, 580], 'true': [1.414, 2, 5071]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [21.223, 4502, 580], 'true': [1.414, 2, 5071]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, E)', 'true': 'venue(D, C)'}, {'true,true,true': [25.355, 4504, 5651], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'title(B, C), title(A, C)', 'true': 'title(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [21.188, 4502, 580], 'true,true': [1.414, 2, 5071]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F), title(B, G)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(H, C), title(H, F)'}, {'true,true,true': [1.414, 2, 5071], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [17.707, 4502, 337], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [8.09e-07, 0, 243]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [19.899, 4502, 580], 'true': [1.414, 2, 5071]}]]
+[{'': [0.0003940886086985156, 0.10110302801081038]}, {'': [0.18900609021869905, nan]}, {'': [0.17872766336774382, nan], 'true,true': [0.0003940886086930475, 0.10110302801082222], 'true': [0.17872766336774382, nan]}, {'': [0.12588389076019463, nan], 'true,false': [0.10110302801083702, nan], 'true,true': [0.0003940886086255032, nan], 'true': [0.0003940886086255032, 0.10110302801083702], 'true,false,true': [-1.2865794392363955e-15, 0.06479241196619882]}, {'': [0.0003940886086611578, 0.0883110098937158]}, {'': [0.00039408860870635915, 0.08863335015482232]}, {'': [0.06330863020363821, nan], 'true,true': [0.06330863020363821, nan], 'true': [0.06330863020363821, nan]}, {'': [0.0003940886086976976, 0.08833908247214965], 'true': [0.0003940886086976976, nan]}, {'': [0.05750149363119756, nan], 'true,false': [0.08865787000254409, nan], 'true,true': [0.0003940886087040789, nan], 'true': [0.0003940886087040789, 0.08865787000254409], 'true,false,true': [2.6901206456760995e-15, 0.06479241196618979]}, {'': [0.0003940886087005381, 0.07791843410866257]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+['0;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '2;;samebib(A, B) :- title(B, D).;true;true', '3;;samebib(A, B) :- title(A, D), title(B, D).;true;true', '3;false;venue(G, C), title(G, F).;true;true', '4;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '5;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '7;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '8;;samebib(A, B) :- title(A, D), title(B, D).;true;true', '8;false;venue(H, C), title(H, F).;true;true', '9;;samebib(A, B) :- title(A, C), title(B, C).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then return 0.8577546910624751;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( author(A, D), author(B, D) )
+%   | then return -0.03147872447495782;  // std dev = 0,313, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.026143965962537184;  // std dev = 0,320, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.7191587321228141;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( author(A, D), author(B, D) )
+%   | then return -0.02768986880461247;  // std dev = 0,313, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.022991178724574166;  // std dev = 0,320, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.5680249220577995;  // std dev = 0,061, 893,000 (wgt'ed) examples reached here.  /* #pos=893 */
+%   | | else return 0.5883801112778305;  // std dev = 0,095, 620,000 (wgt'ed) examples reached here.  /* #pos=620 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then if ( haswordauthor(F, G), haswordtitle(H, G) )
+%   | | | then return 0.20214260913596632;  // std dev = 15,724, 1.832,000 (wgt'ed) examples reached here.  /* #neg=980 #pos=852 */
+%   | | | else return 0.17118555666101437;  // std dev = 9,130, 614,000 (wgt'ed) examples reached here.  /* #neg=358 #pos=256 */
+%   | | else return 0.21942075600677954;  // std dev = 0,370, 6.196,000 (wgt'ed) examples reached here.  /* #neg=3.166 #pos=3.030 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.41267408926202304;  // std dev = 0,090, 1.411,000 (wgt'ed) examples reached here.  /* #pos=1.411 */
+%   | else return 0.501988644268362;  // std dev = 1,429, 3.662,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3.660 */
+%   else if ( venue(E, F), title(E, G) )
+%   | then if ( author(A, H), author(B, H) )
+%   | | then if ( venue(A, I), venue(B, I) )
+%   | | | then return 0.7843407044892744;  // std dev = 0,000, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | | else return -0.0704998977429957;  // std dev = 10,886, 1.468,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=130 */
+%   | | else return -0.04921334608251797;  // std dev = 0,317, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.3174346249362193;  // std dev = 0,081, 1.411,000 (wgt'ed) examples reached here.  /* #pos=1.411 */
+%   | else return 0.37891648907011527;  // std dev = 0,024, 3.662,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3.660 */
+%   else if ( venue(A, E), venue(B, E) )
+%   | then if ( author(A, F), author(B, F) )
+%   | | then return 0.6240567167166317;  // std dev = 1,26e-07, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else return 0.7875078645741388;  // std dev = 4,46e-07, 66,000 (wgt'ed) examples reached here.  /* #pos=66 */
+%   | else if ( author(A, G), author(B, G) )
+%   | | then return -0.061295323308881974;  // std dev = 0,284, 1.468,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=130 */
+%   | | else return -0.058148668419216974;  // std dev = 0,299, 3.512,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=348 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.25293594000046693;  // std dev = 0,070, 1.411,000 (wgt'ed) examples reached here.  /* #pos=1.411 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.29881147768027344;  // std dev = 0,085, 978,000 (wgt'ed) examples reached here.  /* #pos=978 */
+%   | | else return 0.2930050311597249;  // std dev = 0,027, 2.684,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2.682 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return -0.04110165904799534;  // std dev = 0,292, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.0380835201141363;  // std dev = 0,310, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.2081774931753718;  // std dev = 0,061, 1.411,000 (wgt'ed) examples reached here.  /* #pos=1.411 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.24016675110272018;  // std dev = 0,074, 978,000 (wgt'ed) examples reached here.  /* #pos=978 */
+%   | | else return 0.23606566435951715;  // std dev = 0,027, 2.684,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2.682 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return -0.03603418800348701;  // std dev = 0,292, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.03322554479803537;  // std dev = 0,310, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.1759370695762289;  // std dev = 0,054, 1.411,000 (wgt'ed) examples reached here.  /* #pos=1.411 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.1991005642631246;  // std dev = 0,065, 978,000 (wgt'ed) examples reached here.  /* #pos=978 */
+%   | | else return 0.19607156092130096;  // std dev = 0,027, 2.684,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2.682 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return -0.031707774652138726;  // std dev = 0,292, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.02909101211912637;  // std dev = 0,310, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.15186405046046828;  // std dev = 0,048, 1.411,000 (wgt'ed) examples reached here.  /* #pos=1.411 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.16924031656122449;  // std dev = 0,057, 978,000 (wgt'ed) examples reached here.  /* #pos=978 */
+%   | | else return 0.1669038644205339;  // std dev = 0,027, 2.684,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2.682 */
+%   else if ( venue(F, G), title(F, H) )
+%   | then if ( author(A, I), author(B, I) )
+%   | | then return -0.02798946137598766;  // std dev = 0,293, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | | else if ( venue(A, J), venue(B, J) )
+%   | | | then return 0.6508688656582982;  // std dev = 0,000, 66,000 (wgt'ed) examples reached here.  /* #pos=66 */
+%   | | | else return -0.03826117998657205;  // std dev = 17,706, 3.512,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=348 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.1333200135662993;  // std dev = 0,043, 1.411,000 (wgt'ed) examples reached here.  /* #pos=1.411 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.14675810727157396;  // std dev = 0,051, 978,000 (wgt'ed) examples reached here.  /* #pos=978 */
+%   | | else return 0.14488605829515003;  // std dev = 0,027, 2.684,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2.682 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return -0.024775295959315023;  // std dev = 0,293, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.02407320705460688;  // std dev = 0,304, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+
+
+Results
+   AUC ROC   = 0.934033
+   AUC PR    = 0.967461
+   CLL	      = -0.312941
+   Precision = 0.960691 at threshold = 0.5
+   Recall    = 0.873539
+   F1        = 0.915045
+
+
+Total learning time: 490.275 seconds
+Total inference time: 130.63 seconds
+AUC ROC: 0.934033
+
+
+Refined model AUC ROC: 0.934033
+
+
+Dataset: 12_uwcse_cora, Fold: 4, Type: Transfer (trRDN-B), Time: 05:08:24
+{'Recall': 0.873539, 'F1': 0.915045, 'AUC PR': 0.967461, 'Learning time': 653.1129999999999, 'AUC ROC': 0.934033, 'Inference time': 130.63, 'Precision': [0.960691, 0.5], 'Mapping results': {'Generating mappings time': 0.14463400840759277, 'Possible mappings': [224], 'Generating paths time': 2.9229466915130615, 'Total time': 3.14947247505188, 'Numbers preds mapping': [9], 'Finding best mapping': 1.1920928955078125e-06, 'Max mapping': 1771561, 'Knowledge compiling time': 0.08188080787658691}, 'parameter': {'Recall': 0.840916, 'F1': 0.905946, 'AUC PR': 0.96417, 'Learning time': 162.838, 'AUC ROC': 0.943663, 'Inference time': 12.686, 'Precision': [0.981877, 0.5], 'CLL': -0.297026}, 'CLL': -0.312941}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.8577546910624751;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( author(A, D), author(B, D) )
+%   | then return -0.03147872447495782;  // std dev = 0,313, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.026143965962537184;  // std dev = 0,320, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.7191587321228141;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( author(A, D), author(B, D) )
+%   | then return -0.02768986880461247;  // std dev = 0,313, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.022991178724574166;  // std dev = 0,320, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.5551472436963427;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( author(A, D), author(B, D) )
+%   | then return -0.024427648182282255;  // std dev = 0,313, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.02026737397162137;  // std dev = 0,320, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.4173450717627208;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( author(A, D), author(B, D) )
+%   | then return -0.02160400722643793;  // std dev = 0,313, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else if ( venue(A, E), venue(B, E) )
+%   | | then return 0.8663891287598703;  // std dev = 0,000, 66,000 (wgt'ed) examples reached here.  /* #pos=66 */
+%   | | else return -0.03452203297133815;  // std dev = 0,299, 3.512,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=348 */
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.3205565571471618;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.8704789598618244;  // std dev = 1,46e-07, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else return 0.7316506343652146;  // std dev = 0,000, 66,000 (wgt'ed) examples reached here.  /* #pos=66 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return -0.040965181827546694;  // std dev = 0,284, 1.468,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=130 */
+%   | | else return -0.030576098757212157;  // std dev = 0,299, 3.512,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=348 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.2550160104994842;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.7378301917679196;  // std dev = 1,33e-07, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else return 0.5674274288245095;  // std dev = 2,73e-07, 66,000 (wgt'ed) examples reached here.  /* #pos=66 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return -0.03641622295245487;  // std dev = 0,284, 1.468,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=130 */
+%   | | else return -0.027164424213824954;  // std dev = 0,299, 3.512,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=348 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.20959698138980903;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( author(A, D), author(B, D) )
+%   | then return -0.017978645204477114;  // std dev = 0,296, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.015884153706215404;  // std dev = 0,302, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.17693100851150936;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.5780734627547551;  // std dev = 0,000, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else return 0.43040951983531267;  // std dev = 1,58e-07, 66,000 (wgt'ed) examples reached here.  /* #pos=66 */
+%   | else if ( author(A, F), author(B, F) )
+%   | | then return -0.030588248495297142;  // std dev = 0,284, 1.468,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=130 */
+%   | | else return -0.022491495854203177;  // std dev = 0,299, 3.512,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=348 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.1525742002492691;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( venue(A, D), venue(B, D) )
+%   | then if ( author(A, E), author(B, E) )
+%   | | then return 0.4345763264601977;  // std dev = 1,12e-07, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | | else return 0.32946847615939256;  // std dev = 0,000, 66,000 (wgt'ed) examples reached here.  /* #pos=66 */
+%   | else return -0.022263302913496628;  // std dev = 0,295, 4.980,000 (wgt'ed) examples reached here.  /* #neg=4.502 #pos=478 */
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.13383390139172768;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( author(A, D), author(B, D) )
+%   | then return -0.01659608063243603;  // std dev = 0,286, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.012646946860323095;  // std dev = 0,298, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+
+
+Results
+   AUC ROC   = 0.929808
+   AUC PR    = 0.958318
+   CLL	      = -0.311966
+   Precision = 0.952714 at threshold = 0.5
+   Recall    = 0.892022
+   F1        = 0.92137
+
+
+Total learning time: 212.434 seconds
+Total inference time: 6.505 seconds
+AUC ROC: 0.929808
+
+
+Dataset: 12_uwcse_cora, Fold: 4, Type: Scratch (RDN-B), Time: 05:12:04
+{'Recall': 0.892022, 'F1': 0.92137, 'AUC PR': 0.958318, 'Learning time': 212.434, 'AUC ROC': 0.929808, 'Inference time': 6.505, 'Precision': [0.952714, 0.5], 'CLL': -0.311966}
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.8577546910624751;  // std dev = 1,414, 5.073,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5.071 */
+%   else if ( author(A, D), author(B, D) )
+%   | then return -0.03147872447495782;  // std dev = 0,313, 1.504,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=166 */
+%   | else return -0.026143965962537184;  // std dev = 0,320, 3.578,000 (wgt'ed) examples reached here.  /* #neg=3.164 #pos=414 */
+
+
+Results
+   AUC ROC   = 0.908259
+   AUC PR    = 0.948964
+   CLL	      = -0.932419
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 14.075 seconds
+Total inference time: 6.009 seconds
+AUC ROC: 0.908259
+
+
+Dataset: 12_uwcse_cora, Fold: 4, Type: Scratch (RDN), Time: 05:12:25
+{'Recall': 0.0, 'F1': nan, 'AUC PR': 0.948964, 'Learning time': 14.075, 'AUC ROC': 0.908259, 'Inference time': 6.009, 'Precision': [nan, 0.5], 'CLL': -0.932419}
+
+
+Starting fold 5
+
+Target predicate: samebib
+Mapping Results
+   Knowledge compiling time   = 0.14949440956115723
+   Generating paths time   = 3.2434704303741455
+   Generating mappings time   = 0.23183703422546387
+   Possible mappings   = [224]
+   Max mapping   = 1771561
+   Numbers predicates mapping   = [9]
+   Finding best mapping   = 1.430511474609375e-06
+   Total time   = 3.6248137950897217
+
+
+Best mapping found: ['samecourse(A,B) -> sameauthor(A,B)', 'hasposition(A,B) -> venue(A,B)', 'publication(A,B) -> title(B,A)', 'advisedby(A,B) -> samebib(A,B)'] 
+
+Transferred target predicate: samebib 
+
+Target train facts examples: 2202
+Target train pos examples: 6442
+Target train neg examples: 2994
+
+Target test facts examples: 9385
+Target test pos examples: 24529
+Target test neg examples: 16184
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;samebib(A, B) :- title(B, C), title(A, C).;false;false
+1;;samebib(A, B) :- sameauthor(D, F).;false;false
+2;;samebib(A, B) :- venue(B, C).;true;true
+2;true,false;venue(J, C).;false;false
+2;true,true;title(B, H).;false;false
+2;true;title(A, H).;true;true
+2;false;title(B, L).;false;false
+3;;samebib(A, B) :- venue(B, C).;true;false
+3;true,true;title(E, D).;false;true
+3;true;title(A, D), title(B, D).;true;true
+3;true,false,true;venue(J, C), title(J, I).;false;false
+3;true,false,false;venue(K, C).;false;false
+3;true,false;title(A, I).;true;true
+3;true,true,false;title(F, D).;false;false
+4;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+5;;samebib(A, B) :- title(A, L), title(B, L).;false;false
+6;;samebib(A, B) :- venue(B, C).;true;false
+6;true,false;title(A, I).;false;true
+6;true,true;title(B, F).;false;false
+6;true;venue(D, C).;true;true
+6;true,false,false;title(B, J).;false;false
+7;;samebib(A, B) :- title(B, C), title(A, C).;true;false
+7;true,false;title(A, H).;true;true
+7;true;title(D, C).;false;true
+7;true,false,true;title(I, H).;false;false
+7;true,false,false;title(L, M).;false;false
+8;;samebib(A, B) :- venue(B, C).;true;false
+8;true,true;title(E, D).;false;false
+8;true;title(A, D), title(B, D).;true;true
+8;true,false,true;venue(L, C), title(L, J).;false;false
+8;true,false,false;venue(M, C).;false;false
+8;true,false;title(A, J), title(B, K).;true;true
+9;;samebib(A, B) :- title(A, C), title(B, C).;false;false
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then return 0.8142892859767887;  // std dev = 15,767, 5.928,000 (wgt'ed) examples reached here.  /* #neg=260 #pos=5.668 */
+%   else return 0.07878747557841256;  // std dev = 24,561, 3.508,000 (wgt'ed) examples reached here.  /* #neg=2.734 #pos=774 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( sameauthor(C, D) )
+%   then return 0.4555732931441839;  // std dev = 41,068, 9.436,000 (wgt'ed) examples reached here.  /* #neg=2.994 #pos=6.442 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D) )
+%   | then if ( title(B, D) )
+%   | | then return 0.5856555135125698;  // std dev = 15,767, 5.928,000 (wgt'ed) examples reached here.  /* #neg=260 #pos=5.668 */
+%   | | else return 6.338828670505977E-4;  // std dev = 24,561, 3.508,000 (wgt'ed) examples reached here.  /* #neg=2.734 #pos=774 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.4422643916436156;  // std dev = 15,767, 5.928,000 (wgt'ed) examples reached here.  /* #neg=260 #pos=5.668 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F) )
+%   | | then if ( venue(G, C), title(G, F) )
+%   | | | then return 0.455519458521444;  // std dev = 11,769, 632,000 (wgt'ed) examples reached here.  /* #neg=205 #pos=427 */
+%   | | | else return -0.09945976719640165;  // std dev = 17,468, 2.876,000 (wgt'ed) examples reached here.  /* #neg=2.529 #pos=347 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.3342022854410831;  // std dev = 15,767, 5.928,000 (wgt'ed) examples reached here.  /* #neg=260 #pos=5.668 */
+%   else return -0.0017009108528240444;  // std dev = 23,426, 3.508,000 (wgt'ed) examples reached here.  /* #neg=2.734 #pos=774 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.25936591556034655;  // std dev = 15,767, 5.928,000 (wgt'ed) examples reached here.  /* #neg=260 #pos=5.668 */
+%   else return -0.0014096934950186516;  // std dev = 23,427, 3.508,000 (wgt'ed) examples reached here.  /* #neg=2.734 #pos=774 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( venue(D, C) )
+%   | then if ( title(B, E) )
+%   | | then return 0.12992652318631304;  // std dev = 29,890, 9.436,000 (wgt'ed) examples reached here.  /* #neg=2.994 #pos=6.442 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( title(D, C) )
+%   | then return 0.18385211458981268;  // std dev = 15,767, 5.928,000 (wgt'ed) examples reached here.  /* #neg=260 #pos=5.668 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return -0.024172230479341573;  // std dev = 23,364, 3.508,000 (wgt'ed) examples reached here.  /* #neg=2.734 #pos=774 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then return 0.15314377765749354;  // std dev = 15,767, 5.928,000 (wgt'ed) examples reached here.  /* #neg=260 #pos=5.668 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, F), title(B, G) )
+%   | | then if ( venue(H, C), title(H, F) )
+%   | | | then return 0.34533593809343505;  // std dev = 11,769, 632,000 (wgt'ed) examples reached here.  /* #neg=205 #pos=427 */
+%   | | | else return -0.10000681734726284;  // std dev = 17,468, 2.876,000 (wgt'ed) examples reached here.  /* #neg=2.529 #pos=347 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then return 0.13003493637156502;  // std dev = 15,767, 5.928,000 (wgt'ed) examples reached here.  /* #neg=260 #pos=5.668 */
+%   else return -0.020535073510819433;  // std dev = 22,506, 3.508,000 (wgt'ed) examples reached here.  /* #neg=2.734 #pos=774 */
+
+
+Results
+   AUC ROC   = 0.954374
+   AUC PR    = 0.973715
+   CLL	      = -0.304256
+   Precision = 0.993519 at threshold = 0.5
+   Recall    = 0.843695
+   F1        = 0.912498
+
+
+Total learning time: 182.264 seconds
+Total inference time: 11.903 seconds
+AUC ROC: 0.954374
+
+
+Structure after Parameter Learning
+[['samebib(A, B)', {'': 'title(B, C), title(A, C)'}, {'false': [24.561, 2734, 774], 'true': [15.767, 260, 5668]}], ['samebib(A, B)', {'': 'sameauthor(C, D)'}, {'false': [0.0, 0, 0], 'true': [41.068, 2994, 6442]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, D)', 'true': 'title(A, D)'}, {'true,true,true': [15.767, 260, 5668], 'true,false': [0.0, 0, 0], 'true,true,false': [24.561, 2734, 774], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(G, C), title(G, F)'}, {'true,true,true': [15.767, 260, 5668], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [17.468, 2529, 347], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [11.769, 205, 427]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [23.426, 2734, 774], 'true': [15.767, 260, 5668]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [23.427, 2734, 774], 'true': [15.767, 260, 5668]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,true': 'title(B, E)', 'true': 'venue(D, C)'}, {'true,true,true': [29.89, 2994, 6442], 'true,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}], ['samebib(A, B)', {'': 'title(B, C), title(A, C)', 'true': 'title(D, C)'}, {'true,false': [0.0, 0, 0], 'false': [23.364, 2734, 774], 'true,true': [15.767, 260, 5668]}], ['samebib(A, B)', {'': 'venue(B, C)', 'true,false': 'title(A, F), title(B, G)', 'true,true': 'title(E, D)', 'true': 'title(A, D), title(B, D)', 'true,false,true': 'venue(H, C), title(H, F)'}, {'true,true,true': [15.767, 260, 5668], 'true,false,false': [0.0, 0, 0], 'false': [0.0, 0, 0], 'true,false,true,false': [17.468, 2529, 347], 'true,true,false': [0.0, 0, 0], 'true,false,true,true': [11.769, 205, 427]}], ['samebib(A, B)', {'': 'title(A, C), title(B, C)'}, {'false': [22.506, 2734, 774], 'true': [15.767, 260, 5668]}]]
+[{'': [0.041935980301519266, 0.17195717493426965]}, {'': [0.17874181605815595, nan]}, {'': [0.17020843672955097, nan], 'true,true': [0.04193598030159805, 0.17195717493424773], 'true': [0.17020843672955097, nan]}, {'': [0.13584837963294433, nan], 'true,false': [0.17195717493423227, nan], 'true,true': [0.041935980301659265, nan], 'true': [0.041935980301659265, 0.17195717493423227], 'true,false,true': [0.2191530804358322, 0.10609637380768358]}, {'': [0.04193598030161983, 0.1564401136375577]}, {'': [0.04193598030164014, 0.1564516703808458]}, {'': [0.09468285086008509, nan], 'true,true': [0.09468285086008509, nan], 'true': [0.09468285086008509, nan]}, {'': [0.04193598030162319, 0.1556028980665576], 'true': [0.04193598030162319, nan]}, {'': [0.0912349578183214, nan], 'true,false': [0.15575841952813843, nan], 'true,true': [0.04193598030162992, nan], 'true': [0.04193598030162992, 0.15575841952813843], 'true,false,true': [0.21915308043582798, 0.10609637380768551]}, {'': [0.041935980301626576, 0.14438563814779748]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Pruning resulted in null theory
+
+Candidate for revision
+['0;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '1;;samebib(A, B) :- sameauthor(C, D).;true;true', '2;;samebib(A, B) :- venue(B, C).;true;true', '2;true,true;title(B, D).;true;true', '2;true;title(A, D).;true;true', '3;;samebib(A, B) :- venue(B, C).;true;true', '3;true,false;title(A, F).;true;true', '3;true,true;title(E, D).;true;true', '3;true;title(A, D), title(B, D).;true;true', '3;true,false,true;venue(G, C), title(G, F).;true;true', '4;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '5;;samebib(A, B) :- title(A, C), title(B, C).;true;true', '6;;samebib(A, B) :- venue(B, C).;true;true', '6;true,true;title(B, E).;true;true', '6;true;venue(D, C).;true;true', '7;;samebib(A, B) :- title(B, C), title(A, C).;true;true', '7;true;title(D, C).;true;true', '8;;samebib(A, B) :- venue(B, C).;true;true', '8;true,false;title(A, F), title(B, G).;true;true', '8;true,true;title(E, D).;true;true', '8;true;title(A, D), title(B, D).;true;true', '8;true,false,true;venue(H, C), title(H, F).;true;true', '9;;samebib(A, B) :- title(A, C), title(B, C).;true;true']
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.8581489350995072;  // std dev = 0,000, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then if ( haswordauthor(E, F), haswordvenue(G, F) )
+%   | | | then return 0.8479794435740841;  // std dev = 2,437, 590,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=584 */
+%   | | | else return 0.7605879594897527;  // std dev = 4,654, 246,000 (wgt'ed) examples reached here.  /* #neg=24 #pos=222 */
+%   | | else return 0.7531261040492789;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( author(A, H), author(B, H) )
+%   | then if ( venue(A, I), venue(B, I) )
+%   | | then return 0.3581489350995133;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return -0.03369167211111512;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | else return 0.11604816652563878;  // std dev = 0,437, 2.342,000 (wgt'ed) examples reached here.  /* #neg=1.738 #pos=604 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( sameauthor(C, D) )
+%   then if ( title(A, E), title(B, E) )
+%   | then if ( venue(A, F), venue(B, F) )
+%   | | then return 0.7194734122109013;  // std dev = 1,49e-05, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | | else if ( author(A, G), author(B, G) )
+%   | | | then return 0.6907018948417804;  // std dev = 5,334, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | | else return 0.6351513186621065;  // std dev = 14,347, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   | else if ( venue(A, H), venue(B, H) )
+%   | | then if ( author(A, I), author(B, I) )
+%   | | | then return 0.308741135785637;  // std dev = 5,292, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | | else return 0.5076606868173277;  // std dev = 7,817, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | | else if ( author(A, J), author(B, J) )
+%   | | | then return -0.029639684243265237;  // std dev = 10,083, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | | else return 0.04748900572625551;  // std dev = 18,327, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D) )
+%   | then if ( title(B, D) )
+%   | | then if ( author(A, E), author(B, E) )
+%   | | | then return 0.5462250582122357;  // std dev = 5,342, 1.830,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=1.800 */
+%   | | | else return 0.5238960516463138;  // std dev = 14,470, 4.098,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=3.868 */
+%   | | else if ( author(A, F), author(B, F) )
+%   | | | then return 9.862225079697187E-4;  // std dev = 11,737, 1.166,000 (wgt'ed) examples reached here.  /* #neg=996 #pos=170 */
+%   | | | else return 0.08643831109446576;  // std dev = 20,816, 2.342,000 (wgt'ed) examples reached here.  /* #neg=1.738 #pos=604 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then if ( author(A, F), author(B, F) )
+%   | | | then return 0.4105849243084318;  // std dev = 5,342, 1.830,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=1.800 */
+%   | | | else return 0.3940714681956266;  // std dev = 14,467, 4.098,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=3.868 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, G) )
+%   | | then if ( venue(H, C), title(H, G) )
+%   | | | then return 0.45975130284676513;  // std dev = 11,967, 632,000 (wgt'ed) examples reached here.  /* #neg=205 #pos=427 */
+%   | | | else return -0.040534156896828766;  // std dev = 17,367, 2.876,000 (wgt'ed) examples reached here.  /* #neg=2.529 #pos=347 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.3298560384565073;  // std dev = 0,219, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then if ( haswordauthor(E, F), haswordtitle(G, F) )
+%   | | | then return 0.2471659003767182;  // std dev = 4,602, 260,000 (wgt'ed) examples reached here.  /* #neg=24 #pos=236 */
+%   | | | else return 0.3277943262884398;  // std dev = 2,459, 576,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=570 */
+%   | | else return 0.27105137930758577;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( venue(A, H), venue(B, H) )
+%   | then if ( author(A, I), author(B, I) )
+%   | | then return 0.16203417638546397;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return 0.3167460607136708;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | else if ( author(A, J), author(B, J) )
+%   | | then return -0.026178724366462545;  // std dev = 0,302, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | else return 0.027795383091769994;  // std dev = 0,394, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.2614068652000843;  // std dev = 0,191, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then if ( haswordauthor(E, F), haswordvenue(G, F) )
+%   | | | then return 0.2588758145642913;  // std dev = 2,455, 590,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=584 */
+%   | | | else return 0.19010731497738007;  // std dev = 4,600, 246,000 (wgt'ed) examples reached here.  /* #neg=24 #pos=222 */
+%   | | else return 0.2098800518725135;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( venue(A, H), venue(B, H) )
+%   | then if ( author(A, I), author(B, I) )
+%   | | then return 0.12488575951299184;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return 0.24193765841489986;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | else if ( author(A, J), author(B, J) )
+%   | | then return -0.023170718927390966;  // std dev = 0,302, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | else return 0.023738144481963364;  // std dev = 0,393, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( venue(D, C) )
+%   | then if ( title(B, E) )
+%   | | then if ( author(A, F), author(B, F) )
+%   | | | then return 0.12007387163891729;  // std dev = 13,618, 2.996,000 (wgt'ed) examples reached here.  /* #neg=1.026 #pos=1.970 */
+%   | | | else return 0.1349504204902794;  // std dev = 25,090, 6.440,000 (wgt'ed) examples reached here.  /* #neg=1.968 #pos=4.472 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(B, C), title(A, C) )
+%   then if ( title(D, C) )
+%   | then if ( venue(A, E), venue(B, E) )
+%   | | then return 0.1931029896478488;  // std dev = 0,095, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | | else if ( author(A, F), author(B, F) )
+%   | | | then return 0.17340140799367915;  // std dev = 5,279, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | | else return 0.14059416714480155;  // std dev = 14,347, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( venue(A, G), venue(B, G) )
+%   | then if ( author(A, H), author(B, H) )
+%   | | then return 0.06595800720527188;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return 0.14835576531338784;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | else if ( author(A, I), author(B, I) )
+%   | | then return -0.03459625229641246;  // std dev = 0,301, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | else return -8.17732803215543E-4;  // std dev = 0,393, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( venue(B, C) )
+%   then if ( title(A, D), title(B, D) )
+%   | then if ( title(E, D) )
+%   | | then if ( author(A, F), author(B, F) )
+%   | | | then return 0.15510741120675411;  // std dev = 5,299, 1.830,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=1.800 */
+%   | | | else return 0.13896080024416715;  // std dev = 14,437, 4.098,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=3.868 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( title(A, G), title(B, H) )
+%   | | then if ( venue(I, C), title(I, G) )
+%   | | | then return 0.25357616960055046;  // std dev = 12,591, 632,000 (wgt'ed) examples reached here.  /* #neg=205 #pos=427 */
+%   | | | else return -0.054812207649092524;  // std dev = 17,337, 2.876,000 (wgt'ed) examples reached here.  /* #neg=2.529 #pos=347 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.1458562085327128;  // std dev = 0,127, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then if ( haswordauthor(E, F), haswordtitle(G, F) )
+%   | | | then return 0.07631145319147217;  // std dev = 4,594, 260,000 (wgt'ed) examples reached here.  /* #neg=24 #pos=236 */
+%   | | | else return 0.14585576687519727;  // std dev = 2,461, 576,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=570 */
+%   | | else return 0.0925265458397693;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( author(A, H), author(B, H) )
+%   | then if ( venue(A, I), venue(B, I) )
+%   | | then return -0.01353558717960361;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return -0.027587539142642677;  // std dev = 0,295, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | else if ( venue(A, J), venue(B, J) )
+%   | | then return 0.049923862601749865;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | | else return 0.002496766734392555;  // std dev = 0,386, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+
+
+Results
+   AUC ROC   = 0.956158
+   AUC PR    = 0.977054
+   CLL	      = -0.298044
+   Precision = 0.968318 at threshold = 0.5
+   Recall    = 0.890905
+   F1        = 0.928
+
+
+Total learning time: 508.352 seconds
+Total inference time: 118.286 seconds
+AUC ROC: 0.956158
+
+
+Refined model AUC ROC: 0.956158
+
+
+Dataset: 12_uwcse_cora, Fold: 5, Type: Transfer (trRDN-B), Time: 05:26:12
+{'Recall': 0.890905, 'F1': 0.928, 'AUC PR': 0.977054, 'Learning time': 690.616, 'AUC ROC': 0.956158, 'Inference time': 118.286, 'Precision': [0.968318, 0.5], 'Mapping results': {'Generating mappings time': 0.23183703422546387, 'Possible mappings': [224], 'Generating paths time': 3.2434704303741455, 'Total time': 3.6248137950897217, 'Numbers preds mapping': [9], 'Finding best mapping': 1.430511474609375e-06, 'Max mapping': 1771561, 'Knowledge compiling time': 0.14949440956115723}, 'parameter': {'Recall': 0.843695, 'F1': 0.912498, 'AUC PR': 0.973715, 'Learning time': 182.264, 'AUC ROC': 0.954374, 'Inference time': 11.903, 'Precision': [0.993519, 0.5], 'CLL': -0.304256}, 'CLL': -0.298044}
+
+
+Start learning from scratch in target domain
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.8581489350995072;  // std dev = 0,000, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.8222637676353928;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.7531261040492789;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.3581489350995133;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return 0.5223825117418444;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return -0.03369167211111512;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | else return 0.06221083065076454;  // std dev = 0,403, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #2
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.7194734122109013;  // std dev = 1,49e-05, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.690773637036754;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.6351513186621065;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( author(A, F), author(B, F) )
+%   | then if ( venue(A, G), venue(B, G) )
+%   | | then return 0.308741135785637;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return -0.029639684243265237;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | else return 0.10030730739511975;  // std dev = 0,431, 2.342,000 (wgt'ed) examples reached here.  /* #neg=1.738 #pos=604 */
+WILL Produced-Tree #3
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.5553664367462837;  // std dev = 9,40e-06, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.5353671964372211;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.49647801750445464;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( author(A, F), author(B, F) )
+%   | then if ( venue(A, G), venue(B, G) )
+%   | | then return 0.2564123687585873;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return -0.026155834778622843;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | else return 0.08658247175996968;  // std dev = 0,430, 2.342,000 (wgt'ed) examples reached here.  /* #neg=1.738 #pos=604 */
+WILL Produced-Tree #4
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.41751358415831547;  // std dev = 7,18e-06, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.40233105256580104;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.3738009839450452;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.20613740734453972;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return 0.41275230584831935;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return -0.023143557844866103;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | else return 0.02910548931492425;  // std dev = 0,403, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #5
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.3207118471601674;  // std dev = 0,000, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.30693861114143084;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.2823055049446176;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.1616285754841446;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return 0.32752025533806295;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return -0.020526196774100627;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | else return 0.024864385285994463;  // std dev = 0,403, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #6
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.25517224256949894;  // std dev = 1,53e-06, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.24145891989410279;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.21779286130889036;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.12455597792082027;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return 0.2509615233907887;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return -0.018242172744427892;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | else return 0.021177973261841142;  // std dev = 0,403, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #7
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.20975771563253878;  // std dev = 2,60e-06, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.19574428654878168;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.17212477801856402;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.09492800936730543;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return 0.18908648461610206;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return -0.01624148589171759;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | else return 0.017991914044893333;  // std dev = 0,403, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #8
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.1770964977452679;  // std dev = 3,28e-06, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.1627450703685774;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.13899443195702335;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( venue(A, F), venue(B, F) )
+%   | then if ( author(A, G), author(B, G) )
+%   | | then return 0.0718608885005587;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return 0.14185033191984886;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | else if ( author(A, H), author(B, H) )
+%   | | then return -0.014483142221974324;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | | else return 0.01525167214350462;  // std dev = 0,403, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #9
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.1527438580936821;  // std dev = 0,000, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.13810289409145157;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.11427311089864613;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return -0.0064863849895542315;  // std dev = 0,334, 1.166,000 (wgt'ed) examples reached here.  /* #neg=996 #pos=170 */
+%   | else if ( venue(A, G), venue(B, G) )
+%   | | then return 0.10662968331635955;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | | else return 0.012904617952601134;  // std dev = 0,403, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+WILL Produced-Tree #10
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( venue(A, D), venue(B, D) )
+%   | then return 0.13400703000801806;  // std dev = 0,000, 2.902,000 (wgt'ed) examples reached here.  /* #pos=2.902 */
+%   | else if ( author(A, E), author(B, E) )
+%   | | then return 0.11913920523668178;  // std dev = 0,186, 836,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=806 */
+%   | | else return 0.09533697134111753;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( author(A, F), author(B, F) )
+%   | then return -0.005710008457133132;  // std dev = 0,334, 1.166,000 (wgt'ed) examples reached here.  /* #neg=996 #pos=170 */
+%   | else if ( venue(A, G), venue(B, G) )
+%   | | then return 0.08051125114864109;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | | else return 0.010901399289872741;  // std dev = 0,403, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+
+
+Results
+   AUC ROC   = 0.939901
+   AUC PR    = 0.969509
+   CLL	      = -0.30832
+   Precision = 0.974727 at threshold = 0.5
+   Recall    = 0.872641
+   F1        = 0.920863
+
+
+Total learning time: 351.108 seconds
+Total inference time: 6.507 seconds
+AUC ROC: 0.939901
+
+
+Dataset: 12_uwcse_cora, Fold: 5, Type: Scratch (RDN-B), Time: 05:32:11
+{'Recall': 0.872641, 'F1': 0.920863, 'AUC PR': 0.969509, 'Learning time': 351.108, 'AUC ROC': 0.939901, 'Inference time': 6.507, 'Precision': [0.974727, 0.5], 'CLL': -0.30832}
+
+
+WILL Produced-Tree #1
+% FOR samebib(A, B):
+%   if ( title(A, C), title(B, C) )
+%   then if ( author(A, D), author(B, D) )
+%   | then return 0.8417554924765565;  // std dev = 0,127, 1.830,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=1.800 */
+%   | else if ( venue(A, E), venue(B, E) )
+%   | | then return 0.8581489350995073;  // std dev = 0,000, 1.908,000 (wgt'ed) examples reached here.  /* #pos=1.908 */
+%   | | else return 0.7531261040492789;  // std dev = 0,307, 2.190,000 (wgt'ed) examples reached here.  /* #neg=230 #pos=1.960 */
+%   else if ( author(A, F), author(B, F) )
+%   | then if ( venue(A, G), venue(B, G) )
+%   | | then return 0.3581489350995133;  // std dev = 0,500, 112,000 (wgt'ed) examples reached here.  /* #neg=56 #pos=56 */
+%   | | else return -0.03369167211111512;  // std dev = 0,311, 1.054,000 (wgt'ed) examples reached here.  /* #neg=940 #pos=114 */
+%   | else if ( venue(A, H), venue(B, H) )
+%   | | then return 0.5223825117418444;  // std dev = 0,472, 274,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=182 */
+%   | | else return 0.06221083065076454;  // std dev = 0,403, 2.068,000 (wgt'ed) examples reached here.  /* #neg=1.646 #pos=422 */
+
+
+Results
+   AUC ROC   = 0.939669
+   AUC PR    = 0.969022
+   CLL	      = -0.900572
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 40.441 seconds
+Total inference time: 4.393 seconds
+AUC ROC: 0.939669
+
+
+Dataset: 12_uwcse_cora, Fold: 5, Type: Scratch (RDN), Time: 05:32:56
+{'Recall': 0.0, 'F1': nan, 'AUC PR': 0.969022, 'Learning time': 40.441, 'AUC ROC': 0.939669, 'Inference time': 4.393, 'Precision': [nan, 0.5], 'CLL': -0.900572}
+
+
