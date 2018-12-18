@@ -1,0 +1,2520 @@
+Starting experiment #4 for 50_uwcse_facebook
+
+Start learning from source dataset
+
+Source train facts examples: 2274
+Source train pos examples: 113
+Source train neg examples: 113
+
+WILL Produced-Tree #1
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( tempadvisedby(D, B), ta(E, A, F) )
+%   | | then if ( ta(G, D, H) )
+%   | | | then return 0.8581489350995123;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.6581489350995122;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.8581489350995123;  // std dev = 0,000, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(I, A) )
+%   | | then if ( publication(I, J), ta(K, J, L) )
+%   | | | then return 0.724815601766179;  // std dev = 1,317, 15,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=13 */
+%   | | | else return 0.30259337954395676;  // std dev = 1,491, 9,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=4 */
+%   | | else if ( publication(M, B) )
+%   | | | then return 0.7797175625504926;  // std dev = 1,920, 51,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=47 */
+%   | | | else return 0.6581489350995123;  // std dev = 1,265, 10,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=8 */
+%   else return -0.14185106490048768;  // std dev = 7,30e-08, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #2
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( tempadvisedby(C, B), ta(D, C, E) )
+%   | then if ( ta(F, A, G), ta(D, H, G) )
+%   | | then if ( samecourse(D, F) )
+%   | | | then return 0.5256950918092174;  // std dev = 0,884, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.7314167498024979;  // std dev = 0,027, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else return 0.7296173442405576;  // std dev = 0,057, 26,000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | else if ( tempadvisedby(I, B), publication(J, A) )
+%   | | then if ( publication(J, B) )
+%   | | | then return 0.6522008798821627;  // std dev = 0,936, 12,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=11 */
+%   | | | else return 0.35278351751188713;  // std dev = 1,611, 12,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=7 */
+%   | | else if ( publication(K, B) )
+%   | | | then return 0.6574000232806397;  // std dev = 1,921, 51,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=47 */
+%   | | | else return 0.5014287972424673;  // std dev = 1,472, 11,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=8 */
+%   else return -0.12544463852839158;  // std dev = 0,000, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #3
+% FOR advisedby(A, B):
+%   if ( student(A), hasposition(B, C) )
+%   then if ( publication(D, A), publication(D, B) )
+%   | then if ( publication(D, E), ta(F, E, G) )
+%   | | then if ( tempadvisedby(H, B), ta(F, H, I) )
+%   | | | then return 0.59013732311749;  // std dev = 0,043, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.5104934404552471;  // std dev = 0,930, 14,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=13 */
+%   | | else return 0.5642891025179497;  // std dev = 0,043, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   | else if ( publication(J, A), publication(K, B) )
+%   | | then if ( hasposition(L, C), publication(J, L) )
+%   | | | then return 0.06577822297779704;  // std dev = 1,307, 8,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=3 */
+%   | | | else return 0.6412106081632553;  // std dev = 0,110, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else if ( hasposition(M, C), tempadvisedby(N, M) )
+%   | | | then return 0.5161505744133595;  // std dev = 2,027, 59,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=54 */
+%   | | | else return 0.3817207230865063;  // std dev = 1,247, 8,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=6 */
+%   else if ( professor(B) )
+%   | then return -0.06374087151318292;  // std dev = 0,237, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+%   | else return -0.11231637819360621;  // std dev = 7,30e-08, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+WILL Produced-Tree #4
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( tempadvisedby(C, B), ta(D, C, E) )
+%   | then if ( ta(D, A, F) )
+%   | | then return 0.27181218864245066;  // std dev = 0,870, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.4345336477684331;  // std dev = 0,103, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | else if ( tempadvisedby(G, B), publication(H, A) )
+%   | | then if ( publication(H, B) )
+%   | | | then return 0.37579758238328465;  // std dev = 0,925, 12,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=11 */
+%   | | | else return 0.20191438294522804;  // std dev = 1,449, 12,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=7 */
+%   | | else if ( tempadvisedby(I, B), ta(J, A, K) )
+%   | | | then return 0.4733028281285323;  // std dev = 0,063, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return 0.3662266384564917;  // std dev = 2,357, 56,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=49 */
+%   else return -0.10200726556038733;  // std dev = 0,013, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #5
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( publication(D, A), publication(D, B) )
+%   | then if ( ta(E, A, F), tempadvisedby(G, B) )
+%   | | then if ( ta(H, G, I) )
+%   | | | then return 0.35260416568054737;  // std dev = 0,087, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.20211968157887633;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.33412540699213295;  // std dev = 0,090, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(J, A), tempadvisedby(K, B) )
+%   | | then if ( hasposition(L, C), publication(J, L) )
+%   | | | then return 0.080313970402202;  // std dev = 1,324, 10,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=5 */
+%   | | | else return 0.46985557469874184;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( hasposition(M, C), tempadvisedby(N, M) )
+%   | | | then return 0.29739182180780754;  // std dev = 2,040, 61,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=56 */
+%   | | | else return 0.21749594117905638;  // std dev = 1,260, 9,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=7 */
+%   else if ( student(B) )
+%   | then return -0.09265672241251545;  // std dev = 0,000, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+%   | else return -0.06400189666020285;  // std dev = 0,224, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+WILL Produced-Tree #6
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( publication(C, A), publication(C, B) )
+%   | then if ( tempadvisedby(D, B) )
+%   | | then if ( publication(C, D) )
+%   | | | then return 0.3167907082751675;  // std dev = 0,093, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.23657427954640767;  // std dev = 0,913, 27,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=26 */
+%   | | else return 0.27555474196706875;  // std dev = 0,016, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | else if ( publication(E, A), tempadvisedby(F, B) )
+%   | | then if ( publication(E, G), ta(H, G, I) )
+%   | | | then return 0.33691551229247596;  // std dev = 0,826, 9,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=8 */
+%   | | | else return -0.3366356796267247;  // std dev = 0,090, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | else if ( tempadvisedby(J, B) )
+%   | | | then return 0.2363426740360697;  // std dev = 1,328, 34,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=32 */
+%   | | | else return 0.20383969635247667;  // std dev = 2,133, 38,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=32 */
+%   else return -0.08572019807471798;  // std dev = 0,018, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #7
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( publication(D, B), publication(D, A) )
+%   | then if ( ta(E, A, F), tempadvisedby(G, B) )
+%   | | then if ( ta(H, G, I) )
+%   | | | then return 0.2324898586444328;  // std dev = 0,068, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.09585703436264434;  // std dev = 0,887, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.2178723741248533;  // std dev = 0,064, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( tempadvisedby(J, B), publication(K, J) )
+%   | | then return 0.03797999383654787;  // std dev = 0,723, 6,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=4 */
+%   | | else if ( ta(L, A, M), tempadvisedby(N, B) )
+%   | | | then return 0.2226670123059268;  // std dev = 0,989, 20,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=19 */
+%   | | | else return 0.15787527553990038;  // std dev = 2,384, 57,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=48 */
+%   else if ( professor(B) )
+%   | then if ( publication(P, B) )
+%   | | then return -0.08449635600270679;  // std dev = 2,63e-09, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | | else return 0.004743447901831639;  // std dev = 0,716, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | else return -0.07871060782093765;  // std dev = 3,16e-08, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+WILL Produced-Tree #8
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( tempadvisedby(C, B), ta(D, C, E) )
+%   | then if ( ta(D, A, F) )
+%   | | then return 0.03552240724204072;  // std dev = 0,869, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.1919102284114579;  // std dev = 0,117, 36,000 (wgt'ed) examples reached here.  /* #pos=36 */
+%   | else if ( tempadvisedby(G, B), publication(H, B) )
+%   | | then if ( publication(I, G), publication(H, A) )
+%   | | | then return 0.22170109218309494;  // std dev = 0,082, 5,000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   | | | else return 0.06191697775735051;  // std dev = 1,599, 24,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=18 */
+%   | | else if ( tempadvisedby(J, B) )
+%   | | | then return 0.21568777275745735;  // std dev = 0,644, 7,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=6 */
+%   | | | else return 0.143536641883942;  // std dev = 2,144, 50,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=44 */
+%   else return -0.07371052759258208;  // std dev = 0,018, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+WILL Produced-Tree #9
+% FOR advisedby(A, B):
+%   if ( hasposition(B, C), student(A) )
+%   then if ( publication(D, A), publication(D, B) )
+%   | then if ( tempadvisedby(E, B), ta(F, A, G) )
+%   | | then if ( ta(H, E, I) )
+%   | | | then return 0.17633271288441224;  // std dev = 0,086, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.052434151816236854;  // std dev = 0,876, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | else return 0.16084210400691226;  // std dev = 0,076, 30,000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | else if ( publication(J, A), tempadvisedby(K, B) )
+%   | | then if ( hasposition(L, C), publication(J, L) )
+%   | | | then return -0.0218589476409816;  // std dev = 1,090, 10,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=5 */
+%   | | | else return 0.2332172096332138;  // std dev = 0,010, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( hasposition(M, C), tempadvisedby(N, M) )
+%   | | | then return 0.13015560159772163;  // std dev = 2,047, 61,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=56 */
+%   | | | else return 0.0554959794693024;  // std dev = 1,258, 9,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=7 */
+%   else if ( student(B) )
+%   | then return -0.06834352047350739;  // std dev = 0,000, 90,000 (wgt'ed) examples reached here.  /* #neg=90 */
+%   | else return -0.05806273049400283;  // std dev = 0,216, 11,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=1 */
+WILL Produced-Tree #10
+% FOR advisedby(A, B):
+%   if ( student(A), professor(B) )
+%   then if ( publication(C, B), publication(C, A) )
+%   | then if ( ta(D, A, E) )
+%   | | then if ( ta(D, F, G), tempadvisedby(F, H) )
+%   | | | then return 0.17698068977182102;  // std dev = 0,030, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.08744334765297038;  // std dev = 0,888, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | else return 0.13953781599604292;  // std dev = 0,066, 28,000 (wgt'ed) examples reached here.  /* #pos=28 */
+%   | else if ( tempadvisedby(I, B), publication(J, A) )
+%   | | then if ( publication(J, K), ta(L, K, M) )
+%   | | | then return 0.18337705562233236;  // std dev = 0,775, 9,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=8 */
+%   | | | else return -0.309968351957354;  // std dev = 0,126, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | else if ( tempadvisedby(N, B), publication(P, N) )
+%   | | | then return 0.19128999332019314;  // std dev = 0,036, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.0936353954078132;  // std dev = 2,510, 68,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=60 */
+%   else return -0.06464057054318656;  // std dev = 0,017, 99,000 (wgt'ed) examples reached here.  /* #neg=99 */
+
+
+Starting fold 1
+
+Target train facts examples: 3318
+Target train pos examples: 5038
+Target train neg examples: 5038
+
+Target test facts examples: 3281
+Target test pos examples: 7530
+Target test neg examples: 7530
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;advisedby(A, B) :- student(A), professor(B).;true;false
+0;true,false;publication(I, A).;true;true
+0;true,false,true;publication(I, J), ta(K, J, L).;false;false
+0;true,true;tempadvisedby(D, B), ta(E, A, F).;true;false
+0;true,true,true;ta(G, D, H).;false;false
+0;true,false,false;publication(M, B).;false;false
+0;true;publication(C, B), publication(C, A).;true;true
+1;;advisedby(A, B) :- student(A), professor(B).;true;false
+1;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+1;true,false,true;publication(J, B).;false;false
+1;true,true;ta(F, A, G), ta(D, H, G).;true;false
+1;true,true,true;samecourse(D, F).;false;false
+1;true,false,false;publication(K, B).;false;false
+1;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+2;;advisedby(A, B) :- student(A), hasposition(B, C).;true;true
+2;true,false;publication(J, A), publication(K, B).;true;true
+2;true,false,true;hasposition(L, C), publication(J, L).;false;false
+2;false;professor(B).;false;false
+2;true,true;publication(D, E), ta(F, E, G).;true;false
+2;true,true,true;tempadvisedby(H, B), ta(F, H, I).;false;false
+2;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+2;true;publication(D, A), publication(D, B).;true;true
+3;;advisedby(A, B) :- student(A), professor(B).;true;false
+3;true,false,true;publication(H, B).;false;false
+3;true,true;ta(D, A, F).;false;false
+3;true,false;tempadvisedby(G, B), publication(H, A).;true;true
+3;true,false,false;tempadvisedby(I, B), ta(J, A, K).;false;false
+3;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+4;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+4;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+4;true,false,true;hasposition(L, C), publication(J, L).;false;false
+4;false;student(B).;false;false
+4;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+4;true,true,true;ta(H, G, I).;false;false
+4;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+4;true;publication(D, A), publication(D, B).;true;true
+5;;advisedby(A, B) :- student(A), professor(B).;true;false
+5;true,false;publication(E, A), tempadvisedby(F, B).;true;true
+5;true,false,true;publication(E, G), ta(H, G, I).;false;false
+5;true,true;tempadvisedby(D, B).;true;false
+5;true,true,true;publication(C, D).;false;false
+5;true,false,false;tempadvisedby(J, B).;false;false
+5;true;publication(C, A), publication(C, B).;true;true
+6;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+6;true,false;tempadvisedby(J, B), publication(K, J).;false;true
+6;false;professor(B).;true;false
+6;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+6;true,true,true;ta(H, G, I).;false;false
+6;true,false,false;ta(L, A, M), tempadvisedby(N, B).;false;false
+6;false,true;publication(P, B).;false;false
+6;true;publication(D, B), publication(D, A).;true;true
+7;;advisedby(A, B) :- student(A), professor(B).;true;false
+7;true,false,true;publication(I, G), publication(H, A).;false;false
+7;true,true;ta(D, A, F).;false;false
+7;true,false;tempadvisedby(G, B), publication(H, B).;true;true
+7;true,false,false;tempadvisedby(J, B).;false;false
+7;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+8;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+8;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+8;true,false,true;hasposition(L, C), publication(J, L).;false;false
+8;false;student(B).;false;false
+8;true,true;tempadvisedby(E, B), ta(F, A, G).;true;false
+8;true,true,true;ta(H, E, I).;false;false
+8;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+8;true;publication(D, A), publication(D, B).;true;true
+9;;advisedby(A, B) :- student(A), professor(B).;true;false
+9;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+9;true,false,true;publication(J, K), ta(L, K, M).;false;false
+9;true,true;ta(D, A, E).;true;false
+9;true,true,true;ta(D, F, G), tempadvisedby(F, H).;false;false
+9;true,false,false;tempadvisedby(N, B), publication(P, N).;false;false
+9;true;publication(C, B), publication(C, A).;true;true
+
+
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( educationschool(B, C), educationschool(A, C) )
+%   then return 0.5039307432885701;  // std dev = 0,478, 3.639,000 (wgt'ed) examples reached here.  /* #neg=1.289 #pos=2.350 */
+%   else if ( educationschool(A, D) )
+%   | then if ( educationschool(E, D) )
+%   | | then return 0.2060996373064433;  // std dev = 28,135, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(B, F) )
+%   | | then return 0.3568420872166009;  // std dev = 21,869, 1.913,000 (wgt'ed) examples reached here.  /* #neg=959 #pos=954 */
+%   | | else return 0.3605643940367056;  // std dev = 16,086, 1.035,000 (wgt'ed) examples reached here.  /* #neg=515 #pos=520 */
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( educationschool(A, C) )
+%   then if ( educationschool(B, C) )
+%   | then return 0.4309545103238595;  // std dev = 28,852, 3.639,000 (wgt'ed) examples reached here.  /* #neg=1.289 #pos=2.350 */
+%   | else return 0.17911485155875947;  // std dev = 28,135, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   else if ( educationschool(B, D) )
+%   | then return 0.3076363481546016;  // std dev = 21,869, 1.913,000 (wgt'ed) examples reached here.  /* #neg=959 #pos=954 */
+%   | else return 0.31078269551055915;  // std dev = 16,086, 1.035,000 (wgt'ed) examples reached here.  /* #neg=515 #pos=520 */
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( workemployer(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then if ( educationschool(E, D) )
+%   | | then return 0.4210947914191465;  // std dev = 0,450, 1.762,000 (wgt'ed) examples reached here.  /* #neg=498 #pos=1.264 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(A, F), educationschool(B, G) )
+%   | | then if ( workemployer(H, C), educationschool(H, F) )
+%   | | | then return 0.2715247234303206;  // std dev = 7,003, 197,000 (wgt'ed) examples reached here.  /* #neg=105 #pos=92 */
+%   | | | else return -0.06881368604514357;  // std dev = 4,073, 150,000 (wgt'ed) examples reached here.  /* #neg=131 #pos=19 */
+%   | | else if ( workemployer(I, C) )
+%   | | | then return 0.3135334133171568;  // std dev = 15,542, 991,000 (wgt'ed) examples reached here.  /* #neg=446 #pos=545 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.20984649205149364;  // std dev = 0,491, 6.976,000 (wgt'ed) examples reached here.  /* #neg=3.858 #pos=3.118 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( educationschool(A, C) )
+%   then if ( educationschool(B, C) )
+%   | then return 0.2802623238759293;  // std dev = 28,675, 3.639,000 (wgt'ed) examples reached here.  /* #neg=1.289 #pos=2.350 */
+%   | else return 0.11792061783655051;  // std dev = 28,088, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   else return 0.20950149426836576;  // std dev = 0,499, 2.948,000 (wgt'ed) examples reached here.  /* #neg=1.474 #pos=1.474 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( workemployer(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.2582147934326584;  // std dev = 0,450, 1.762,000 (wgt'ed) examples reached here.  /* #neg=498 #pos=1.264 */
+%   | else if ( educationschool(A, E) )
+%   | | then if ( workemployer(F, C), educationschool(F, E) )
+%   | | | then return 0.11912021749668883;  // std dev = 8,739, 321,000 (wgt'ed) examples reached here.  /* #neg=197 #pos=124 */
+%   | | | else return -0.07379763428689112;  // std dev = 4,440, 168,000 (wgt'ed) examples reached here.  /* #neg=145 #pos=23 */
+%   | | else if ( workemployer(G, C) )
+%   | | | then return 0.24788900917388604;  // std dev = 14,278, 849,000 (wgt'ed) examples reached here.  /* #neg=340 #pos=509 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.12994290674500822;  // std dev = 0,490, 6.976,000 (wgt'ed) examples reached here.  /* #neg=3.858 #pos=3.118 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( educationschool(A, C), educationschool(B, C) )
+%   then if ( educationschool(D, C) )
+%   | then return 0.16580002017508214;  // std dev = 28,593, 3.639,000 (wgt'ed) examples reached here.  /* #neg=1.289 #pos=2.350 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( educationschool(A, E) )
+%   | then if ( educationschool(F, E) )
+%   | | then return 0.07302083662086048;  // std dev = 28,052, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0.12686764449764693;  // std dev = 0,498, 2.948,000 (wgt'ed) examples reached here.  /* #neg=1.474 #pos=1.474 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( workemployer(B, C) )
+%   then if ( educationschool(B, D), educationschool(A, D) )
+%   | then return 0.15266711692033585;  // std dev = 0,450, 1.762,000 (wgt'ed) examples reached here.  /* #neg=498 #pos=1.264 */
+%   | else if ( educationschool(E, F) )
+%   | | then return 0.11049917015647981;  // std dev = 17,548, 1.338,000 (wgt'ed) examples reached here.  /* #neg=682 #pos=656 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( educationschool(B, G) )
+%   | then return 0.030716378303570768;  // std dev = 29,830, 3.897,000 (wgt'ed) examples reached here.  /* #neg=2.177 #pos=1.720 */
+%   | else return 0.13179610940325723;  // std dev = 27,576, 3.079,000 (wgt'ed) examples reached here.  /* #neg=1.681 #pos=1.398 */
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( educationschool(B, C) )
+%   then if ( educationschool(D, E), educationschool(A, C) )
+%   | then return 0.10275461769971192;  // std dev = 28,556, 3.639,000 (wgt'ed) examples reached here.  /* #neg=1.289 #pos=2.350 */
+%   | else return 0.013825507135886915;  // std dev = 26,214, 3.136,000 (wgt'ed) examples reached here.  /* #neg=1.922 #pos=1.214 */
+%   else return 0.09314255543073836;  // std dev = 0,496, 3.301,000 (wgt'ed) examples reached here.  /* #neg=1.827 #pos=1.474 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( workemployer(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.09122983008105069;  // std dev = 0,450, 1.762,000 (wgt'ed) examples reached here.  /* #neg=498 #pos=1.264 */
+%   | else if ( educationschool(A, E) )
+%   | | then if ( workemployer(F, C), educationschool(F, E) )
+%   | | | then return 0.04588016946444517;  // std dev = 8,776, 321,000 (wgt'ed) examples reached here.  /* #neg=197 #pos=124 */
+%   | | | else return -0.09681992151663789;  // std dev = 4,439, 168,000 (wgt'ed) examples reached here.  /* #neg=145 #pos=23 */
+%   | | else if ( workemployer(G, C) )
+%   | | | then return 0.1258223754469632;  // std dev = 14,290, 849,000 (wgt'ed) examples reached here.  /* #neg=340 #pos=509 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.04117603882671238;  // std dev = 0,487, 6.976,000 (wgt'ed) examples reached here.  /* #neg=3.858 #pos=3.118 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( educationschool(B, C), educationschool(A, C) )
+%   then return 0.062200139517932226;  // std dev = 0,473, 3.639,000 (wgt'ed) examples reached here.  /* #neg=1.289 #pos=2.350 */
+%   else if ( educationschool(A, D) )
+%   | then if ( educationschool(E, D) )
+%   | | then return 0.014082684694499262;  // std dev = 27,820, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(F, G) )
+%   | | then return 0.04940587736103165;  // std dev = 26,932, 2.948,000 (wgt'ed) examples reached here.  /* #neg=1.474 #pos=1.474 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.622882
+   AUC PR    = 0.60134
+   CLL	      = -0.682852
+   Precision = 0.649664 at threshold = 0.5
+   Recall    = 0.346746
+   F1        = 0.45216
+
+
+Total learning time: 27.059 seconds
+Total inference time: 6.245 seconds
+AUC ROC: 0.622882
+
+
+Structure after Parameter Learning
+[['edge(A, B)', {'': 'educationschool(B, C), educationschool(A, C)', 'false': 'educationschool(A, D)', 'false,false': 'educationschool(B, F)', 'false,true': 'educationschool(E, D)'}, {'true': [0.478, 1289, 2350], 'false,true,false': [0.0, 0, 0], 'false,true,true': [28.135, 2275, 1214], 'false,false,true': [21.869, 959, 954], 'false,false,false': [16.086, 515, 520]}], ['edge(A, B)', {'': 'educationschool(A, C)', 'false': 'educationschool(B, D)', 'true': 'educationschool(B, C)'}, {'true,true': [28.852, 1289, 2350], 'true,false': [28.135, 2275, 1214], 'false,false': [16.086, 515, 520], 'false,true': [21.869, 959, 954]}], ['edge(A, B)', {'': 'workemployer(B, C)', 'true,false,true': 'workemployer(H, C), educationschool(H, F)', 'true,true': 'educationschool(E, D)', 'true,false': 'educationschool(A, F), educationschool(B, G)', 'true,false,false': 'workemployer(I, C)', 'true': 'educationschool(A, D), educationschool(B, D)'}, {'true,false,true,false': [4.073, 131, 19], 'true,false,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,true,true': [0.45, 498, 1264], 'false': [0.491, 3858, 3118], 'true,false,true,true': [7.003, 105, 92], 'true,false,false,true': [15.542, 446, 545]}], ['edge(A, B)', {'': 'educationschool(A, C)', 'true': 'educationschool(B, C)'}, {'true,true': [28.675, 1289, 2350], 'true,false': [28.088, 2275, 1214], 'false': [0.499, 1474, 1474]}], ['edge(A, B)', {'': 'workemployer(B, C)', 'true,false': 'educationschool(A, E)', 'true,false,false': 'workemployer(G, C)', 'true,false,true': 'workemployer(F, C), educationschool(F, E)', 'true': 'educationschool(A, D), educationschool(B, D)'}, {'true,false,true,false': [4.44, 145, 23], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.45, 498, 1264], 'false': [0.49, 3858, 3118], 'true,false,true,true': [8.739, 197, 124], 'true,false,false,true': [14.278, 340, 509]}], ['edge(A, B)', {'': 'educationschool(A, C), educationschool(B, C)', 'false': 'educationschool(A, E)', 'false,true': 'educationschool(F, E)', 'true': 'educationschool(D, C)'}, {'true,true': [28.593, 1289, 2350], 'true,false': [0.0, 0, 0], 'false,true,false': [0.0, 0, 0], 'false,true,true': [28.052, 2275, 1214], 'false,false': [0.498, 1474, 1474]}], ['edge(A, B)', {'': 'workemployer(B, C)', 'true,false': 'educationschool(E, F)', 'false': 'educationschool(B, G)', 'true': 'educationschool(B, D), educationschool(A, D)'}, {'true,true': [0.45, 498, 1264], 'true,false,false': [0.0, 0, 0], 'true,false,true': [17.548, 682, 656], 'false,true': [29.83, 2177, 1720], 'false,false': [27.576, 1681, 1398]}], ['edge(A, B)', {'': 'educationschool(B, C)', 'true': 'educationschool(D, E), educationschool(A, C)'}, {'true,true': [28.556, 1289, 2350], 'true,false': [26.214, 1922, 1214], 'false': [0.496, 1827, 1474]}], ['edge(A, B)', {'': 'workemployer(B, C)', 'true,false': 'educationschool(A, E)', 'true,false,false': 'workemployer(G, C)', 'true,false,true': 'workemployer(F, C), educationschool(F, E)', 'true': 'educationschool(A, D), educationschool(B, D)'}, {'true,false,true,false': [4.439, 145, 23], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.45, 498, 1264], 'false': [0.487, 3858, 3118], 'true,false,true,true': [8.776, 197, 124], 'true,false,false,true': [14.29, 340, 509]}], ['edge(A, B)', {'': 'educationschool(B, C), educationschool(A, C)', 'false': 'educationschool(A, D)', 'false,false': 'educationschool(F, G)', 'false,true': 'educationschool(E, D)'}, {'true': [0.473, 1289, 2350], 'false,true,false': [0.0, 0, 0], 'false,true,true': [27.82, 2275, 1214], 'false,false,true': [26.932, 1474, 1474], 'false,false,false': [0.0, 0, 0]}]]
+[{'': [0.2287476644010828, 0.24320790489790545], 'false': [0.22688101104066197, 0.24999999999996522], 'false,false': [0.24999829214863473, 0.2499941655581146], 'false,true': [0.22688101104066197, nan]}, {'': [0.24368276027684174, 0.2499990987113129], 'false': [0.24999829214865046, 0.24999416555813916], 'true': [0.2287476644011627, 0.22688101104065425]}, {'': [0.22649682624496503, 0.24136222794688292], 'true,false,true': [0.2489113349996128, 0.11062222222222254], 'true,true': [0.20275174867068918, nan], 'true,false': [0.21755848815287715, 0.24374664847515976], 'true,false,false': [0.2437466484751593, nan], 'true': [0.20275174867068918, 0.2438257511806222]}, {'': [0.23261875994714065, 0.2488540441993736], 'true': [0.2259513969430176, 0.22611805070531157]}, {'': [0.21876456480128142, 0.23963477964708568], 'true,false': [0.2048818851961758, 0.24012361333479676], 'true,false,false': [0.24012361333479676, nan], 'true,false,true': [0.23790337427583694, 0.11735626754950064], 'true': [0.20275174867069107, 0.23606613898146486]}, {'': [0.22467162099520827, 0.236336350944635], 'false': [0.2255362620562909, 0.2475468267826884], 'false,true': [0.2255362620562909, nan], 'true': [0.22467162099520827, nan]}, {'': [0.21501011968669784, 0.23908172081059526], 'true,false': [0.23014238729708913, nan], 'false': [0.2283381664022193, 0.24697194146115437], 'true': [0.202751748670704, 0.23014238729709113]}, {'': [0.22375983175800712, 0.24602846016246094], 'true': [0.22409159730703246, 0.21912708586349217]}, {'': [0.2147490544553225, 0.2370670991001989], 'true,false': [0.2024069139769654, 0.24053710297504055], 'true,false,false': [0.24053710297504055, nan], 'true,false,true': [0.23995749570576322, 0.11729115091821027], 'true': [0.2027517486707024, 0.2304587958722631]}, {'': [0.22399628809942704, 0.2332211134173609], 'false': [0.2218211707855197, 0.24603681109276462], 'false,false': [0.24603681109276462, nan], 'false,true': [0.2218211707855197, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Pruning resulted in null theory
+
+Candidate for revision
+0;;edge(A, B) :- educationschool(B, C), educationschool(A, C).;true;true
+0;false;educationschool(A, D).;true;true
+0;false,false;educationschool(B, F).;true;true
+0;false,true;educationschool(E, D).;true;true
+1;;edge(A, B) :- educationschool(A, C).;true;true
+1;false;educationschool(B, D).;true;true
+1;true;educationschool(B, C).;true;true
+2;;edge(A, B) :- workemployer(B, C).;true;true
+2;true,false,true;workemployer(H, C), educationschool(H, F).;true;true
+2;true,true;educationschool(E, D).;true;true
+2;true,false;educationschool(A, F), educationschool(B, G).;true;true
+2;true,false,false;workemployer(I, C).;true;true
+2;true;educationschool(A, D), educationschool(B, D).;true;true
+3;;edge(A, B) :- educationschool(A, C).;true;true
+3;true;educationschool(B, C).;true;true
+4;;edge(A, B) :- workemployer(B, C).;true;true
+4;true,false;educationschool(A, E).;true;true
+4;true,false,false;workemployer(G, C).;true;true
+4;true,false,true;workemployer(F, C), educationschool(F, E).;true;true
+4;true;educationschool(A, D), educationschool(B, D).;true;true
+5;;edge(A, B) :- educationschool(A, C), educationschool(B, C).;true;true
+5;false;educationschool(A, E).;true;true
+5;false,true;educationschool(F, E).;true;true
+5;true;educationschool(D, C).;true;true
+6;;edge(A, B) :- workemployer(B, C).;true;true
+6;true,false;educationschool(E, F).;true;true
+6;false;educationschool(B, G).;true;true
+6;true;educationschool(B, D), educationschool(A, D).;true;true
+7;;edge(A, B) :- educationschool(B, C).;true;true
+7;true;educationschool(D, E), educationschool(A, C).;true;true
+8;;edge(A, B) :- workemployer(B, C).;true;true
+8;true,false;educationschool(A, E).;true;true
+8;true,false,false;workemployer(G, C).;true;true
+8;true,false,true;workemployer(F, C), educationschool(F, E).;true;true
+8;true;educationschool(A, D), educationschool(B, D).;true;true
+9;;edge(A, B) :- educationschool(B, C), educationschool(A, C).;true;true
+9;false;educationschool(A, D).;true;true
+9;false,false;educationschool(F, G).;true;true
+9;false,true;educationschool(E, D).;true;true
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( educationschool(B, C), educationschool(A, C) )
+%   then if ( location(B, D), workemployer(B, E) )
+%   | then return 0.6239568976287815;  // std dev = 0,423, 1.281,000 (wgt'ed) examples reached here.  /* #neg=300 #pos=981 */
+%   | else if ( hometown(B, F) )
+%   | | then return 0.5672835504841235;  // std dev = 0,454, 416,000 (wgt'ed) examples reached here.  /* #neg=121 #pos=295 */
+%   | | else if ( worklocation(B, G), workemployer(A, H) )
+%   | | | then return 0.529753873371113;  // std dev = 9,451, 405,000 (wgt'ed) examples reached here.  /* #neg=133 #pos=272 */
+%   | | | else return 0.37994464102013226;  // std dev = 19,584, 1.537,000 (wgt'ed) examples reached here.  /* #neg=735 #pos=802 */
+%   else if ( educationschool(A, I) )
+%   | then return 0.2060996373064433;  // std dev = 0,476, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   | else if ( educationschool(B, J) )
+%   | | then if ( workemployer(B, K), gender(B, L) )
+%   | | | then return 0.47373678186304796;  // std dev = 13,384, 757,000 (wgt'ed) examples reached here.  /* #neg=291 #pos=466 */
+%   | | | else return 0.28029426381923067;  // std dev = 16,793, 1.156,000 (wgt'ed) examples reached here.  /* #neg=668 #pos=488 */
+%   | | else if ( educationtype(A, M), workenddate(B, N) )
+%   | | | then return 0.7248156017661783;  // std dev = 1,862, 30,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=26 */
+%   | | | else return 0.34969122365672206;  // std dev = 15,849, 1.005,000 (wgt'ed) examples reached here.  /* #neg=511 #pos=494 */
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( educationschool(A, C) )
+%   then if ( educationschool(B, C) )
+%   | then return 0.4303732685108394;  // std dev = 0,474, 3.639,000 (wgt'ed) examples reached here.  /* #neg=1.289 #pos=2.350 */
+%   | else return 0.17911485155875947;  // std dev = 0,476, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   else if ( educationschool(B, D) )
+%   | then if ( location(B, E), workemployer(B, F) )
+%   | | then return 0.4325806424125771;  // std dev = 0,479, 561,000 (wgt'ed) examples reached here.  /* #neg=201 #pos=360 */
+%   | | else if ( worklocation(B, G), locale(A, H) )
+%   | | | then return 0.34931712562690925;  // std dev = 9,552, 366,000 (wgt'ed) examples reached here.  /* #neg=169 #pos=197 */
+%   | | | else return 0.22024596699174256;  // std dev = 15,376, 986,000 (wgt'ed) examples reached here.  /* #neg=589 #pos=397 */
+%   | else if ( educationtype(B, I) )
+%   | | then if ( educationtype(A, J) )
+%   | | | then return 0.4885309393202469;  // std dev = 3,497, 62,000 (wgt'ed) examples reached here.  /* #neg=18 #pos=44 */
+%   | | | else return 0.11504595041505905;  // std dev = 6,511, 200,000 (wgt'ed) examples reached here.  /* #neg=139 #pos=61 */
+%   | | else if ( languages(B, K) )
+%   | | | then return 0.6671888075579157;  // std dev = 2,449, 49,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=42 */
+%   | | | else return 0.32523932058079325;  // std dev = 13,447, 724,000 (wgt'ed) examples reached here.  /* #neg=351 #pos=373 */
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( workemployer(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.4053118297976102;  // std dev = 0,447, 1.762,000 (wgt'ed) examples reached here.  /* #neg=498 #pos=1.264 */
+%   | else if ( educationschool(A, E), educationschool(B, F) )
+%   | | then return 0.12440437351297236;  // std dev = 0,466, 347,000 (wgt'ed) examples reached here.  /* #neg=236 #pos=111 */
+%   | | else return 0.2832623670064335;  // std dev = 0,488, 991,000 (wgt'ed) examples reached here.  /* #neg=446 #pos=545 */
+%   else if ( educationtype(B, G), gender(B, H) )
+%   | then if ( educationschool(B, I), educationschool(A, I) )
+%   | | then if ( hometown(B, J), location(B, K) )
+%   | | | then return 0.45332133681837017;  // std dev = 6,765, 253,000 (wgt'ed) examples reached here.  /* #neg=60 #pos=193 */
+%   | | | else return 0.26697387403289596;  // std dev = 19,773, 1.585,000 (wgt'ed) examples reached here.  /* #neg=721 #pos=864 */
+%   | | else return 0.08035871007447876;  // std dev = 0,448, 2.499,000 (wgt'ed) examples reached here.  /* #neg=1.777 #pos=722 */
+%   | else if ( workenddate(B, L), educationyear(A, M) )
+%   | | then return 0.5345811588669805;  // std dev = 0,417, 62,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=48 */
+%   | | else if ( gender(B, N), gender(A, N) )
+%   | | | then return 0.3290336708101786;  // std dev = 18,147, 1.328,000 (wgt'ed) examples reached here.  /* #neg=611 #pos=717 */
+%   | | | else return 0.2464449991839603;  // std dev = 17,530, 1.249,000 (wgt'ed) examples reached here.  /* #neg=675 #pos=574 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( educationschool(A, C) )
+%   then if ( educationschool(B, C) )
+%   | then return 0.27119704954633855;  // std dev = 0,471, 3.639,000 (wgt'ed) examples reached here.  /* #neg=1.289 #pos=2.350 */
+%   | else return 0.11810254300707784;  // std dev = 0,471, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   else if ( location(B, D), gender(B, E) )
+%   | then if ( educationtype(A, F), workposition(B, G) )
+%   | | then return -0.0419178346928426;  // std dev = 0,439, 45,000 (wgt'ed) examples reached here.  /* #neg=32 #pos=13 */
+%   | | else if ( gender(A, E), worklocation(B, H) )
+%   | | | then return 0.3453797622620823;  // std dev = 8,712, 342,000 (wgt'ed) examples reached here.  /* #neg=117 #pos=225 */
+%   | | | else return 0.24472463396606373;  // std dev = 15,428, 991,000 (wgt'ed) examples reached here.  /* #neg=471 #pos=520 */
+%   | else if ( educationtype(A, I) )
+%   | | then if ( workposition(B, J), educationschool(B, K) )
+%   | | | then return -0.07318601164010342;  // std dev = 1,701, 17,000 (wgt'ed) examples reached here.  /* #neg=13 #pos=4 */
+%   | | | else return 0.2834908113133204;  // std dev = 7,227, 224,000 (wgt'ed) examples reached here.  /* #neg=94 #pos=130 */
+%   | | else if ( educationdegree(B, L), educationschool(B, M) )
+%   | | | then return -0.10665843634611065;  // std dev = 2,077, 38,000 (wgt'ed) examples reached here.  /* #neg=33 #pos=5 */
+%   | | | else return 0.1702113091804207;  // std dev = 17,632, 1.291,000 (wgt'ed) examples reached here.  /* #neg=714 #pos=577 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( workemployer(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.24612732376200497;  // std dev = 0,447, 1.762,000 (wgt'ed) examples reached here.  /* #neg=498 #pos=1.264 */
+%   | else if ( educationschool(A, E) )
+%   | | then return 0.0554969225382503;  // std dev = 0,460, 489,000 (wgt'ed) examples reached here.  /* #neg=342 #pos=147 */
+%   | | else return 0.2065418971262245;  // std dev = 0,482, 849,000 (wgt'ed) examples reached here.  /* #neg=340 #pos=509 */
+%   else if ( educationtype(B, F), gender(B, G) )
+%   | then if ( educationschool(B, H), educationschool(A, H) )
+%   | | then if ( location(B, I), educationtype(A, F) )
+%   | | | then return 0.19962067839082165;  // std dev = 16,947, 1.236,000 (wgt'ed) examples reached here.  /* #neg=478 #pos=758 */
+%   | | | else return 0.0975615985623148;  // std dev = 12,205, 602,000 (wgt'ed) examples reached here.  /* #neg=303 #pos=299 */
+%   | | else return 0.03546892214163146;  // std dev = 0,444, 2.499,000 (wgt'ed) examples reached here.  /* #neg=1.777 #pos=722 */
+%   | else if ( languages(B, J), gender(A, K) )
+%   | | then return 0.4943253437973426;  // std dev = 0,393, 154,000 (wgt'ed) examples reached here.  /* #neg=29 #pos=125 */
+%   | | else if ( gender(B, L), gender(A, L) )
+%   | | | then return 0.22983914731292968;  // std dev = 17,812, 1.271,000 (wgt'ed) examples reached here.  /* #neg=600 #pos=671 */
+%   | | | else return 0.15755804792973988;  // std dev = 17,156, 1.214,000 (wgt'ed) examples reached here.  /* #neg=671 #pos=543 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( educationschool(A, C), educationschool(B, C) )
+%   then if ( educationschool(D, C) )
+%   | then if ( location(B, E), workstartdate(B, F) )
+%   | | then return 0.2131185099479381;  // std dev = 0,438, 1.719,000 (wgt'ed) examples reached here.  /* #neg=467 #pos=1.252 */
+%   | | else if ( educationyear(A, G), educationyear(B, G) )
+%   | | | then return 0.1844806373221716;  // std dev = 11,393, 578,000 (wgt'ed) examples reached here.  /* #neg=197 #pos=381 */
+%   | | | else return 0.06972877012160507;  // std dev = 18,025, 1.342,000 (wgt'ed) examples reached here.  /* #neg=625 #pos=717 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( educationschool(A, H) )
+%   | then if ( educationschool(I, H) )
+%   | | then return 0.07018065394679318;  // std dev = 0,464, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( hometown(B, J), lastname(A, K) )
+%   | | then return 0.3181555689454006;  // std dev = 0,454, 104,000 (wgt'ed) examples reached here.  /* #neg=34 #pos=70 */
+%   | | else if ( birthday(B, L), languages(B, M) )
+%   | | | then return 0.22268108218098703;  // std dev = 8,943, 361,000 (wgt'ed) examples reached here.  /* #neg=141 #pos=220 */
+%   | | | else return 0.11974382612034426;  // std dev = 24,296, 2.483,000 (wgt'ed) examples reached here.  /* #neg=1.299 #pos=1.184 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( workemployer(B, C) )
+%   then if ( educationschool(B, D), educationschool(A, D) )
+%   | then return 0.14240208951768896;  // std dev = 0,444, 1.762,000 (wgt'ed) examples reached here.  /* #neg=498 #pos=1.264 */
+%   | else if ( educationschool(E, F) )
+%   | | then return 0.08774295568357904;  // std dev = 0,475, 1.338,000 (wgt'ed) examples reached here.  /* #neg=682 #pos=656 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( educationschool(B, G) )
+%   | then if ( workenddate(A, H), gender(B, I) )
+%   | | then return -9.029106600460688E-4;  // std dev = 0,454, 1.598,000 (wgt'ed) examples reached here.  /* #neg=937 #pos=661 */
+%   | | else if ( gender(B, J), languages(A, K) )
+%   | | | then return 0.02030812868570437;  // std dev = 9,379, 417,000 (wgt'ed) examples reached here.  /* #neg=252 #pos=165 */
+%   | | | else return 0.11885127220551166;  // std dev = 20,713, 1.882,000 (wgt'ed) examples reached here.  /* #neg=988 #pos=894 */
+%   | else if ( educationtype(B, L), location(A, M) )
+%   | | then return -0.11550686364388058;  // std dev = 0,342, 293,000 (wgt'ed) examples reached here.  /* #neg=252 #pos=41 */
+%   | | else if ( lastname(B, N), lastname(A, P) )
+%   | | | then return 0.3303022284013902;  // std dev = 5,188, 130,000 (wgt'ed) examples reached here.  /* #neg=40 #pos=90 */
+%   | | | else return 0.12467038298141048;  // std dev = 25,410, 2.656,000 (wgt'ed) examples reached here.  /* #neg=1.389 #pos=1.267 */
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( educationschool(B, C) )
+%   then if ( educationschool(D, E), educationschool(A, C) )
+%   | then if ( location(B, F), gender(B, G) )
+%   | | then return 0.12495165472700714;  // std dev = 0,450, 2.500,000 (wgt'ed) examples reached here.  /* #neg=766 #pos=1.734 */
+%   | | else if ( hometown(B, H), hometown(A, H) )
+%   | | | then return 0.4099096017803262;  // std dev = 1,441, 32,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=30 */
+%   | | | else return 0.020907333754461042;  // std dev = 16,450, 1.107,000 (wgt'ed) examples reached here.  /* #neg=521 #pos=586 */
+%   | else if ( educationtype(A, I), gender(B, J) )
+%   | | then return -0.04614629747600561;  // std dev = 0,416, 1.425,000 (wgt'ed) examples reached here.  /* #neg=1.090 #pos=335 */
+%   | | else return 0.10610242231227637;  // std dev = 0,484, 1.711,000 (wgt'ed) examples reached here.  /* #neg=832 #pos=879 */
+%   else if ( educationtype(B, K), gender(A, L) )
+%   | then return -0.03987556533621822;  // std dev = 0,416, 758,000 (wgt'ed) examples reached here.  /* #neg=561 #pos=197 */
+%   | else if ( languages(B, M), gender(A, N) )
+%   | | then return 0.32410529528032594;  // std dev = 0,394, 154,000 (wgt'ed) examples reached here.  /* #neg=29 #pos=125 */
+%   | | else if ( birthday(B, P), workemployer(A, Q) )
+%   | | | then return -0.2789516981860721;  // std dev = 1,630, 35,000 (wgt'ed) examples reached here.  /* #neg=32 #pos=3 */
+%   | | | else return 0.1047090738936999;  // std dev = 24,152, 2.354,000 (wgt'ed) examples reached here.  /* #neg=1.205 #pos=1.149 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( workemployer(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.08582118894692749;  // std dev = 0,443, 1.762,000 (wgt'ed) examples reached here.  /* #neg=498 #pos=1.264 */
+%   | else if ( educationschool(A, E) )
+%   | | then if ( workemployer(F, C), educationschool(F, E) )
+%   | | | then return 0.1049651130474347;  // std dev = 8,788, 321,000 (wgt'ed) examples reached here.  /* #neg=197 #pos=124 */
+%   | | | else return -0.1350219463458446;  // std dev = 4,448, 168,000 (wgt'ed) examples reached here.  /* #neg=145 #pos=23 */
+%   | | else if ( workemployer(G, C) )
+%   | | | then return 0.07925403247209832;  // std dev = 13,946, 849,000 (wgt'ed) examples reached here.  /* #neg=340 #pos=509 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( educationtype(B, H), workemployer(A, I) )
+%   | then return -0.03248849280286915;  // std dev = 0,437, 1.584,000 (wgt'ed) examples reached here.  /* #neg=982 #pos=602 */
+%   | else if ( lastname(B, J), lastname(A, J) )
+%   | | then return 0.45076041990558763;  // std dev = 0,296, 69,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=64 */
+%   | | else if ( educationtype(B, K), languages(A, L) )
+%   | | | then return -0.023513888251986807;  // std dev = 11,177, 629,000 (wgt'ed) examples reached here.  /* #neg=390 #pos=239 */
+%   | | | else return 0.07485204320562033;  // std dev = 33,099, 4.694,000 (wgt'ed) examples reached here.  /* #neg=2.481 #pos=2.213 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( educationschool(B, C), educationschool(A, C) )
+%   then if ( workenddate(B, D), workenddate(A, D) )
+%   | then return 0.14767938457980984;  // std dev = 0,412, 604,000 (wgt'ed) examples reached here.  /* #neg=140 #pos=464 */
+%   | else if ( hometown(B, E), hometown(A, E) )
+%   | | then return 0.30432938900930273;  // std dev = 0,235, 76,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=72 */
+%   | | else if ( location(B, F), gender(B, G) )
+%   | | | then return 0.06526105907087261;  // std dev = 20,586, 1.998,000 (wgt'ed) examples reached here.  /* #neg=665 #pos=1.333 */
+%   | | | else return -0.01598265609224165;  // std dev = 15,391, 961,000 (wgt'ed) examples reached here.  /* #neg=480 #pos=481 */
+%   else if ( educationschool(A, H) )
+%   | then if ( educationschool(I, H) )
+%   | | then return 0.01677153151407222;  // std dev = 0,453, 3.489,000 (wgt'ed) examples reached here.  /* #neg=2.275 #pos=1.214 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(J, K) )
+%   | | then if ( location(B, L), gender(B, M) )
+%   | | | then return 0.07891711807447464;  // std dev = 17,874, 1.378,000 (wgt'ed) examples reached here.  /* #neg=620 #pos=758 */
+%   | | | else return 0.014664964284833954;  // std dev = 19,106, 1.570,000 (wgt'ed) examples reached here.  /* #neg=854 #pos=716 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.628254
+   AUC PR    = 0.602948
+   CLL	      = -0.682097
+   Precision = 0.612823 at threshold = 0.5
+   Recall    = 0.32749
+   F1        = 0.426865
+
+
+Total learning time: 169.262 seconds
+Total inference time: 13.298 seconds
+AUC ROC: 0.628254
+
+
+Refined model AUC ROC: 0.628254
+
+
+Dataset: 50_uwcse_facebook, Fold: 1, Type: Transfer (trRDN-B), Time: 05:47:10
+{'Recall': 0.32749, 'Learning time': 196.321, 'F1': 0.426865, 'Precision': [0.612823, 0.5], 'AUC PR': 0.602948, 'CLL': -0.682097, 'parameter': {'Recall': 0.346746, 'Learning time': 27.059, 'F1': 0.45216, 'Precision': [0.649664, 0.5], 'AUC PR': 0.60134, 'CLL': -0.682852, 'AUC ROC': 0.622882, 'Inference time': 6.245}, 'AUC ROC': 0.628254, 'Inference time': 13.298}
+
+
+Starting fold 2
+
+Target train facts examples: 1550
+Target train pos examples: 3386
+Target train neg examples: 3386
+
+Target test facts examples: 5049
+Target test pos examples: 9182
+Target test neg examples: 9182
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;advisedby(A, B) :- student(A), professor(B).;true;false
+0;true,false;publication(I, A).;true;true
+0;true,false,true;publication(I, J), ta(K, J, L).;false;false
+0;true,true;tempadvisedby(D, B), ta(E, A, F).;true;false
+0;true,true,true;ta(G, D, H).;false;false
+0;true,false,false;publication(M, B).;false;false
+0;true;publication(C, B), publication(C, A).;true;true
+1;;advisedby(A, B) :- student(A), professor(B).;true;false
+1;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+1;true,false,true;publication(J, B).;false;false
+1;true,true;ta(F, A, G), ta(D, H, G).;true;false
+1;true,true,true;samecourse(D, F).;false;false
+1;true,false,false;publication(K, B).;false;false
+1;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+2;;advisedby(A, B) :- student(A), hasposition(B, C).;true;true
+2;true,false;publication(J, A), publication(K, B).;true;true
+2;true,false,true;hasposition(L, C), publication(J, L).;false;false
+2;false;professor(B).;false;false
+2;true,true;publication(D, E), ta(F, E, G).;true;false
+2;true,true,true;tempadvisedby(H, B), ta(F, H, I).;false;false
+2;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+2;true;publication(D, A), publication(D, B).;true;true
+3;;advisedby(A, B) :- student(A), professor(B).;true;false
+3;true,false,true;publication(H, B).;false;false
+3;true,true;ta(D, A, F).;false;false
+3;true,false;tempadvisedby(G, B), publication(H, A).;true;true
+3;true,false,false;tempadvisedby(I, B), ta(J, A, K).;false;false
+3;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+4;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+4;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+4;true,false,true;hasposition(L, C), publication(J, L).;false;false
+4;false;student(B).;false;false
+4;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+4;true,true,true;ta(H, G, I).;false;false
+4;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+4;true;publication(D, A), publication(D, B).;true;true
+5;;advisedby(A, B) :- student(A), professor(B).;true;false
+5;true,false;publication(E, A), tempadvisedby(F, B).;true;true
+5;true,false,true;publication(E, G), ta(H, G, I).;false;false
+5;true,true;tempadvisedby(D, B).;true;false
+5;true,true,true;publication(C, D).;false;false
+5;true,false,false;tempadvisedby(J, B).;false;false
+5;true;publication(C, A), publication(C, B).;true;true
+6;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+6;true,false;tempadvisedby(J, B), publication(K, J).;false;true
+6;false;professor(B).;true;false
+6;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+6;true,true,true;ta(H, G, I).;false;false
+6;true,false,false;ta(L, A, M), tempadvisedby(N, B).;false;false
+6;false,true;publication(P, B).;false;false
+6;true;publication(D, B), publication(D, A).;true;true
+7;;advisedby(A, B) :- student(A), professor(B).;true;false
+7;true,false,true;publication(I, G), publication(H, A).;false;false
+7;true,true;ta(D, A, F).;false;false
+7;true,false;tempadvisedby(G, B), publication(H, B).;true;true
+7;true,false,false;tempadvisedby(J, B).;false;false
+7;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+8;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+8;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+8;true,false,true;hasposition(L, C), publication(J, L).;false;false
+8;false;student(B).;false;false
+8;true,true;tempadvisedby(E, B), ta(F, A, G).;true;false
+8;true,true,true;ta(H, E, I).;false;false
+8;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+8;true;publication(D, A), publication(D, B).;true;true
+9;;advisedby(A, B) :- student(A), professor(B).;true;false
+9;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+9;true,false,true;publication(J, K), ta(L, K, M).;false;false
+9;true,true;ta(D, A, E).;true;false
+9;true,true,true;ta(D, F, G), tempadvisedby(F, H).;false;false
+9;true,false,false;tempadvisedby(N, B), publication(P, N).;false;false
+9;true;publication(C, B), publication(C, A).;true;true
+
+
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( locale(B, C), locale(A, C) )
+%   then return 0.48397065479448487;  // std dev = 0,484, 3.803,000 (wgt'ed) examples reached here.  /* #neg=1.423 #pos=2.380 */
+%   else if ( locale(A, D) )
+%   | then if ( locale(E, D) )
+%   | | then return 0.1965481245625265;  // std dev = 25,747, 2.961,000 (wgt'ed) examples reached here.  /* #neg=1.959 #pos=1.002 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( locale(B, F) )
+%   | | then return 0.3581489350995123;  // std dev = 1,414, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( locale(A, C) )
+%   then if ( locale(B, C) )
+%   | then return 0.41434205418692577;  // std dev = 29,842, 3.803,000 (wgt'ed) examples reached here.  /* #neg=1.423 #pos=2.380 */
+%   | else return 0.17089946902633427;  // std dev = 25,747, 2.961,000 (wgt'ed) examples reached here.  /* #neg=1.959 #pos=1.002 */
+%   else if ( locale(B, D) )
+%   | then return 0.30874113578563506;  // std dev = 1,414, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( educationyear(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then if ( locale(E, D) )
+%   | | then return 0.2886418491855995;  // std dev = 0,494, 2.366,000 (wgt'ed) examples reached here.  /* #neg=1.000 #pos=1.366 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( locale(A, F), locale(B, G) )
+%   | | then if ( educationyear(H, C), locale(H, F) )
+%   | | | then return 0.15421718781369048;  // std dev = 21,351, 2.012,000 (wgt'ed) examples reached here.  /* #neg=1.314 #pos=698 */
+%   | | | else return 0.26883716028655724;  // std dev = 2,542, 26,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=12 */
+%   | | else if ( educationyear(I, C) )
+%   | | | then return 0.01821284763931618;  // std dev = 2,452, 36,000 (wgt'ed) examples reached here.  /* #neg=28 #pos=8 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.3064600587206436;  // std dev = 0,481, 2.332,000 (wgt'ed) examples reached here.  /* #neg=1.030 #pos=1.302 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( locale(A, C) )
+%   then if ( locale(B, C) )
+%   | then return 0.27291842912214953;  // std dev = 29,827, 3.803,000 (wgt'ed) examples reached here.  /* #neg=1.423 #pos=2.380 */
+%   | else return 0.11242317940680457;  // std dev = 25,765, 2.961,000 (wgt'ed) examples reached here.  /* #neg=1.959 #pos=1.002 */
+%   else return 0.2530409511332835;  // std dev = 0,500, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( educationyear(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then return 0.16156710670333344;  // std dev = 0,494, 2.366,000 (wgt'ed) examples reached here.  /* #neg=1.000 #pos=1.366 */
+%   | else if ( locale(A, E) )
+%   | | then if ( educationyear(F, C), locale(F, E) )
+%   | | | then return 0.10684895816807966;  // std dev = 21,452, 2.040,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=702 */
+%   | | | else return 0.20256139579744484;  // std dev = 2,542, 26,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=12 */
+%   | | else if ( educationyear(G, C) )
+%   | | | then return 0.20304830723581624;  // std dev = 1,414, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.19725236386062692;  // std dev = 0,474, 2.332,000 (wgt'ed) examples reached here.  /* #neg=1.030 #pos=1.302 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( locale(A, C), locale(B, C) )
+%   then if ( locale(D, C) )
+%   | then return 0.1653185690877641;  // std dev = 29,793, 3.803,000 (wgt'ed) examples reached here.  /* #neg=1.423 #pos=2.380 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( locale(A, E) )
+%   | then if ( locale(F, E) )
+%   | | then return 0.06595584908140686;  // std dev = 25,795, 2.961,000 (wgt'ed) examples reached here.  /* #neg=1.959 #pos=1.002 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0.1589925316239973;  // std dev = 0,500, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( educationyear(B, C) )
+%   then if ( locale(B, D), locale(A, D) )
+%   | then return 0.08065601705510575;  // std dev = 0,494, 2.366,000 (wgt'ed) examples reached here.  /* #neg=1.000 #pos=1.366 */
+%   | else if ( locale(E, F) )
+%   | | then return 0.07528462241301613;  // std dev = 21,651, 2.074,000 (wgt'ed) examples reached here.  /* #neg=1.356 #pos=718 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( locale(B, G) )
+%   | then return 0.1209230726801851;  // std dev = 22,686, 2.332,000 (wgt'ed) examples reached here.  /* #neg=1.030 #pos=1.302 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( locale(B, C) )
+%   then if ( locale(D, E), locale(A, C) )
+%   | then return 0.10014687676406381;  // std dev = 29,760, 3.803,000 (wgt'ed) examples reached here.  /* #neg=1.423 #pos=2.380 */
+%   | else return 0.03567102317295293;  // std dev = 25,781, 2.941,000 (wgt'ed) examples reached here.  /* #neg=1.939 #pos=1.002 */
+%   else return -0.11563375599030068;  // std dev = 0,350, 28,000 (wgt'ed) examples reached here.  /* #neg=24 #pos=4 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( educationyear(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then return 0.03555308016093389;  // std dev = 0,494, 2.366,000 (wgt'ed) examples reached here.  /* #neg=1.000 #pos=1.366 */
+%   | else if ( locale(A, E) )
+%   | | then if ( educationyear(F, C), locale(F, E) )
+%   | | | then return 0.05215113408819031;  // std dev = 21,445, 2.040,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=702 */
+%   | | | else return 0.1234488449825904;  // std dev = 2,542, 26,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=12 */
+%   | | else if ( educationyear(G, C) )
+%   | | | then return 0.0960081521473728;  // std dev = 1,414, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.07365033391790896;  // std dev = 0,468, 2.332,000 (wgt'ed) examples reached here.  /* #neg=1.030 #pos=1.302 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( locale(B, C), locale(A, C) )
+%   then return 0.06298697250478197;  // std dev = 0,482, 3.803,000 (wgt'ed) examples reached here.  /* #neg=1.423 #pos=2.380 */
+%   else if ( locale(A, D) )
+%   | then if ( locale(E, D) )
+%   | | then return 0.013841360832195141;  // std dev = 25,829, 2.961,000 (wgt'ed) examples reached here.  /* #neg=1.959 #pos=1.002 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( locale(F, G) )
+%   | | then return 0.07269408205358426;  // std dev = 1,414, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.490549
+   AUC PR    = 0.493444
+   CLL	      = -0.72074
+   Precision = 0.497475 at threshold = 0.5
+   Recall    = 0.729471
+   F1        = 0.591539
+
+
+Total learning time: 14.138 seconds
+Total inference time: 8.048 seconds
+AUC ROC: 0.490549
+
+
+Structure after Parameter Learning
+[['edge(A, B)', {'': 'locale(B, C), locale(A, C)', 'false': 'locale(A, D)', 'false,false': 'locale(B, F)', 'false,true': 'locale(E, D)'}, {'true': [0.484, 1423, 2380], 'false,true,false': [0.0, 0, 0], 'false,true,true': [25.747, 1959, 1002], 'false,false,true': [1.414, 4, 4], 'false,false,false': [0.0, 0, 0]}], ['edge(A, B)', {'': 'locale(A, C)', 'false': 'locale(B, D)', 'true': 'locale(B, C)'}, {'true,true': [29.842, 1423, 2380], 'true,false': [25.747, 1959, 1002], 'false,false': [0.0, 0, 0], 'false,true': [1.414, 4, 4]}], ['edge(A, B)', {'': 'educationyear(B, C)', 'true,false,true': 'educationyear(H, C), locale(H, F)', 'true,true': 'locale(E, D)', 'true,false': 'locale(A, F), locale(B, G)', 'true,false,false': 'educationyear(I, C)', 'true': 'locale(A, D), locale(B, D)'}, {'true,false,true,false': [2.542, 14, 12], 'true,false,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,true,true': [0.494, 1000, 1366], 'false': [0.481, 1030, 1302], 'true,false,true,true': [21.351, 1314, 698], 'true,false,false,true': [2.452, 28, 8]}], ['edge(A, B)', {'': 'locale(A, C)', 'true': 'locale(B, C)'}, {'true,true': [29.827, 1423, 2380], 'true,false': [25.765, 1959, 1002], 'false': [0.5, 4, 4]}], ['edge(A, B)', {'': 'educationyear(B, C)', 'true,false': 'locale(A, E)', 'true,false,false': 'educationyear(G, C)', 'true,false,true': 'educationyear(F, C), locale(F, E)', 'true': 'locale(A, D), locale(B, D)'}, {'true,false,true,false': [2.542, 14, 12], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.494, 1000, 1366], 'false': [0.474, 1030, 1302], 'true,false,true,true': [21.452, 1338, 702], 'true,false,false,true': [1.414, 4, 4]}], ['edge(A, B)', {'': 'locale(A, C), locale(B, C)', 'false': 'locale(A, E)', 'false,true': 'locale(F, E)', 'true': 'locale(D, C)'}, {'true,true': [29.793, 1423, 2380], 'true,false': [0.0, 0, 0], 'false,true,false': [0.0, 0, 0], 'false,true,true': [25.795, 1959, 1002], 'false,false': [0.5, 4, 4]}], ['edge(A, B)', {'': 'educationyear(B, C)', 'true,false': 'locale(E, F)', 'false': 'locale(B, G)', 'true': 'locale(B, D), locale(A, D)'}, {'true,true': [0.494, 1000, 1366], 'true,false,false': [0.0, 0, 0], 'true,false,true': [21.651, 1356, 718], 'false,true': [22.686, 1030, 1302], 'false,false': [0.0, 0, 0]}], ['edge(A, B)', {'': 'locale(B, C)', 'true': 'locale(D, E), locale(A, C)'}, {'true,true': [29.76, 1423, 2380], 'true,false': [25.781, 1939, 1002], 'false': [0.35, 24, 4]}], ['edge(A, B)', {'': 'educationyear(B, C)', 'true,false': 'locale(A, E)', 'true,false,false': 'educationyear(G, C)', 'true,false,true': 'educationyear(F, C), locale(F, E)', 'true': 'locale(A, D), locale(B, D)'}, {'true,false,true,false': [2.542, 14, 12], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.494, 1000, 1366], 'false': [0.468, 1030, 1302], 'true,false,true,true': [21.445, 1338, 702], 'true,false,false,true': [1.414, 4, 4]}], ['edge(A, B)', {'': 'locale(B, C), locale(A, C)', 'false': 'locale(A, D)', 'false,false': 'locale(F, G)', 'false,true': 'locale(E, D)'}, {'true': [0.482, 1423, 2380], 'false,true,false': [0.0, 0, 0], 'false,true,true': [25.829, 1959, 1002], 'false,false,true': [1.414, 4, 4], 'false,false,false': [0.0, 0, 0]}]]
+[{'': [0.23416889485295225, 0.22402572172471566], 'false': [0.22388517803381622, 0.24999999999999986], 'false,false': [0.24999999999999986, nan], 'false,true': [0.22388517803381622, nan]}, {'': [0.2442535926997788, 0.24999999999999994], 'false': [0.24999999999999994, nan], 'true': [0.2341688948529442, 0.2238851780337825]}, {'': [0.24029784402148627, 0.23134860149603512], 'true,false,true': [0.22656605101004654, 0.2485207100591716], 'true,true': [0.2440176378664209, nan], 'true,false': [0.2270116077163945, 0.16700479703977936], 'true,false,false': [0.16700479703977908, nan], 'true': [0.2440176378664209, 0.22629234106665538]}, {'': [0.23600626924391296, 0.24999999999999997], 'true': [0.2339272034360846, 0.224193926705649]}, {'': [0.23635437727650246, 0.22426405482886827], 'true,false': [0.2259796784718593, 0.25000000000000006], 'true,false,false': [0.25000000000000006, nan], 'true,false,true': [0.22557710396120753, 0.24852071005917165], 'true': [0.24401763786639127, 0.22610700550089885]}, {'': [0.23340834340130232, 0.22480953166593956], 'false': [0.22471814910753898, 0.25000000000000006], 'false,true': [0.22471814910753898, nan], 'true': [0.23340834340130232, nan]}, {'': [0.23561971242563856, 0.22070084477533664], 'true,false': [0.2260240621531788, nan], 'false': [0.22070084477533664, nan], 'true': [0.24401763786639177, 0.22602406215317875]}, {'': [0.2309030866530238, 0.12244897959183688], 'true': [0.23288805569790091, 0.2259920831550358]}, {'': [0.2356269979134185, 0.218965998250258], 'true,false': [0.22578833863702566, 0.24999999999999992], 'true,false,false': [0.24999999999999992, nan], 'true,false,true': [0.2254346397048438, 0.24852071005917178], 'true': [0.2440176378663982, 0.2258888211186143]}, {'': [0.23246289548687474, 0.22538237686453816], 'false': [0.22530653239818013, 0.25], 'false,false': [0.25, nan], 'false,true': [0.22530653239818013, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Pruning resulted in null theory
+
+Candidate for revision
+0;;edge(A, B) :- locale(B, C), locale(A, C).;true;true
+0;false;locale(A, D).;true;true
+0;false,false;locale(B, F).;true;true
+0;false,true;locale(E, D).;true;true
+1;;edge(A, B) :- locale(A, C).;true;true
+1;false;locale(B, D).;true;true
+1;true;locale(B, C).;true;true
+2;;edge(A, B) :- educationyear(B, C).;true;true
+2;true,false,true;educationyear(H, C), locale(H, F).;true;true
+2;true,true;locale(E, D).;true;true
+2;true,false;locale(A, F), locale(B, G).;true;true
+2;true,false,false;educationyear(I, C).;true;true
+2;true;locale(A, D), locale(B, D).;true;true
+3;;edge(A, B) :- locale(A, C).;true;true
+3;true;locale(B, C).;true;true
+4;;edge(A, B) :- educationyear(B, C).;true;true
+4;true,false;locale(A, E).;true;true
+4;true,false,false;educationyear(G, C).;true;true
+4;true,false,true;educationyear(F, C), locale(F, E).;true;true
+4;true;locale(A, D), locale(B, D).;true;true
+5;;edge(A, B) :- locale(A, C), locale(B, C).;true;true
+5;false;locale(A, E).;true;true
+5;false,true;locale(F, E).;true;true
+5;true;locale(D, C).;true;true
+6;;edge(A, B) :- educationyear(B, C).;true;true
+6;true,false;locale(E, F).;true;true
+6;false;locale(B, G).;true;true
+6;true;locale(B, D), locale(A, D).;true;true
+7;;edge(A, B) :- locale(B, C).;true;true
+7;true;locale(D, E), locale(A, C).;true;true
+8;;edge(A, B) :- educationyear(B, C).;true;true
+8;true,false;locale(A, E).;true;true
+8;true,false,false;educationyear(G, C).;true;true
+8;true,false,true;educationyear(F, C), locale(F, E).;true;true
+8;true;locale(A, D), locale(B, D).;true;true
+9;;edge(A, B) :- locale(B, C), locale(A, C).;true;true
+9;false;locale(A, D).;true;true
+9;false,false;locale(F, G).;true;true
+9;false,true;locale(E, D).;true;true
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( locale(B, C), locale(A, C) )
+%   then if ( languages(B, D), educationdegree(B, E) )
+%   | then if ( hometown(B, F), lastname(B, G) )
+%   | | then if ( location(B, H), location(A, H) )
+%   | | | then return 0.7748156017661786;  // std dev = 1,354, 24,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=22 */
+%   | | | else return 0.31337281569652675;  // std dev = 5,765, 134,000 (wgt'ed) examples reached here.  /* #neg=73 #pos=61 */
+%   | | else return 0.13087620782678416;  // std dev = 0,445, 165,000 (wgt'ed) examples reached here.  /* #neg=120 #pos=45 */
+%   | else if ( educationyear(B, I), gender(A, J) )
+%   | | then if ( educationschool(B, K), educationschool(A, K) )
+%   | | | then return 0.6146424415930141;  // std dev = 13,046, 924,000 (wgt'ed) examples reached here.  /* #neg=225 #pos=699 */
+%   | | | else return 0.333473610424183;  // std dev = 16,972, 1.155,000 (wgt'ed) examples reached here.  /* #neg=606 #pos=549 */
+%   | | else return 0.5747799129724553;  // std dev = 0,451, 1.401,000 (wgt'ed) examples reached here.  /* #neg=397 #pos=1.004 */
+%   else if ( locale(A, L) )
+%   | then return 0.1965481245625265;  // std dev = 0,473, 2.961,000 (wgt'ed) examples reached here.  /* #neg=1.959 #pos=1.002 */
+%   | else if ( locale(B, M) )
+%   | | then return 0.3581489350995123;  // std dev = 0,500, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( locale(A, C) )
+%   then if ( locale(B, C) )
+%   | then if ( educationyear(B, D) )
+%   | | then if ( educationconcentration(A, E), workenddate(B, F) )
+%   | | | then return 0.06944254616133694;  // std dev = 4,092, 91,000 (wgt'ed) examples reached here.  /* #neg=67 #pos=24 */
+%   | | | else return 0.38455873712594507;  // std dev = 23,111, 2.275,000 (wgt'ed) examples reached here.  /* #neg=933 #pos=1.342 */
+%   | | else return 0.4806667266959299;  // std dev = 0,454, 1.437,000 (wgt'ed) examples reached here.  /* #neg=423 #pos=1.014 */
+%   | else if ( birthday(B, G), birthday(A, G) )
+%   | | then if ( worklocation(B, H) )
+%   | | | then return 0.6786541257171829;  // std dev = 2,253, 39,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=33 */
+%   | | | else return 0.37197396377386066;  // std dev = 7,526, 228,000 (wgt'ed) examples reached here.  /* #neg=105 #pos=123 */
+%   | | else return 0.14653145996423778;  // std dev = 0,464, 2.694,000 (wgt'ed) examples reached here.  /* #neg=1.848 #pos=846 */
+%   else if ( locale(B, I) )
+%   | then if ( location(B, J) )
+%   | | then return 0.558741135785635;  // std dev = 0,866, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | else return 0.058741135785635;  // std dev = 0,866, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( educationyear(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then if ( locale(E, D) )
+%   | | then if ( educationconcentration(A, F), workenddate(B, G) )
+%   | | | then return 0.05837611818922785;  // std dev = 4,088, 91,000 (wgt'ed) examples reached here.  /* #neg=67 #pos=24 */
+%   | | | else return 0.31510027671737845;  // std dev = 23,042, 2.275,000 (wgt'ed) examples reached here.  /* #neg=933 #pos=1.342 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( locale(A, H), locale(B, I) )
+%   | | then return 0.15419337321257595;  // std dev = 0,473, 2.038,000 (wgt'ed) examples reached here.  /* #neg=1.328 #pos=710 */
+%   | | else return 0.020487191449490898;  // std dev = 0,402, 36,000 (wgt'ed) examples reached here.  /* #neg=28 #pos=8 */
+%   else if ( educationschool(B, J), educationschool(A, J) )
+%   | then return 0.48091017380553364;  // std dev = 0,406, 634,000 (wgt'ed) examples reached here.  /* #neg=147 #pos=487 */
+%   | else if ( educationschool(B, K), educationschool(A, L) )
+%   | | then return 0.018509899268834114;  // std dev = 0,429, 368,000 (wgt'ed) examples reached here.  /* #neg=272 #pos=96 */
+%   | | else if ( location(B, M) )
+%   | | | then return 0.4399873240186173;  // std dev = 5,535, 171,000 (wgt'ed) examples reached here.  /* #neg=45 #pos=126 */
+%   | | | else return 0.24640895069914107;  // std dev = 16,363, 1.159,000 (wgt'ed) examples reached here.  /* #neg=566 #pos=593 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( locale(A, C) )
+%   then if ( locale(B, C) )
+%   | then if ( location(B, D), location(A, D) )
+%   | | then return 0.40169758444312326;  // std dev = 0,398, 432,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=340 */
+%   | | else if ( educationdegree(B, E), languages(B, F) )
+%   | | | then return 0.06274280688730566;  // std dev = 8,003, 288,000 (wgt'ed) examples reached here.  /* #neg=187 #pos=101 */
+%   | | | else return 0.268460557063986;  // std dev = 26,180, 3.083,000 (wgt'ed) examples reached here.  /* #neg=1.144 #pos=1.939 */
+%   | else if ( educationyear(A, G), educationyear(B, G) )
+%   | | then if ( educationschool(B, H), educationschool(A, H) )
+%   | | | then return 0.5365148709948881;  // std dev = 5,486, 168,000 (wgt'ed) examples reached here.  /* #neg=40 #pos=128 */
+%   | | | else return 0.08485270138141895;  // std dev = 8,001, 305,000 (wgt'ed) examples reached here.  /* #neg=211 #pos=94 */
+%   | | else if ( birthday(B, I), birthday(A, I) )
+%   | | | then return 0.3025485040927004;  // std dev = 6,342, 169,000 (wgt'ed) examples reached here.  /* #neg=73 #pos=96 */
+%   | | | else return 0.07558521332228203;  // std dev = 21,844, 2.319,000 (wgt'ed) examples reached here.  /* #neg=1.635 #pos=684 */
+%   else if ( workstartdate(B, J) )
+%   | then return -3.030206715033401E-4;  // std dev = 0,816, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | else return 0.49969697932849666;  // std dev = 0,816, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( educationyear(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then if ( lastname(B, E), birthday(B, F) )
+%   | | then return 0.2843060071068684;  // std dev = 0,454, 410,000 (wgt'ed) examples reached here.  /* #neg=131 #pos=279 */
+%   | | else if ( educationschool(A, G), educationschool(B, G) )
+%   | | | then return 0.2646052558211721;  // std dev = 13,299, 882,000 (wgt'ed) examples reached here.  /* #neg=265 #pos=617 */
+%   | | | else return 0.07059277472160326;  // std dev = 16,028, 1.074,000 (wgt'ed) examples reached here.  /* #neg=604 #pos=470 */
+%   | else if ( locale(A, H) )
+%   | | then if ( educationyear(I, C), locale(I, H) )
+%   | | | then return 0.10117897242306713;  // std dev = 20,992, 2.040,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=702 */
+%   | | | else return 0.21169248969652033;  // std dev = 2,421, 26,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=12 */
+%   | | else return 0.19813160605600671;  // std dev = 0,451, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+%   else if ( location(B, J), location(A, J) )
+%   | then return 0.38595241488659615;  // std dev = 0,324, 199,000 (wgt'ed) examples reached here.  /* #neg=27 #pos=172 */
+%   | else if ( hometown(B, K), lastname(B, L) )
+%   | | then return 0.03695361148408343;  // std dev = 0,469, 315,000 (wgt'ed) examples reached here.  /* #neg=188 #pos=127 */
+%   | | else return 0.1820727251199758;  // std dev = 0,458, 1.818,000 (wgt'ed) examples reached here.  /* #neg=815 #pos=1.003 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( locale(A, C), locale(B, C) )
+%   then if ( locale(D, C) )
+%   | then if ( worklocation(B, E), workenddate(B, F) )
+%   | | then return -0.1578642364849458;  // std dev = 0,393, 66,000 (wgt'ed) examples reached here.  /* #neg=53 #pos=13 */
+%   | | else if ( educationschool(A, G), educationschool(B, G) )
+%   | | | then return 0.2424183841886706;  // std dev = 16,227, 1.535,000 (wgt'ed) examples reached here.  /* #neg=366 #pos=1.169 */
+%   | | | else return 0.11242856778114227;  // std dev = 22,716, 2.202,000 (wgt'ed) examples reached here.  /* #neg=1.004 #pos=1.198 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( locale(A, H) )
+%   | then if ( locale(I, H) )
+%   | | then if ( workemployer(B, J) )
+%   | | | then return 0.277173094769298;  // std dev = 7,441, 238,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=131 */
+%   | | | else return 0.0527334769867867;  // std dev = 23,823, 2.723,000 (wgt'ed) examples reached here.  /* #neg=1.852 #pos=871 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( location(B, K) )
+%   | | then return 0.3507210295157108;  // std dev = 0,803, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | else return -0.0387303749181636;  // std dev = 0,811, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( educationyear(B, C) )
+%   then if ( locale(B, D), locale(A, D) )
+%   | then if ( educationschool(A, E), educationschool(B, E) )
+%   | | then return 0.16360853429602829;  // std dev = 0,437, 1.069,000 (wgt'ed) examples reached here.  /* #neg=296 #pos=773 */
+%   | | else if ( educationschool(A, F), educationconcentration(B, G) )
+%   | | | then return -0.17031102616037538;  // std dev = 6,197, 218,000 (wgt'ed) examples reached here.  /* #neg=168 #pos=50 */
+%   | | | else return 0.08380325728106958;  // std dev = 16,121, 1.079,000 (wgt'ed) examples reached here.  /* #neg=536 #pos=543 */
+%   | else if ( locale(H, I) )
+%   | | then if ( educationschool(B, J), educationschool(A, J) )
+%   | | | then return 0.2800417727201908;  // std dev = 11,305, 560,000 (wgt'ed) examples reached here.  /* #neg=234 #pos=326 */
+%   | | | else return -0.009740426293986087;  // std dev = 16,763, 1.514,000 (wgt'ed) examples reached here.  /* #neg=1.122 #pos=392 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( locale(B, K) )
+%   | then if ( workenddate(B, L), hometown(B, M) )
+%   | | then return -0.21165989753641132;  // std dev = 0,390, 66,000 (wgt'ed) examples reached here.  /* #neg=52 #pos=14 */
+%   | | else return 0.12045707025351987;  // std dev = 0,448, 2.266,000 (wgt'ed) examples reached here.  /* #neg=978 #pos=1.288 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( locale(B, C) )
+%   then if ( locale(D, E), locale(A, C) )
+%   | then if ( educationschool(A, F), educationschool(B, F) )
+%   | | then if ( educationdegree(B, G), birthday(B, H) )
+%   | | | then return 0.02188031976031243;  // std dev = 6,860, 210,000 (wgt'ed) examples reached here.  /* #neg=86 #pos=124 */
+%   | | | else return 0.16903445191390082;  // std dev = 14,560, 1.330,000 (wgt'ed) examples reached here.  /* #neg=282 #pos=1.048 */
+%   | | else if ( educationtype(A, I), educationtype(B, J) )
+%   | | | then return -0.03188739872993729;  // std dev = 16,031, 1.117,000 (wgt'ed) examples reached here.  /* #neg=673 #pos=444 */
+%   | | | else return 0.150758656242905;  // std dev = 15,652, 1.146,000 (wgt'ed) examples reached here.  /* #neg=382 #pos=764 */
+%   | else if ( hometown(B, K), languages(B, L) )
+%   | | then if ( location(B, M), educationdegree(B, N) )
+%   | | | then return -0.13992253845226274;  // std dev = 2,873, 68,000 (wgt'ed) examples reached here.  /* #neg=58 #pos=10 */
+%   | | | else return 0.2394829742168729;  // std dev = 8,453, 310,000 (wgt'ed) examples reached here.  /* #neg=136 #pos=174 */
+%   | | else if ( educationconcentration(B, P), locale(A, Q) )
+%   | | | then return 0.12662162148681794;  // std dev = 11,567, 602,000 (wgt'ed) examples reached here.  /* #neg=340 #pos=262 */
+%   | | | else return -0.01046009273526943;  // std dev = 19,346, 1.961,000 (wgt'ed) examples reached here.  /* #neg=1.405 #pos=556 */
+%   else return -0.13729517381241138;  // std dev = 0,358, 28,000 (wgt'ed) examples reached here.  /* #neg=24 #pos=4 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( educationyear(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then if ( worklocation(B, E), educationdegree(B, F) )
+%   | | then return 0.21843388145265205;  // std dev = 0,392, 151,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=121 */
+%   | | else if ( birthday(A, G), birthday(B, G) )
+%   | | | then return 0.22574799677474647;  // std dev = 6,870, 257,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=191 */
+%   | | | else return 0.020418280627720754;  // std dev = 20,570, 1.958,000 (wgt'ed) examples reached here.  /* #neg=904 #pos=1.054 */
+%   | else if ( locale(A, H) )
+%   | | then if ( educationyear(I, C), locale(I, H) )
+%   | | | then return 0.04167333051655435;  // std dev = 20,357, 2.040,000 (wgt'ed) examples reached here.  /* #neg=1.338 #pos=702 */
+%   | | | else return 0.13237087288698884;  // std dev = 2,368, 26,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=12 */
+%   | | else return 0.08010726246661154;  // std dev = 0,422, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+%   else if ( workenddate(A, J) )
+%   | then if ( lastname(A, K), location(A, L) )
+%   | | then return 0.016781237721857863;  // std dev = 0,451, 76,000 (wgt'ed) examples reached here.  /* #neg=40 #pos=36 */
+%   | | else return -0.11631600031537069;  // std dev = 0,434, 164,000 (wgt'ed) examples reached here.  /* #neg=109 #pos=55 */
+%   | else return 0.08076264379853972;  // std dev = 0,441, 2.092,000 (wgt'ed) examples reached here.  /* #neg=881 #pos=1.211 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( locale(B, C), locale(A, C) )
+%   then if ( educationyear(B, D), location(A, E) )
+%   | then if ( hometown(B, F), location(B, E) )
+%   | | then return 0.19365706201509578;  // std dev = 0,376, 145,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=119 */
+%   | | else if ( birthday(B, G), educationdegree(A, H) )
+%   | | | then return -0.1849940740818791;  // std dev = 4,317, 104,000 (wgt'ed) examples reached here.  /* #neg=68 #pos=36 */
+%   | | | else return -0.016315086420025767;  // std dev = 12,587, 740,000 (wgt'ed) examples reached here.  /* #neg=354 #pos=386 */
+%   | else if ( educationdegree(A, I), languages(A, J) )
+%   | | then return -0.0536901134839797;  // std dev = 0,468, 202,000 (wgt'ed) examples reached here.  /* #neg=105 #pos=97 */
+%   | | else return 0.09265028989636717;  // std dev = 0,442, 2.612,000 (wgt'ed) examples reached here.  /* #neg=870 #pos=1.742 */
+%   else if ( locale(A, K) )
+%   | then if ( locale(L, K) )
+%   | | then if ( languages(A, M), educationdegree(A, N) )
+%   | | | then return 0.1560012138624915;  // std dev = 8,496, 305,000 (wgt'ed) examples reached here.  /* #neg=154 #pos=151 */
+%   | | | else return 0.004454845883389916;  // std dev = 22,909, 2.656,000 (wgt'ed) examples reached here.  /* #neg=1.805 #pos=851 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0.061943420194894315;  // std dev = 0,422, 8,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=4 */
+
+
+Results
+   AUC ROC   = 0.546066
+   AUC PR    = 0.54622
+   CLL	      = -0.712174
+   Precision = 0.527783 at threshold = 0.5
+   Recall    = 0.585493
+   F1        = 0.555143
+
+
+Total learning time: 152.881 seconds
+Total inference time: 53.472 seconds
+AUC ROC: 0.546066
+
+
+Refined model AUC ROC: 0.546066
+
+
+Dataset: 50_uwcse_facebook, Fold: 2, Type: Transfer (trRDN-B), Time: 05:51:00
+{'Recall': 0.585493, 'Learning time': 167.019, 'F1': 0.555143, 'Precision': [0.527783, 0.5], 'AUC PR': 0.54622, 'CLL': -0.712174, 'parameter': {'Recall': 0.729471, 'Learning time': 14.138, 'F1': 0.591539, 'Precision': [0.497475, 0.5], 'AUC PR': 0.493444, 'CLL': -0.72074, 'AUC ROC': 0.490549, 'Inference time': 8.048}, 'AUC ROC': 0.546066, 'Inference time': 53.472}
+
+
+Starting fold 3
+
+Target train facts examples: 990
+Target train pos examples: 3312
+Target train neg examples: 3312
+
+Target test facts examples: 5609
+Target test pos examples: 9256
+Target test neg examples: 9256
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;advisedby(A, B) :- student(A), professor(B).;true;false
+0;true,false;publication(I, A).;true;true
+0;true,false,true;publication(I, J), ta(K, J, L).;false;false
+0;true,true;tempadvisedby(D, B), ta(E, A, F).;true;false
+0;true,true,true;ta(G, D, H).;false;false
+0;true,false,false;publication(M, B).;false;false
+0;true;publication(C, B), publication(C, A).;true;true
+1;;advisedby(A, B) :- student(A), professor(B).;true;false
+1;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+1;true,false,true;publication(J, B).;false;false
+1;true,true;ta(F, A, G), ta(D, H, G).;true;false
+1;true,true,true;samecourse(D, F).;false;false
+1;true,false,false;publication(K, B).;false;false
+1;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+2;;advisedby(A, B) :- student(A), hasposition(B, C).;true;true
+2;true,false;publication(J, A), publication(K, B).;true;true
+2;true,false,true;hasposition(L, C), publication(J, L).;false;false
+2;false;professor(B).;false;false
+2;true,true;publication(D, E), ta(F, E, G).;true;false
+2;true,true,true;tempadvisedby(H, B), ta(F, H, I).;false;false
+2;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+2;true;publication(D, A), publication(D, B).;true;true
+3;;advisedby(A, B) :- student(A), professor(B).;true;false
+3;true,false,true;publication(H, B).;false;false
+3;true,true;ta(D, A, F).;false;false
+3;true,false;tempadvisedby(G, B), publication(H, A).;true;true
+3;true,false,false;tempadvisedby(I, B), ta(J, A, K).;false;false
+3;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+4;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+4;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+4;true,false,true;hasposition(L, C), publication(J, L).;false;false
+4;false;student(B).;false;false
+4;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+4;true,true,true;ta(H, G, I).;false;false
+4;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+4;true;publication(D, A), publication(D, B).;true;true
+5;;advisedby(A, B) :- student(A), professor(B).;true;false
+5;true,false;publication(E, A), tempadvisedby(F, B).;true;true
+5;true,false,true;publication(E, G), ta(H, G, I).;false;false
+5;true,true;tempadvisedby(D, B).;true;false
+5;true,true,true;publication(C, D).;false;false
+5;true,false,false;tempadvisedby(J, B).;false;false
+5;true;publication(C, A), publication(C, B).;true;true
+6;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+6;true,false;tempadvisedby(J, B), publication(K, J).;false;true
+6;false;professor(B).;true;false
+6;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+6;true,true,true;ta(H, G, I).;false;false
+6;true,false,false;ta(L, A, M), tempadvisedby(N, B).;false;false
+6;false,true;publication(P, B).;false;false
+6;true;publication(D, B), publication(D, A).;true;true
+7;;advisedby(A, B) :- student(A), professor(B).;true;false
+7;true,false,true;publication(I, G), publication(H, A).;false;false
+7;true,true;ta(D, A, F).;false;false
+7;true,false;tempadvisedby(G, B), publication(H, B).;true;true
+7;true,false,false;tempadvisedby(J, B).;false;false
+7;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+8;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+8;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+8;true,false,true;hasposition(L, C), publication(J, L).;false;false
+8;false;student(B).;false;false
+8;true,true;tempadvisedby(E, B), ta(F, A, G).;true;false
+8;true,true,true;ta(H, E, I).;false;false
+8;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+8;true;publication(D, A), publication(D, B).;true;true
+9;;advisedby(A, B) :- student(A), professor(B).;true;false
+9;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+9;true,false,true;publication(J, K), ta(L, K, M).;false;false
+9;true,true;ta(D, A, E).;true;false
+9;true,true,true;ta(D, F, G), tempadvisedby(F, H).;false;false
+9;true,false,false;tempadvisedby(N, B), publication(P, N).;false;false
+9;true;publication(C, B), publication(C, A).;true;true
+
+
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( educationschool(B, C), educationschool(A, C) )
+%   then return 0.47300213026358345;  // std dev = 0,487, 1.158,000 (wgt'ed) examples reached here.  /* #neg=446 #pos=712 */
+%   else if ( educationschool(A, D) )
+%   | then if ( educationschool(E, D) )
+%   | | then return 0.3013598659278591;  // std dev = 24,041, 2.342,000 (wgt'ed) examples reached here.  /* #neg=1.304 #pos=1.038 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(B, F) )
+%   | | then return 0.3861187653949191;  // std dev = 19,912, 1.591,000 (wgt'ed) examples reached here.  /* #neg=751 #pos=840 */
+%   | | else return 0.3291208855235126;  // std dev = 19,544, 1.533,000 (wgt'ed) examples reached here.  /* #neg=811 #pos=722 */
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( educationschool(A, C) )
+%   then if ( educationschool(B, C) )
+%   | then return 0.40519680880849196;  // std dev = 16,560, 1.158,000 (wgt'ed) examples reached here.  /* #neg=446 #pos=712 */
+%   | else return 0.26058250024774493;  // std dev = 24,041, 2.342,000 (wgt'ed) examples reached here.  /* #neg=1.304 #pos=1.038 */
+%   else if ( educationschool(B, D) )
+%   | then return 0.3323472248548357;  // std dev = 19,912, 1.591,000 (wgt'ed) examples reached here.  /* #neg=751 #pos=840 */
+%   | else return 0.28416292075226823;  // std dev = 19,544, 1.533,000 (wgt'ed) examples reached here.  /* #neg=811 #pos=722 */
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( educationclasses(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then if ( educationschool(E, D) )
+%   | | then return 0.5697135778646104;  // std dev = 0,353, 151,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=129 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(A, F), educationschool(B, G) )
+%   | | then if ( educationclasses(H, C), educationschool(H, F) )
+%   | | | then return 0.15022573636670944;  // std dev = 1,369, 8,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=3 */
+%   | | | else return 0.7752257363667094;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #pos=1 */
+%   | | else if ( educationclasses(I, C) )
+%   | | | then return 0.5674738258300902;  // std dev = 4,619, 145,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=119 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.24123774031472503;  // std dev = 0,498, 6.319,000 (wgt'ed) examples reached here.  /* #neg=3.259 #pos=3.060 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( educationschool(A, C) )
+%   then if ( educationschool(B, C) )
+%   | then return 0.268710830899701;  // std dev = 16,415, 1.158,000 (wgt'ed) examples reached here.  /* #neg=446 #pos=712 */
+%   | else return 0.17365386985524472;  // std dev = 24,038, 2.342,000 (wgt'ed) examples reached here.  /* #neg=1.304 #pos=1.038 */
+%   else return 0.20578744959564194;  // std dev = 0,498, 3.124,000 (wgt'ed) examples reached here.  /* #neg=1.562 #pos=1.562 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( educationclasses(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.37513673205231385;  // std dev = 0,353, 151,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=129 */
+%   | else if ( educationschool(A, E) )
+%   | | then if ( educationclasses(F, C), educationschool(F, E) )
+%   | | | then return 0.08885435502310177;  // std dev = 1,369, 8,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=3 */
+%   | | | else return 0.5717948885812532;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #pos=1 */
+%   | | else if ( educationclasses(G, C) )
+%   | | | then return 0.39715325445370586;  // std dev = 4,619, 145,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=119 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.15044645972139023;  // std dev = 0,498, 6.319,000 (wgt'ed) examples reached here.  /* #neg=3.259 #pos=3.060 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( educationschool(A, C), educationschool(B, C) )
+%   then if ( educationschool(D, C) )
+%   | then return 0.1619173520683862;  // std dev = 16,333, 1.158,000 (wgt'ed) examples reached here.  /* #neg=446 #pos=712 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( educationschool(A, E) )
+%   | then if ( educationschool(F, E) )
+%   | | then return 0.10533717937211011;  // std dev = 24,036, 2.342,000 (wgt'ed) examples reached here.  /* #neg=1.304 #pos=1.038 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0.12418152277623618;  // std dev = 0,496, 3.124,000 (wgt'ed) examples reached here.  /* #neg=1.562 #pos=1.562 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( educationclasses(B, C) )
+%   then if ( educationschool(B, D), educationschool(A, D) )
+%   | then return 0.2427914159971353;  // std dev = 0,353, 151,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=129 */
+%   | else if ( educationschool(E, F) )
+%   | | then return 0.25708200527306585;  // std dev = 4,858, 154,000 (wgt'ed) examples reached here.  /* #neg=31 #pos=123 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( educationschool(B, G) )
+%   | then return 0.07915071699202955;  // std dev = 27,064, 2.977,000 (wgt'ed) examples reached here.  /* #neg=1.479 #pos=1.498 */
+%   | else return 0.0945602916273443;  // std dev = 28,847, 3.342,000 (wgt'ed) examples reached here.  /* #neg=1.780 #pos=1.562 */
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( educationschool(B, C) )
+%   then if ( educationschool(D, E), educationschool(A, C) )
+%   | then return 0.09744545759782587;  // std dev = 16,299, 1.158,000 (wgt'ed) examples reached here.  /* #neg=446 #pos=712 */
+%   | else return 0.05817243073427073;  // std dev = 22,644, 2.124,000 (wgt'ed) examples reached here.  /* #neg=1.086 #pos=1.038 */
+%   else return 0.07221124341030992;  // std dev = 0,499, 3.342,000 (wgt'ed) examples reached here.  /* #neg=1.780 #pos=1.562 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( educationclasses(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.1656334464344747;  // std dev = 0,353, 151,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=129 */
+%   | else if ( educationschool(A, E) )
+%   | | then if ( educationclasses(F, C), educationschool(F, E) )
+%   | | | then return -0.025175945107778222;  // std dev = 1,369, 8,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=3 */
+%   | | | else return 0.33110125159108317;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #pos=1 */
+%   | | else if ( educationclasses(G, C) )
+%   | | | then return 0.1915992832902446;  // std dev = 4,619, 145,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=119 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.04889676304330258;  // std dev = 0,498, 6.319,000 (wgt'ed) examples reached here.  /* #neg=3.259 #pos=3.060 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( educationschool(B, C), educationschool(A, C) )
+%   then return 0.058413310066941344;  // std dev = 0,479, 1.158,000 (wgt'ed) examples reached here.  /* #neg=446 #pos=712 */
+%   else if ( educationschool(A, D) )
+%   | then if ( educationschool(E, D) )
+%   | | then return 0.031762804994818;  // std dev = 24,024, 2.342,000 (wgt'ed) examples reached here.  /* #neg=1.304 #pos=1.038 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(F, G) )
+%   | | then return 0.04247246492712536;  // std dev = 27,687, 3.124,000 (wgt'ed) examples reached here.  /* #neg=1.562 #pos=1.562 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.654906
+   AUC PR    = 0.625634
+   CLL	      = -0.669565
+   Precision = 0.663506 at threshold = 0.5
+   Recall    = 0.453544
+   F1        = 0.538792
+
+
+Total learning time: 10.138 seconds
+Total inference time: 8.276 seconds
+AUC ROC: 0.654906
+
+
+Structure after Parameter Learning
+[['edge(A, B)', {'': 'educationschool(B, C), educationschool(A, C)', 'false': 'educationschool(A, D)', 'false,false': 'educationschool(B, F)', 'false,true': 'educationschool(E, D)'}, {'true': [0.487, 446, 712], 'false,true,false': [0.0, 0, 0], 'false,true,true': [24.041, 1304, 1038], 'false,false,true': [19.912, 751, 840], 'false,false,false': [19.544, 811, 722]}], ['edge(A, B)', {'': 'educationschool(A, C)', 'false': 'educationschool(B, D)', 'true': 'educationschool(B, C)'}, {'true,true': [16.56, 446, 712], 'true,false': [24.041, 1304, 1038], 'false,false': [19.544, 811, 722], 'false,true': [19.912, 751, 840]}], ['edge(A, B)', {'': 'educationclasses(B, C)', 'true,false,true': 'educationclasses(H, C), educationschool(H, F)', 'true,true': 'educationschool(E, D)', 'true,false': 'educationschool(A, F), educationschool(B, G)', 'true,false,false': 'educationclasses(I, C)', 'true': 'educationschool(A, D), educationschool(B, D)'}, {'true,false,true,false': [0.0, 0, 1], 'true,false,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,true,true': [0.353, 22, 129], 'false': [0.498, 3259, 3060], 'true,false,true,true': [1.369, 5, 3], 'true,false,false,true': [4.619, 26, 119]}], ['edge(A, B)', {'': 'educationschool(A, C)', 'true': 'educationschool(B, C)'}, {'true,true': [16.415, 446, 712], 'true,false': [24.038, 1304, 1038], 'false': [0.498, 1562, 1562]}], ['edge(A, B)', {'': 'educationclasses(B, C)', 'true,false': 'educationschool(A, E)', 'true,false,false': 'educationclasses(G, C)', 'true,false,true': 'educationclasses(F, C), educationschool(F, E)', 'true': 'educationschool(A, D), educationschool(B, D)'}, {'true,false,true,false': [0.0, 0, 1], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.353, 22, 129], 'false': [0.498, 3259, 3060], 'true,false,true,true': [1.369, 5, 3], 'true,false,false,true': [4.619, 26, 119]}], ['edge(A, B)', {'': 'educationschool(A, C), educationschool(B, C)', 'false': 'educationschool(A, E)', 'false,true': 'educationschool(F, E)', 'true': 'educationschool(D, C)'}, {'true,true': [16.333, 446, 712], 'true,false': [0.0, 0, 0], 'false,true,false': [0.0, 0, 0], 'false,true,true': [24.036, 1304, 1038], 'false,false': [0.496, 1562, 1562]}], ['edge(A, B)', {'': 'educationclasses(B, C)', 'true,false': 'educationschool(E, F)', 'false': 'educationschool(B, G)', 'true': 'educationschool(B, D), educationschool(A, D)'}, {'true,true': [0.353, 22, 129], 'true,false,false': [0.0, 0, 0], 'true,false,true': [4.858, 31, 123], 'false,true': [27.064, 1479, 1498], 'false,false': [28.847, 1780, 1562]}], ['edge(A, B)', {'': 'educationschool(B, C)', 'true': 'educationschool(D, E), educationschool(A, C)'}, {'true,true': [16.299, 446, 712], 'true,false': [22.644, 1086, 1038], 'false': [0.499, 1780, 1562]}], ['edge(A, B)', {'': 'educationclasses(B, C)', 'true,false': 'educationschool(A, E)', 'true,false,false': 'educationclasses(G, C)', 'true,false,true': 'educationclasses(F, C), educationschool(F, E)', 'true': 'educationschool(A, D), educationschool(B, D)'}, {'true,false,true,false': [0.0, 0, 1], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.353, 22, 129], 'false': [0.498, 3259, 3060], 'true,false,true,true': [1.369, 5, 3], 'true,false,false,true': [4.619, 26, 119]}], ['edge(A, B)', {'': 'educationschool(B, C), educationschool(A, C)', 'false': 'educationschool(A, D)', 'false,false': 'educationschool(F, G)', 'false,true': 'educationschool(E, D)'}, {'true': [0.479, 446, 712], 'false,true,false': [0.0, 0, 0], 'false,true,true': [24.024, 1304, 1038], 'false,false,true': [27.687, 1562, 1562], 'false,false,false': [0.0, 0, 0]}]]
+[{'': [0.23680874356062354, 0.2494079423088174], 'false': [0.24677500162264238, 0.24999999999996236], 'false,false': [0.2492176885932688, 0.2491573723378363], 'false,true': [0.24677500162264238, nan]}, {'': [0.24810760356396505, 0.2497683220985807], 'false': [0.2492176885932362, 0.24915737233781002], 'true': [0.23680874356060228, 0.24677500162263222]}, {'': [0.14235659120101626, 0.24826075640320105], 'true,false,true': [0.23437499999999997, 0.0], 'true,true': [0.1244682250778466, nan], 'true,false': [0.2469135802469136, 0.14715814506539848], 'true,false,false': [0.14715814506539848, nan], 'true': [0.1244682250778466, 0.15964437622470087]}, {'': [0.24407541019048365, 0.24763978224622424], 'true': [0.2326842607104404, 0.24671818728780284]}, {'': [0.14022391860387837, 0.24781312227327057], 'true,false': [0.23136854903243773, 0.14715814506539973], 'true,false,false': [0.14715814506539973, nan], 'true,false,true': [0.23437500000000003, 0.0], 'true': [0.12446822507784751, 0.1556474790668031]}, {'': [0.23036889845106334, 0.24654423440304557], 'false': [0.24667586981533615, 0.24629339741389336], 'false,true': [0.24667586981533615, nan], 'true': [0.23036889845106334, nan]}, {'': [0.13905578605052582, 0.24766850604229368], 'true,false': [0.15325806765186412, nan], 'false': [0.24604839465624653, 0.24899980575963218], 'true': [0.12446822507784729, 0.15325806765186412]}, {'': [0.23752226201837903, 0.24900440372104776], 'true': [0.2294109677373279, 0.24140032108604334]}, {'': [0.13903308892415245, 0.24756734905029323], 'true,false': [0.22086996947038012, 0.14715814506539832], 'true,false,false': [0.14715814506539832, nan], 'true,false,true': [0.23437499999999997, 0.0], 'true': [0.12446822507784759, 0.15319357405574952]}, {'': [0.22900706666617077, 0.24585666007425241], 'false': [0.24643455649642051, 0.24537427895615233], 'false,false': [0.24537427895615233, nan], 'false,true': [0.24643455649642051, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+2;;edge(A, B) :- educationclasses(B, C).;true;true
+2;true,false;educationschool(A, F), educationschool(B, G).;true;true
+2;true,false,true;educationclasses(H, C), educationschool(H, F).;true;true
+2;true;educationschool(A, D), educationschool(B, D).;true;true
+4;;edge(A, B) :- educationclasses(B, C).;true;true
+4;true,false;educationschool(A, E).;true;true
+4;true,false,true;educationclasses(F, C), educationschool(F, E).;true;true
+4;true;educationschool(A, D), educationschool(B, D).;true;true
+8;;edge(A, B) :- educationclasses(B, C).;true;true
+8;true,false;educationschool(A, E).;true;true
+8;true,false,true;educationclasses(F, C), educationschool(F, E).;true;true
+8;true;educationschool(A, D), educationschool(B, D).;true;true
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( hometown(B, C), location(B, D) )
+%   then if ( educationclasses(B, E), locale(A, F) )
+%   | then return 0.740801996323999;  // std dev = 0,322, 196,000 (wgt'ed) examples reached here.  /* #neg=23 #pos=173 */
+%   | else return 0.4474123558236026;  // std dev = 0,492, 801,000 (wgt'ed) examples reached here.  /* #neg=329 #pos=472 */
+%   else if ( birthday(B, G), educationschool(B, H) )
+%   | then if ( educationconcentration(B, I), educationyear(B, J) )
+%   | | then return 0.5787371703936278;  // std dev = 0,449, 136,000 (wgt'ed) examples reached here.  /* #neg=38 #pos=98 */
+%   | | else if ( locale(B, K), gender(B, L) )
+%   | | | then return 0.424240889122496;  // std dev = 16,014, 1.044,000 (wgt'ed) examples reached here.  /* #neg=453 #pos=591 */
+%   | | | else return 0.06027659467398046;  // std dev = 3,894, 94,000 (wgt'ed) examples reached here.  /* #neg=75 #pos=19 */
+%   | else if ( educationtype(B, M) )
+%   | | then if ( educationschool(B, N), educationschool(A, N) )
+%   | | | then return 0.3553556390101228;  // std dev = 9,460, 358,000 (wgt'ed) examples reached here.  /* #neg=180 #pos=178 */
+%   | | | else return 0.1886717006981588;  // std dev = 16,200, 1.186,000 (wgt'ed) examples reached here.  /* #neg=794 #pos=392 */
+%   | | else if ( location(B, P), locale(A, Q) )
+%   | | | then return 0.24987642901678306;  // std dev = 9,896, 411,000 (wgt'ed) examples reached here.  /* #neg=250 #pos=161 */
+%   | | | else return 0.37024234627548724;  // std dev = 24,478, 2.398,000 (wgt'ed) examples reached here.  /* #neg=1.170 #pos=1.228 */
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( lastname(B, C), educationtype(B, D) )
+%   then return 0.019674565774323555;  // std dev = 0,398, 216,000 (wgt'ed) examples reached here.  /* #neg=173 #pos=43 */
+%   else if ( location(B, E), hometown(B, F) )
+%   | then if ( birthday(B, G) )
+%   | | then if ( educationconcentration(B, H), locale(A, I) )
+%   | | | then return 0.5727259321803442;  // std dev = 2,733, 53,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=44 */
+%   | | | else return 0.1871903911896761;  // std dev = 6,235, 163,000 (wgt'ed) examples reached here.  /* #neg=99 #pos=64 */
+%   | | else if ( educationclasses(B, J), locale(A, K) )
+%   | | | then return 0.6446351550329641;  // std dev = 3,554, 143,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=129 */
+%   | | | else return 0.4680217421349597;  // std dev = 11,371, 588,000 (wgt'ed) examples reached here.  /* #neg=192 #pos=396 */
+%   | else if ( birthday(B, L), educationschool(B, M) )
+%   | | then if ( workenddate(B, N), educationconcentration(B, P) )
+%   | | | then return -0.035024302165821225;  // std dev = 2,236, 36,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=6 */
+%   | | | else return 0.36646820760672727;  // std dev = 17,309, 1.238,000 (wgt'ed) examples reached here.  /* #neg=536 #pos=702 */
+%   | | else if ( educationtype(B, Q), locale(A, R) )
+%   | | | then return 0.21733037097120464;  // std dev = 17,818, 1.343,000 (wgt'ed) examples reached here.  /* #neg=820 #pos=523 */
+%   | | | else return 0.3037402599367313;  // std dev = 26,633, 2.844,000 (wgt'ed) examples reached here.  /* #neg=1.439 #pos=1.405 */
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( educationclasses(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.5190878016570789;  // std dev = 0,337, 151,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=129 */
+%   | else return 0.454831344349035;  // std dev = 0,398, 154,000 (wgt'ed) examples reached here.  /* #neg=31 #pos=123 */
+%   else if ( educationschool(B, E), educationschool(A, E) )
+%   | then if ( firstname(B, F) )
+%   | | then return 0.5843742720557663;  // std dev = 0,346, 65,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=56 */
+%   | | else if ( lastname(B, G) )
+%   | | | then return 0.05917787490652638;  // std dev = 2,856, 43,000 (wgt'ed) examples reached here.  /* #neg=32 #pos=11 */
+%   | | | else return 0.3173897926076387;  // std dev = 14,686, 899,000 (wgt'ed) examples reached here.  /* #neg=383 #pos=516 */
+%   | else if ( educationschool(A, H), educationtype(B, I) )
+%   | | then if ( birthday(B, J), educationwith(B, K) )
+%   | | | then return 0.369244991303208;  // std dev = 3,191, 44,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=28 */
+%   | | | else return 0.08973392325753633;  // std dev = 12,500, 746,000 (wgt'ed) examples reached here.  /* #neg=513 #pos=233 */
+%   | | else if ( lastname(B, L) )
+%   | | | then return 0.1266840955825953;  // std dev = 9,722, 420,000 (wgt'ed) examples reached here.  /* #neg=272 #pos=148 */
+%   | | | else return 0.26229325005977827;  // std dev = 31,749, 4.102,000 (wgt'ed) examples reached here.  /* #neg=2.034 #pos=2.068 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( educationclasses(B, C) )
+%   then if ( birthday(B, D), educationtype(A, E) )
+%   | then return 0.28856135351967566;  // std dev = 0,444, 65,000 (wgt'ed) examples reached here.  /* #neg=18 #pos=47 */
+%   | else return 0.39710145873867975;  // std dev = 0,343, 240,000 (wgt'ed) examples reached here.  /* #neg=35 #pos=205 */
+%   else if ( lastname(B, F), gender(A, G) )
+%   | then if ( lastname(A, F) )
+%   | | then return 0.6810853569743648;  // std dev = 0,273, 26,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=24 */
+%   | | else if ( educationtype(B, H) )
+%   | | | then return -0.05018677849768742;  // std dev = 4,955, 196,000 (wgt'ed) examples reached here.  /* #neg=167 #pos=29 */
+%   | | | else return 0.09992445189438788;  // std dev = 7,959, 273,000 (wgt'ed) examples reached here.  /* #neg=173 #pos=100 */
+%   | else if ( hometown(B, I), location(B, J) )
+%   | | then if ( birthday(B, K), locale(A, L) )
+%   | | | then return 0.10693236792445064;  // std dev = 6,125, 159,000 (wgt'ed) examples reached here.  /* #neg=97 #pos=62 */
+%   | | | else return 0.32204279865649;  // std dev = 11,311, 589,000 (wgt'ed) examples reached here.  /* #neg=192 #pos=397 */
+%   | | else if ( educationyear(B, M), locale(B, N) )
+%   | | | then return 0.14192164510663835;  // std dev = 16,059, 1.107,000 (wgt'ed) examples reached here.  /* #neg=638 #pos=469 */
+%   | | | else return 0.2111310466848103;  // std dev = 31,204, 3.969,000 (wgt'ed) examples reached here.  /* #neg=1.990 #pos=1.979 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( educationclasses(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.31289047828432964;  // std dev = 0,335, 151,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=129 */
+%   | else return 0.25495478368817576;  // std dev = 0,397, 154,000 (wgt'ed) examples reached here.  /* #neg=31 #pos=123 */
+%   else if ( workstartdate(B, E), location(B, F) )
+%   | then if ( firstname(A, G) )
+%   | | then return -0.2607578998460701;  // std dev = 0,200, 28,000 (wgt'ed) examples reached here.  /* #neg=27 #pos=1 */
+%   | | else if ( gender(A, H) )
+%   | | | then return 0.01959143481767619;  // std dev = 6,341, 189,000 (wgt'ed) examples reached here.  /* #neg=131 #pos=58 */
+%   | | | else return 0.4840740704698762;  // std dev = 1,232, 9,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=7 */
+%   | else if ( educationschool(B, I), educationschool(A, I) )
+%   | | then if ( firstname(A, J), educationyear(B, K) )
+%   | | | then return 0.44141888491324494;  // std dev = 3,104, 64,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=52 */
+%   | | | else return 0.20588669139242502;  // std dev = 14,373, 890,000 (wgt'ed) examples reached here.  /* #neg=378 #pos=512 */
+%   | | else if ( educationtype(B, L), educationschool(A, M) )
+%   | | | then return 0.05757160168837245;  // std dev = 12,447, 733,000 (wgt'ed) examples reached here.  /* #neg=486 #pos=247 */
+%   | | | else return 0.16249082518883312;  // std dev = 32,683, 4.406,000 (wgt'ed) examples reached here.  /* #neg=2.223 #pos=2.183 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( lastname(B, C), gender(A, D) )
+%   then if ( lastname(A, C) )
+%   | then return 0.5019364718963657;  // std dev = 0,279, 26,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=24 */
+%   | else return 4.101789611786355E-4;  // std dev = 0,435, 469,000 (wgt'ed) examples reached here.  /* #neg=340 #pos=129 */
+%   else if ( educationschool(B, E), educationschool(A, E) )
+%   | then if ( firstname(B, F), birthday(A, G) )
+%   | | then return 0.37466203845506146;  // std dev = 0,250, 60,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=56 */
+%   | | else if ( worklocation(A, H), languages(B, I) )
+%   | | | then return -0.0461973938453197;  // std dev = 2,411, 28,000 (wgt'ed) examples reached here.  /* #neg=17 #pos=11 */
+%   | | | else return 0.17261873851907583;  // std dev = 15,030, 1.027,000 (wgt'ed) examples reached here.  /* #neg=393 #pos=634 */
+%   | else if ( educationyear(B, J), educationconcentration(B, K) )
+%   | | then if ( educationtype(A, L), location(B, M) )
+%   | | | then return -0.039637733225673835;  // std dev = 2,501, 25,000 (wgt'ed) examples reached here.  /* #neg=15 #pos=10 */
+%   | | | else return 0.27595807038535713;  // std dev = 4,852, 132,000 (wgt'ed) examples reached here.  /* #neg=32 #pos=100 */
+%   | | else if ( educationtype(B, N), educationschool(A, P) )
+%   | | | then return 0.0512241677006233;  // std dev = 12,545, 722,000 (wgt'ed) examples reached here.  /* #neg=470 #pos=252 */
+%   | | | else return 0.12870960749197508;  // std dev = 31,618, 4.135,000 (wgt'ed) examples reached here.  /* #neg=2.039 #pos=2.096 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( firstname(B, C), gender(A, D) )
+%   then if ( hometown(B, E), locale(A, F) )
+%   | then return 0.07022380470012891;  // std dev = 0,422, 166,000 (wgt'ed) examples reached here.  /* #neg=63 #pos=103 */
+%   | else if ( workemployer(A, G) )
+%   | | then return -0.44850723584730146;  // std dev = 0,121, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | else if ( educationyear(B, H), birthday(B, I) )
+%   | | | then return 0.005694993309405971;  // std dev = 2,544, 30,000 (wgt'ed) examples reached here.  /* #neg=17 #pos=13 */
+%   | | | else return 0.20702509935982952;  // std dev = 10,191, 473,000 (wgt'ed) examples reached here.  /* #neg=173 #pos=300 */
+%   else if ( lastname(B, J), educationtype(B, K) )
+%   | then return -0.02753709977000584;  // std dev = 0,372, 216,000 (wgt'ed) examples reached here.  /* #neg=173 #pos=43 */
+%   | else if ( hometown(B, L), location(B, M) )
+%   | | then if ( birthday(B, N) )
+%   | | | then return 0.049176201961262135;  // std dev = 6,740, 216,000 (wgt'ed) examples reached here.  /* #neg=108 #pos=108 */
+%   | | | else return 0.1718847312118966;  // std dev = 11,048, 620,000 (wgt'ed) examples reached here.  /* #neg=185 #pos=435 */
+%   | | else if ( educationyear(B, P), hometown(B, Q) )
+%   | | | then return -0.005823080912299809;  // std dev = 8,264, 315,000 (wgt'ed) examples reached here.  /* #neg=192 #pos=123 */
+%   | | | else return 0.08868112482670423;  // std dev = 33,215, 4.584,000 (wgt'ed) examples reached here.  /* #neg=2.397 #pos=2.187 */
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( lastname(B, C), gender(A, D) )
+%   then if ( lastname(A, E) )
+%   | then return 0.17189207181842228;  // std dev = 0,414, 55,000 (wgt'ed) examples reached here.  /* #neg=23 #pos=32 */
+%   | else if ( hometown(B, F), gender(B, D) )
+%   | | then if ( educationtype(A, G) )
+%   | | | then return 0.3233093987155756;  // std dev = 2,539, 30,000 (wgt'ed) examples reached here.  /* #neg=11 #pos=19 */
+%   | | | else return 0.004378293178602953;  // std dev = 2,371, 26,000 (wgt'ed) examples reached here.  /* #neg=18 #pos=8 */
+%   | | else return -0.03654728136968103;  // std dev = 0,418, 384,000 (wgt'ed) examples reached here.  /* #neg=290 #pos=94 */
+%   else if ( educationwith(B, H), educationschool(A, I) )
+%   | then return 0.17049104079797975;  // std dev = 0,408, 253,000 (wgt'ed) examples reached here.  /* #neg=67 #pos=186 */
+%   | else if ( workemployer(B, J) )
+%   | | then if ( locale(A, K), locale(B, K) )
+%   | | | then return 0.04138666575794562;  // std dev = 5,192, 114,000 (wgt'ed) examples reached here.  /* #neg=68 #pos=46 */
+%   | | | else return -0.21166937656353027;  // std dev = 2,945, 61,000 (wgt'ed) examples reached here.  /* #neg=52 #pos=9 */
+%   | | else if ( hometown(B, L), firstname(A, M) )
+%   | | | then return 0.16328695814574373;  // std dev = 6,009, 186,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=122 */
+%   | | | else return 0.07335932025216978;  // std dev = 36,061, 5.515,000 (wgt'ed) examples reached here.  /* #neg=2.719 #pos=2.796 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( educationclasses(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.13853512915430538;  // std dev = 0,333, 151,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=129 */
+%   | else return 0.11962253178595977;  // std dev = 0,392, 154,000 (wgt'ed) examples reached here.  /* #neg=31 #pos=123 */
+%   else if ( educationyear(B, E), educationconcentration(B, F) )
+%   | then if ( locale(B, G), locale(A, G) )
+%   | | then if ( languages(A, H), location(B, I) )
+%   | | | then return -0.4070651951863528;  // std dev = 0,835, 9,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=1 */
+%   | | | else return 0.09460698511157124;  // std dev = 4,846, 111,000 (wgt'ed) examples reached here.  /* #neg=45 #pos=66 */
+%   | | else if ( birthday(B, J), locale(A, K) )
+%   | | | then return 0.25049338225411283;  // std dev = 3,610, 79,000 (wgt'ed) examples reached here.  /* #neg=17 #pos=62 */
+%   | | | else return 0.13107729148724;  // std dev = 3,511, 68,000 (wgt'ed) examples reached here.  /* #neg=21 #pos=47 */
+%   | else if ( educationconcentration(B, L), educationschool(B, M) )
+%   | | then return -0.24190259898672545;  // std dev = 0,333, 61,000 (wgt'ed) examples reached here.  /* #neg=53 #pos=8 */
+%   | | else if ( birthday(B, N), birthday(A, N) )
+%   | | | then return 0.15622723631218677;  // std dev = 6,460, 177,000 (wgt'ed) examples reached here.  /* #neg=71 #pos=106 */
+%   | | | else return 0.04703370977150041;  // std dev = 36,863, 5.814,000 (wgt'ed) examples reached here.  /* #neg=3.044 #pos=2.770 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( educationwith(B, C), languages(A, D) )
+%   then if ( languages(B, D), location(A, E) )
+%   | then if ( hometown(A, F) )
+%   | | then if ( firstname(A, G) )
+%   | | | then return 0.365750493626368;  // std dev = 0,206, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return 0.10336492465215971;  // std dev = 0,692, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | else return -0.5440351957965083;  // std dev = 0,259, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | else return 0.2681379449620503;  // std dev = 0,268, 47,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=43 */
+%   else if ( firstname(B, H), firstname(A, H) )
+%   | then return 0.3829959711932693;  // std dev = 0,287, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | else if ( lastname(B, I), educationtype(B, J) )
+%   | | then if ( educationconcentration(A, K), educationschool(B, L) )
+%   | | | then return 0.2683356162996923;  // std dev = 1,704, 12,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=6 */
+%   | | | else return -0.05216330784001249;  // std dev = 5,014, 204,000 (wgt'ed) examples reached here.  /* #neg=167 #pos=37 */
+%   | | else if ( hometown(B, M), location(B, N) )
+%   | | | then return 0.07158734272042543;  // std dev = 13,425, 920,000 (wgt'ed) examples reached here.  /* #neg=312 #pos=608 */
+%   | | | else return 0.036832265535251776;  // std dev = 35,826, 5.416,000 (wgt'ed) examples reached here.  /* #neg=2.818 #pos=2.598 */
+
+
+Results
+   AUC ROC   = 0.56121
+   AUC PR    = 0.572718
+   CLL	      = -0.713843
+   Precision = 0.633525 at threshold = 0.5
+   Recall    = 0.190687
+   F1        = 0.293141
+
+
+Total learning time: 58.285 seconds
+Total inference time: 3.59 seconds
+AUC ROC: 0.56121
+
+
+Refined model AUC ROC: 0.56121
+
+
+Dataset: 50_uwcse_facebook, Fold: 3, Type: Transfer (trRDN-B), Time: 05:52:21
+{'Recall': 0.190687, 'Learning time': 68.423, 'F1': 0.293141, 'Precision': [0.633525, 0.5], 'AUC PR': 0.572718, 'CLL': -0.713843, 'parameter': {'Recall': 0.453544, 'Learning time': 10.138, 'F1': 0.538792, 'Precision': [0.663506, 0.5], 'AUC PR': 0.625634, 'CLL': -0.669565, 'AUC ROC': 0.654906, 'Inference time': 8.276}, 'AUC ROC': 0.56121, 'Inference time': 3.59}
+
+
+Starting fold 4
+
+Target train facts examples: 387
+Target train pos examples: 540
+Target train neg examples: 540
+
+Target test facts examples: 6212
+Target test pos examples: 12028
+Target test neg examples: 12028
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;advisedby(A, B) :- student(A), professor(B).;true;false
+0;true,false;publication(I, A).;true;true
+0;true,false,true;publication(I, J), ta(K, J, L).;false;false
+0;true,true;tempadvisedby(D, B), ta(E, A, F).;true;false
+0;true,true,true;ta(G, D, H).;false;false
+0;true,false,false;publication(M, B).;false;false
+0;true;publication(C, B), publication(C, A).;true;true
+1;;advisedby(A, B) :- student(A), professor(B).;true;false
+1;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+1;true,false,true;publication(J, B).;false;false
+1;true,true;ta(F, A, G), ta(D, H, G).;true;false
+1;true,true,true;samecourse(D, F).;false;false
+1;true,false,false;publication(K, B).;false;false
+1;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+2;;advisedby(A, B) :- student(A), hasposition(B, C).;true;true
+2;true,false;publication(J, A), publication(K, B).;true;true
+2;true,false,true;hasposition(L, C), publication(J, L).;false;false
+2;false;professor(B).;false;false
+2;true,true;publication(D, E), ta(F, E, G).;true;false
+2;true,true,true;tempadvisedby(H, B), ta(F, H, I).;false;false
+2;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+2;true;publication(D, A), publication(D, B).;true;true
+3;;advisedby(A, B) :- student(A), professor(B).;true;false
+3;true,false,true;publication(H, B).;false;false
+3;true,true;ta(D, A, F).;false;false
+3;true,false;tempadvisedby(G, B), publication(H, A).;true;true
+3;true,false,false;tempadvisedby(I, B), ta(J, A, K).;false;false
+3;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+4;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+4;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+4;true,false,true;hasposition(L, C), publication(J, L).;false;false
+4;false;student(B).;false;false
+4;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+4;true,true,true;ta(H, G, I).;false;false
+4;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+4;true;publication(D, A), publication(D, B).;true;true
+5;;advisedby(A, B) :- student(A), professor(B).;true;false
+5;true,false;publication(E, A), tempadvisedby(F, B).;true;true
+5;true,false,true;publication(E, G), ta(H, G, I).;false;false
+5;true,true;tempadvisedby(D, B).;true;false
+5;true,true,true;publication(C, D).;false;false
+5;true,false,false;tempadvisedby(J, B).;false;false
+5;true;publication(C, A), publication(C, B).;true;true
+6;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+6;true,false;tempadvisedby(J, B), publication(K, J).;false;true
+6;false;professor(B).;true;false
+6;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+6;true,true,true;ta(H, G, I).;false;false
+6;true,false,false;ta(L, A, M), tempadvisedby(N, B).;false;false
+6;false,true;publication(P, B).;false;false
+6;true;publication(D, B), publication(D, A).;true;true
+7;;advisedby(A, B) :- student(A), professor(B).;true;false
+7;true,false,true;publication(I, G), publication(H, A).;false;false
+7;true,true;ta(D, A, F).;false;false
+7;true,false;tempadvisedby(G, B), publication(H, B).;true;true
+7;true,false,false;tempadvisedby(J, B).;false;false
+7;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+8;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+8;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+8;true,false,true;hasposition(L, C), publication(J, L).;false;false
+8;false;student(B).;false;false
+8;true,true;tempadvisedby(E, B), ta(F, A, G).;true;false
+8;true,true,true;ta(H, E, I).;false;false
+8;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+8;true;publication(D, A), publication(D, B).;true;true
+9;;advisedby(A, B) :- student(A), professor(B).;true;false
+9;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+9;true,false,true;publication(J, K), ta(L, K, M).;false;false
+9;true,true;ta(D, A, E).;true;false
+9;true,true,true;ta(D, F, G), tempadvisedby(F, H).;false;false
+9;true,false,false;tempadvisedby(N, B), publication(P, N).;false;false
+9;true;publication(C, B), publication(C, A).;true;true
+
+
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( educationschool(B, C), educationschool(A, C) )
+%   then return 0.5713272296731537;  // std dev = 0,452, 129,000 (wgt'ed) examples reached here.  /* #neg=37 #pos=92 */
+%   else if ( educationschool(A, D) )
+%   | then if ( educationschool(E, D) )
+%   | | then return 0.2815472637903161;  // std dev = 9,362, 359,000 (wgt'ed) examples reached here.  /* #neg=207 #pos=152 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(B, F) )
+%   | | then return 0.44392299367691473;  // std dev = 7,615, 239,000 (wgt'ed) examples reached here.  /* #neg=99 #pos=140 */
+%   | | else return 0.3000752807085734;  // std dev = 9,331, 353,000 (wgt'ed) examples reached here.  /* #neg=197 #pos=156 */
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( educationschool(A, C) )
+%   then if ( educationschool(B, C) )
+%   | then return 0.48676448819083956;  // std dev = 5,137, 129,000 (wgt'ed) examples reached here.  /* #neg=37 #pos=92 */
+%   | else return 0.24370885381568885;  // std dev = 9,362, 359,000 (wgt'ed) examples reached here.  /* #neg=207 #pos=152 */
+%   else if ( educationschool(B, D) )
+%   | then return 0.3808954272224208;  // std dev = 7,615, 239,000 (wgt'ed) examples reached here.  /* #neg=99 #pos=140 */
+%   | else return 0.2594895936836857;  // std dev = 9,331, 353,000 (wgt'ed) examples reached here.  /* #neg=197 #pos=156 */
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( worklocation(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then if ( educationschool(E, D) )
+%   | | then return 0.2774130039791082;  // std dev = 0,490, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(A, F), educationschool(B, G) )
+%   | | then if ( worklocation(H, C), educationschool(H, F) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return -0.21844625926077366;  // std dev = 0,000, 10,000 (wgt'ed) examples reached here.  /* #neg=10 */
+%   | | else if ( worklocation(I, C) )
+%   | | | then return 0.08889471923492925;  // std dev = 5,425, 137,000 (wgt'ed) examples reached here.  /* #neg=93 #pos=44 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.28441145710342175;  // std dev = 0,494, 928,000 (wgt'ed) examples reached here.  /* #neg=435 #pos=493 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( educationschool(A, C) )
+%   then if ( educationschool(B, C) )
+%   | then return 0.3256628156569986;  // std dev = 5,137, 129,000 (wgt'ed) examples reached here.  /* #neg=37 #pos=92 */
+%   | else return 0.1602206783799487;  // std dev = 9,275, 359,000 (wgt'ed) examples reached here.  /* #neg=207 #pos=152 */
+%   else return 0.20529802360487084;  // std dev = 0,496, 592,000 (wgt'ed) examples reached here.  /* #neg=296 #pos=296 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( worklocation(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.1346524745400796;  // std dev = 0,490, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | else if ( educationschool(A, E) )
+%   | | then if ( worklocation(F, C), educationschool(F, E) )
+%   | | | then return 0.3074960805467281;  // std dev = 1,852, 14,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=8 */
+%   | | | else return -0.25217421736883794;  // std dev = 0,155, 47,000 (wgt'ed) examples reached here.  /* #neg=47 */
+%   | | else if ( worklocation(G, C) )
+%   | | | then return 0.12060088539780027;  // std dev = 4,566, 86,000 (wgt'ed) examples reached here.  /* #neg=50 #pos=36 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.18278381443051148;  // std dev = 0,492, 928,000 (wgt'ed) examples reached here.  /* #neg=435 #pos=493 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( educationschool(A, C), educationschool(B, C) )
+%   then if ( educationschool(D, C) )
+%   | then return 0.20097769459610335;  // std dev = 5,135, 129,000 (wgt'ed) examples reached here.  /* #neg=37 #pos=92 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( educationschool(A, E) )
+%   | then if ( educationschool(F, E) )
+%   | | then return 0.09820739297864749;  // std dev = 9,114, 359,000 (wgt'ed) examples reached here.  /* #neg=207 #pos=152 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0.12128256306322013;  // std dev = 0,496, 592,000 (wgt'ed) examples reached here.  /* #neg=296 #pos=296 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( worklocation(B, C) )
+%   then if ( educationschool(B, D), educationschool(A, D) )
+%   | then return 0.05095874919720913;  // std dev = 0,490, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | else if ( educationschool(E, F) )
+%   | | then return -0.010914536501632596;  // std dev = 5,265, 147,000 (wgt'ed) examples reached here.  /* #neg=103 #pos=44 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( educationschool(B, G) )
+%   | then return 0.10684003554642083;  // std dev = 9,460, 391,000 (wgt'ed) examples reached here.  /* #neg=163 #pos=228 */
+%   | else return 0.11418175317136998;  // std dev = 11,615, 537,000 (wgt'ed) examples reached here.  /* #neg=272 #pos=265 */
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( educationschool(B, C) )
+%   then if ( educationschool(D, E), educationschool(A, C) )
+%   | then return 0.12548731745859643;  // std dev = 5,134, 129,000 (wgt'ed) examples reached here.  /* #neg=37 #pos=92 */
+%   | else return 0.05178693544321636;  // std dev = 8,452, 305,000 (wgt'ed) examples reached here.  /* #neg=153 #pos=152 */
+%   else return 0.06991422490686255;  // std dev = 0,492, 646,000 (wgt'ed) examples reached here.  /* #neg=350 #pos=296 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( worklocation(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.007757444732294694;  // std dev = 0,490, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | else if ( educationschool(A, E) )
+%   | | then if ( worklocation(F, C), educationschool(F, E) )
+%   | | | then return 0.2080951865175579;  // std dev = 1,852, 14,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=8 */
+%   | | | else return -0.2341364055183896;  // std dev = 0,155, 47,000 (wgt'ed) examples reached here.  /* #neg=47 */
+%   | | else if ( worklocation(G, C) )
+%   | | | then return 0.05578223813561094;  // std dev = 4,566, 86,000 (wgt'ed) examples reached here.  /* #neg=50 #pos=36 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.06677835068973893;  // std dev = 0,492, 928,000 (wgt'ed) examples reached here.  /* #neg=435 #pos=493 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( educationschool(B, C), educationschool(A, C) )
+%   then return 0.08036351824760837;  // std dev = 0,452, 129,000 (wgt'ed) examples reached here.  /* #neg=37 #pos=92 */
+%   else if ( educationschool(A, D) )
+%   | then if ( educationschool(E, D) )
+%   | | then return 0.029156304866158774;  // std dev = 8,974, 359,000 (wgt'ed) examples reached here.  /* #neg=207 #pos=152 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(F, G) )
+%   | | then return 0.03843942008722936;  // std dev = 12,061, 592,000 (wgt'ed) examples reached here.  /* #neg=296 #pos=296 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.616389
+   AUC PR    = 0.595135
+   CLL	      = -0.670468
+   Precision = 0.596468 at threshold = 0.5
+   Recall    = 0.533588
+   F1        = 0.563279
+
+
+Total learning time: 2.16 seconds
+Total inference time: 10.966 seconds
+AUC ROC: 0.616389
+
+
+Structure after Parameter Learning
+[['edge(A, B)', {'': 'educationschool(B, C), educationschool(A, C)', 'false': 'educationschool(A, D)', 'false,false': 'educationschool(B, F)', 'false,true': 'educationschool(E, D)'}, {'true': [0.452, 37, 92], 'false,true,false': [0.0, 0, 0], 'false,true,true': [9.362, 207, 152], 'false,false,true': [7.615, 99, 140], 'false,false,false': [9.331, 197, 156]}], ['edge(A, B)', {'': 'educationschool(A, C)', 'false': 'educationschool(B, D)', 'true': 'educationschool(B, C)'}, {'true,true': [5.137, 37, 92], 'true,false': [9.362, 207, 152], 'false,false': [9.331, 197, 156], 'false,true': [7.615, 99, 140]}], ['edge(A, B)', {'': 'worklocation(B, C)', 'true,false,true': 'worklocation(H, C), educationschool(H, F)', 'true,true': 'educationschool(E, D)', 'true,false': 'educationschool(A, F), educationschool(B, G)', 'true,false,false': 'worklocation(I, C)', 'true': 'educationschool(A, D), educationschool(B, D)'}, {'true,false,true,false': [0.0, 10, 0], 'true,false,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,true,true': [0.49, 2, 3], 'false': [0.494, 435, 493], 'true,false,true,true': [0.0, 0, 0], 'true,false,false,true': [5.425, 93, 44]}], ['edge(A, B)', {'': 'educationschool(A, C)', 'true': 'educationschool(B, C)'}, {'true,true': [5.137, 37, 92], 'true,false': [9.275, 207, 152], 'false': [0.496, 296, 296]}], ['edge(A, B)', {'': 'worklocation(B, C)', 'true,false': 'educationschool(A, E)', 'true,false,false': 'worklocation(G, C)', 'true,false,true': 'worklocation(F, C), educationschool(F, E)', 'true': 'educationschool(A, D), educationschool(B, D)'}, {'true,false,true,false': [0.155, 47, 0], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.49, 2, 3], 'false': [0.492, 435, 493], 'true,false,true,true': [1.852, 6, 8], 'true,false,false,true': [4.566, 50, 36]}], ['edge(A, B)', {'': 'educationschool(A, C), educationschool(B, C)', 'false': 'educationschool(A, E)', 'false,true': 'educationschool(F, E)', 'true': 'educationschool(D, C)'}, {'true,true': [5.135, 37, 92], 'true,false': [0.0, 0, 0], 'false,true,false': [0.0, 0, 0], 'false,true,true': [9.114, 207, 152], 'false,false': [0.496, 296, 296]}], ['edge(A, B)', {'': 'worklocation(B, C)', 'true,false': 'educationschool(E, F)', 'false': 'educationschool(B, G)', 'true': 'educationschool(B, D), educationschool(A, D)'}, {'true,true': [0.49, 2, 3], 'true,false,false': [0.0, 0, 0], 'true,false,true': [5.265, 103, 44], 'false,true': [9.46, 163, 228], 'false,false': [11.615, 272, 265]}], ['edge(A, B)', {'': 'educationschool(B, C)', 'true': 'educationschool(D, E), educationschool(A, C)'}, {'true,true': [5.134, 37, 92], 'true,false': [8.452, 153, 152], 'false': [0.492, 350, 296]}], ['edge(A, B)', {'': 'worklocation(B, C)', 'true,false': 'educationschool(A, E)', 'true,false,false': 'worklocation(G, C)', 'true,false,true': 'worklocation(F, C), educationschool(F, E)', 'true': 'educationschool(A, D), educationschool(B, D)'}, {'true,false,true,false': [0.155, 47, 0], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.49, 2, 3], 'false': [0.492, 435, 493], 'true,false,true,true': [1.852, 6, 8], 'true,false,false,true': [4.566, 50, 36]}], ['edge(A, B)', {'': 'educationschool(B, C), educationschool(A, C)', 'false': 'educationschool(A, D)', 'false,false': 'educationschool(F, G)', 'false,true': 'educationschool(E, D)'}, {'true': [0.452, 37, 92], 'false,true,false': [0.0, 0, 0], 'false,true,true': [8.974, 207, 152], 'false,false,true': [12.061, 296, 296], 'false,false,false': [0.0, 0, 0]}]]
+[{'': [0.2045550147226751, 0.2491638111855279], 'false': [0.24413218395264213, 0.2500000000000025], 'false,false': [0.24264281087516412, 0.2466274506656861], 'false,true': [0.24413218395264213, nan]}, {'': [0.24515848986830277, 0.24856698869387117], 'false': [0.24264281087516082, 0.24662745066568276], 'true': [0.20455501472267362, 0.24413218395263658]}, {'': [0.20873064959224066, 0.2437077611725206], 'true,false,true': [nan, -1.1102230246251566e-17], 'true,true': [0.24, nan], 'true,false': [-1.1102230246251566e-17, 0.21485145412665296], 'true,false,false': [0.21485145412665269, nan], 'true': [0.24, 0.20622433005842744]}, {'': [0.23567501321341908, 0.2461897291147425], 'true': [0.204540554640221, 0.23962721073135554]}, {'': [0.20442243542872454, 0.24227487808214673], 'true,false': [0.11199015528340023, 0.24239560536934854], 'true,false,false': [0.24239560536934854, nan], 'true,false,true': [0.24489795918367352, 0.0005115508852245238], 'true': [0.24000000000000005, 0.20277395627093098]}, {'': [0.2044411928675255, 0.24043103289632112], 'false': [0.23139137846137137, 0.2457118468043121], 'false,true': [0.23139137846137137, nan], 'true': [0.2044411928675255, nan]}, {'': [0.19041579106002918, 0.24181883646198474], 'true,false': [0.18860332230535196, nan], 'false': [0.22886309926962403, 0.2512294468449124], 'true': [0.24000000000000005, 0.18860332230535184]}, {'': [0.2264886111488958, 0.2416799397791721], 'true': [0.2043444942426622, 0.23423997830592838]}, {'': [0.18999420202545203, 0.24160123034140774], 'true,false': [0.09118389235192825, 0.2423894995153294], 'true,false,false': [0.2423894995153294, nan], 'true,false,true': [0.2448979591836733, 0.0005120852473628254], 'true': [0.24, 0.18826339413957832]}, {'': [0.20426217835371782, 0.2376590882059531], 'false': [0.22430738537647785, 0.24572328210192323], 'false,false': [0.24572328210192323, nan], 'false,true': [0.22430738537647785, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Candidate for revision
+2;;edge(A, B) :- worklocation(B, C).;true;true
+2;true,false;educationschool(A, F), educationschool(B, G).;true;true
+2;true;educationschool(A, D), educationschool(B, D).;true;true
+4;;edge(A, B) :- worklocation(B, C).;true;true
+4;true,false;educationschool(A, E).;true;true
+4;true,false,true;worklocation(F, C), educationschool(F, E).;true;true
+4;true;educationschool(A, D), educationschool(B, D).;true;true
+8;;edge(A, B) :- worklocation(B, C).;true;true
+8;true,false;educationschool(A, E).;true;true
+8;true,false,true;worklocation(F, C), educationschool(F, E).;true;true
+8;true;educationschool(A, D), educationschool(B, D).;true;true
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( worklocation(B, C), locale(A, D) )
+%   then if ( worklocation(A, C) )
+%   | then return 0.8581489350995123;  // std dev = 0,000, 17,000 (wgt'ed) examples reached here.  /* #pos=17 */
+%   | else return 0.03925129730423638;  // std dev = 0,385, 127,000 (wgt'ed) examples reached here.  /* #neg=104 #pos=23 */
+%   else if ( educationclasses(B, E), locale(A, F) )
+%   | then if ( hometown(A, G), location(A, H) )
+%   | | then return 0.8581489350995123;  // std dev = 0,000, 11,000 (wgt'ed) examples reached here.  /* #pos=11 */
+%   | | else if ( locale(B, F), educationtype(A, I) )
+%   | | | then return 0.3875606998053947;  // std dev = 2,058, 17,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=9 */
+%   | | | else return 0.6763307532813299;  // std dev = 2,860, 55,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=45 */
+%   | else if ( workemployer(B, J), locale(A, K) )
+%   | | then if ( workemployer(A, J) )
+%   | | | then return 0.7748156017661789;  // std dev = 0,957, 12,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=11 */
+%   | | | else return 0.01069130798086828;  // std dev = 2,762, 59,000 (wgt'ed) examples reached here.  /* #neg=50 #pos=9 */
+%   | | else if ( hometown(B, L), location(B, M) )
+%   | | | then return 0.5525933795439573;  // std dev = 3,909, 72,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=50 */
+%   | | | else return 0.3722334421417616;  // std dev = 13,318, 710,000 (wgt'ed) examples reached here.  /* #neg=345 #pos=365 */
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( worklocation(B, C), educationschool(A, D) )
+%   then return 0.009831435966923482;  // std dev = 0,351, 66,000 (wgt'ed) examples reached here.  /* #neg=55 #pos=11 */
+%   else if ( educationschool(B, E), educationschool(A, E) )
+%   | then if ( languages(B, F), birthday(A, G) )
+%   | | then if ( educationwith(B, H) )
+%   | | | then return 0.771162593133523;  // std dev = 0,040, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | else return -0.06844691893892439;  // std dev = 0,935, 8,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=1 */
+%   | | else if ( location(B, I), languages(B, J) )
+%   | | | then return 0.20655308106107567;  // std dev = 1,095, 5,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=2 */
+%   | | | else return 0.5542856789114352;  // std dev = 4,331, 108,000 (wgt'ed) examples reached here.  /* #neg=25 #pos=83 */
+%   | else if ( workemployer(B, K), locale(A, L) )
+%   | | then if ( workemployer(A, K) )
+%   | | | then return 0.7639852165648858;  // std dev = 0,237, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | | | else return 0.05948215717728906;  // std dev = 3,901, 96,000 (wgt'ed) examples reached here.  /* #neg=76 #pos=20 */
+%   | | else if ( educationschool(B, M), workstartdate(A, N) )
+%   | | | then return -0.20315219986075275;  // std dev = 0,070, 14,000 (wgt'ed) examples reached here.  /* #neg=14 */
+%   | | | else return 0.3303612078608998;  // std dev = 13,677, 762,000 (wgt'ed) examples reached here.  /* #neg=360 #pos=402 */
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( worklocation(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.4520684587639846;  // std dev = 1,095, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | else return 0.10943596312292198;  // std dev = 0,416, 147,000 (wgt'ed) examples reached here.  /* #neg=103 #pos=44 */
+%   else if ( locale(A, E), hometown(B, F) )
+%   | then if ( educationconcentration(B, G), languages(B, H) )
+%   | | then return -0.026910890744289415;  // std dev = 0,383, 15,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=3 */
+%   | | else if ( locale(B, E), educationtype(B, I) )
+%   | | | then return 0.34998174031171697;  // std dev = 3,653, 61,000 (wgt'ed) examples reached here.  /* #neg=21 #pos=40 */
+%   | | | else return 0.485265989971648;  // std dev = 4,022, 98,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=76 */
+%   | else if ( birthday(B, J), educationconcentration(B, K) )
+%   | | then if ( educationyear(A, L), educationyear(B, L) )
+%   | | | then return 0.20546947993511466;  // std dev = 1,225, 6,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=3 */
+%   | | | else return 0.5539014002068245;  // std dev = 2,191, 32,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=26 */
+%   | | else if ( educationschool(A, M), educationschool(B, M) )
+%   | | | then return 0.3944530730793549;  // std dev = 3,443, 61,000 (wgt'ed) examples reached here.  /* #neg=19 #pos=42 */
+%   | | | else return 0.21786587291665288;  // std dev = 12,540, 655,000 (wgt'ed) examples reached here.  /* #neg=352 #pos=303 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( educationclasses(B, C), locale(A, D) )
+%   then if ( educationtype(A, E) )
+%   | then if ( educationschool(A, F), educationschool(B, F) )
+%   | | then return 0.42054651989376124;  // std dev = 0,314, 32,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=28 */
+%   | | else if ( workenddate(B, G) )
+%   | | | then return -0.29968566834300203;  // std dev = 0,063, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | | else return 0.08626176334298508;  // std dev = 1,199, 7,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=3 */
+%   | else if ( location(B, H), locale(B, D) )
+%   | | then return 0.6245346554574912;  // std dev = 0,038, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | else return 0.4328995002856435;  // std dev = 0,378, 34,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=28 */
+%   else if ( workemployer(B, I), workemployer(A, I) )
+%   | then return 0.5554810510227234;  // std dev = 0,228, 27,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=26 */
+%   | else if ( workstartdate(B, J), locale(A, K) )
+%   | | then return -0.04876866951170967;  // std dev = 0,321, 103,000 (wgt'ed) examples reached here.  /* #neg=89 #pos=14 */
+%   | | else if ( workemployer(A, L), hometown(B, M) )
+%   | | | then return -0.2939517707126351;  // std dev = 0,322, 9,000 (wgt'ed) examples reached here.  /* #neg=9 */
+%   | | | else return 0.2085607564991373;  // std dev = 14,225, 858,000 (wgt'ed) examples reached here.  /* #neg=423 #pos=435 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( worklocation(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.33429513826612417;  // std dev = 1,071, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | else if ( educationschool(A, E) )
+%   | | then return -0.055130029353657156;  // std dev = 0,289, 61,000 (wgt'ed) examples reached here.  /* #neg=53 #pos=8 */
+%   | | else if ( educationyear(A, F) )
+%   | | | then return 0.3893754483528454;  // std dev = 1,752, 26,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=20 */
+%   | | | else return 0.06582377867685747;  // std dev = 3,338, 60,000 (wgt'ed) examples reached here.  /* #neg=44 #pos=16 */
+%   else if ( workemployer(B, G), locale(A, H) )
+%   | then return 0.0032769525919061414;  // std dev = 0,364, 71,000 (wgt'ed) examples reached here.  /* #neg=51 #pos=20 */
+%   | else if ( workenddate(A, I), location(B, J) )
+%   | | then if ( educationschool(B, K), educationschool(A, K) )
+%   | | | then return 0.27678817836743314;  // std dev = 1,297, 11,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=8 */
+%   | | | else return -0.24947212308090005;  // std dev = 0,967, 18,000 (wgt'ed) examples reached here.  /* #neg=17 #pos=1 */
+%   | | else if ( locale(A, L), locale(B, M) )
+%   | | | then return 0.1994776706554101;  // std dev = 13,520, 798,000 (wgt'ed) examples reached here.  /* #neg=343 #pos=455 */
+%   | | | else return -0.038277723537848536;  // std dev = 2,510, 30,000 (wgt'ed) examples reached here.  /* #neg=21 #pos=9 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( worklocation(B, C), hometown(A, D) )
+%   then return -0.1403161867821618;  // std dev = 0,173, 25,000 (wgt'ed) examples reached here.  /* #neg=24 #pos=1 */
+%   else if ( educationdegree(B, E) )
+%   | then if ( workemployer(A, F) )
+%   | | then if ( worklocation(A, G) )
+%   | | | then return 0.1379428826146198;  // std dev = 0,818, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | | | else return 0.4477771872765189;  // std dev = 0,140, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else if ( educationconcentration(B, H), workenddate(B, I) )
+%   | | | then return -0.03647334643983404;  // std dev = 1,226, 9,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=2 */
+%   | | | else return -0.2666065537585394;  // std dev = 1,074, 30,000 (wgt'ed) examples reached here.  /* #neg=29 #pos=1 */
+%   | else if ( gender(B, J), gender(A, J) )
+%   | | then if ( hometown(B, K), languages(B, L) )
+%   | | | then return -0.08210730946954527;  // std dev = 1,866, 21,000 (wgt'ed) examples reached here.  /* #neg=13 #pos=8 */
+%   | | | else return 0.18872083132981887;  // std dev = 10,117, 478,000 (wgt'ed) examples reached here.  /* #neg=201 #pos=277 */
+%   | | else if ( educationclasses(B, M), firstname(B, N) )
+%   | | | then return 0.3891912884614959;  // std dev = 0,908, 24,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=23 */
+%   | | | else return 0.08493491540976933;  // std dev = 10,268, 484,000 (wgt'ed) examples reached here.  /* #neg=263 #pos=221 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( educationdegree(B, C) )
+%   then if ( workemployer(A, D) )
+%   | then if ( educationyear(B, E) )
+%   | | then return 0.3666438742337475;  // std dev = 0,170, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else return 0.08821275834077631;  // std dev = 0,777, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | else return -0.17036353343487723;  // std dev = 0,261, 42,000 (wgt'ed) examples reached here.  /* #neg=39 #pos=3 */
+%   else if ( workemployer(B, F), educationschool(A, G) )
+%   | then if ( workemployer(A, F) )
+%   | | then return 0.3740426139474965;  // std dev = 0,387, 9,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=8 */
+%   | | else return -0.16490980349650164;  // std dev = 0,121, 47,000 (wgt'ed) examples reached here.  /* #neg=46 #pos=1 */
+%   | else if ( educationtype(B, H), locale(B, I) )
+%   | | then if ( educationdegree(A, J), location(B, K) )
+%   | | | then return -0.37716350747553934;  // std dev = 0,147, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | | else return 0.14922287025757358;  // std dev = 9,486, 481,000 (wgt'ed) examples reached here.  /* #neg=200 #pos=281 */
+%   | | else if ( educationschool(A, L), locale(B, M) )
+%   | | | then return 0.14915063154568856;  // std dev = 6,971, 204,000 (wgt'ed) examples reached here.  /* #neg=88 #pos=116 */
+%   | | | else return 0.028643554901387445;  // std dev = 8,232, 284,000 (wgt'ed) examples reached here.  /* #neg=160 #pos=124 */
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( educationdegree(B, C) )
+%   then return -0.08740548935509265;  // std dev = 0,289, 51,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=10 */
+%   else if ( educationschool(B, D), educationschool(A, D) )
+%   | then if ( languages(B, E), location(B, F) )
+%   | | then if ( location(A, F) )
+%   | | | then return -0.47764631687736586;  // std dev = 0,032, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return -0.06624303786184238;  // std dev = 1,041, 6,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=2 */
+%   | | else if ( educationclasses(A, G), firstname(B, H) )
+%   | | | then return -0.047721503958690153;  // std dev = 1,153, 8,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=5 */
+%   | | | else return 0.21246022425865246;  // std dev = 3,809, 102,000 (wgt'ed) examples reached here.  /* #neg=21 #pos=81 */
+%   | else if ( educationschool(A, I), educationschool(B, J) )
+%   | | then if ( educationconcentration(A, K) )
+%   | | | then return 0.18559667230598903;  // std dev = 1,084, 7,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=4 */
+%   | | | else return -0.16932484064120723;  // std dev = 2,230, 52,000 (wgt'ed) examples reached here.  /* #neg=44 #pos=8 */
+%   | | else if ( educationschool(B, L) )
+%   | | | then return 0.13175732336680013;  // std dev = 6,569, 228,000 (wgt'ed) examples reached here.  /* #neg=90 #pos=138 */
+%   | | | else return 0.060183086955578995;  // std dev = 11,818, 623,000 (wgt'ed) examples reached here.  /* #neg=331 #pos=292 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( worklocation(B, C) )
+%   then if ( educationschool(A, D), educationschool(B, D) )
+%   | then return 0.19170516041006622;  // std dev = 0,963, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | else return 0.019318325416832947;  // std dev = 0,360, 147,000 (wgt'ed) examples reached here.  /* #neg=103 #pos=44 */
+%   else if ( gender(B, E), gender(A, E) )
+%   | then if ( languages(A, F), locale(B, G) )
+%   | | then if ( workemployer(A, H) )
+%   | | | then return -0.43856724977919304;  // std dev = 0,185, 9,000 (wgt'ed) examples reached here.  /* #neg=9 */
+%   | | | else return 0.014039325853248068;  // std dev = 2,426, 35,000 (wgt'ed) examples reached here.  /* #neg=19 #pos=16 */
+%   | | else if ( hometown(B, I), workenddate(B, J) )
+%   | | | then return 0.28770123929662117;  // std dev = 0,760, 19,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=18 */
+%   | | | else return 0.09728415262675416;  // std dev = 9,382, 410,000 (wgt'ed) examples reached here.  /* #neg=172 #pos=238 */
+%   | else if ( lastname(A, K), educationtype(B, L) )
+%   | | then return 0.4761115134826502;  // std dev = 0,256, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | else if ( hometown(B, M), hometown(A, M) )
+%   | | | then return 0.3442860394062184;  // std dev = 0,837, 18,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=17 */
+%   | | | else return 0.005247217570924133;  // std dev = 9,590, 431,000 (wgt'ed) examples reached here.  /* #neg=233 #pos=198 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( location(B, C), educationclasses(B, D) )
+%   then if ( location(A, E), educationyear(A, F) )
+%   | then return -0.10287315705949641;  // std dev = 0,608, 4,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2 */
+%   | else return 0.16938872480655032;  // std dev = 0,292, 40,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=34 */
+%   else if ( location(B, G), gender(A, H) )
+%   | then if ( educationtype(B, I), locale(A, J) )
+%   | | then if ( hometown(B, K), gender(B, H) )
+%   | | | then return 0.1610505913800005;  // std dev = 2,457, 42,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=34 */
+%   | | | else return -0.013785040637217635;  // std dev = 5,098, 142,000 (wgt'ed) examples reached here.  /* #neg=82 #pos=60 */
+%   | | else if ( workemployer(A, L) )
+%   | | | then return 0.31158582025404125;  // std dev = 0,820, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | | else return -0.3076484600854895;  // std dev = 1,816, 29,000 (wgt'ed) examples reached here.  /* #neg=25 #pos=4 */
+%   | else if ( worklocation(B, M), worklocation(A, M) )
+%   | | then return 0.40491284716805004;  // std dev = 0,247, 17,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=16 */
+%   | | else if ( workstartdate(B, N), locale(A, P) )
+%   | | | then return -0.0834915539006423;  // std dev = 3,156, 101,000 (wgt'ed) examples reached here.  /* #neg=80 #pos=21 */
+%   | | | else return 0.059937997794573046;  // std dev = 12,302, 701,000 (wgt'ed) examples reached here.  /* #neg=335 #pos=366 */
+
+
+Results
+   AUC ROC   = 0.546098
+   AUC PR    = 0.559057
+   CLL	      = -0.715658
+   Precision = 0.543566 at threshold = 0.5
+   Recall    = 0.382774
+   F1        = 0.449215
+
+
+Total learning time: 14.092 seconds
+Total inference time: 4.726 seconds
+AUC ROC: 0.546098
+
+
+Refined model AUC ROC: 0.546098
+
+
+Dataset: 50_uwcse_facebook, Fold: 4, Type: Transfer (trRDN-B), Time: 05:52:54
+{'Recall': 0.382774, 'Learning time': 16.252000000000002, 'F1': 0.449215, 'Precision': [0.543566, 0.5], 'AUC PR': 0.559057, 'CLL': -0.715658, 'parameter': {'Recall': 0.533588, 'Learning time': 2.16, 'F1': 0.563279, 'Precision': [0.596468, 0.5], 'AUC PR': 0.595135, 'CLL': -0.670468, 'AUC ROC': 0.616389, 'Inference time': 10.966}, 'AUC ROC': 0.546098, 'Inference time': 4.726}
+
+
+Starting fold 5
+
+Target train facts examples: 354
+Target train pos examples: 292
+Target train neg examples: 292
+
+Target test facts examples: 6245
+Target test pos examples: 12276
+Target test neg examples: 12276
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;advisedby(A, B) :- student(A), professor(B).;true;false
+0;true,false;publication(I, A).;true;true
+0;true,false,true;publication(I, J), ta(K, J, L).;false;false
+0;true,true;tempadvisedby(D, B), ta(E, A, F).;true;false
+0;true,true,true;ta(G, D, H).;false;false
+0;true,false,false;publication(M, B).;false;false
+0;true;publication(C, B), publication(C, A).;true;true
+1;;advisedby(A, B) :- student(A), professor(B).;true;false
+1;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+1;true,false,true;publication(J, B).;false;false
+1;true,true;ta(F, A, G), ta(D, H, G).;true;false
+1;true,true,true;samecourse(D, F).;false;false
+1;true,false,false;publication(K, B).;false;false
+1;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+2;;advisedby(A, B) :- student(A), hasposition(B, C).;true;true
+2;true,false;publication(J, A), publication(K, B).;true;true
+2;true,false,true;hasposition(L, C), publication(J, L).;false;false
+2;false;professor(B).;false;false
+2;true,true;publication(D, E), ta(F, E, G).;true;false
+2;true,true,true;tempadvisedby(H, B), ta(F, H, I).;false;false
+2;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+2;true;publication(D, A), publication(D, B).;true;true
+3;;advisedby(A, B) :- student(A), professor(B).;true;false
+3;true,false,true;publication(H, B).;false;false
+3;true,true;ta(D, A, F).;false;false
+3;true,false;tempadvisedby(G, B), publication(H, A).;true;true
+3;true,false,false;tempadvisedby(I, B), ta(J, A, K).;false;false
+3;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+4;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+4;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+4;true,false,true;hasposition(L, C), publication(J, L).;false;false
+4;false;student(B).;false;false
+4;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+4;true,true,true;ta(H, G, I).;false;false
+4;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+4;true;publication(D, A), publication(D, B).;true;true
+5;;advisedby(A, B) :- student(A), professor(B).;true;false
+5;true,false;publication(E, A), tempadvisedby(F, B).;true;true
+5;true,false,true;publication(E, G), ta(H, G, I).;false;false
+5;true,true;tempadvisedby(D, B).;true;false
+5;true,true,true;publication(C, D).;false;false
+5;true,false,false;tempadvisedby(J, B).;false;false
+5;true;publication(C, A), publication(C, B).;true;true
+6;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+6;true,false;tempadvisedby(J, B), publication(K, J).;false;true
+6;false;professor(B).;true;false
+6;true,true;ta(E, A, F), tempadvisedby(G, B).;true;false
+6;true,true,true;ta(H, G, I).;false;false
+6;true,false,false;ta(L, A, M), tempadvisedby(N, B).;false;false
+6;false,true;publication(P, B).;false;false
+6;true;publication(D, B), publication(D, A).;true;true
+7;;advisedby(A, B) :- student(A), professor(B).;true;false
+7;true,false,true;publication(I, G), publication(H, A).;false;false
+7;true,true;ta(D, A, F).;false;false
+7;true,false;tempadvisedby(G, B), publication(H, B).;true;true
+7;true,false,false;tempadvisedby(J, B).;false;false
+7;true;tempadvisedby(C, B), ta(D, C, E).;true;true
+8;;advisedby(A, B) :- hasposition(B, C), student(A).;true;true
+8;true,false;publication(J, A), tempadvisedby(K, B).;true;true
+8;true,false,true;hasposition(L, C), publication(J, L).;false;false
+8;false;student(B).;false;false
+8;true,true;tempadvisedby(E, B), ta(F, A, G).;true;false
+8;true,true,true;ta(H, E, I).;false;false
+8;true,false,false;hasposition(M, C), tempadvisedby(N, M).;false;false
+8;true;publication(D, A), publication(D, B).;true;true
+9;;advisedby(A, B) :- student(A), professor(B).;true;false
+9;true,false;tempadvisedby(I, B), publication(J, A).;true;true
+9;true,false,true;publication(J, K), ta(L, K, M).;false;false
+9;true,true;ta(D, A, E).;true;false
+9;true,true,true;ta(D, F, G), tempadvisedby(F, H).;false;false
+9;true,false,false;tempadvisedby(N, B), publication(P, N).;false;false
+9;true;publication(C, B), publication(C, A).;true;true
+
+
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( locale(B, C), locale(A, C) )
+%   then return 0.4100161550165204;  // std dev = 0,497, 482,000 (wgt'ed) examples reached here.  /* #neg=216 #pos=266 */
+%   else if ( locale(A, D) )
+%   | then if ( locale(E, D) )
+%   | | then return 0.03763611458669187;  // std dev = 3,389, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( locale(B, F) )
+%   | | then return 0.35814893509951234;  // std dev = 2,449, 24,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=12 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( locale(A, C) )
+%   then if ( locale(B, C) )
+%   | then return 0.3524568839994639;  // std dev = 10,918, 482,000 (wgt'ed) examples reached here.  /* #neg=216 #pos=266 */
+%   | else return 0.03299265250936424;  // std dev = 3,389, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   else if ( locale(B, D) )
+%   | then return 0.3087411357856347;  // std dev = 2,449, 24,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=12 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( workstartdate(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then if ( locale(E, D) )
+%   | | then return 0.4107863428581334;  // std dev = 0,469, 116,000 (wgt'ed) examples reached here.  /* #neg=38 #pos=78 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( locale(A, F), locale(B, G) )
+%   | | then if ( workstartdate(H, C), locale(H, F) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.049331976380132356;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=1 */
+%   | | else if ( workstartdate(I, C) )
+%   | | | then return 0.433679648045706;  // std dev = 1,915, 16,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=10 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.20908413862961556;  // std dev = 0,489, 447,000 (wgt'ed) examples reached here.  /* #neg=244 #pos=203 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( locale(A, C) )
+%   then if ( locale(B, C) )
+%   | then return 0.2372372699104536;  // std dev = 10,869, 482,000 (wgt'ed) examples reached here.  /* #neg=216 #pos=266 */
+%   | else return -0.0025936186780091105;  // std dev = 3,356, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   else return 0.20191994342438455;  // std dev = 0,494, 24,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=12 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( workstartdate(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then return 0.2685769278790348;  // std dev = 0,469, 116,000 (wgt'ed) examples reached here.  /* #neg=38 #pos=78 */
+%   | else if ( locale(A, E) )
+%   | | then if ( workstartdate(F, C), locale(F, E) )
+%   | | | then return 0.34110179970702437;  // std dev = 1,491, 9,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=5 */
+%   | | | else return 0.043252852513317605;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=1 */
+%   | | else if ( workstartdate(G, C) )
+%   | | | then return 0.336159787459401;  // std dev = 1,195, 7,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.12428781014708933;  // std dev = 0,485, 447,000 (wgt'ed) examples reached here.  /* #neg=244 #pos=203 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( locale(A, C), locale(B, C) )
+%   then if ( locale(D, C) )
+%   | then return 0.1461949198838091;  // std dev = 10,838, 482,000 (wgt'ed) examples reached here.  /* #neg=216 #pos=266 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( locale(A, E) )
+%   | then if ( locale(F, E) )
+%   | | then return -0.025439191847804195;  // std dev = 3,319, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0.11455919158760407;  // std dev = 0,489, 24,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=12 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( workstartdate(B, C) )
+%   then if ( locale(B, D), locale(A, D) )
+%   | then return 0.1660970043172783;  // std dev = 0,469, 116,000 (wgt'ed) examples reached here.  /* #neg=38 #pos=78 */
+%   | else if ( locale(E, F) )
+%   | | then return 0.20642589738362882;  // std dev = 2,155, 21,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=11 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( locale(B, G) )
+%   | then return 0.06161049990555911;  // std dev = 9,974, 430,000 (wgt'ed) examples reached here.  /* #neg=234 #pos=196 */
+%   | else return 0.21773444940983702;  // std dev = 2,029, 17,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=7 */
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( locale(B, C) )
+%   then if ( locale(D, E), locale(A, C) )
+%   | then return 0.08930350113654176;  // std dev = 10,825, 482,000 (wgt'ed) examples reached here.  /* #neg=216 #pos=266 */
+%   | else return -0.0925950616443179;  // std dev = 2,908, 76,000 (wgt'ed) examples reached here.  /* #neg=62 #pos=14 */
+%   else return 0.20183357733855795;  // std dev = 0,495, 26,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=12 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( workstartdate(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then return 0.10270356131206189;  // std dev = 0,469, 116,000 (wgt'ed) examples reached here.  /* #neg=38 #pos=78 */
+%   | else if ( locale(A, E) )
+%   | | then if ( workstartdate(F, C), locale(F, E) )
+%   | | | then return 0.19532488733041323;  // std dev = 1,491, 9,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=5 */
+%   | | | else return 0.025056438599916724;  // std dev = 0,894, 5,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=1 */
+%   | | else if ( workstartdate(G, C) )
+%   | | | then return 0.19753211915871732;  // std dev = 1,195, 7,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=5 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0.03509608357242223;  // std dev = 0,480, 447,000 (wgt'ed) examples reached here.  /* #neg=244 #pos=203 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( locale(B, C), locale(A, C) )
+%   then return 0.054614110957923186;  // std dev = 0,493, 482,000 (wgt'ed) examples reached here.  /* #neg=216 #pos=266 */
+%   else if ( locale(A, D) )
+%   | then if ( locale(E, D) )
+%   | | then return -0.05608933833549395;  // std dev = 3,132, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( locale(F, G) )
+%   | | then return 0.06408218015328336;  // std dev = 2,370, 24,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=12 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+
+
+Results
+   AUC ROC   = 0.541057
+   AUC PR    = 0.526885
+   CLL	      = -0.742262
+   Precision = 0.538038 at threshold = 0.5
+   Recall    = 0.222955
+   F1        = 0.315268
+
+
+Total learning time: 2.119 seconds
+Total inference time: 12.315 seconds
+AUC ROC: 0.541057
+
+
+Structure after Parameter Learning
+[['edge(A, B)', {'': 'locale(B, C), locale(A, C)', 'false': 'locale(A, D)', 'false,false': 'locale(B, F)', 'false,true': 'locale(E, D)'}, {'true': [0.497, 216, 266], 'false,true,false': [0.0, 0, 0], 'false,true,true': [3.389, 64, 14], 'false,false,true': [2.449, 12, 12], 'false,false,false': [0.0, 0, 0]}], ['edge(A, B)', {'': 'locale(A, C)', 'false': 'locale(B, D)', 'true': 'locale(B, C)'}, {'true,true': [10.918, 216, 266], 'true,false': [3.389, 64, 14], 'false,false': [0.0, 0, 0], 'false,true': [2.449, 12, 12]}], ['edge(A, B)', {'': 'workstartdate(B, C)', 'true,false,true': 'workstartdate(H, C), locale(H, F)', 'true,true': 'locale(E, D)', 'true,false': 'locale(A, F), locale(B, G)', 'true,false,false': 'workstartdate(I, C)', 'true': 'locale(A, D), locale(B, D)'}, {'true,false,true,false': [0.894, 4, 1], 'true,false,false,false': [0.0, 0, 0], 'true,true,false': [0.0, 0, 0], 'true,true,true': [0.469, 38, 78], 'false': [0.489, 244, 203], 'true,false,true,true': [0.0, 0, 0], 'true,false,false,true': [1.915, 6, 10]}], ['edge(A, B)', {'': 'locale(A, C)', 'true': 'locale(B, C)'}, {'true,true': [10.869, 216, 266], 'true,false': [3.356, 64, 14], 'false': [0.494, 12, 12]}], ['edge(A, B)', {'': 'workstartdate(B, C)', 'true,false': 'locale(A, E)', 'true,false,false': 'workstartdate(G, C)', 'true,false,true': 'workstartdate(F, C), locale(F, E)', 'true': 'locale(A, D), locale(B, D)'}, {'true,false,true,false': [0.894, 4, 1], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.469, 38, 78], 'false': [0.485, 244, 203], 'true,false,true,true': [1.491, 4, 5], 'true,false,false,true': [1.195, 2, 5]}], ['edge(A, B)', {'': 'locale(A, C), locale(B, C)', 'false': 'locale(A, E)', 'false,true': 'locale(F, E)', 'true': 'locale(D, C)'}, {'true,true': [10.838, 216, 266], 'true,false': [0.0, 0, 0], 'false,true,false': [0.0, 0, 0], 'false,true,true': [3.319, 64, 14], 'false,false': [0.489, 12, 12]}], ['edge(A, B)', {'': 'workstartdate(B, C)', 'true,false': 'locale(E, F)', 'false': 'locale(B, G)', 'true': 'locale(B, D), locale(A, D)'}, {'true,true': [0.469, 38, 78], 'true,false,false': [0.0, 0, 0], 'true,false,true': [2.155, 10, 11], 'false,true': [9.974, 234, 196], 'false,false': [2.029, 10, 7]}], ['edge(A, B)', {'': 'locale(B, C)', 'true': 'locale(D, E), locale(A, C)'}, {'true,true': [10.825, 216, 266], 'true,false': [2.908, 62, 14], 'false': [0.495, 14, 12]}], ['edge(A, B)', {'': 'workstartdate(B, C)', 'true,false': 'locale(A, E)', 'true,false,false': 'workstartdate(G, C)', 'true,false,true': 'workstartdate(F, C), locale(F, E)', 'true': 'locale(A, D), locale(B, D)'}, {'true,false,true,false': [0.894, 4, 1], 'true,false,false,false': [0.0, 0, 0], 'true,true': [0.469, 38, 78], 'false': [0.48, 244, 203], 'true,false,true,true': [1.491, 4, 5], 'true,false,false,true': [1.195, 2, 5]}], ['edge(A, B)', {'': 'locale(B, C), locale(A, C)', 'false': 'locale(A, D)', 'false,false': 'locale(F, G)', 'false,true': 'locale(E, D)'}, {'true': [0.493, 216, 266], 'false,true,false': [0.0, 0, 0], 'false,true,true': [3.132, 64, 14], 'false,false,true': [2.37, 12, 12], 'false,false,false': [0.0, 0, 0]}]]
+[{'': [0.2473097914980833, 0.18992695117262537], 'false': [0.14727153188691597, 0.24999999999999956], 'false,false': [0.24999999999999956, nan], 'false,true': [0.14727153188691597, nan]}, {'': [0.24561106270402025, 0.2500000000000002], 'false': [0.2500000000000002, nan], 'true': [0.2473097914980808, 0.14727153188691647]}, {'': [0.22383975774583673, 0.23888117801180844], 'true,false,true': [nan, 0.15999999999999998], 'true,true': [0.2202734839476798, nan], 'true,false': [0.15999999999999998, 0.22924044225329385], 'true,false,false': [0.2292404422532939, nan], 'true': [0.2202734839476798, 0.2395524698736655]}, {'': [0.23797182621567353, 0.24449701722221706], 'true': [0.24509905688993636, 0.14442189533813732]}, {'': [0.22142834519869942, 0.23492156573581552], 'true,false': [0.23624102500820957, 0.20408163265306126], 'true,false,false': [0.20408163265306126, nan], 'true,false,true': [0.2469135802469134, 0.16000000000000003], 'true': [0.22027348394768073, 0.22780757749570513]}, {'': [0.24371284965503245, 0.16780256933986906], 'false': [0.14123466808703286, 0.2391603592504775], 'false,true': [0.14123466808703286, nan], 'true': [0.24371284965503245, nan]}, {'': [0.22061431373710244, 0.23267762531198033], 'true,false': [0.2211198781545528, nan], 'false': [0.23137358323836882, 0.2422145328719725], 'true': [0.22027348394768156, 0.22111987815455272]}, {'': [0.22904108359606254, 0.2446291855015095], 'true': [0.24310168617301386, 0.11128665983491595]}, {'': [0.2201740071680554, 0.23030026689267807], 'true,false': [0.2225291919367355, 0.2040816326530612], 'true,false,false': [0.2040816326530612, nan], 'true,false,true': [0.2469135802469136, 0.16000000000000003], 'true': [0.22027348394768106, 0.21726249255456037]}, {'': [0.24287350577480823, 0.15381018861969095], 'false': [0.12572966369582314, 0.23402862873245578], 'false,false': [0.23402862873245578, nan], 'false,true': [0.12572966369582314, nan]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Pruning resulted in null theory
+
+Candidate for revision
+0;;edge(A, B) :- locale(B, C), locale(A, C).;true;true
+0;false;locale(A, D).;true;true
+0;false,false;locale(B, F).;true;true
+0;false,true;locale(E, D).;true;true
+1;;edge(A, B) :- locale(A, C).;true;true
+1;false;locale(B, D).;true;true
+1;true;locale(B, C).;true;true
+2;;edge(A, B) :- workstartdate(B, C).;true;true
+2;true,false,true;workstartdate(H, C), locale(H, F).;true;true
+2;true,true;locale(E, D).;true;true
+2;true,false;locale(A, F), locale(B, G).;true;true
+2;true,false,false;workstartdate(I, C).;true;true
+2;true;locale(A, D), locale(B, D).;true;true
+3;;edge(A, B) :- locale(A, C).;true;true
+3;true;locale(B, C).;true;true
+4;;edge(A, B) :- workstartdate(B, C).;true;true
+4;true,false;locale(A, E).;true;true
+4;true,false,false;workstartdate(G, C).;true;true
+4;true,false,true;workstartdate(F, C), locale(F, E).;true;true
+4;true;locale(A, D), locale(B, D).;true;true
+5;;edge(A, B) :- locale(A, C), locale(B, C).;true;true
+5;false;locale(A, E).;true;true
+5;false,true;locale(F, E).;true;true
+5;true;locale(D, C).;true;true
+6;;edge(A, B) :- workstartdate(B, C).;true;true
+6;true,false;locale(E, F).;true;true
+6;false;locale(B, G).;true;true
+6;true;locale(B, D), locale(A, D).;true;true
+7;;edge(A, B) :- locale(B, C).;true;true
+7;true;locale(D, E), locale(A, C).;true;true
+8;;edge(A, B) :- workstartdate(B, C).;true;true
+8;true,false;locale(A, E).;true;true
+8;true,false,false;workstartdate(G, C).;true;true
+8;true,false,true;workstartdate(F, C), locale(F, E).;true;true
+8;true;locale(A, D), locale(B, D).;true;true
+9;;edge(A, B) :- locale(B, C), locale(A, C).;true;true
+9;false;locale(A, D).;true;true
+9;false,false;locale(F, G).;true;true
+9;false,true;locale(E, D).;true;true
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR edge(A, B):
+%   if ( locale(B, C), locale(A, C) )
+%   then if ( educationyear(B, D), workstartdate(B, E) )
+%   | then if ( educationconcentration(B, F), gender(A, G) )
+%   | | then if ( educationtype(A, H), workenddate(B, I) )
+%   | | | then return 0.0803711573217344;  // std dev = 1,247, 9,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=2 */
+%   | | | else return 0.516685520465366;  // std dev = 3,036, 41,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=27 */
+%   | | else return 0.7445125714631478;  // std dev = 0,317, 44,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=39 */
+%   | else if ( lastname(A, J) )
+%   | | then return 0.8581489350995123;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else if ( gender(B, K), gender(A, K) )
+%   | | | then return 0.4066721418505637;  // std dev = 7,661, 237,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=130 */
+%   | | | else return 0.26102663294123973;  // std dev = 5,783, 139,000 (wgt'ed) examples reached here.  /* #neg=83 #pos=56 */
+%   else if ( locale(A, L) )
+%   | then return 0.03763611458669187;  // std dev = 0,384, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   | else if ( locale(B, M) )
+%   | | then return 0.35814893509951234;  // std dev = 0,500, 24,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=12 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #2
+% FOR edge(A, B):
+%   if ( locale(A, C) )
+%   then if ( locale(B, C) )
+%   | then if ( workstartdate(B, D), educationyear(B, E) )
+%   | | then if ( educationconcentration(B, F), gender(A, G) )
+%   | | | then return 0.3747256097839186;  // std dev = 3,434, 50,000 (wgt'ed) examples reached here.  /* #neg=21 #pos=29 */
+%   | | | else return 0.6281908794091177;  // std dev = 2,105, 44,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=39 */
+%   | | else if ( lastname(A, H) )
+%   | | | then return 0.7194734122109542;  // std dev = 4,21e-08, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | | else return 0.30400795950519366;  // std dev = 9,668, 376,000 (wgt'ed) examples reached here.  /* #neg=190 #pos=186 */
+%   | else return 0.03299265250936424;  // std dev = 0,384, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   else if ( locale(B, I) )
+%   | then if ( workemployer(B, J), educationyear(B, K) )
+%   | | then return 0.6837411357856349;  // std dev = 0,331, 8,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=7 */
+%   | | else if ( educationschool(B, L), gender(B, M) )
+%   | | | then return -0.19125886421436503;  // std dev = 0,000, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+%   | | | else return 0.30874113578563506;  // std dev = 1,581, 10,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=5 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #3
+% FOR edge(A, B):
+%   if ( workstartdate(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then return 0.35871573743249274;  // std dev = 0,445, 116,000 (wgt'ed) examples reached here.  /* #neg=38 #pos=78 */
+%   | else if ( locale(A, E), locale(B, F) )
+%   | | then return 0.049331976380132356;  // std dev = 0,400, 5,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=1 */
+%   | | else if ( workstartdate(G, C) )
+%   | | | then return 0.42011840152730234;  // std dev = 1,802, 16,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=10 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( lastname(B, H), educationyear(A, I) )
+%   | then return -0.15583022404328692;  // std dev = 0,090, 18,000 (wgt'ed) examples reached here.  /* #neg=18 */
+%   | else if ( gender(B, J), gender(A, J) )
+%   | | then if ( workemployer(B, K), workemployer(A, K) )
+%   | | | then return 0.6021827358336451;  // std dev = 1,316, 13,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=11 */
+%   | | | else return 0.26286297775365774;  // std dev = 7,807, 253,000 (wgt'ed) examples reached here.  /* #neg=125 #pos=128 */
+%   | | else if ( educationyear(B, L), educationconcentration(A, M) )
+%   | | | then return 0.5293518000416301;  // std dev = 1,744, 16,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=12 */
+%   | | | else return 0.12499956189224248;  // std dev = 5,558, 147,000 (wgt'ed) examples reached here.  /* #neg=95 #pos=52 */
+WILL Produced-Tree #4
+% FOR edge(A, B):
+%   if ( locale(A, C) )
+%   then if ( locale(B, C) )
+%   | then if ( gender(B, D) )
+%   | | then if ( workemployer(B, E), educationyear(B, F) )
+%   | | | then return 0.32309968222979657;  // std dev = 5,018, 124,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=83 */
+%   | | | else return 0.21771168974785962;  // std dev = 8,830, 331,000 (wgt'ed) examples reached here.  /* #neg=155 #pos=176 */
+%   | | else if ( educationconcentration(B, G), educationconcentration(A, G) )
+%   | | | then return 0.6694312039799797;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return -0.11744247343104548;  // std dev = 1,615, 23,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=3 */
+%   | else return 0.005764431951446515;  // std dev = 0,372, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   else if ( educationschool(B, H), gender(B, I) )
+%   | then return -0.12023723688043325;  // std dev = 0,287, 8,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=1 */
+%   | else if ( educationyear(A, J), gender(B, K) )
+%   | | then if ( educationyear(B, L) )
+%   | | | then return 0.5837025586254643;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return -0.10605677464354761;  // std dev = 0,891, 6,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=1 */
+%   | | else return 0.6753476136873777;  // std dev = 0,131, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+WILL Produced-Tree #5
+% FOR edge(A, B):
+%   if ( workstartdate(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then if ( educationtype(B, E) )
+%   | | then if ( workstartdate(A, F), educationschool(B, G) )
+%   | | | then return -0.0025133804057835126;  // std dev = 1,690, 15,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=6 */
+%   | | | else return 0.2680055898838011;  // std dev = 4,194, 98,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=72 */
+%   | | else return -0.3410681104073719;  // std dev = 1,05e-08, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | else return 0.24015410073313756;  // std dev = 0,431, 21,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=11 */
+%   else if ( lastname(B, H), educationyear(A, I) )
+%   | then return -0.13612897764305787;  // std dev = 0,064, 18,000 (wgt'ed) examples reached here.  /* #neg=18 */
+%   | else if ( gender(B, J), gender(A, J) )
+%   | | then if ( workemployer(B, K), location(A, L) )
+%   | | | then return -0.14639429151266078;  // std dev = 1,235, 9,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=2 */
+%   | | | else return 0.18923566639814776;  // std dev = 7,719, 257,000 (wgt'ed) examples reached here.  /* #neg=120 #pos=137 */
+%   | | else if ( educationyear(B, M), educationconcentration(A, N) )
+%   | | | then return 0.3339344891250229;  // std dev = 1,724, 16,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=12 */
+%   | | | else return 0.07111731793012013;  // std dev = 5,429, 147,000 (wgt'ed) examples reached here.  /* #neg=95 #pos=52 */
+WILL Produced-Tree #6
+% FOR edge(A, B):
+%   if ( locale(A, C), locale(B, C) )
+%   then if ( locale(D, C) )
+%   | then if ( educationschool(B, E), educationyear(A, F) )
+%   | | then if ( languages(B, G), gender(A, H) )
+%   | | | then return -0.28646596941133096;  // std dev = 1,287, 16,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=2 */
+%   | | | else return 0.11625381117401873;  // std dev = 4,064, 75,000 (wgt'ed) examples reached here.  /* #neg=35 #pos=40 */
+%   | | else if ( educationyear(B, I), workemployer(B, J) )
+%   | | | then return 0.2856833376690571;  // std dev = 3,773, 89,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=69 */
+%   | | | else return 0.12851452601396046;  // std dev = 8,314, 302,000 (wgt'ed) examples reached here.  /* #neg=147 #pos=155 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else if ( locale(A, K) )
+%   | then if ( locale(L, K) )
+%   | | then return -0.014055386489487037;  // std dev = 0,364, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( educationschool(B, M), workstartdate(A, N) )
+%   | | then return -0.23363911459034398;  // std dev = 0,192, 5,000 (wgt'ed) examples reached here.  /* #neg=5 */
+%   | | else return 0.20334748581438386;  // std dev = 0,361, 19,000 (wgt'ed) examples reached here.  /* #neg=7 #pos=12 */
+WILL Produced-Tree #7
+% FOR edge(A, B):
+%   if ( workstartdate(B, C) )
+%   then if ( locale(B, D), locale(A, D) )
+%   | then if ( workstartdate(A, E), workemployer(B, F) )
+%   | | then return -0.028509550730540553;  // std dev = 0,448, 24,000 (wgt'ed) examples reached here.  /* #neg=11 #pos=13 */
+%   | | else return 0.15907383445299267;  // std dev = 0,414, 92,000 (wgt'ed) examples reached here.  /* #neg=27 #pos=65 */
+%   | else return 0.18631826469217555;  // std dev = 0,425, 21,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=11 */
+%   else if ( locale(B, G) )
+%   | then if ( educationtype(B, H), educationyear(A, I) )
+%   | | then if ( educationyear(B, I), educationschool(B, J) )
+%   | | | then return 0.36288217595818956;  // std dev = 1,093, 10,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=8 */
+%   | | | else return -0.023108755185675445;  // std dev = 4,194, 98,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=34 */
+%   | | else if ( educationyear(A, K), workstartdate(A, L) )
+%   | | | then return 0.25422593801474114;  // std dev = 3,062, 45,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=29 */
+%   | | | else return 0.070094026438359;  // std dev = 7,593, 277,000 (wgt'ed) examples reached here.  /* #neg=152 #pos=125 */
+%   | else if ( workemployer(A, M), workstartdate(A, N) )
+%   | | then return 0.7676362811729416;  // std dev = 0,055, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else return 0.017483162847609725;  // std dev = 0,406, 13,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=3 */
+WILL Produced-Tree #8
+% FOR edge(A, B):
+%   if ( locale(B, C) )
+%   then if ( locale(D, E), locale(A, C) )
+%   | then if ( gender(B, F) )
+%   | | then if ( educationschool(B, G), languages(B, H) )
+%   | | | then return -0.06881595240947272;  // std dev = 2,343, 31,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=11 */
+%   | | | else return 0.10874180405560047;  // std dev = 9,597, 424,000 (wgt'ed) examples reached here.  /* #neg=176 #pos=248 */
+%   | | else return -0.06726764295926452;  // std dev = 0,357, 27,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=7 */
+%   | else return -0.0780822815426549;  // std dev = 0,269, 76,000 (wgt'ed) examples reached here.  /* #neg=62 #pos=14 */
+%   else if ( workemployer(A, I) )
+%   | then if ( workenddate(A, J) )
+%   | | then return 0.22415052928801374;  // std dev = 0,966, 4,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2 */
+%   | | else return 0.6432163862719044;  // std dev = 0,138, 5,000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   | else if ( workstartdate(A, K) )
+%   | | then return -0.24845041990741687;  // std dev = 0,109, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+%   | | else if ( educationyear(B, L), gender(A, M) )
+%   | | | then return -0.065094062166994;  // std dev = 0,914, 7,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=1 */
+%   | | | else return 0.707336182280777;  // std dev = 0,006, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+WILL Produced-Tree #9
+% FOR edge(A, B):
+%   if ( workstartdate(B, C) )
+%   then if ( locale(A, D), locale(B, D) )
+%   | then if ( educationtype(B, E) )
+%   | | then return 0.0782230452745168;  // std dev = 0,426, 113,000 (wgt'ed) examples reached here.  /* #neg=35 #pos=78 */
+%   | | else return -0.353594571594043;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | else return 0.12609911672850183;  // std dev = 0,372, 21,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=11 */
+%   else if ( educationyear(B, F), workemployer(A, G) )
+%   | then if ( educationschool(B, H), location(B, I) )
+%   | | then if ( educationdegree(B, J), educationyear(A, K) )
+%   | | | then return 0.3041097458543367;  // std dev = 0,759, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | | else return -0.3025526822748763;  // std dev = 1,003, 9,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=1 */
+%   | | else return 0.26615991212207113;  // std dev = 0,394, 39,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=29 */
+%   | else if ( workemployer(A, L), workemployer(B, L) )
+%   | | then return 0.4998610015364451;  // std dev = 0,138, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( educationtype(B, M), workemployer(A, N) )
+%   | | | then return -0.11433831443476773;  // std dev = 2,150, 36,000 (wgt'ed) examples reached here.  /* #neg=29 #pos=7 */
+%   | | | else return 0.03948205951932529;  // std dev = 8,476, 356,000 (wgt'ed) examples reached here.  /* #neg=196 #pos=160 */
+WILL Produced-Tree #10
+% FOR edge(A, B):
+%   if ( locale(B, C), locale(A, C) )
+%   then if ( workstartdate(A, D), workemployer(B, E) )
+%   | then if ( educationyear(B, F) )
+%   | | then if ( workemployer(A, E), educationdegree(A, G) )
+%   | | | then return -0.3524047780759476;  // std dev = 0,777, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | | | else return 0.05907161274508299;  // std dev = 2,732, 43,000 (wgt'ed) examples reached here.  /* #neg=17 #pos=26 */
+%   | | else return -0.33340932581335386;  // std dev = 0,298, 10,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=1 */
+%   | else if ( educationyear(B, H), workemployer(B, I) )
+%   | | then if ( location(B, J), workenddate(B, K) )
+%   | | | then return -0.21813605058042376;  // std dev = 0,809, 6,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=1 */
+%   | | | else return 0.19273423027571898;  // std dev = 3,163, 71,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=55 */
+%   | | else if ( lastname(A, L) )
+%   | | | then return 0.34947587697629845;  // std dev = 0,094, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | | else return 0.03486726394549831;  // std dev = 8,686, 336,000 (wgt'ed) examples reached here.  /* #neg=166 #pos=170 */
+%   else if ( locale(A, M) )
+%   | then return -0.05288865741948681;  // std dev = 0,295, 78,000 (wgt'ed) examples reached here.  /* #neg=64 #pos=14 */
+%   | else return 0.06655677759878316;  // std dev = 0,346, 24,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=12 */
+
+
+Results
+   AUC ROC   = 0.536457
+   AUC PR    = 0.523301
+   CLL	      = -0.776795
+   Precision = 0.52814 at threshold = 0.5
+   Recall    = 0.310362
+   F1        = 0.39097
+
+
+Total learning time: 12.474 seconds
+Total inference time: 59.483 seconds
+AUC ROC: 0.536457
+
+
+Refined model AUC ROC: 0.536457
+
+
+Dataset: 50_uwcse_facebook, Fold: 5, Type: Transfer (trRDN-B), Time: 05:54:21
+{'Recall': 0.310362, 'Learning time': 14.593, 'F1': 0.39097, 'Precision': [0.52814, 0.5], 'AUC PR': 0.523301, 'CLL': -0.776795, 'parameter': {'Recall': 0.222955, 'Learning time': 2.119, 'F1': 0.315268, 'Precision': [0.538038, 0.5], 'AUC PR': 0.526885, 'CLL': -0.742262, 'AUC ROC': 0.541057, 'Inference time': 12.315}, 'AUC ROC': 0.536457, 'Inference time': 59.483}
+
+
