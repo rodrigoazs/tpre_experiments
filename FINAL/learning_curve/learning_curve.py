@@ -24,7 +24,7 @@ import json
 source_balanced = False
 balanced = False
 firstRun = False
-n_runs = 12
+n_runs = 10
 folds = 3
 
 nodeSize = 2
@@ -69,14 +69,14 @@ def save(data):
 experiments = [
             #{'id': '51', 'source':'yeast', 'target':'webkb', 'predicate':'proteinclass', 'to_predicate':'departmentof'},
             #{'id': '52', 'source':'webkb', 'target':'yeast', 'predicate':'departmentof', 'to_predicate':'proteinclass'},
-            ##{'id': '53', 'source':'cora', 'target':'imdb', 'predicate':'samevenue', 'to_predicate':'workedunder'},
+            {'id': '53', 'source':'cora', 'target':'imdb', 'predicate':'samevenue', 'to_predicate':'workedunder'},
             ##{'id': '1', 'source':'imdb', 'target':'uwcse', 'predicate':'workedunder', 'to_predicate':'advisedby'},
             ##{'id': '2', 'source':'uwcse', 'target':'imdb', 'predicate':'advisedby', 'to_predicate':'workedunder'},
             ##{'id': '3', 'source':'imdb', 'target':'uwcse', 'predicate':'movie', 'to_predicate':'publication'},
             #{'id': '4', 'source':'uwcse', 'target':'imdb', 'predicate':'publication', 'to_predicate':'movie'},
             #{'id': '5', 'source':'imdb', 'target':'uwcse', 'predicate':'genre', 'to_predicate':'inphase'},
             ##{'id': '6', 'source':'uwcse', 'target':'imdb', 'predicate':'inphase', 'to_predicate':'genre'},
-            ##{'id': '7', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'samevenue'},
+            {'id': '7', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'samevenue'},
             #{'id': '8', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'samebib'},
             ##{'id': '9', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'sameauthor'},
             #{'id': '10', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'sametitle'},
@@ -84,14 +84,14 @@ experiments = [
             ##{'id': '12', 'source':'uwcse', 'target':'cora', 'predicate':'advisedby', 'to_predicate':'samebib'},
             ##{'id': '13', 'source':'uwcse', 'target':'cora', 'predicate':'advisedby', 'to_predicate':'sameauthor'},
             #{'id': '14', 'source':'uwcse', 'target':'cora', 'predicate':'advisedby', 'to_predicate':'sametitle'},
-            ##{'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'accounttype'},
+            ######{'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'accounttype'},
             ##{'id': '16', 'source':'yeast', 'target':'twitter', 'predicate':'interaction', 'to_predicate':'follows'},
             #{'id': '17', 'source':'yeast', 'target':'twitter', 'predicate':'location', 'to_predicate':'tweets'},
             #{'id': '18', 'source':'yeast', 'target':'twitter', 'predicate':'enzyme', 'to_predicate':'tweets'},
             #{'id': '19', 'source':'yeast', 'target':'twitter', 'predicate':'function', 'to_predicate':'tweets'},
             #{'id': '20', 'source':'yeast', 'target':'twitter', 'predicate':'phenotype', 'to_predicate':'tweets'},
             #{'id': '21', 'source':'yeast', 'target':'twitter', 'predicate':'complex', 'to_predicate':'tweets'},
-            #{'id': '22', 'source':'twitter', 'target':'yeast', 'predicate':'accounttype', 'to_predicate':'proteinclass'},
+            ########{'id': '22', 'source':'twitter', 'target':'yeast', 'predicate':'accounttype', 'to_predicate':'proteinclass'},
             ##{'id': '23', 'source':'twitter', 'target':'yeast', 'predicate':'follows', 'to_predicate':'interaction'},
             #{'id': '24', 'source':'twitter', 'target':'yeast', 'predicate':'tweets', 'to_predicate':'location'},
             #{'id': '25', 'source':'twitter', 'target':'yeast', 'predicate':'tweets', 'to_predicate':'enzyme'},
@@ -106,7 +106,7 @@ experiments = [
             #{'id': '34', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplayssport', 'to_predicate':'bankchiefexecutiveceo'},
             ##{'id': '35', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplaysforteam', 'to_predicate':'bankchiefexecutiveceo'},
             #{'id': '36', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplaysforteam', 'to_predicate':'companyceo'},
-            {'id': '37', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'teamplayssport', 'to_predicate':'companyeconomicsector'},
+            ##{'id': '37', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'teamplayssport', 'to_predicate':'companyeconomicsector'},
             #{'id': '38', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyalsoknownas', 'to_predicate':'teamalsoknownas'},
             #{'id': '39', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyalsoknownas', 'to_predicate':'teamplaysagainstteam'},
             #{'id': '40', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'acquired', 'to_predicate':'teamplaysagainstteam'},
@@ -115,7 +115,7 @@ experiments = [
             #{'id': '43', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'bankchiefexecutiveceo', 'to_predicate':'athleteplayssport'},
             #{'id': '44', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'bankchiefexecutiveceo', 'to_predicate':'athleteplaysforteam'},
             #{'id': '45', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyceo', 'to_predicate':'athleteplaysforteam'},
-            {'id': '46', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyeconomicsector', 'to_predicate':'teamplayssport'},
+            ##{'id': '46', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyeconomicsector', 'to_predicate':'teamplayssport'},
             ##{'id': '47', 'source':'yeast', 'target':'facebook', 'predicate':'interaction', 'to_predicate':'edge'},
             ##{'id': '48', 'source':'twitter', 'target':'facebook', 'predicate':'follows', 'to_predicate':'edge'},
             ##{'id': '49', 'source':'imdb', 'target':'facebook', 'predicate':'workedunder', 'to_predicate':'edge'},
@@ -126,8 +126,8 @@ bk = {
       'imdb': ['workedunder(+person,+person).',
               'workedunder(+person,-person).',
               'workedunder(-person,+person).',
-              #'recursion_workedunder(+person,`person).',
-              #'recursion_workedunder(`person,+person).',
+              'recursion_workedunder(+person,`person).',
+              'recursion_workedunder(`person,+person).',
               'female(+person).',
               'actor(+person).',
               'director(+person).',
@@ -186,8 +186,8 @@ bk = {
               'samevenue(+venue,+venue).',
               'samevenue(+venue,-venue).',
               'samevenue(-venue,+venue).',
-              #'recursion_samevenue(+venue,`venue).',
-              #'recursion_samevenue(`venue,+venue).',
+              'recursion_samevenue(+venue,`venue).',
+              'recursion_samevenue(`venue,+venue).',
               'author(+class,+author).',
               'author(+class,-author).',
               'author(-class,+author).',
@@ -239,6 +239,8 @@ bk = {
                   'accounttype(-account,+type).',
                   #'typeaccount(+type,`account).',
                   #'typeaccount(`type,+account).',
+                  'recursion_accounttype(+account,`type).',
+                  'recursion_accounttype(`account,+type).',
                   'tweets(+account,+word).',
                   'tweets(+account,-word).',
                   'tweets(-account,+word).',
@@ -256,6 +258,8 @@ bk = {
                 'proteinclass(-protein,+class).',
                 #'classprotein(+class,`protein).',
                 #'classprotein(`class,+protein).',
+                'recursion_proteinclass(`protein,+class).',
+                'recursion_proteinclass(+protein,`class).',
                 'enzyme(+protein,+enz).',
                 'enzyme(+protein,-enz).',
                 'enzyme(-protein,+enz).',
@@ -650,7 +654,7 @@ while results['save']['n_runs'] < n_runs:
         
         # generate transfer file
         transferred_structured = source_structured
-        tr_file = transfer.get_transfer_file(bk[source], bk[target], predicate, to_predicate, searchArgPermutation=True, allowSameTargetMap=False)
+        tr_file = transfer.get_transfer_file(bk[source], bk[target], predicate, to_predicate, searchArgPermutation=True, allowSameTargetMap=False, recursion=True)
         new_target = to_predicate
 
         random.shuffle(tar_train_pos)
