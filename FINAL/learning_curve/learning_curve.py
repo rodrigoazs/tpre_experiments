@@ -24,7 +24,7 @@ import json
 source_balanced = False
 balanced = False
 firstRun = False
-n_runs = 10
+n_runs = 2
 folds = 3
 
 nodeSize = 2
@@ -69,7 +69,7 @@ def save(data):
 experiments = [
             #{'id': '51', 'source':'yeast', 'target':'webkb', 'predicate':'proteinclass', 'to_predicate':'departmentof'},
             #{'id': '52', 'source':'webkb', 'target':'yeast', 'predicate':'departmentof', 'to_predicate':'proteinclass'},
-            {'id': '53', 'source':'cora', 'target':'imdb', 'predicate':'samevenue', 'to_predicate':'workedunder'},
+            #####{'id': '53', 'source':'cora', 'target':'imdb', 'predicate':'samevenue', 'to_predicate':'workedunder'},
             ##{'id': '1', 'source':'imdb', 'target':'uwcse', 'predicate':'workedunder', 'to_predicate':'advisedby'},
             ##{'id': '2', 'source':'uwcse', 'target':'imdb', 'predicate':'advisedby', 'to_predicate':'workedunder'},
             ##{'id': '3', 'source':'imdb', 'target':'uwcse', 'predicate':'movie', 'to_predicate':'publication'},
