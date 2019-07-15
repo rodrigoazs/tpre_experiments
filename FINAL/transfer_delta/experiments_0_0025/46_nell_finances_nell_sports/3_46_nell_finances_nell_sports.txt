@@ -1,0 +1,1806 @@
+Starting experiment #3 for 46_nell_finances_nell_sports
+
+Start learning from source dataset
+
+Source train facts examples: 5307
+Source train pos examples: 778
+Source train neg examples: 549655
+
+WILL Produced-Tree #1
+% FOR companyeconomicsector(A, B):
+%   if ( acquired(A, C), economicsectorcompany(B, C) )
+%   then return 0.8581489350995116;  // std dev = 2,06e-07, 31,000 (wgt'ed) examples reached here.  /* #pos=31 */
+%   else if ( cityhascompanyoffice(D, A) )
+%   | then if ( cityhascompanyoffice(D, E), economicsectorcompany(B, E) )
+%   | | then if ( acquired(E, F), companyceo(E, G) )
+%   | | | then return 0.8581489350995115;  // std dev = 2,92e-07, 95,000 (wgt'ed) examples reached here.  /* #pos=95 */
+%   | | | else return 0.7761817219847583;  // std dev = 2,142, 61,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=56 */
+%   | | else return -0.1418510649004879;  // std dev = 0,000, 289,000 (wgt'ed) examples reached here.  /* #neg=289 */
+%   | else if ( companyalsoknownas(A, H) )
+%   | | then if ( economicsectorcompany(B, H) )
+%   | | | then return 0.8581489350995123;  // std dev = 0,000, 15,000 (wgt'ed) examples reached here.  /* #pos=15 */
+%   | | | else return 0.07194203854778719;  // std dev = 4,937, 145,000 (wgt'ed) examples reached here.  /* #neg=114 #pos=31 */
+%   | | else if ( companyceo(A, I) )
+%   | | | then return 0.13592671287728908;  // std dev = 5,375, 144,000 (wgt'ed) examples reached here.  /* #neg=104 #pos=40 */
+%   | | | else return 0.17870204635029302;  // std dev = 18,615, 1.591,000 (wgt'ed) examples reached here.  /* #neg=1.081 #pos=510 */
+WILL Produced-Tree #2
+% FOR companyeconomicsector(A, B):
+%   if ( acquired(C, A), economicsectorcompany(B, C) )
+%   then if ( cityhascompanyoffice(D, A) )
+%   | then return 0.720556230473127;  // std dev = 0,016, 15,000 (wgt'ed) examples reached here.  /* #pos=15 */
+%   | else return 0.8267597731483084;  // std dev = 0,158, 26,000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   else if ( acquired(A, E) )
+%   | then if ( economicsectorcompany(B, E) )
+%   | | then return 0.7194734122109546;  // std dev = 0,000, 28,000 (wgt'ed) examples reached here.  /* #pos=28 */
+%   | | else if ( companyalsoknownas(A, F), economicsectorcompany(B, F) )
+%   | | | then return 0.7194734122109546;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.0727641755251516;  // std dev = 7,492, 358,000 (wgt'ed) examples reached here.  /* #neg=274 #pos=84 */
+%   | else if ( acquired(G, A), companyceo(G, H) )
+%   | | then if ( companyalsoknownas(G, I), cityhascompanyoffice(J, I) )
+%   | | | then return 0.1552064549104509;  // std dev = 2,334, 25,000 (wgt'ed) examples reached here.  /* #neg=17 #pos=8 */
+%   | | | else return 0.03435555028396062;  // std dev = 3,439, 76,000 (wgt'ed) examples reached here.  /* #neg=61 #pos=15 */
+%   | | else if ( countryhascompanyoffice(K, A) )
+%   | | | then return 0.19857065387452924;  // std dev = 5,215, 131,000 (wgt'ed) examples reached here.  /* #neg=83 #pos=48 */
+%   | | | else return 0.1666249334335135;  // std dev = 18,697, 1.642,000 (wgt'ed) examples reached here.  /* #neg=1.095 #pos=547 */
+WILL Produced-Tree #3
+% FOR companyeconomicsector(A, B):
+%   if ( companyalsoknownas(A, C), economicsectorcompany(B, C) )
+%   then if ( acquired(A, D) )
+%   | then return 0.5553664367462846;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | else return 0.685614328849445;  // std dev = 0,016, 15,000 (wgt'ed) examples reached here.  /* #pos=15 */
+%   else if ( cityhascompanyoffice(E, A), acquired(A, F) )
+%   | then if ( acquired(G, A), economicsectorcompany(B, G) )
+%   | | then return 0.5550990354926087;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else if ( countryhascompanyoffice(H, F), countryhascompanyoffice(H, A) )
+%   | | | then return 0.28545412537897547;  // std dev = 1,027, 6,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=3 */
+%   | | | else return 0.05985975120314417;  // std dev = 4,700, 184,000 (wgt'ed) examples reached here.  /* #neg=140 #pos=44 */
+%   | else if ( acquired(A, I), countryhascompanyoffice(J, I) )
+%   | | then if ( companyceo(I, K), countryhascompanyoffice(J, A) )
+%   | | | then return 0.07368420894001429;  // std dev = 1,832, 19,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=5 */
+%   | | | else return 0.2935481456122891;  // std dev = 2,111, 20,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=10 */
+%   | | else if ( companyceo(A, L) )
+%   | | | then return 0.16361794937838003;  // std dev = 6,170, 190,000 (wgt'ed) examples reached here.  /* #neg=122 #pos=68 */
+%   | | | else return 0.1346525760919109;  // std dev = 19,771, 1.878,000 (wgt'ed) examples reached here.  /* #neg=1.265 #pos=613 */
+WILL Produced-Tree #4
+% FOR companyeconomicsector(A, B):
+%   if ( acquired(C, A), economicsectorcompany(B, C) )
+%   then if ( cityhascompanyoffice(D, A) )
+%   | then if ( acquired(A, E) )
+%   | | then return 0.4173152913590109;  // std dev = 0,000, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else return 0.522500678692619;  // std dev = 0,015, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | else return 0.6450045268653202;  // std dev = 0,046, 26,000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   else if ( companyalsoknownas(A, F), economicsectorcompany(B, F) )
+%   | then if ( acquired(A, G) )
+%   | | then return 0.4175135841583098;  // std dev = 3,65e-08, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.5235181072207118;  // std dev = 0,019, 15,000 (wgt'ed) examples reached here.  /* #pos=15 */
+%   | else if ( acquired(H, A) )
+%   | | then if ( companyceo(H, I) )
+%   | | | then return 0.0047260490560653194;  // std dev = 4,730, 151,000 (wgt'ed) examples reached here.  /* #neg=121 #pos=30 */
+%   | | | else return 0.09926203708228623;  // std dev = 4,612, 111,000 (wgt'ed) examples reached here.  /* #neg=77 #pos=34 */
+%   | | else if ( countryhascompanyoffice(J, A), bankbankincountry(K, J) )
+%   | | | then return 0.07140247416430894;  // std dev = 5,936, 198,000 (wgt'ed) examples reached here.  /* #neg=141 #pos=57 */
+%   | | | else return 0.11145082109906346;  // std dev = 19,292, 1.827,000 (wgt'ed) examples reached here.  /* #neg=1.238 #pos=589 */
+WILL Produced-Tree #5
+% FOR companyeconomicsector(A, B):
+%   if ( acquired(C, A), economicsectorcompany(B, C) )
+%   then if ( cityhascompanyoffice(D, A) )
+%   | then return 0.3546360596911933;  // std dev = 0,037, 15,000 (wgt'ed) examples reached here.  /* #pos=15 */
+%   | else if ( acquired(A, E) )
+%   | | then return 0.4085686712278513;  // std dev = 0,153, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else return 0.5041909371026745;  // std dev = 0,006, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+%   else if ( companyalsoknownas(A, F), economicsectorcompany(B, F) )
+%   | then if ( acquired(A, G) )
+%   | | then return 0.3207118471601496;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | else return 0.3942870780002768;  // std dev = 0,018, 15,000 (wgt'ed) examples reached here.  /* #pos=15 */
+%   | else if ( cityhascompanyoffice(H, A) )
+%   | | then if ( cityhascompanyoffice(H, I), economicsectorcompany(B, I) )
+%   | | | then return 0.5678322122002537;  // std dev = 3,135, 150,000 (wgt'ed) examples reached here.  /* #neg=11 #pos=139 */
+%   | | | else return -0.16868890261064148;  // std dev = 0,234, 314,000 (wgt'ed) examples reached here.  /* #neg=314 */
+%   | | else if ( acquired(J, A) )
+%   | | | then return 0.03051807794098258;  // std dev = 6,063, 204,000 (wgt'ed) examples reached here.  /* #neg=155 #pos=49 */
+%   | | | else return 0.09841567978521251;  // std dev = 18,612, 1.593,000 (wgt'ed) examples reached here.  /* #neg=1.071 #pos=522 */
+WILL Produced-Tree #6
+% FOR companyeconomicsector(A, B):
+%   if ( acquired(C, A), economicsectorcompany(B, C) )
+%   then if ( acquired(A, D), countryhascompanyoffice(E, A) )
+%   | then return 0.012096314916950327;  // std dev = 0,728, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | else return 0.33851890638099735;  // std dev = 0,056, 39,000 (wgt'ed) examples reached here.  /* #pos=39 */
+%   else if ( acquired(F, A), companyceo(F, G) )
+%   | then if ( companyalsoknownas(F, H), economicsectorcompany(B, H) )
+%   | | then return 0.7937913536603979;  // std dev = 0,021, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( cityhascompanyoffice(I, F), acquired(J, F) )
+%   | | | then return 0.1525244907615287;  // std dev = 2,052, 22,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=8 */
+%   | | | else return -0.0576662394604172;  // std dev = 3,905, 142,000 (wgt'ed) examples reached here.  /* #neg=121 #pos=21 */
+%   | else if ( countryhascompanyoffice(K, A), bankbankincountry(L, K) )
+%   | | then if ( cityhascompanyoffice(M, A) )
+%   | | | then return 0.006801037112828953;  // std dev = 2,828, 96,000 (wgt'ed) examples reached here.  /* #neg=69 #pos=27 */
+%   | | | else return 0.0497401390953098;  // std dev = 5,375, 149,000 (wgt'ed) examples reached here.  /* #neg=104 #pos=45 */
+%   | | else if ( bankboughtbank(N, A), countryhascompanyoffice(P, N) )
+%   | | | then return 0.01927678927495938;  // std dev = 2,574, 34,000 (wgt'ed) examples reached here.  /* #neg=25 #pos=9 */
+%   | | | else return 0.07711859768267339;  // std dev = 19,080, 1.886,000 (wgt'ed) examples reached here.  /* #neg=1.262 #pos=624 */
+WILL Produced-Tree #7
+% FOR companyeconomicsector(A, B):
+%   if ( companyalsoknownas(A, C), countryhascompanyoffice(D, C) )
+%   then if ( acquired(C, E), acquired(A, F) )
+%   | then return 0.03925742914243378;  // std dev = 0,332, 35,000 (wgt'ed) examples reached here.  /* #neg=23 #pos=12 */
+%   | else return -0.06917687642378688;  // std dev = 0,219, 32,000 (wgt'ed) examples reached here.  /* #neg=23 #pos=9 */
+%   else if ( countryhascompanyoffice(G, A), acquired(A, H) )
+%   | then if ( economicsectorcompany(B, H), countryhascompanyoffice(I, H) )
+%   | | then return 0.4459807043555297;  // std dev = 0,044, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( companyceo(A, J), acquired(H, K) )
+%   | | | then return -0.24788264128846033;  // std dev = 0,012, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | | else return 0.125945161581912;  // std dev = 3,069, 49,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=19 */
+%   | else if ( cityhascompanyoffice(L, A) )
+%   | | then if ( cityhascompanyoffice(L, M), economicsectorcompany(B, M) )
+%   | | | then return 0.4121640497214848;  // std dev = 2,585, 156,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=150 */
+%   | | | else return -0.1557755847523589;  // std dev = 0,228, 298,000 (wgt'ed) examples reached here.  /* #neg=298 */
+%   | | else if ( acquired(N, A), economicsectorcompany(B, N) )
+%   | | | then return 0.3006353107890107;  // std dev = 0,113, 24,000 (wgt'ed) examples reached here.  /* #pos=24 */
+%   | | | else return 0.0627188327058606;  // std dev = 19,275, 1.743,000 (wgt'ed) examples reached here.  /* #neg=1.182 #pos=561 */
+WILL Produced-Tree #8
+% FOR companyeconomicsector(A, B):
+%   if ( bankboughtbank(C, A), cityhascompanyoffice(D, C) )
+%   then if ( cityhascompanyoffice(D, E), economicsectorcompany(B, E) )
+%   | then if ( bankboughtbank(A, F) )
+%   | | then return 0.5960393204066542;  // std dev = 0,334, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else return 0.7392684685542321;  // std dev = 0,014, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | else return -0.2606247707809401;  // std dev = 0,020, 11,000 (wgt'ed) examples reached here.  /* #neg=11 */
+%   else if ( companyalsoknownas(A, G), economicsectorcompany(B, G) )
+%   | then if ( acquired(A, H), cityhascompanyoffice(I, A) )
+%   | | then return 0.212570482444009;  // std dev = 0,035, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else return 0.2757311101888136;  // std dev = 0,030, 19,000 (wgt'ed) examples reached here.  /* #pos=19 */
+%   | else if ( companyalsoknownas(A, J) )
+%   | | then if ( acquired(A, K), economicsectorcompany(B, K) )
+%   | | | then return 0.3614002029831942;  // std dev = 0,270, 9,000 (wgt'ed) examples reached here.  /* #pos=9 */
+%   | | | else return -0.01618697494724377;  // std dev = 5,470, 247,000 (wgt'ed) examples reached here.  /* #neg=190 #pos=57 */
+%   | | else if ( acquired(L, A), acquired(M, L) )
+%   | | | then return -0.016424356357817256;  // std dev = 2,665, 72,000 (wgt'ed) examples reached here.  /* #neg=52 #pos=20 */
+%   | | | else return 0.06290874169130016;  // std dev = 19,052, 1.872,000 (wgt'ed) examples reached here.  /* #neg=1.218 #pos=654 */
+WILL Produced-Tree #9
+% FOR companyeconomicsector(A, B):
+%   if ( companyalsoknownas(A, C) )
+%   then if ( economicsectorcompany(B, C) )
+%   | then return 0.21104362120307596;  // std dev = 0,034, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else if ( cityhascompanyoffice(D, C), acquired(E, C) )
+%   | | then return -0.16833259803242598;  // std dev = 0,148, 23,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=1 */
+%   | | else return -5.126013738479353E-4;  // std dev = 0,347, 251,000 (wgt'ed) examples reached here.  /* #neg=185 #pos=66 */
+%   else if ( acquired(F, A) )
+%   | then if ( economicsectorcompany(B, F) )
+%   | | then return 0.21008038658140613;  // std dev = 0,044, 38,000 (wgt'ed) examples reached here.  /* #pos=38 */
+%   | | else if ( cityhascompanyoffice(G, A), acquired(A, H) )
+%   | | | then return -0.09144814305561823;  // std dev = 1,598, 34,000 (wgt'ed) examples reached here.  /* #neg=28 #pos=6 */
+%   | | | else return -0.017497220369241288;  // std dev = 5,977, 234,000 (wgt'ed) examples reached here.  /* #neg=182 #pos=52 */
+%   | else if ( cityhascompanyoffice(I, A) )
+%   | | then return 0.01866558626582754;  // std dev = 0,255, 293,000 (wgt'ed) examples reached here.  /* #neg=195 #pos=98 */
+%   | | else if ( companyceo(A, J) )
+%   | | | then return 0.026129711032327443;  // std dev = 4,713, 113,000 (wgt'ed) examples reached here.  /* #neg=77 #pos=36 */
+%   | | | else return 0.038977230260643;  // std dev = 17,400, 1.391,000 (wgt'ed) examples reached here.  /* #neg=937 #pos=454 */
+WILL Produced-Tree #10
+% FOR companyeconomicsector(A, B):
+%   if ( bankboughtbank(C, A), bankchiefexecutiveceo(C, D) )
+%   then if ( companyceo(A, E) )
+%   | then return -0.028295991636755377;  // std dev = 0,866, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | else if ( bankboughtbank(C, F), economicsectorcompany(B, F) )
+%   | | then return 0.7274360710782949;  // std dev = 0,013, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else return -0.26885804336631497;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   else if ( acquired(G, A), companyceo(G, H) )
+%   | then if ( companyalsoknownas(G, I), countryhascompanyoffice(J, I) )
+%   | | then if ( countryhascompanyoffice(K, A) )
+%   | | | then return -0.035620842493227146;  // std dev = 0,779, 7,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=2 */
+%   | | | else return 0.21590568145495143;  // std dev = 1,729, 17,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=9 */
+%   | | else return 0.02410562566089504;  // std dev = 0,330, 148,000 (wgt'ed) examples reached here.  /* #neg=97 #pos=51 */
+%   | else if ( companyalsoknownas(A, L), economicsectorcompany(B, L) )
+%   | | then return 0.1793468915895007;  // std dev = 0,030, 25,000 (wgt'ed) examples reached here.  /* #pos=25 */
+%   | | else if ( companyalsoknownas(A, M), cityhascompanyoffice(N, M) )
+%   | | | then return -0.016374416553975802;  // std dev = 2,937, 122,000 (wgt'ed) examples reached here.  /* #neg=93 #pos=29 */
+%   | | | else return 0.027383040892212652;  // std dev = 19,494, 2.004,000 (wgt'ed) examples reached here.  /* #neg=1.347 #pos=657 */
+
+
+Starting fold 1
+
+Target train facts examples: 9690
+Target train pos examples: 133
+Target train neg examples: 53331
+
+Target test facts examples: 9690
+Target test pos	 examples: 264
+Target test neg examples: 106660
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;companyeconomicsector(A, B) :- acquired(A, C), economicsectorcompany(B, C).;false;true
+0;false,false,false;companyceo(A, I).;false;false
+0;false,true;cityhascompanyoffice(D, E), economicsectorcompany(B, E).;true;false
+0;false,true,true;acquired(E, F), companyceo(E, G).;false;false
+0;false,false;companyalsoknownas(A, H).;true;true
+0;false,false,true;economicsectorcompany(B, H).;false;false
+0;false;cityhascompanyoffice(D, A).;true;true
+1;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+1;false,false,false;countryhascompanyoffice(K, A).;false;false
+1;true;cityhascompanyoffice(D, A).;false;false
+1;false,false,true;companyalsoknownas(G, I), cityhascompanyoffice(J, I).;false;false
+1;false,false;acquired(G, A), companyceo(G, H).;true;true
+1;false,true,false;companyalsoknownas(A, F), economicsectorcompany(B, F).;false;false
+1;false,true;economicsectorcompany(B, E).;false;true
+1;false;acquired(A, E).;true;true
+2;;companyeconomicsector(A, B) :- companyalsoknownas(A, C), economicsectorcompany(B, C).;true;true
+2;false,false,false;companyceo(A, L).;false;false
+2;true;acquired(A, D).;false;false
+2;false,false,true;companyceo(I, K), countryhascompanyoffice(J, A).;false;false
+2;false,false;acquired(A, I), countryhascompanyoffice(J, I).;true;true
+2;false,true,false;countryhascompanyoffice(H, F), countryhascompanyoffice(H, A).;false;false
+2;false,true;acquired(G, A), economicsectorcompany(B, G).;false;true
+2;false;cityhascompanyoffice(E, A), acquired(A, F).;true;true
+3;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+3;false,false,false;countryhascompanyoffice(J, A), bankbankincountry(K, J).;false;false
+3;true;cityhascompanyoffice(D, A).;true;false
+3;false,false,true;companyceo(H, I).;false;false
+3;false,false;acquired(H, A).;true;true
+3;true,true;acquired(A, E).;false;false
+3;false,true;acquired(A, G).;false;false
+3;false;companyalsoknownas(A, F), economicsectorcompany(B, F).;true;true
+4;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+4;false,false,false;acquired(J, A).;false;false
+4;true;cityhascompanyoffice(D, A).;false;true
+4;false,false,true;cityhascompanyoffice(H, I), economicsectorcompany(B, I).;false;false
+4;true,false;acquired(A, E).;false;false
+4;false,false;cityhascompanyoffice(H, A).;true;true
+4;false,true;acquired(A, G).;false;false
+4;false;companyalsoknownas(A, F), economicsectorcompany(B, F).;true;true
+5;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+5;false,false,false;bankboughtbank(N, A), countryhascompanyoffice(P, N).;false;false
+5;true;acquired(A, D), countryhascompanyoffice(E, A).;false;false
+5;false,false,true;cityhascompanyoffice(M, A).;false;false
+5;false,false;countryhascompanyoffice(K, A), bankbankincountry(L, K).;true;true
+5;false,true,false;cityhascompanyoffice(I, F), acquired(J, F).;false;false
+5;false,true;companyalsoknownas(F, H), economicsectorcompany(B, H).;false;true
+5;false;acquired(F, A), companyceo(F, G).;true;true
+6;;companyeconomicsector(A, B) :- companyalsoknownas(A, C), countryhascompanyoffice(D, C).;true;true
+6;false,false,false;acquired(N, A), economicsectorcompany(B, N).;false;false
+6;true;acquired(C, E), acquired(A, F).;false;false
+6;false,false,true;cityhascompanyoffice(L, M), economicsectorcompany(B, M).;false;false
+6;false,false;cityhascompanyoffice(L, A).;true;true
+6;false,true,false;companyceo(A, J), acquired(H, K).;false;false
+6;false,true;economicsectorcompany(B, H), countryhascompanyoffice(I, H).;false;true
+6;false;countryhascompanyoffice(G, A), acquired(A, H).;true;true
+7;;companyeconomicsector(A, B) :- bankboughtbank(C, A), cityhascompanyoffice(D, C).;true;true
+7;false,false,false;acquired(L, A), acquired(M, L).;false;false
+7;true;cityhascompanyoffice(D, E), economicsectorcompany(B, E).;true;false
+7;false,false,true;acquired(A, K), economicsectorcompany(B, K).;false;false
+7;false,false;companyalsoknownas(A, J).;true;true
+7;true,true;bankboughtbank(A, F).;false;false
+7;false,true;acquired(A, H), cityhascompanyoffice(I, A).;false;false
+7;false;companyalsoknownas(A, G), economicsectorcompany(B, G).;true;true
+8;;companyeconomicsector(A, B) :- companyalsoknownas(A, C).;true;true
+8;false,false,false;companyceo(A, J).;false;false
+8;true;economicsectorcompany(B, C).;false;true
+8;true,false;cityhascompanyoffice(D, C), acquired(E, C).;false;false
+8;false,false;cityhascompanyoffice(I, A).;false;true
+8;false,true,false;cityhascompanyoffice(G, A), acquired(A, H).;false;false
+8;false,true;economicsectorcompany(B, F).;false;true
+8;false;acquired(F, A).;true;true
+9;;companyeconomicsector(A, B) :- bankboughtbank(C, A), bankchiefexecutiveceo(C, D).;true;true
+9;false,false,false;companyalsoknownas(A, M), cityhascompanyoffice(N, M).;false;false
+9;true;companyceo(A, E).;false;true
+9;false,true,true;countryhascompanyoffice(K, A).;false;false
+9;true,false;bankboughtbank(C, F), economicsectorcompany(B, F).;false;false
+9;false,false;companyalsoknownas(A, L), economicsectorcompany(B, L).;false;true
+9;false,true;companyalsoknownas(G, I), countryhascompanyoffice(J, I).;true;false
+9;false;acquired(G, A), companyceo(G, H).;true;true
+
+
+WILL Produced-Tree #1
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then return 0.21497712893211146;  // std dev = 7,218, 227,000 (wgt'ed) examples reached here.  /* #neg=146 #pos=81 */
+%   else if ( athleteledsportsteam(D, A) )
+%   | then if ( athleteledsportsteam(D, E) )
+%   | | then if ( teamplaysagainstteam(E, F), athleteplaysforteam(G, E) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return -0.14185106490048777;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( teamalsoknownas(A, H) )
+%   | | then return 0.19777157660894634;  // std dev = 0,474, 53,000 (wgt'ed) examples reached here.  /* #neg=35 #pos=18 */
+%   | | else if ( athleteplaysforteam(I, A) )
+%   | | | then return -0.030739953789376676;  // std dev = 0,943, 9,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=1 */
+%   | | | else return 0.1354598594692588;  // std dev = 4,884, 119,000 (wgt'ed) examples reached here.  /* #neg=86 #pos=33 */
+WILL Produced-Tree #2
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(C, A) )
+%   then if ( athleteledsportsteam(D, A) )
+%   | then return 0.21270529787318754;  // std dev = 4,905, 102,000 (wgt'ed) examples reached here.  /* #neg=63 #pos=39 */
+%   | else return 0.14638920000262468;  // std dev = 5,609, 146,000 (wgt'ed) examples reached here.  /* #neg=100 #pos=46 */
+%   else if ( teamplaysagainstteam(A, E) )
+%   | then if ( teamalsoknownas(A, F) )
+%   | | then return -0.17008529681590656;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | else return 0.32991470318409344;  // std dev = 0,707, 2,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=1 */
+%   | else if ( teamplaysagainstteam(G, A), athleteplaysforteam(H, G) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( teamplaysinleague(A, I) )
+%   | | | then return 0.22490133483250654;  // std dev = 4,213, 75,000 (wgt'ed) examples reached here.  /* #neg=46 #pos=29 */
+%   | | | else return 0.12466815996959718;  // std dev = 3,588, 63,000 (wgt'ed) examples reached here.  /* #neg=45 #pos=18 */
+WILL Produced-Tree #3
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C) )
+%   then if ( teamplaysagainstteam(A, D) )
+%   | then return 0.08467683941668698;  // std dev = 3,171, 50,000 (wgt'ed) examples reached here.  /* #neg=36 #pos=14 */
+%   | else return 0.10605922648110158;  // std dev = 3,539, 60,000 (wgt'ed) examples reached here.  /* #neg=42 #pos=18 */
+%   else if ( athleteledsportsteam(E, A), teamplaysagainstteam(A, F) )
+%   | then if ( teamplaysagainstteam(G, A) )
+%   | | then return 0.19061147718883184;  // std dev = 4,476, 84,000 (wgt'ed) examples reached here.  /* #neg=51 #pos=33 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( teamplaysagainstteam(A, H), teamplaysinleague(H, I) )
+%   | | then if ( athleteplaysforteam(J, H), teamplaysinleague(A, I) )
+%   | | | then return 0.16552544453344806;  // std dev = 4,313, 81,000 (wgt'ed) examples reached here.  /* #neg=52 #pos=29 */
+%   | | | else return 0.07290563696053451;  // std dev = 1,718, 15,000 (wgt'ed) examples reached here.  /* #neg=11 #pos=4 */
+%   | | else if ( athleteplaysforteam(K, A) )
+%   | | | then return 0.02619097586665875;  // std dev = 1,265, 10,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=2 */
+%   | | | else return 0.08889850519354708;  // std dev = 4,893, 121,000 (wgt'ed) examples reached here.  /* #neg=88 #pos=33 */
+WILL Produced-Tree #4
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(C, A) )
+%   then if ( athleteledsportsteam(D, A) )
+%   | then if ( teamplaysagainstteam(A, E) )
+%   | | then return 0.0964044226745924;  // std dev = 5,117, 119,000 (wgt'ed) examples reached here.  /* #neg=80 #pos=39 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0.1438587552978734;  // std dev = 5,436, 130,000 (wgt'ed) examples reached here.  /* #neg=84 #pos=46 */
+%   else if ( teamalsoknownas(A, F) )
+%   | then if ( teamplaysagainstteam(A, G) )
+%   | | then return -0.1583666800359625;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else return 0.11990891383707304;  // std dev = 3,046, 42,000 (wgt'ed) examples reached here.  /* #neg=28 #pos=14 */
+%   | else if ( teamplaysagainstteam(H, A) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( teamplaysinleague(A, I), athleteplaysinleague(J, I) )
+%   | | | then return 0.12301849076723405;  // std dev = 2,583, 30,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=10 */
+%   | | | else return 0.11258118013593908;  // std dev = 4,073, 78,000 (wgt'ed) examples reached here.  /* #neg=54 #pos=24 */
+WILL Produced-Tree #5
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(C, A) )
+%   then if ( athleteledsportsteam(D, A) )
+%   | then return 0.1090444865181611;  // std dev = 4,999, 109,000 (wgt'ed) examples reached here.  /* #neg=70 #pos=39 */
+%   | else if ( teamplaysagainstteam(A, E) )
+%   | | then return 0.0838194970915872;  // std dev = 5,268, 127,000 (wgt'ed) examples reached here.  /* #neg=86 #pos=41 */
+%   | | else return 0.10173382133161202;  // std dev = 1,830, 16,000 (wgt'ed) examples reached here.  /* #neg=11 #pos=5 */
+%   else if ( teamalsoknownas(A, F) )
+%   | then if ( teamplaysagainstteam(A, G) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return 0.1151039358825596;  // std dev = 3,010, 40,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=14 */
+%   | else if ( athleteledsportsteam(H, A) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( teamplaysagainstteam(I, A) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.07382892653303774;  // std dev = 4,905, 116,000 (wgt'ed) examples reached here.  /* #neg=82 #pos=34 */
+WILL Produced-Tree #6
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(C, A) )
+%   then if ( teamplaysagainstteam(A, D), teamplaysinleague(A, E) )
+%   | then return 0.1399368318281939;  // std dev = 6,739, 188,000 (wgt'ed) examples reached here.  /* #neg=112 #pos=76 */
+%   | else return 0.06800505543751079;  // std dev = 2,502, 29,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=9 */
+%   else if ( teamplaysagainstteam(F, A), athleteplaysforteam(G, F) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( teamplaysinleague(A, H), athleteplaysinleague(I, H) )
+%   | | then if ( athleteledsportsteam(J, A) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.12551138147248006;  // std dev = 2,728, 33,000 (wgt'ed) examples reached here.  /* #neg=21 #pos=12 */
+%   | | else if ( teamplaysinleague(K, L) )
+%   | | | then return 0.06256208903109724;  // std dev = 5,017, 121,000 (wgt'ed) examples reached here.  /* #neg=85 #pos=36 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #7
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C), teamplaysinleague(C, D) )
+%   then if ( teamplaysagainstteam(C, E), teamplaysagainstteam(A, F) )
+%   | then return 0.15323492001187825;  // std dev = 2,269, 21,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=9 */
+%   | else return 0.05329201676723556;  // std dev = 3,935, 72,000 (wgt'ed) examples reached here.  /* #neg=49 #pos=23 */
+%   else if ( teamplaysinleague(A, G), teamplaysagainstteam(A, H) )
+%   | then if ( teamplaysinleague(H, I) )
+%   | | then return 0.07909117603030875;  // std dev = 6,329, 171,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=64 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( athleteledsportsteam(J, A) )
+%   | | then if ( athleteledsportsteam(J, K) )
+%   | | | then return -0.21690328526126432;  // std dev = 0,086, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( teamplaysagainstteam(L, A) )
+%   | | | then return -0.006230576490762605;  // std dev = 1,752, 17,000 (wgt'ed) examples reached here.  /* #neg=13 #pos=4 */
+%   | | | else return 0.05970914893734596;  // std dev = 4,786, 109,000 (wgt'ed) examples reached here.  /* #neg=76 #pos=33 */
+WILL Produced-Tree #8
+% FOR teamplayssport(A, B):
+%   if ( athleteledsportsteam(C, D) )
+%   then if ( athleteledsportsteam(C, E) )
+%   | then return 0.045131198251716534;  // std dev = 0,468, 403,000 (wgt'ed) examples reached here.  /* #neg=270 #pos=133 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #9
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C) )
+%   then if ( athleteledsportsteam(D, C), teamplaysagainstteam(E, C) )
+%   | then return 0.03744183730234686;  // std dev = 1,805, 14,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=5 */
+%   | else return 0.046679792031072344;  // std dev = 4,211, 80,000 (wgt'ed) examples reached here.  /* #neg=53 #pos=27 */
+%   else if ( teamplaysagainstteam(F, A) )
+%   | then if ( athleteledsportsteam(G, A), teamplaysagainstteam(A, H) )
+%   | | then return 0.05998967684150869;  // std dev = 4,487, 85,000 (wgt'ed) examples reached here.  /* #neg=52 #pos=33 */
+%   | | else return 0.004879547381600058;  // std dev = 4,831, 112,000 (wgt'ed) examples reached here.  /* #neg=78 #pos=34 */
+%   | else if ( athleteledsportsteam(I, A) )
+%   | | then return -0.15751902694162112;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else if ( athleteplaysforteam(J, A) )
+%   | | | then return -0.275436792577374;  // std dev = 0,069, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | | else return 0.06843129196080934;  // std dev = 4,748, 102,000 (wgt'ed) examples reached here.  /* #neg=68 #pos=34 */
+WILL Produced-Tree #10
+% FOR teamplayssport(A, B):
+%   if ( athleteplaysforteam(C, A) )
+%   then return 0.06447421355537973;  // std dev = 6,503, 179,000 (wgt'ed) examples reached here.  /* #neg=110 #pos=69 */
+%   else if ( teamplaysagainstteam(D, A), athleteplaysforteam(E, D) )
+%   | then if ( teamalsoknownas(D, F), teamplaysinleague(F, G) )
+%   | | then if ( teamplaysinleague(A, H) )
+%   | | | then return 0.054308420394732236;  // std dev = 2,381, 24,000 (wgt'ed) examples reached here.  /* #neg=15 #pos=9 */
+%   | | | else return -0.08518079271307946;  // std dev = 1,245, 10,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=2 */
+%   | | else return -0.09931573743050351;  // std dev = 1,962, 25,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=5 */
+%   | else if ( teamalsoknownas(A, I) )
+%   | | then return 0.11607561075320763;  // std dev = 2,845, 34,000 (wgt'ed) examples reached here.  /* #neg=20 #pos=14 */
+%   | | else if ( teamalsoknownas(A, J), athleteledsportsteam(K, J) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.06741276202754058;  // std dev = 4,694, 99,000 (wgt'ed) examples reached here.  /* #neg=65 #pos=34 */
+
+
+Results
+   AUC ROC   = 0.469997
+   AUC PR    = 0.002295
+   CLL	      = -0.37941
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 4.151 seconds
+Total inference time: 37.594 seconds
+AUC ROC: 0.469997
+
+
+Results scoring model
+   AUC ROC   = 0.560109
+   AUC PR    = 0.002966
+   CLL	      = -0.379302
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total scoring time: 21.236 seconds
+Parameter learned model CLL: -0.379302
+
+
+Structure after Parameter Learning
+[['teamplayssport(A, B)', {'': 'teamplaysagainstteam(A, C)', 'false,false,false': 'athleteplaysforteam(I, A)', 'false,true': 'athleteledsportsteam(D, E)', 'false,true,true': 'teamplaysagainstteam(E, F), athleteplaysforteam(G, E)', 'false,false': 'teamalsoknownas(A, H)', 'false': 'athleteledsportsteam(D, A)'}, {'false,false,false,true': [0.943, 8, 1], 'true': [7.218, 146, 81], 'false,false,false,false': [4.884, 86, 33], 'false,true,true,true': [0.0, 0, 0], 'false,true,false': [0.0, 0, 0], 'false,true,true,false': [0.0, 3, 0], 'false,false,true': [0.474, 35, 18]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(C, A)', 'false,false,false': 'teamplaysinleague(A, I)', 'true': 'athleteledsportsteam(D, A)', 'false,false': 'teamplaysagainstteam(G, A), athleteplaysforteam(H, G)', 'false,true': 'teamalsoknownas(A, F)', 'false': 'teamplaysagainstteam(A, E)'}, {'false,false,false,true': [4.213, 46, 29], 'false,false,false,false': [3.588, 45, 18], 'false,true,true': [0.0, 2, 0], 'true,false': [5.609, 100, 46], 'false,true,false': [0.707, 1, 1], 'true,true': [4.905, 63, 39], 'false,false,true': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(A, C)', 'false,false,false': 'athleteplaysforteam(K, A)', 'true': 'teamplaysagainstteam(A, D)', 'false,false': 'teamplaysagainstteam(A, H), teamplaysinleague(H, I)', 'false,true': 'teamplaysagainstteam(G, A)', 'false,false,true': 'athleteplaysforteam(J, H), teamplaysinleague(A, I)', 'false': 'athleteledsportsteam(E, A), teamplaysagainstteam(A, F)'}, {'false,false,false,true': [1.265, 8, 2], 'false,false,false,false': [4.893, 88, 33], 'false,false,true,false': [1.718, 11, 4], 'false,true,true': [4.476, 51, 33], 'true,false': [3.539, 42, 18], 'false,true,false': [0.0, 0, 0], 'true,true': [3.171, 36, 14], 'false,false,true,true': [4.313, 52, 29]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(C, A)', 'false,false,false': 'teamplaysinleague(A, I), athleteplaysinleague(J, I)', 'true': 'athleteledsportsteam(D, A)', 'false,false': 'teamplaysagainstteam(H, A)', 'true,true': 'teamplaysagainstteam(A, E)', 'false,true': 'teamplaysagainstteam(A, G)', 'false': 'teamalsoknownas(A, F)'}, {'true,true,true': [5.117, 80, 39], 'false,false,false,false': [4.073, 54, 24], 'true,false': [5.436, 84, 46], 'false,true,true': [0.0, 1, 0], 'true,true,false': [0.0, 0, 0], 'false,true,false': [3.046, 28, 14], 'false,false,false,true': [2.583, 20, 10], 'false,false,true': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(C, A)', 'false,false,false': 'teamplaysagainstteam(I, A)', 'true': 'athleteledsportsteam(D, A)', 'true,false': 'teamplaysagainstteam(A, E)', 'false,false': 'athleteledsportsteam(H, A)', 'false,true': 'teamplaysagainstteam(A, G)', 'false': 'teamalsoknownas(A, F)'}, {'true,false,true': [5.268, 86, 41], 'false,false,false,false': [4.905, 82, 34], 'false,true,true': [0.0, 0, 0], 'false,false,false,true': [0.0, 0, 0], 'false,true,false': [3.01, 26, 14], 'true,true': [4.999, 70, 39], 'false,false,true': [0.0, 0, 0], 'true,false,false': [1.83, 11, 5]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(C, A)', 'false,false,false': 'teamplaysinleague(K, L)', 'true': 'teamplaysagainstteam(A, D), teamplaysinleague(A, E)', 'false,false': 'teamplaysinleague(A, H), athleteplaysinleague(I, H)', 'false,false,true': 'athleteledsportsteam(J, A)', 'false': 'teamplaysagainstteam(F, A), athleteplaysforteam(G, F)'}, {'false,false,false,true': [5.017, 85, 36], 'false,true': [0.0, 0, 0], 'false,false,false,false': [0.0, 0, 0], 'true,false': [2.502, 20, 9], 'false,false,true,false': [2.728, 21, 12], 'true,true': [6.739, 112, 76], 'false,false,true,true': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(A, C), teamplaysinleague(C, D)', 'false,false,false': 'teamplaysagainstteam(L, A)', 'true': 'teamplaysagainstteam(C, E), teamplaysagainstteam(A, F)', 'false,false': 'athleteledsportsteam(J, A)', 'false,true': 'teamplaysinleague(H, I)', 'false,false,true': 'athleteledsportsteam(J, K)', 'false': 'teamplaysinleague(A, G), teamplaysagainstteam(A, H)'}, {'false,false,false,true': [1.752, 13, 4], 'false,false,false,false': [4.786, 76, 33], 'false,false,true,false': [0.0, 0, 0], 'false,true,true': [6.329, 107, 64], 'true,false': [3.935, 49, 23], 'false,true,false': [0.0, 0, 0], 'true,true': [2.269, 12, 9], 'false,false,true,true': [0.086, 3, 0]}], ['teamplayssport(A, B)', {'': 'athleteledsportsteam(C, D)', 'true': 'athleteledsportsteam(C, E)'}, {'true,true': [0.468, 270, 133], 'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(A, C)', 'false,false,false': 'athleteplaysforteam(J, A)', 'true': 'athleteledsportsteam(D, C), teamplaysagainstteam(E, C)', 'false,false': 'athleteledsportsteam(I, A)', 'false,true': 'athleteledsportsteam(G, A), teamplaysagainstteam(A, H)', 'false': 'teamplaysagainstteam(F, A)'}, {'false,false,false,true': [0.069, 2, 0], 'false,false,false,false': [4.748, 68, 34], 'false,true,true': [4.487, 52, 33], 'true,false': [4.211, 53, 27], 'false,true,false': [4.831, 78, 34], 'true,true': [1.805, 9, 5], 'false,false,true': [0.0, 1, 0]}], ['teamplayssport(A, B)', {'': 'athleteplaysforteam(C, A)', 'false,false,false': 'teamalsoknownas(A, J), athleteledsportsteam(K, J)', 'false,true': 'teamalsoknownas(D, F), teamplaysinleague(F, G)', 'false,true,true': 'teamplaysinleague(A, H)', 'false,false': 'teamalsoknownas(A, I)', 'false': 'teamplaysagainstteam(D, A), athleteplaysforteam(E, D)'}, {'false,false,false,true': [0.0, 0, 0], 'true': [6.503, 110, 69], 'false,false,false,false': [4.694, 65, 34], 'false,true,true,true': [2.381, 15, 9], 'false,true,false': [1.962, 20, 5], 'false,true,true,false': [1.245, 8, 2], 'false,false,true': [2.845, 20, 14]}]]
+[{'': [0.2295018339187647, 0.2027410207939516], 'false,false,false': [0.09876543209876548, 0.20040957559494518], 'false,true': [0.0, nan], 'false,true,true': [nan, 0.0], 'false,false': [0.22427910288358793, 0.1950683593750013], 'false': [0.0, 0.20475565458929898]}, {'': [0.2249402856085469, 0.22365613107940857], 'false,false,false': [0.2366925173954364, 0.2043645482845189], 'true': [0.23584383893494523, 0.2155139518587154], 'false,false': [nan, 0.22442677719882845], 'false,true': [0.0, 0.25000000000000006], 'false': [0.18750000000000003, 0.22442677719882845]}, {'': [0.2054086944670326, 0.2183368011819891], 'false,false,false': [0.1600999194143192, 0.19789963342169764], 'false,true': [0.2385204081632653, nan], 'false,false': [0.2256328633000674, 0.19529141583961132], 'true': [0.20110444986946338, 0.20878774383929352], 'false,false,true': [0.22965401690758025, 0.19668058455760004], 'false': [0.2385204081632653, 0.2092167136069491]}, {'': [0.22436670017111177, 0.21602191147624958], 'false,false,false': [0.2224639978063376, 0.2126500492905849], 'true': [0.2199988553277423, 0.22728874236608676], 'false,false': [nan, 0.21539800083650118], 'true,true': [0.2199988553277423, nan], 'false,true': [0.0, 0.22096570790016898], 'false': [0.21758595745041187, 0.21539800083650118]}, {'': [0.22276490995789697, 0.21260105305916824], 'false,false,false': [nan, 0.20737228528657198], 'true': [0.22929689735063286, 0.21755275893436415], 'true,false': [0.21854515635526514, 0.20939058886296988], 'false,false': [nan, 0.20737228528657198], 'false,true': [nan, 0.22649768048412494], 'false': [0.22649768048412494, 0.20737228528657198]}, {'': [0.2387175055327009, 0.21247332524128806], 'false,false,false': [0.20804678576159027, nan], 'true': [0.24154017190794683, 0.2159361406377922], 'false,false': [0.22559048802820902, 0.2080467857615903], 'false,false,true': [nan, 0.22559048802820902], 'false': [nan, 0.21247332524128806]}, {'': [0.2236660451326201, 0.22132229432020845], 'false,false,false': [0.18054526477567312, 0.21012545372500008], 'true': [0.2452575449022723, 0.215113037677349], 'false,false,true': [0.002481907934431519, nan], 'false,false': [0.002481907934431519, 0.20664196714672772], 'false,true': [0.23423858104862397, nan], 'false': [0.23423858104862397, 0.2035220812834136]}, {'': [0.21856694535368043, nan], 'true': [0.21856694535368043, nan]}, {'': [0.22328435642932462, 0.2202314374345914], 'false,false,false': [0.002354731987994435, 0.2209812947965284], 'true': [0.23279051832781025, 0.22160806791298363], 'false,false': [0.0, 0.21900715536299223], 'false,true': [0.23688424614662493, 0.2083700310191956], 'false': [0.22141813778161026, 0.2173751895594273]}, {'': [0.2362353041992453, 0.2193047824055021], 'false,false,false': [nan, 0.2225257678411064], 'false,true': [0.21641855951533912, 0.15392247499372202], 'false,true,true': [0.23625463749920717, 0.1550774495963358], 'false,false': [0.2380534470144423, 0.2225257678411064], 'false': [0.1930329872450818, 0.2269458649874565]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Refining iteration 1
+********************************
+Candidate for revision
+0;;teamplayssport(A, B) :- teamplaysagainstteam(A, C).;true;true
+0;false;athleteledsportsteam(D, A).;true;true
+1;;teamplayssport(A, B) :- teamplaysagainstteam(C, A).;true;true
+1;false,true;teamalsoknownas(A, F).;true;true
+1;false;teamplaysagainstteam(A, E).;true;true
+3;;teamplayssport(A, B) :- teamplaysagainstteam(C, A).;true;true
+3;false,true;teamplaysagainstteam(A, G).;true;true
+3;false;teamalsoknownas(A, F).;true;true
+6;;teamplayssport(A, B) :- teamalsoknownas(A, C), teamplaysinleague(C, D).;true;true
+6;false,false;athleteledsportsteam(J, A).;true;true
+6;false;teamplaysinleague(A, G), teamplaysagainstteam(A, H).;true;true
+8;;teamplayssport(A, B) :- teamalsoknownas(A, C).;true;true
+8;false,false;athleteledsportsteam(I, A).;true;true
+8;false,false,false;athleteplaysforteam(J, A).;true;true
+8;false;teamplaysagainstteam(F, A).;true;true
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( athleteplayssport(D, B), athleteplaysinleague(D, E) )
+%   | then return 0.8581489350995124;  // std dev = 0,000, 80,000 (wgt'ed) examples reached here.  /* #pos=80 */
+%   | else if ( teamalsoknownas(F, A), teamalsoknownas(G, F) )
+%   | | then if ( teamplaysagainstteam(G, A) )
+%   | | | then return -0.1418510649004878;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+%   | | | else return 0.024815601766178873;  // std dev = 0,913, 6,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=1 */
+%   | | else return -0.14185106490048763;  // std dev = 8,16e-08, 118,000 (wgt'ed) examples reached here.  /* #neg=118 */
+%   else if ( athleteledsportsteam(H, A) )
+%   | then return -0.14185106490048777;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | else if ( athleteplayssport(I, B) )
+%   | | then if ( teamplaysinleague(A, J), athleteplaysinleague(K, J) )
+%   | | | then return 0.8581489350995123;  // std dev = 0,000, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | | | else return 0.762910839861417;  // std dev = 1,902, 42,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=38 */
+%   | | else return -0.14185106490048777;  // std dev = 2,98e-08, 121,000 (wgt'ed) examples reached here.  /* #neg=121 */
+WILL Produced-Tree #2
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(C, A) )
+%   then if ( athleteplayssport(D, B), athleteplaysinleague(D, E) )
+%   | then if ( teamplaysinleague(A, E), athleteledsportsteam(D, F) )
+%   | | then return 0.7194734122109543;  // std dev = 0,000, 60,000 (wgt'ed) examples reached here.  /* #pos=60 */
+%   | | else if ( teamalsoknownas(A, G) )
+%   | | | then return 0.7226091713768544;  // std dev = 0,024, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | | else return 0.5766162693538114;  // std dev = 1,309, 14,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=12 */
+%   | else return -0.11920378325496116;  // std dev = 0,079, 154,000 (wgt'ed) examples reached here.  /* #neg=153 #pos=1 */
+%   else if ( teamplaysagainstteam(A, H) )
+%   | then if ( teamalsoknownas(A, I) )
+%   | | then return -0.1254446385283914;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | else return 0.015375036594832886;  // std dev = 0,771, 6,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=1 */
+%   | else if ( athleteplayssport(J, B), athleteledsportsteam(J, K) )
+%   | | then if ( athleteplaysforteam(J, K), teamalsoknownas(K, L) )
+%   | | | then return 0.6562994331691325;  // std dev = 1,366, 26,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=24 */
+%   | | | else return 0.7340119319801282;  // std dev = 0,037, 22,000 (wgt'ed) examples reached here.  /* #pos=22 */
+%   | | else return -0.11870884953330317;  // std dev = 0,084, 108,000 (wgt'ed) examples reached here.  /* #neg=107 #pos=1 */
+WILL Produced-Tree #3
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( athleteledsportsteam(C, E) )
+%   | then if ( athleteplaysforteam(F, A), athleteplaysinleague(F, D) )
+%   | | then if ( teamplaysagainstteam(A, E) )
+%   | | | then return 0.5563941014648704;  // std dev = 0,034, 34,000 (wgt'ed) examples reached here.  /* #pos=34 */
+%   | | | else return 0.33157188707023055;  // std dev = 0,856, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | else return 0.5722308273207168;  // std dev = 0,209, 90,000 (wgt'ed) examples reached here.  /* #pos=90 */
+%   | else return 0.3831640248664828;  // std dev = 0,887, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   else if ( teamalsoknownas(G, A), athleteplaysforteam(H, A) )
+%   | then if ( athleteplayssport(H, I) )
+%   | | then return -0.11398745048640836;  // std dev = 0,017, 17,000 (wgt'ed) examples reached here.  /* #neg=17 */
+%   | | else if ( athleteledsportsteam(H, A) )
+%   | | | then return 0.20850680552243187;  // std dev = 0,809, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | | | else return -0.11294010733423761;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | else if ( teamplaysinleague(A, J) )
+%   | | then return -0.11365640026948491;  // std dev = 0,127, 204,000 (wgt'ed) examples reached here.  /* #neg=204 */
+%   | | else return -0.09707778620419755;  // std dev = 0,128, 47,000 (wgt'ed) examples reached here.  /* #neg=46 #pos=1 */
+WILL Produced-Tree #4
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(C, A) )
+%   then if ( athleteplayssport(D, B), athleteplaysinleague(D, E) )
+%   | then if ( teamalsoknownas(A, F), athleteledsportsteam(G, A) )
+%   | | then if ( athleteplaysinleague(G, E), athleteledsportsteam(H, F) )
+%   | | | then return 0.0836762560263636;  // std dev = 0,817, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | | else return 0.4254225669100299;  // std dev = 0,039, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else return 0.4131874910363595;  // std dev = 0,106, 79,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=78 */
+%   | else return -0.09823462058821017;  // std dev = 0,075, 161,000 (wgt'ed) examples reached here.  /* #neg=160 #pos=1 */
+%   else if ( teamalsoknownas(A, I) )
+%   | then if ( teamplaysagainstteam(A, J) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( athleteplayssport(K, B) )
+%   | | | then return 0.37482140145067006;  // std dev = 0,976, 15,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=14 */
+%   | | | else return -0.1044731018878525;  // std dev = 0,032, 16,000 (wgt'ed) examples reached here.  /* #neg=16 */
+%   | else if ( athleteplayssport(L, B) )
+%   | | then return 0.45007983148121933;  // std dev = 0,064, 34,000 (wgt'ed) examples reached here.  /* #pos=34 */
+%   | | else return -0.10323611429741772;  // std dev = 0,018, 72,000 (wgt'ed) examples reached here.  /* #neg=72 */
+WILL Produced-Tree #5
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B) )
+%   then if ( athleteplaysforteam(D, A), athleteledsportsteam(D, E) )
+%   | then if ( athleteledsportsteam(C, F), teamplaysagainstteam(A, F) )
+%   | | then return 0.33070136679886347;  // std dev = 0,144, 38,000 (wgt'ed) examples reached here.  /* #pos=38 */
+%   | | else return 0.038044998918134364;  // std dev = 0,902, 6,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=3 */
+%   | else if ( athleteledsportsteam(C, G) )
+%   | | then if ( teamalsoknownas(A, H), teamalsoknownas(H, A) )
+%   | | | then return 0.24511158815053902;  // std dev = 0,933, 10,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=9 */
+%   | | | else return 0.3314466487775269;  // std dev = 0,205, 79,000 (wgt'ed) examples reached here.  /* #pos=79 */
+%   | | else return 0.4927638827812501;  // std dev = 0,242, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   else if ( athleteledsportsteam(I, A), teamalsoknownas(J, A) )
+%   | then if ( athleteplaysforteam(I, A), athleteplayssport(I, K) )
+%   | | then return -0.0980052477153334;  // std dev = 0,025, 13,000 (wgt'ed) examples reached here.  /* #neg=13 */
+%   | | else return 0.20634941962345285;  // std dev = 0,797, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | else return -0.09398973987337475;  // std dev = 0,037, 235,000 (wgt'ed) examples reached here.  /* #neg=235 */
+WILL Produced-Tree #6
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( teamplaysinleague(A, E), athleteplaysinleague(F, E) )
+%   | then if ( teamalsoknownas(A, G), teamalsoknownas(G, H) )
+%   | | then if ( teamplaysagainstteam(I, A) )
+%   | | | then return 0.2614806725657137;  // std dev = 0,066, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | | else return -0.06300299871390942;  // std dev = 0,816, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | else return 0.2592543141578809;  // std dev = 0,200, 74,000 (wgt'ed) examples reached here.  /* #pos=74 */
+%   | else return 0.27898888628767776;  // std dev = 0,165, 47,000 (wgt'ed) examples reached here.  /* #pos=47 */
+%   else if ( teamalsoknownas(A, J), teamalsoknownas(J, K) )
+%   | then if ( teamalsoknownas(J, A) )
+%   | | then return -0.11946352419551254;  // std dev = 0,082, 14,000 (wgt'ed) examples reached here.  /* #neg=14 */
+%   | | else return -0.08588086572696314;  // std dev = 0,003, 22,000 (wgt'ed) examples reached here.  /* #neg=22 */
+%   | else if ( athleteledsportsteam(L, A), teamalsoknownas(M, A) )
+%   | | then if ( teamalsoknownas(N, M), athleteledsportsteam(P, N) )
+%   | | | then return 0.19079566815986815;  // std dev = 0,784, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | | | else return -0.09387346600705412;  // std dev = 0,033, 8,000 (wgt'ed) examples reached here.  /* #neg=8 */
+%   | | else return -0.08325620204986164;  // std dev = 0,046, 210,000 (wgt'ed) examples reached here.  /* #neg=209 #pos=1 */
+WILL Produced-Tree #7
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C), teamplaysinleague(C, D) )
+%   then if ( athleteplayssport(E, B) )
+%   | then if ( teamalsoknownas(F, A), athleteledsportsteam(E, G) )
+%   | | then if ( athleteplaysforteam(E, G), teamalsoknownas(G, H) )
+%   | | | then return 0.12153719842278823;  // std dev = 0,932, 8,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=7 */
+%   | | | else return 0.23594599654239065;  // std dev = 0,023, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else return 0.22647964066044907;  // std dev = 0,122, 21,000 (wgt'ed) examples reached here.  /* #pos=21 */
+%   | else return -0.0798771859613869;  // std dev = 0,064, 57,000 (wgt'ed) examples reached here.  /* #neg=57 */
+%   else if ( teamplaysinleague(A, I), teamplaysagainstteam(A, J) )
+%   | then if ( athleteplayssport(K, B), athleteledsportsteam(K, L) )
+%   | | then return 0.19840325484237736;  // std dev = 0,120, 62,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=61 */
+%   | | else return -0.07299170788866219;  // std dev = 0,109, 126,000 (wgt'ed) examples reached here.  /* #neg=123 #pos=3 */
+%   | else if ( athleteledsportsteam(M, A) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( athleteplayssport(N, B) )
+%   | | | then return 0.2234651102390941;  // std dev = 0,383, 37,000 (wgt'ed) examples reached here.  /* #pos=37 */
+%   | | | else return -0.07970879711658181;  // std dev = 0,006, 87,000 (wgt'ed) examples reached here.  /* #neg=87 */
+WILL Produced-Tree #8
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( athleteplaysforteam(E, A), athleteplaysinleague(E, F) )
+%   | then if ( teamplaysinleague(A, D) )
+%   | | then return 0.179890534460575;  // std dev = 0,076, 38,000 (wgt'ed) examples reached here.  /* #pos=38 */
+%   | | else if ( athleteledsportsteam(C, G), teamplaysagainstteam(A, G) )
+%   | | | then return 0.19664386569837064;  // std dev = 0,050, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return -0.5602438988969571;  // std dev = 0,892, 5,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=1 */
+%   | else if ( athleteledsportsteam(C, H), teamplaysagainstteam(H, A) )
+%   | | then if ( teamplaysinleague(A, D) )
+%   | | | then return 0.17457212336519723;  // std dev = 0,003, 17,000 (wgt'ed) examples reached here.  /* #pos=17 */
+%   | | | else return -0.14304846364565496;  // std dev = 0,809, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | else return 0.19168238868327872;  // std dev = 0,031, 67,000 (wgt'ed) examples reached here.  /* #pos=67 */
+%   else if ( teamalsoknownas(I, A), athleteplaysforteam(J, I) )
+%   | then if ( athleteledsportsteam(J, I) )
+%   | | then return -0.0802966376302083;  // std dev = 0,039, 17,000 (wgt'ed) examples reached here.  /* #neg=17 */
+%   | | else return 0.06152695703519906;  // std dev = 0,866, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | else return -0.07659123179839286;  // std dev = 0,057, 254,000 (wgt'ed) examples reached here.  /* #neg=253 #pos=1 */
+WILL Produced-Tree #9
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C) )
+%   then if ( athleteplayssport(D, B) )
+%   | then if ( teamalsoknownas(E, A), athleteplaysforteam(F, A) )
+%   | | then return 0.00807044374158746;  // std dev = 0,919, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else return 0.17020784742687134;  // std dev = 0,125, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   | else return -0.0690363571299988;  // std dev = 0,032, 62,000 (wgt'ed) examples reached here.  /* #neg=62 */
+%   else if ( teamplaysagainstteam(G, A) )
+%   | then if ( athleteplayssport(H, B), athleteplaysinleague(H, I) )
+%   | | then return 0.16142286845484444;  // std dev = 0,032, 66,000 (wgt'ed) examples reached here.  /* #pos=66 */
+%   | | else if ( teamalsoknownas(J, A), teamalsoknownas(K, J) )
+%   | | | then return -0.0075181711152594935;  // std dev = 0,860, 10,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=1 */
+%   | | | else return -0.06980883721475584;  // std dev = 0,050, 107,000 (wgt'ed) examples reached here.  /* #neg=107 */
+%   | else if ( athleteledsportsteam(L, A) )
+%   | | then return -0.07369356626672101;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else if ( athleteplaysforteam(M, A) )
+%   | | | then return -0.06843392757941956;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | | else return 0.0023428093961142256;  // std dev = 1,465, 101,000 (wgt'ed) examples reached here.  /* #neg=67 #pos=34 */
+WILL Produced-Tree #10
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysforteam(C, D) )
+%   then if ( teamplaysinleague(A, E), teamplaysinleague(D, E) )
+%   | then if ( athleteplaysinleague(C, E) )
+%   | | then return 0.13589069394537417;  // std dev = 0,136, 66,000 (wgt'ed) examples reached here.  /* #pos=66 */
+%   | | else if ( athleteplaysinleague(F, E) )
+%   | | | then return -0.08419684590436785;  // std dev = 0,897, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | | else return 0.15201771264619557;  // std dev = 0,053, 12,000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | else if ( teamplaysagainstteam(G, A) )
+%   | | then if ( athleteplaysforteam(H, A) )
+%   | | | then return 0.16199029786208166;  // std dev = 0,174, 13,000 (wgt'ed) examples reached here.  /* #pos=13 */
+%   | | | else return 0.08812387872418019;  // std dev = 0,257, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else if ( athleteplaysforteam(C, I), teamplaysagainstteam(D, I) )
+%   | | | then return 0.14504302773944763;  // std dev = 0,014, 9,000 (wgt'ed) examples reached here.  /* #pos=9 */
+%   | | | else return 0.1789028303362259;  // std dev = 0,393, 20,000 (wgt'ed) examples reached here.  /* #pos=20 */
+%   else if ( teamplaysagainstteam(A, J), teamalsoknownas(J, K) )
+%   | then return -0.050552825804101253;  // std dev = 0,094, 117,000 (wgt'ed) examples reached here.  /* #neg=112 #pos=5 */
+%   | else return -0.07117596826198114;  // std dev = 0,053, 158,000 (wgt'ed) examples reached here.  /* #neg=158 */
+
+
+Results
+   AUC ROC   = 0.99384
+   AUC PR    = 0.383335
+   CLL	      = -0.084213
+   Precision = 0.194922 at threshold = 0.5
+   Recall    = 0.988636
+   F1        = 0.325639
+
+
+Total learning time: 350.478 seconds
+Total inference time: 54.302 seconds
+AUC ROC: 0.99384
+
+
+Results scoring model
+   AUC ROC   = 0.997732
+   AUC PR    = 0.461454
+   CLL	      = -0.0853
+   Precision = 0.185028 at threshold = 0.5
+   Recall    = 0.984962
+   F1        = 0.311534
+
+
+Total scoring time: 28.498 seconds
+Refined model CLL: -0.0853
+
+
+******************************************
+Best model found
+******************************************
+Results
+   AUC ROC   = 0.99384
+   AUC PR    = 0.383335
+   CLL	      = -0.084213
+   Precision = 0.194922 at threshold = 0.5
+   Recall    = 0.988636
+   F1        = 0.325639
+
+
+Total learning time: 404.363 seconds
+Total inference time: 54.302 seconds
+AUC ROC: 0.99384
+Total revision time: 404.363
+Best scored revision CLL: -0.0853
+
+
+Dataset: 46_nell_finances_nell_sports, Fold: 1, Type: Transfer (trRDN-B), Time: 06:30:13
+{'AUC ROC': 0.99384, 'F1': 0.325639, 'parameter': {'AUC ROC': 0.469997, 'F1': nan, 'Precision': [nan, 0.5], 'Learning time': 4.151, 'Inference time': 37.594, 'CLL': -0.37941, 'AUC PR': 0.002295, 'Recall': 0.0}, 'Precision': [0.194922, 0.5], 'Learning time': 404.363, 'Inference time': 54.302, 'CLL': -0.084213, 'AUC PR': 0.383335, 'Recall': 0.988636}
+
+
+Starting fold 2
+
+Target train facts examples: 9690
+Target train pos examples: 133
+Target train neg examples: 53331
+
+Target test facts examples: 9690
+Target test pos	 examples: 264
+Target test neg examples: 106660
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;companyeconomicsector(A, B) :- acquired(A, C), economicsectorcompany(B, C).;false;true
+0;false,false,false;companyceo(A, I).;false;false
+0;false,true;cityhascompanyoffice(D, E), economicsectorcompany(B, E).;true;false
+0;false,true,true;acquired(E, F), companyceo(E, G).;false;false
+0;false,false;companyalsoknownas(A, H).;true;true
+0;false,false,true;economicsectorcompany(B, H).;false;false
+0;false;cityhascompanyoffice(D, A).;true;true
+1;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+1;false,false,false;countryhascompanyoffice(K, A).;false;false
+1;true;cityhascompanyoffice(D, A).;false;false
+1;false,false,true;companyalsoknownas(G, I), cityhascompanyoffice(J, I).;false;false
+1;false,false;acquired(G, A), companyceo(G, H).;true;true
+1;false,true,false;companyalsoknownas(A, F), economicsectorcompany(B, F).;false;false
+1;false,true;economicsectorcompany(B, E).;false;true
+1;false;acquired(A, E).;true;true
+2;;companyeconomicsector(A, B) :- companyalsoknownas(A, C), economicsectorcompany(B, C).;true;true
+2;false,false,false;companyceo(A, L).;false;false
+2;true;acquired(A, D).;false;false
+2;false,false,true;companyceo(I, K), countryhascompanyoffice(J, A).;false;false
+2;false,false;acquired(A, I), countryhascompanyoffice(J, I).;true;true
+2;false,true,false;countryhascompanyoffice(H, F), countryhascompanyoffice(H, A).;false;false
+2;false,true;acquired(G, A), economicsectorcompany(B, G).;false;true
+2;false;cityhascompanyoffice(E, A), acquired(A, F).;true;true
+3;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+3;false,false,false;countryhascompanyoffice(J, A), bankbankincountry(K, J).;false;false
+3;true;cityhascompanyoffice(D, A).;true;false
+3;false,false,true;companyceo(H, I).;false;false
+3;false,false;acquired(H, A).;true;true
+3;true,true;acquired(A, E).;false;false
+3;false,true;acquired(A, G).;false;false
+3;false;companyalsoknownas(A, F), economicsectorcompany(B, F).;true;true
+4;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+4;false,false,false;acquired(J, A).;false;false
+4;true;cityhascompanyoffice(D, A).;false;true
+4;false,false,true;cityhascompanyoffice(H, I), economicsectorcompany(B, I).;false;false
+4;true,false;acquired(A, E).;false;false
+4;false,false;cityhascompanyoffice(H, A).;true;true
+4;false,true;acquired(A, G).;false;false
+4;false;companyalsoknownas(A, F), economicsectorcompany(B, F).;true;true
+5;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+5;false,false,false;bankboughtbank(N, A), countryhascompanyoffice(P, N).;false;false
+5;true;acquired(A, D), countryhascompanyoffice(E, A).;false;false
+5;false,false,true;cityhascompanyoffice(M, A).;false;false
+5;false,false;countryhascompanyoffice(K, A), bankbankincountry(L, K).;true;true
+5;false,true,false;cityhascompanyoffice(I, F), acquired(J, F).;false;false
+5;false,true;companyalsoknownas(F, H), economicsectorcompany(B, H).;false;true
+5;false;acquired(F, A), companyceo(F, G).;true;true
+6;;companyeconomicsector(A, B) :- companyalsoknownas(A, C), countryhascompanyoffice(D, C).;true;true
+6;false,false,false;acquired(N, A), economicsectorcompany(B, N).;false;false
+6;true;acquired(C, E), acquired(A, F).;false;false
+6;false,false,true;cityhascompanyoffice(L, M), economicsectorcompany(B, M).;false;false
+6;false,false;cityhascompanyoffice(L, A).;true;true
+6;false,true,false;companyceo(A, J), acquired(H, K).;false;false
+6;false,true;economicsectorcompany(B, H), countryhascompanyoffice(I, H).;false;true
+6;false;countryhascompanyoffice(G, A), acquired(A, H).;true;true
+7;;companyeconomicsector(A, B) :- bankboughtbank(C, A), cityhascompanyoffice(D, C).;true;true
+7;false,false,false;acquired(L, A), acquired(M, L).;false;false
+7;true;cityhascompanyoffice(D, E), economicsectorcompany(B, E).;true;false
+7;false,false,true;acquired(A, K), economicsectorcompany(B, K).;false;false
+7;false,false;companyalsoknownas(A, J).;true;true
+7;true,true;bankboughtbank(A, F).;false;false
+7;false,true;acquired(A, H), cityhascompanyoffice(I, A).;false;false
+7;false;companyalsoknownas(A, G), economicsectorcompany(B, G).;true;true
+8;;companyeconomicsector(A, B) :- companyalsoknownas(A, C).;true;true
+8;false,false,false;companyceo(A, J).;false;false
+8;true;economicsectorcompany(B, C).;false;true
+8;true,false;cityhascompanyoffice(D, C), acquired(E, C).;false;false
+8;false,false;cityhascompanyoffice(I, A).;false;true
+8;false,true,false;cityhascompanyoffice(G, A), acquired(A, H).;false;false
+8;false,true;economicsectorcompany(B, F).;false;true
+8;false;acquired(F, A).;true;true
+9;;companyeconomicsector(A, B) :- bankboughtbank(C, A), bankchiefexecutiveceo(C, D).;true;true
+9;false,false,false;companyalsoknownas(A, M), cityhascompanyoffice(N, M).;false;false
+9;true;companyceo(A, E).;false;true
+9;false,true,true;countryhascompanyoffice(K, A).;false;false
+9;true,false;bankboughtbank(C, F), economicsectorcompany(B, F).;false;false
+9;false,false;companyalsoknownas(A, L), economicsectorcompany(B, L).;false;true
+9;false,true;companyalsoknownas(G, I), countryhascompanyoffice(J, I).;true;false
+9;false;acquired(G, A), companyceo(G, H).;true;true
+
+
+WILL Produced-Tree #1
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(C, A) )
+%   then return 0.19148226843284655;  // std dev = 7,165, 231,000 (wgt'ed) examples reached here.  /* #neg=154 #pos=77 */
+%   else if ( athleteledsportsteam(D, A) )
+%   | then if ( athleteledsportsteam(D, E) )
+%   | | then if ( teamplaysagainstteam(F, E), teamplaysinleague(E, G) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.5248156017661788;  // std dev = 0,816, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( teamalsoknownas(A, H) )
+%   | | then return 0.17243464938522662;  // std dev = 0,464, 35,000 (wgt'ed) examples reached here.  /* #neg=24 #pos=11 */
+%   | | else if ( teamplaysinleague(A, I) )
+%   | | | then return 0.18209259707134262;  // std dev = 3,943, 71,000 (wgt'ed) examples reached here.  /* #neg=48 #pos=23 */
+%   | | | else return 0.2503057978446101;  // std dev = 3,487, 51,000 (wgt'ed) examples reached here.  /* #neg=31 #pos=20 */
+WILL Produced-Tree #2
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( athleteledsportsteam(D, A) )
+%   | then return 0.15973610347644698;  // std dev = 4,642, 98,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=32 */
+%   | else return 0.19699689381992033;  // std dev = 5,045, 110,000 (wgt'ed) examples reached here.  /* #neg=70 #pos=40 */
+%   else if ( teamplaysagainstteam(E, A) )
+%   | then if ( teamalsoknownas(A, F) )
+%   | | then return 0.3887610467871039;  // std dev = 1,491, 9,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=5 */
+%   | | else return 0.16653882456488164;  // std dev = 1,414, 9,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=3 */
+%   | else if ( teamplaysagainstteam(A, G), teamplaysinleague(G, H) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( athleteplaysforteam(I, A) )
+%   | | | then return 0.28162893957529533;  // std dev = 0,707, 2,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=1 */
+%   | | | else return 0.1726978287023793;  // std dev = 5,845, 152,000 (wgt'ed) examples reached here.  /* #neg=100 #pos=52 */
+WILL Produced-Tree #3
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C) )
+%   then if ( teamplaysagainstteam(D, A) )
+%   | then return 0.15640339895256938;  // std dev = 3,492, 53,000 (wgt'ed) examples reached here.  /* #neg=34 #pos=19 */
+%   | else return 0.06418323092629466;  // std dev = 2,970, 47,000 (wgt'ed) examples reached here.  /* #neg=35 #pos=12 */
+%   else if ( athleteledsportsteam(E, A), teamplaysagainstteam(F, A) )
+%   | then if ( teamplaysagainstteam(A, G) )
+%   | | then return 0.06754281330347285;  // std dev = 4,308, 97,000 (wgt'ed) examples reached here.  /* #neg=72 #pos=25 */
+%   | | else if ( athleteplaysforteam(H, F), athleteplaysforteam(H, A) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.30876090948223134;  // std dev = 0,707, 2,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=1 */
+%   | else if ( teamplaysagainstteam(I, A), athleteplaysforteam(J, I) )
+%   | | then if ( teamplaysinleague(I, K), athleteplaysforteam(J, A) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.08742832023227648;  // std dev = 4,637, 106,000 (wgt'ed) examples reached here.  /* #neg=76 #pos=30 */
+%   | | else if ( teamplaysinleague(A, L) )
+%   | | | then return 0.2165339038343673;  // std dev = 3,840, 61,000 (wgt'ed) examples reached here.  /* #neg=36 #pos=25 */
+%   | | | else return 0.11685658164527873;  // std dev = 3,784, 66,000 (wgt'ed) examples reached here.  /* #neg=45 #pos=21 */
+WILL Produced-Tree #4
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( athleteledsportsteam(D, A) )
+%   | then if ( teamplaysagainstteam(E, A) )
+%   | | then return 0.0724015321989563;  // std dev = 4,810, 116,000 (wgt'ed) examples reached here.  /* #neg=84 #pos=32 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else return 0.07298378283877664;  // std dev = 5,338, 140,000 (wgt'ed) examples reached here.  /* #neg=100 #pos=40 */
+%   else if ( teamalsoknownas(A, F) )
+%   | then if ( teamplaysagainstteam(G, A) )
+%   | | then return 0.12794622551692347;  // std dev = 1,754, 13,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=5 */
+%   | | else return 0.029398045301712063;  // std dev = 2,897, 47,000 (wgt'ed) examples reached here.  /* #neg=36 #pos=11 */
+%   | else if ( teamplaysagainstteam(A, H) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( athleteplaysforteam(I, A), athleteplaysinleague(I, J) )
+%   | | | then return 0.7564322801019545;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #pos=1 */
+%   | | | else return 0.1500146006872683;  // std dev = 5,240, 118,000 (wgt'ed) examples reached here.  /* #neg=74 #pos=44 */
+WILL Produced-Tree #5
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( athleteledsportsteam(D, A) )
+%   | then return 0.0896099135682201;  // std dev = 4,711, 105,000 (wgt'ed) examples reached here.  /* #neg=73 #pos=32 */
+%   | else if ( teamplaysagainstteam(E, A) )
+%   | | then return 0.10221061018732285;  // std dev = 4,986, 113,000 (wgt'ed) examples reached here.  /* #neg=76 #pos=37 */
+%   | | else return 0.10851352413610187;  // std dev = 1,394, 9,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=3 */
+%   else if ( teamalsoknownas(A, F) )
+%   | then if ( teamplaysagainstteam(G, A) )
+%   | | then return 0.10278635670286877;  // std dev = 1,754, 13,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=5 */
+%   | | else return 0.06011381463369026;  // std dev = 2,826, 41,000 (wgt'ed) examples reached here.  /* #neg=30 #pos=11 */
+%   | else if ( athleteledsportsteam(H, A) )
+%   | | then if ( athleteledsportsteam(H, I) )
+%   | | | then return 0.6346023044020055;  // std dev = 0,059, 2,000 (wgt'ed) examples reached here.  /* #pos=2 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( teamplaysagainstteam(A, J) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.09988323489971095;  // std dev = 5,287, 123,000 (wgt'ed) examples reached here.  /* #neg=80 #pos=43 */
+WILL Produced-Tree #6
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( teamplaysagainstteam(D, A), athleteplaysforteam(E, A) )
+%   | then return 0.11603349210900779;  // std dev = 5,689, 142,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=50 */
+%   | else return 0.11120656240277844;  // std dev = 3,765, 62,000 (wgt'ed) examples reached here.  /* #neg=40 #pos=22 */
+%   else if ( teamplaysagainstteam(A, F), teamplaysinleague(F, G) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( athleteplaysforteam(H, A), athleteplaysinleague(H, I) )
+%   | | then if ( athleteledsportsteam(J, A) )
+%   | | | then return 0.43590051502351;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #pos=1 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( athleteplaysforteam(K, L) )
+%   | | | then return 0.06411829270760488;  // std dev = 6,339, 183,000 (wgt'ed) examples reached here.  /* #neg=123 #pos=60 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #7
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C), athleteplaysforteam(D, C) )
+%   then if ( teamplaysagainstteam(E, C), teamplaysagainstteam(F, A) )
+%   | then return 0.09232973138021248;  // std dev = 2,262, 22,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=8 */
+%   | else return -0.22494917181054858;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   else if ( athleteplaysforteam(G, A), teamplaysagainstteam(H, A) )
+%   | then if ( athleteplaysforteam(I, H) )
+%   | | then return 0.03798375349351731;  // std dev = 5,733, 156,000 (wgt'ed) examples reached here.  /* #neg=109 #pos=47 */
+%   | | else if ( teamplaysinleague(A, J), teamplaysagainstteam(K, H) )
+%   | | | then return -0.28827862467624565;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0.7317336734774739;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #pos=1 */
+%   | else if ( athleteledsportsteam(L, A) )
+%   | | then if ( athleteledsportsteam(L, M) )
+%   | | | then return -0.06685882165064022;  // std dev = 1,785, 15,000 (wgt'ed) examples reached here.  /* #neg=11 #pos=4 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( teamplaysagainstteam(A, N) )
+%   | | | then return 0.08683600472476011;  // std dev = 3,413, 51,000 (wgt'ed) examples reached here.  /* #neg=33 #pos=18 */
+%   | | | else return 0.1002090078173645;  // std dev = 5,866, 147,000 (wgt'ed) examples reached here.  /* #neg=92 #pos=55 */
+WILL Produced-Tree #8
+% FOR teamplayssport(A, B):
+%   if ( athleteledsportsteam(C, D) )
+%   then if ( athleteledsportsteam(C, E) )
+%   | then return 0.04562214910912176;  // std dev = 0,467, 406,000 (wgt'ed) examples reached here.  /* #neg=273 #pos=133 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #9
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C) )
+%   then if ( athleteledsportsteam(D, C), teamplaysagainstteam(C, E) )
+%   | then return 0.1707593358454064;  // std dev = 1,929, 15,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=7 */
+%   | else return -0.0039410429802272775;  // std dev = 4,161, 85,000 (wgt'ed) examples reached here.  /* #neg=61 #pos=24 */
+%   else if ( teamplaysagainstteam(A, F) )
+%   | then if ( athleteledsportsteam(G, A), teamplaysagainstteam(H, A) )
+%   | | then return 0.0014237077878152206;  // std dev = 4,293, 94,000 (wgt'ed) examples reached here.  /* #neg=69 #pos=25 */
+%   | | else return 0.05015030648967632;  // std dev = 4,579, 95,000 (wgt'ed) examples reached here.  /* #neg=63 #pos=32 */
+%   | else if ( athleteledsportsteam(I, A) )
+%   | | then return 0.048134542781934665;  // std dev = 0,909, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | else if ( teamplaysinleague(A, J) )
+%   | | | then return 0.03980166349405793;  // std dev = 3,861, 65,000 (wgt'ed) examples reached here.  /* #neg=42 #pos=23 */
+%   | | | else return 0.060407418015974025;  // std dev = 3,549, 54,000 (wgt'ed) examples reached here.  /* #neg=34 #pos=20 */
+WILL Produced-Tree #10
+% FOR teamplayssport(A, B):
+%   if ( teamplaysinleague(A, C) )
+%   then return 0.04524654567094848;  // std dev = 7,994, 283,000 (wgt'ed) examples reached here.  /* #neg=186 #pos=97 */
+%   else if ( teamplaysagainstteam(A, D), teamplaysinleague(D, E) )
+%   | then if ( teamalsoknownas(D, F), athleteplaysforteam(G, F) )
+%   | | then if ( athleteplaysforteam(H, A) )
+%   | | | then return -0.2892337511172236;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0.09315819495925574;  // std dev = 1,111, 5,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=2 */
+%   | | else return 0.23855680782876243;  // std dev = 1,692, 11,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=6 */
+%   | else if ( teamalsoknownas(A, I) )
+%   | | then return 0.06418597782419037;  // std dev = 1,969, 17,000 (wgt'ed) examples reached here.  /* #neg=11 #pos=6 */
+%   | | else if ( teamalsoknownas(A, J), athleteledsportsteam(K, J) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.0334078807906475;  // std dev = 3,756, 61,000 (wgt'ed) examples reached here.  /* #neg=39 #pos=22 */
+
+
+Results
+   AUC ROC   = 0.47236
+   AUC PR    = 0.002247
+   CLL	      = -0.370959
+   Precision = 0.0 at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 4.644 seconds
+Total inference time: 49.147 seconds
+AUC ROC: 0.47236
+
+
+Results scoring model
+   AUC ROC   = 0.555083
+   AUC PR    = 0.003101
+   CLL	      = -0.370759
+   Precision = 0.007491 at threshold = 0.5
+   Recall    = 0.015038
+   F1        = 0.01
+
+
+Total scoring time: 22.948 seconds
+Parameter learned model CLL: -0.370759
+
+
+Structure after Parameter Learning
+[['teamplayssport(A, B)', {'': 'teamplaysagainstteam(C, A)', 'false,false,false': 'teamplaysinleague(A, I)', 'false,true': 'athleteledsportsteam(D, E)', 'false,true,true': 'teamplaysagainstteam(F, E), teamplaysinleague(E, G)', 'false,false': 'teamalsoknownas(A, H)', 'false': 'athleteledsportsteam(D, A)'}, {'false,false,false,true': [3.943, 48, 23], 'true': [7.165, 154, 77], 'false,false,false,false': [3.487, 31, 20], 'false,true,true,true': [0.0, 0, 0], 'false,true,false': [0.0, 0, 0], 'false,true,true,false': [0.816, 1, 2], 'false,false,true': [0.464, 24, 11]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(A, C)', 'false,false,false': 'athleteplaysforteam(I, A)', 'true': 'athleteledsportsteam(D, A)', 'false,false': 'teamplaysagainstteam(A, G), teamplaysinleague(G, H)', 'false,true': 'teamalsoknownas(A, F)', 'false': 'teamplaysagainstteam(E, A)'}, {'false,false,false,true': [0.707, 1, 1], 'false,false,false,false': [5.845, 100, 52], 'false,true,true': [1.491, 4, 5], 'true,false': [5.045, 70, 40], 'false,true,false': [1.414, 6, 3], 'true,true': [4.642, 66, 32], 'false,false,true': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(A, C)', 'false,false,false': 'teamplaysinleague(A, L)', 'true': 'teamplaysagainstteam(D, A)', 'false,true,false': 'athleteplaysforteam(H, F), athleteplaysforteam(H, A)', 'false,false': 'teamplaysagainstteam(I, A), athleteplaysforteam(J, I)', 'false,true': 'teamplaysagainstteam(A, G)', 'false,false,true': 'teamplaysinleague(I, K), athleteplaysforteam(J, A)', 'false': 'athleteledsportsteam(E, A), teamplaysagainstteam(F, A)'}, {'false,false,false,true': [3.84, 36, 25], 'false,true,true': [4.308, 72, 25], 'false,false,true,false': [4.637, 76, 30], 'false,true,false,false': [0.707, 1, 1], 'false,true,false,true': [0.0, 0, 0], 'true,false': [2.97, 35, 12], 'false,false,false,false': [3.784, 45, 21], 'true,true': [3.492, 34, 19], 'false,false,true,true': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(A, C)', 'false,false,false': 'athleteplaysforteam(I, A), athleteplaysinleague(I, J)', 'true': 'athleteledsportsteam(D, A)', 'false,false': 'teamplaysagainstteam(A, H)', 'true,true': 'teamplaysagainstteam(E, A)', 'false,true': 'teamplaysagainstteam(G, A)', 'false': 'teamalsoknownas(A, F)'}, {'true,true,true': [4.81, 84, 32], 'false,false,false,false': [5.24, 74, 44], 'true,false': [5.338, 100, 40], 'false,true,true': [1.754, 8, 5], 'true,true,false': [0.0, 0, 0], 'false,true,false': [2.897, 36, 11], 'false,false,false,true': [0.0, 0, 1], 'false,false,true': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(A, C)', 'false,false,false': 'teamplaysagainstteam(A, J)', 'true': 'athleteledsportsteam(D, A)', 'true,false': 'teamplaysagainstteam(E, A)', 'false,false': 'athleteledsportsteam(H, A)', 'false,true': 'teamplaysagainstteam(G, A)', 'false,false,true': 'athleteledsportsteam(H, I)', 'false': 'teamalsoknownas(A, F)'}, {'true,false,true': [4.986, 76, 37], 'false,false,false,false': [5.287, 80, 43], 'false,false,true,false': [0.0, 0, 0], 'false,true,true': [1.754, 8, 5], 'false,false,false,true': [0.0, 0, 0], 'false,true,false': [2.826, 30, 11], 'true,false,false': [1.394, 6, 3], 'true,true': [4.711, 73, 32], 'false,false,true,true': [0.059, 0, 2]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(A, C)', 'false,false,false': 'athleteplaysforteam(K, L)', 'true': 'teamplaysagainstteam(D, A), athleteplaysforteam(E, A)', 'false,false': 'athleteplaysforteam(H, A), athleteplaysinleague(H, I)', 'false,false,true': 'athleteledsportsteam(J, A)', 'false': 'teamplaysagainstteam(A, F), teamplaysinleague(F, G)'}, {'false,false,false,true': [6.339, 123, 60], 'false,true': [0.0, 0, 0], 'false,false,false,false': [0.0, 0, 0], 'true,false': [3.765, 40, 22], 'false,false,true,false': [0.0, 0, 0], 'true,true': [5.689, 92, 50], 'false,false,true,true': [0.0, 0, 1]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(A, C), athleteplaysforteam(D, C)', 'false,false,false': 'teamplaysagainstteam(A, N)', 'true': 'teamplaysagainstteam(E, C), teamplaysagainstteam(F, A)', 'false,true,false': 'teamplaysinleague(A, J), teamplaysagainstteam(K, H)', 'false,false': 'athleteledsportsteam(L, A)', 'false,true': 'athleteplaysforteam(I, H)', 'false,false,true': 'athleteledsportsteam(L, M)', 'false': 'athleteplaysforteam(G, A), teamplaysagainstteam(H, A)'}, {'false,false,false,true': [3.413, 33, 18], 'false,true,true': [5.733, 109, 47], 'false,false,true,false': [0.0, 0, 0], 'false,true,false,false': [0.0, 0, 1], 'false,true,false,true': [0.0, 1, 0], 'true,false': [0.0, 1, 0], 'false,false,false,false': [5.866, 92, 55], 'true,true': [2.262, 14, 8], 'false,false,true,true': [1.785, 11, 4]}], ['teamplayssport(A, B)', {'': 'athleteledsportsteam(C, D)', 'true': 'athleteledsportsteam(C, E)'}, {'true,true': [0.467, 273, 133], 'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(A, C)', 'false,false,false': 'teamplaysinleague(A, J)', 'true': 'athleteledsportsteam(D, C), teamplaysagainstteam(C, E)', 'false,false': 'athleteledsportsteam(I, A)', 'false,true': 'athleteledsportsteam(G, A), teamplaysagainstteam(H, A)', 'false': 'teamplaysagainstteam(A, F)'}, {'false,false,false,true': [3.861, 42, 23], 'false,false,false,false': [3.549, 34, 20], 'false,true,true': [4.293, 69, 25], 'true,false': [4.161, 61, 24], 'false,true,false': [4.579, 63, 32], 'true,true': [1.929, 8, 7], 'false,false,true': [0.909, 1, 2]}], ['teamplayssport(A, B)', {'': 'teamplaysinleague(A, C)', 'false,false,false': 'teamalsoknownas(A, J), athleteledsportsteam(K, J)', 'false,true': 'teamalsoknownas(D, F), athleteplaysforteam(G, F)', 'false,true,true': 'athleteplaysforteam(H, A)', 'false,false': 'teamalsoknownas(A, I)', 'false': 'teamplaysagainstteam(A, D), teamplaysinleague(D, E)'}, {'false,false,false,true': [0.0, 0, 0], 'true': [7.994, 186, 97], 'false,false,false,false': [3.756, 39, 22], 'false,true,true,true': [0.0, 1, 0], 'false,true,false': [1.692, 5, 6], 'false,true,true,false': [1.111, 3, 2], 'false,false,true': [1.969, 11, 6]}]]
+[{'': [0.22222222222222246, 0.22750000000000026], 'false,false,false': [0.2190041658401121, 0.23836985774702002], 'false,true': [0.22222222222222224, nan], 'false,true,true': [nan, 0.22222222222222224], 'false,false': [0.21551020408163216, 0.22823165815641058], 'false': [0.22222222222222224, 0.22564809931437413]}, {'': [0.22632508945639795, 0.22850051645742947], 'false,false,false': [0.25, 0.2247464089497495], 'false,true': [0.2469135802469136, 0.22222222222222238], 'false,false': [nan, 0.2252264800437765], 'true': [0.21990837151187076, 0.2313876675920371], 'false': [0.24691358024691334, 0.2252264800437765]}, {'': [0.2122368583936572, 0.2127436840319463], 'false,false,false': [0.24174376646566964, 0.21700361577836288], 'true': [0.23006607424411624, 0.1876241559575056], 'false,true,false': [nan, 0.25], 'false,false': [0.2028718527007075, 0.23136672238089506], 'false,true': [0.19130619619513334, 0.25], 'false,false,true': [nan, 0.2028718527007075], 'false': [0.19364366075167241, 0.2198852618898473]}, {'': [0.20171311969249214, 0.22253062832871462], 'false,false,false': [0.0, 0.23273513224951148], 'true': [0.19948932019875024, 0.20355554279934102], 'false,false': [nan, 0.233843678445917], 'true,true': [0.19948932019875024, nan], 'false,true': [0.23668639053254437, 0.1786241898145985], 'false': [0.1928526320469029, 0.233843678445917]}, {'': [0.21591283613147083, 0.22151708755716829], 'false,false,false': [nan, 0.22725354304036002], 'true': [0.21138497597804323, 0.2197308014275239], 'false,false,true': [0.0017226385170208136, nan], 'true,false': [0.2200215989692799, 0.21604288067232733], 'false,false': [0.0017226385170208136, 0.22725354304036002], 'false,true': [0.23668639053254437, 0.19472513067541675], 'false': [0.2051597563804805, 0.22814664363289486]}, {'': [0.2281201255030854, 0.21915167889083037], 'false,false,false': [0.21959802241375725, nan], 'true': [0.22790649465135554, 0.22859319096106276], 'false,false': [0.0, 0.21959802241375695], 'false,false,true': [0.0, nan], 'false': [nan, 0.21915167889083037]}, {'': [0.2267184902128597, 0.2244525717680234], 'false,false,false': [0.22840925779355853, 0.23411514819696844], 'true': [0.2326470977659768, 0.0], 'false,true,false': [0.0, 0.0], 'false,false': [0.2124011899203793, 0.23267964828069976], 'false,true': [0.2107178854826615, 0.2601062720962081], 'false,false,true': [0.2124011899203793, nan], 'false': [0.21176500947938454, 0.23300420623614004]}, {'': [0.21823122470317863, nan], 'true': [0.21823122470317863, nan]}, {'': [0.2142031949486359, 0.21829186945400636], 'false,false,false': [0.22929126481658982, 0.23319615912208502], 'true': [0.24806756023873017, 0.2036490971314057], 'false,false': [0.2754660514303778, 0.23116847593842327], 'false,true': [0.1961028286754917, 0.22071083633175875], 'false': [0.2090654867913972, 0.23225778542039618]}, {'': [0.22578382248236104, 0.23792359808391608], 'false,false,false': [nan, 0.23129331465450761], 'false,true': [0.22619764167324483, 0.2601862583463953], 'false,true,true': [0.0, 0.24706656993720094], 'false,false': [0.22796591523633783, 0.23129331465450761], 'false': [0.258178339055838, 0.2307295752404746]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Refining iteration 1
+********************************
+Candidate for revision
+3;;teamplayssport(A, B) :- teamplaysagainstteam(A, C).;true;true
+3;false,false;athleteplaysforteam(I, A), athleteplaysinleague(I, J).;true;true
+3;false;teamalsoknownas(A, F).;true;true
+4;;teamplayssport(A, B) :- teamplaysagainstteam(A, C).;true;true
+4;false,false;athleteledsportsteam(H, A).;true;true
+4;false;teamalsoknownas(A, F).;true;true
+5;;teamplayssport(A, B) :- teamplaysagainstteam(A, C).;true;true
+5;false;athleteplaysforteam(H, A), athleteplaysinleague(H, I).;true;true
+6;;teamplayssport(A, B) :- teamalsoknownas(A, C), athleteplaysforteam(D, C).;true;true
+6;false,true,false;teamplaysinleague(A, J), teamplaysagainstteam(K, H).;true;true
+6;true;teamplaysagainstteam(E, C), teamplaysagainstteam(F, A).;true;true
+6;false,true;athleteplaysforteam(I, H).;true;true
+6;false;athleteplaysforteam(G, A), teamplaysagainstteam(H, A).;true;true
+9;;teamplayssport(A, B) :- teamplaysinleague(A, C).;true;true
+9;false,true;teamalsoknownas(D, F), athleteplaysforteam(G, F).;true;true
+9;false,true,true;athleteplaysforteam(H, A).;true;true
+9;false;teamplaysagainstteam(A, D), teamplaysinleague(D, E).;true;true
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( athleteledsportsteam(C, E) )
+%   | then if ( teamplaysinleague(A, D) )
+%   | | then return 0.8581489350995124;  // std dev = 0,000, 55,000 (wgt'ed) examples reached here.  /* #pos=55 */
+%   | | else if ( athleteledsportsteam(F, A) )
+%   | | | then return 0.6081489350995122;  // std dev = 0,866, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | | | else return 0.8291634278531359;  // std dev = 1,394, 69,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=67 */
+%   | else if ( teamalsoknownas(A, G) )
+%   | | then return 0.8581489350995122;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | else return 0.5248156017661788;  // std dev = 0,816, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   else if ( teamplaysagainstteam(H, A) )
+%   | then return -0.14185106490048818;  // std dev = 0,000, 163,000 (wgt'ed) examples reached here.  /* #neg=163 */
+%   | else if ( athleteplayssport(I, B) )
+%   | | then return 0.3581489350995122;  // std dev = 1,000, 4,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2 */
+%   | | else return -0.14185106490048763;  // std dev = 8,56e-08, 93,000 (wgt'ed) examples reached here.  /* #neg=93 */
+WILL Produced-Tree #2
+% FOR teamplayssport(A, B):
+%   if ( teamplaysinleague(A, C), teamplaysagainstteam(A, D) )
+%   then if ( athleteplayssport(E, B) )
+%   | then if ( athleteplaysforteam(F, A) )
+%   | | then return 0.7224838674510483;  // std dev = 0,066, 49,000 (wgt'ed) examples reached here.  /* #pos=49 */
+%   | | else if ( athleteledsportsteam(G, A) )
+%   | | | then return 0.386140078877621;  // std dev = 0,816, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | | else return 0.7217985325093121;  // std dev = 0,009, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | else return -0.12544463852839113;  // std dev = 7,30e-08, 135,000 (wgt'ed) examples reached here.  /* #neg=135 */
+%   else if ( athleteplayssport(H, B) )
+%   | then if ( athleteledsportsteam(H, I) )
+%   | | then if ( athleteplaysforteam(H, I), teamalsoknownas(I, J) )
+%   | | | then return 0.6838911407778342;  // std dev = 0,978, 25,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=24 */
+%   | | | else return 0.7257382750616369;  // std dev = 0,043, 41,000 (wgt'ed) examples reached here.  /* #pos=41 */
+%   | | else if ( teamplaysagainstteam(K, A) )
+%   | | | then return 0.7505511758931249;  // std dev = 0,062, 4,000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | else return 0.37303404635576287;  // std dev = 1,116, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | else return -0.12544463852839127;  // std dev = 1,49e-08, 114,000 (wgt'ed) examples reached here.  /* #neg=114 */
+WILL Produced-Tree #3
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B) )
+%   then if ( teamalsoknownas(D, A), teamplaysagainstteam(E, A) )
+%   | then if ( athleteplaysforteam(F, A) )
+%   | | then return 0.5639138283867792;  // std dev = 0,068, 11,000 (wgt'ed) examples reached here.  /* #pos=11 */
+%   | | else return 0.23242951020755406;  // std dev = 0,810, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | else return 0.5670949430785522;  // std dev = 0,312, 120,000 (wgt'ed) examples reached here.  /* #pos=120 */
+%   else return -0.11231637819360682;  // std dev = 0,000, 232,000 (wgt'ed) examples reached here.  /* #neg=232 */
+WILL Produced-Tree #4
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( athleteplayssport(D, B), athleteplaysinleague(D, E) )
+%   | then return 0.39868427583185856;  // std dev = 0,153, 74,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=72 */
+%   | else return -0.10310382569363112;  // std dev = 0,246, 164,000 (wgt'ed) examples reached here.  /* #neg=164 */
+%   else if ( teamalsoknownas(A, F) )
+%   | then if ( athleteplayssport(G, B), athleteplaysinleague(G, H) )
+%   | | then if ( athleteplaysforteam(I, A) )
+%   | | | then return 0.10950629989203904;  // std dev = 0,833, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | | else return 0.4364791804988774;  // std dev = 0,111, 13,000 (wgt'ed) examples reached here.  /* #pos=13 */
+%   | | else if ( teamalsoknownas(J, A), teamplaysinleague(A, K) )
+%   | | | then return -0.05670427560956508;  // std dev = 0,762, 10,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=1 */
+%   | | | else return -0.10159632948783627;  // std dev = 7,45e-09, 15,000 (wgt'ed) examples reached here.  /* #neg=15 */
+%   | else if ( athleteplaysforteam(L, A), athleteplaysinleague(L, M) )
+%   | | then return 0.4233258849579674;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #pos=1 */
+%   | | else if ( athleteplayssport(N, B) )
+%   | | | then return 0.4260673358700722;  // std dev = 0,201, 44,000 (wgt'ed) examples reached here.  /* #pos=44 */
+%   | | | else return -0.10159632948783616;  // std dev = 5,67e-08, 81,000 (wgt'ed) examples reached here.  /* #neg=81 */
+WILL Produced-Tree #5
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( athleteplayssport(D, B), athleteplaysinleague(D, E) )
+%   | then if ( athleteplaysforteam(D, F), teamplaysagainstteam(A, F) )
+%   | | then return 0.32697446288226045;  // std dev = 0,120, 52,000 (wgt'ed) examples reached here.  /* #pos=52 */
+%   | | else if ( athleteplaysforteam(G, A), athleteplaysinleague(G, H) )
+%   | | | then return -0.32590470996369975;  // std dev = 0,794, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | | | else return 0.29152376300120036;  // std dev = 0,985, 20,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=19 */
+%   | else return -0.10017464349581379;  // std dev = 0,499, 149,000 (wgt'ed) examples reached here.  /* #neg=149 */
+%   else if ( teamalsoknownas(A, I) )
+%   | then if ( athleteplayssport(J, B), athleteplaysforteam(J, K) )
+%   | | then return 0.365837172254209;  // std dev = 0,085, 14,000 (wgt'ed) examples reached here.  /* #pos=14 */
+%   | | else return -0.08474407677460394;  // std dev = 0,130, 39,000 (wgt'ed) examples reached here.  /* #neg=37 #pos=2 */
+%   | else if ( athleteledsportsteam(L, A) )
+%   | | then return 0.3198055341474119;  // std dev = 0,007, 2,000 (wgt'ed) examples reached here.  /* #pos=2 */
+%   | | else if ( athleteplayssport(M, B) )
+%   | | | then return 0.3271592828566045;  // std dev = 0,196, 43,000 (wgt'ed) examples reached here.  /* #pos=43 */
+%   | | | else return -0.09269127618926105;  // std dev = 0,000, 79,000 (wgt'ed) examples reached here.  /* #neg=79 */
+WILL Produced-Tree #6
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( athleteplayssport(D, B) )
+%   | then return 0.26672960243302807;  // std dev = 0,210, 72,000 (wgt'ed) examples reached here.  /* #pos=72 */
+%   | else return -0.08448671664949169;  // std dev = 0,000, 142,000 (wgt'ed) examples reached here.  /* #neg=142 */
+%   else if ( athleteplaysforteam(E, A), athleteplaysinleague(E, F) )
+%   | then return 0.2587901200568683;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #pos=1 */
+%   | else if ( athleteplayssport(G, B) )
+%   | | then if ( teamalsoknownas(A, H) )
+%   | | | then return 0.2983005618482939;  // std dev = 0,324, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | | else return 0.21899908504699472;  // std dev = 1,308, 46,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | else return -0.08587414701926395;  // std dev = 0,015, 106,000 (wgt'ed) examples reached here.  /* #neg=106 */
+WILL Produced-Tree #7
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C), athleteplaysforteam(D, C) )
+%   then if ( teamplaysagainstteam(E, C), teamplaysagainstteam(F, A) )
+%   | then if ( athleteplayssport(G, B) )
+%   | | then return 0.2162801755837948;  // std dev = 0,063, 8,000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else return -0.07817703437900513;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+%   | else return -0.08264542622401963;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   else if ( athleteplaysforteam(H, A), teamplaysagainstteam(I, A) )
+%   | then if ( athleteplaysforteam(J, I) )
+%   | | then if ( athleteplayssport(K, B), athleteplaysinleague(K, L) )
+%   | | | then return 0.1957292933511585;  // std dev = 1,000, 48,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=47 */
+%   | | | else return -0.0859951031344997;  // std dev = 0,480, 109,000 (wgt'ed) examples reached here.  /* #neg=109 */
+%   | | else if ( teamplaysinleague(A, M), teamplaysagainstteam(N, I) )
+%   | | | then return -0.07817703437900511;  // std dev = 0,000, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return -0.1573968382708098;  // std dev = 0,732, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | else if ( athleteplayssport(P, B) )
+%   | | then return 0.2243374394657956;  // std dev = 0,355, 77,000 (wgt'ed) examples reached here.  /* #pos=77 */
+%   | | else return -0.07884318884636969;  // std dev = 0,010, 140,000 (wgt'ed) examples reached here.  /* #neg=140 */
+WILL Produced-Tree #8
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then return 0.18466092998888717;  // std dev = 0,254, 131,000 (wgt'ed) examples reached here.  /* #pos=131 */
+%   else if ( teamplaysinleague(A, E) )
+%   | then if ( teamalsoknownas(F, A), athleteplaysforteam(G, F) )
+%   | | then if ( athleteplaysforteam(H, A) )
+%   | | | then return -0.07231087749986527;  // std dev = 0,000934, 19,000 (wgt'ed) examples reached here.  /* #neg=19 */
+%   | | | else return 0.08956222991487219;  // std dev = 0,403, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | | else if ( athleteplayssport(I, B) )
+%   | | | then return -0.526887723104743;  // std dev = 0,246, 3,000 (wgt'ed) examples reached here.  /* #neg=3 */
+%   | | | else return -0.07432450456469847;  // std dev = 0,208, 195,000 (wgt'ed) examples reached here.  /* #neg=195 */
+%   | else if ( teamplaysagainstteam(J, A), athleteplaysforteam(K, J) )
+%   | | then return -0.0727699403094137;  // std dev = 0,002, 15,000 (wgt'ed) examples reached here.  /* #neg=15 */
+%   | | else return -0.06298142883031964;  // std dev = 0,063, 40,000 (wgt'ed) examples reached here.  /* #neg=39 #pos=1 */
+WILL Produced-Tree #9
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( teamplaysagainstteam(E, A), teamalsoknownas(F, E) )
+%   | then if ( athleteledsportsteam(C, F), teamplaysinleague(E, D) )
+%   | | then return 0.1540224072539424;  // std dev = 0,062, 42,000 (wgt'ed) examples reached here.  /* #pos=42 */
+%   | | else if ( athleteledsportsteam(G, F), athleteledsportsteam(C, H) )
+%   | | | then return -0.39057205152717395;  // std dev = 1,282, 7,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=3 */
+%   | | | else return 0.1616608759386077;  // std dev = 0,059, 10,000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | else return 0.16032277237758072;  // std dev = 0,207, 76,000 (wgt'ed) examples reached here.  /* #pos=76 */
+%   else if ( teamplaysinleague(A, I) )
+%   | then if ( teamalsoknownas(A, J), teamplaysinleague(J, I) )
+%   | | then if ( teamalsoknownas(J, A) )
+%   | | | then return -0.06674895134276154;  // std dev = 0,603, 16,000 (wgt'ed) examples reached here.  /* #neg=15 #pos=1 */
+%   | | | else return -0.09202798857762903;  // std dev = 0,253, 11,000 (wgt'ed) examples reached here.  /* #neg=11 */
+%   | | else return -0.06801915398720652;  // std dev = 0,018, 156,000 (wgt'ed) examples reached here.  /* #neg=156 */
+%   | else return -0.061725620332651325;  // std dev = 0,054, 58,000 (wgt'ed) examples reached here.  /* #neg=57 #pos=1 */
+WILL Produced-Tree #10
+% FOR teamplayssport(A, B):
+%   if ( teamplaysinleague(A, C) )
+%   then if ( athleteplayssport(D, B), athleteplaysinleague(D, E) )
+%   | then if ( teamalsoknownas(A, F), teamalsoknownas(F, G) )
+%   | | then if ( teamalsoknownas(A, G) )
+%   | | | then return -0.4973185546173875;  // std dev = 0,771, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | | | else return 0.14028770846874383;  // std dev = 0,087, 16,000 (wgt'ed) examples reached here.  /* #pos=16 */
+%   | | else return 0.12857209358972901;  // std dev = 0,085, 80,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=79 */
+%   | else return -0.06520232239352282;  // std dev = 0,041, 195,000 (wgt'ed) examples reached here.  /* #neg=194 #pos=1 */
+%   else if ( teamplaysagainstteam(A, H), teamplaysinleague(H, I) )
+%   | then if ( teamalsoknownas(H, J), athleteplaysforteam(K, J) )
+%   | | then if ( athleteplaysforteam(L, A) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.0957734145064929;  // std dev = 0,203, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | else if ( athleteplayssport(M, B) )
+%   | | | then return 0.15169822345623354;  // std dev = 0,068, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return -0.06331079039881567;  // std dev = 0,004, 6,000 (wgt'ed) examples reached here.  /* #neg=6 */
+%   | else return 0.009612719113295103;  // std dev = 0,107, 81,000 (wgt'ed) examples reached here.  /* #neg=53 #pos=28 */
+
+
+Results
+   AUC ROC   = 0.993681
+   AUC PR    = 0.397084
+   CLL	      = -0.084942
+   Precision = 0.160418 at threshold = 0.5
+   Recall    = 0.988636
+   F1        = 0.276044
+
+
+Total learning time: 96.435 seconds
+Total inference time: 124.744 seconds
+AUC ROC: 0.993681
+
+
+Results scoring model
+   AUC ROC   = 0.997944
+   AUC PR    = 0.418859
+   CLL	      = -0.082541
+   Precision = 0.182192 at threshold = 0.5
+   Recall    = 1.0
+   F1        = 0.308227
+
+
+Total scoring time: 71.643 seconds
+Refined model CLL: -0.082541
+
+
+******************************************
+Best model found
+******************************************
+Results
+   AUC ROC   = 0.993681
+   AUC PR    = 0.397084
+   CLL	      = -0.084942
+   Precision = 0.160418 at threshold = 0.5
+   Recall    = 0.988636
+   F1        = 0.276044
+
+
+Total learning time: 195.67000000000002 seconds
+Total inference time: 124.744 seconds
+AUC ROC: 0.993681
+Total revision time: 195.67000000000002
+Best scored revision CLL: -0.082541
+
+
+Dataset: 46_nell_finances_nell_sports, Fold: 2, Type: Transfer (trRDN-B), Time: 06:36:24
+{'AUC ROC': 0.993681, 'F1': 0.276044, 'parameter': {'AUC ROC': 0.47236, 'F1': nan, 'Precision': [0.0, 0.5], 'Learning time': 4.644, 'Inference time': 49.147, 'CLL': -0.370959, 'AUC PR': 0.002247, 'Recall': 0.0}, 'Precision': [0.160418, 0.5], 'Learning time': 195.67000000000002, 'Inference time': 124.744, 'CLL': -0.084942, 'AUC PR': 0.397084, 'Recall': 0.988636}
+
+
+Starting fold 3
+
+Target train facts examples: 9690
+Target train pos examples: 131
+Target train neg examples: 53329
+
+Target test facts examples: 9690
+Target test pos	 examples: 266
+Target test neg examples: 106662
+
+******************************************
+Performing Parameter Learning
+******************************************
+Refine
+0;;companyeconomicsector(A, B) :- acquired(A, C), economicsectorcompany(B, C).;false;true
+0;false,false,false;companyceo(A, I).;false;false
+0;false,true;cityhascompanyoffice(D, E), economicsectorcompany(B, E).;true;false
+0;false,true,true;acquired(E, F), companyceo(E, G).;false;false
+0;false,false;companyalsoknownas(A, H).;true;true
+0;false,false,true;economicsectorcompany(B, H).;false;false
+0;false;cityhascompanyoffice(D, A).;true;true
+1;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+1;false,false,false;countryhascompanyoffice(K, A).;false;false
+1;true;cityhascompanyoffice(D, A).;false;false
+1;false,false,true;companyalsoknownas(G, I), cityhascompanyoffice(J, I).;false;false
+1;false,false;acquired(G, A), companyceo(G, H).;true;true
+1;false,true,false;companyalsoknownas(A, F), economicsectorcompany(B, F).;false;false
+1;false,true;economicsectorcompany(B, E).;false;true
+1;false;acquired(A, E).;true;true
+2;;companyeconomicsector(A, B) :- companyalsoknownas(A, C), economicsectorcompany(B, C).;true;true
+2;false,false,false;companyceo(A, L).;false;false
+2;true;acquired(A, D).;false;false
+2;false,false,true;companyceo(I, K), countryhascompanyoffice(J, A).;false;false
+2;false,false;acquired(A, I), countryhascompanyoffice(J, I).;true;true
+2;false,true,false;countryhascompanyoffice(H, F), countryhascompanyoffice(H, A).;false;false
+2;false,true;acquired(G, A), economicsectorcompany(B, G).;false;true
+2;false;cityhascompanyoffice(E, A), acquired(A, F).;true;true
+3;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+3;false,false,false;countryhascompanyoffice(J, A), bankbankincountry(K, J).;false;false
+3;true;cityhascompanyoffice(D, A).;true;false
+3;false,false,true;companyceo(H, I).;false;false
+3;false,false;acquired(H, A).;true;true
+3;true,true;acquired(A, E).;false;false
+3;false,true;acquired(A, G).;false;false
+3;false;companyalsoknownas(A, F), economicsectorcompany(B, F).;true;true
+4;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+4;false,false,false;acquired(J, A).;false;false
+4;true;cityhascompanyoffice(D, A).;false;true
+4;false,false,true;cityhascompanyoffice(H, I), economicsectorcompany(B, I).;false;false
+4;true,false;acquired(A, E).;false;false
+4;false,false;cityhascompanyoffice(H, A).;true;true
+4;false,true;acquired(A, G).;false;false
+4;false;companyalsoknownas(A, F), economicsectorcompany(B, F).;true;true
+5;;companyeconomicsector(A, B) :- acquired(C, A), economicsectorcompany(B, C).;true;true
+5;false,false,false;bankboughtbank(N, A), countryhascompanyoffice(P, N).;false;false
+5;true;acquired(A, D), countryhascompanyoffice(E, A).;false;false
+5;false,false,true;cityhascompanyoffice(M, A).;false;false
+5;false,false;countryhascompanyoffice(K, A), bankbankincountry(L, K).;true;true
+5;false,true,false;cityhascompanyoffice(I, F), acquired(J, F).;false;false
+5;false,true;companyalsoknownas(F, H), economicsectorcompany(B, H).;false;true
+5;false;acquired(F, A), companyceo(F, G).;true;true
+6;;companyeconomicsector(A, B) :- companyalsoknownas(A, C), countryhascompanyoffice(D, C).;true;true
+6;false,false,false;acquired(N, A), economicsectorcompany(B, N).;false;false
+6;true;acquired(C, E), acquired(A, F).;false;false
+6;false,false,true;cityhascompanyoffice(L, M), economicsectorcompany(B, M).;false;false
+6;false,false;cityhascompanyoffice(L, A).;true;true
+6;false,true,false;companyceo(A, J), acquired(H, K).;false;false
+6;false,true;economicsectorcompany(B, H), countryhascompanyoffice(I, H).;false;true
+6;false;countryhascompanyoffice(G, A), acquired(A, H).;true;true
+7;;companyeconomicsector(A, B) :- bankboughtbank(C, A), cityhascompanyoffice(D, C).;true;true
+7;false,false,false;acquired(L, A), acquired(M, L).;false;false
+7;true;cityhascompanyoffice(D, E), economicsectorcompany(B, E).;true;false
+7;false,false,true;acquired(A, K), economicsectorcompany(B, K).;false;false
+7;false,false;companyalsoknownas(A, J).;true;true
+7;true,true;bankboughtbank(A, F).;false;false
+7;false,true;acquired(A, H), cityhascompanyoffice(I, A).;false;false
+7;false;companyalsoknownas(A, G), economicsectorcompany(B, G).;true;true
+8;;companyeconomicsector(A, B) :- companyalsoknownas(A, C).;true;true
+8;false,false,false;companyceo(A, J).;false;false
+8;true;economicsectorcompany(B, C).;false;true
+8;true,false;cityhascompanyoffice(D, C), acquired(E, C).;false;false
+8;false,false;cityhascompanyoffice(I, A).;false;true
+8;false,true,false;cityhascompanyoffice(G, A), acquired(A, H).;false;false
+8;false,true;economicsectorcompany(B, F).;false;true
+8;false;acquired(F, A).;true;true
+9;;companyeconomicsector(A, B) :- bankboughtbank(C, A), bankchiefexecutiveceo(C, D).;true;true
+9;false,false,false;companyalsoknownas(A, M), cityhascompanyoffice(N, M).;false;false
+9;true;companyceo(A, E).;false;true
+9;false,true,true;countryhascompanyoffice(K, A).;false;false
+9;true,false;bankboughtbank(C, F), economicsectorcompany(B, F).;false;false
+9;false,false;companyalsoknownas(A, L), economicsectorcompany(B, L).;false;true
+9;false,true;companyalsoknownas(G, I), countryhascompanyoffice(J, I).;true;false
+9;false;acquired(G, A), companyceo(G, H).;true;true
+
+
+WILL Produced-Tree #1
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(A, C) )
+%   then return 0.16023226843284438;  // std dev = 4,499, 96,000 (wgt'ed) examples reached here.  /* #neg=67 #pos=29 */
+%   else if ( teamplaysinleague(A, D) )
+%   | then if ( teamplaysinleague(E, D) )
+%   | | then if ( teamalsoknownas(E, F), athleteledsportsteam(G, E) )
+%   | | | then return 0.23183314562582943;  // std dev = 6,668, 190,000 (wgt'ed) examples reached here.  /* #neg=119 #pos=71 */
+%   | | | else return 0.07027014722072442;  // std dev = 2,348, 33,000 (wgt'ed) examples reached here.  /* #neg=26 #pos=7 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( teamplaysagainstteam(A, H) )
+%   | | then return 0.07554023944733843;  // std dev = 0,412, 23,000 (wgt'ed) examples reached here.  /* #neg=18 #pos=5 */
+%   | | else if ( athleteledsportsteam(I, A) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.21000078695136415;  // std dev = 3,509, 54,000 (wgt'ed) examples reached here.  /* #neg=35 #pos=19 */
+WILL Produced-Tree #2
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(C, A) )
+%   then if ( teamplaysinleague(A, D) )
+%   | then return 0.1242447270879237;  // std dev = 3,478, 59,000 (wgt'ed) examples reached here.  /* #neg=42 #pos=17 */
+%   | else return 0.2472423484343609;  // std dev = 2,029, 17,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=7 */
+%   else if ( teamalsoknownas(A, E) )
+%   | then if ( teamplaysagainstteam(A, F) )
+%   | | then return 0.33750333013725703;  // std dev = 2,000, 16,000 (wgt'ed) examples reached here.  /* #neg=8 #pos=8 */
+%   | | else return 0.03750333013725711;  // std dev = 1,789, 20,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=4 */
+%   | else if ( teamalsoknownas(G, A), athleteledsportsteam(H, G) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( athleteplaysforteam(I, A) )
+%   | | | then return 0.17963973517138893;  // std dev = 5,348, 126,000 (wgt'ed) examples reached here.  /* #neg=82 #pos=44 */
+%   | | | else return 0.19155384397950417;  // std dev = 5,706, 142,000 (wgt'ed) examples reached here.  /* #neg=91 #pos=51 */
+WILL Produced-Tree #3
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( teamalsoknownas(A, D) )
+%   | then return 0.12094734862292283;  // std dev = 2,846, 37,000 (wgt'ed) examples reached here.  /* #neg=25 #pos=12 */
+%   | else return 0.10499698759120216;  // std dev = 6,418, 197,000 (wgt'ed) examples reached here.  /* #neg=138 #pos=59 */
+%   else if ( teamplaysinleague(A, E), teamalsoknownas(A, F) )
+%   | then if ( teamalsoknownas(G, A) )
+%   | | then return 0.21118262174776714;  // std dev = 2,341, 23,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=9 */
+%   | | else if ( athleteplaysforteam(H, F), athleteplaysforteam(H, A) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.014152810388219889;  // std dev = 1,279, 11,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=2 */
+%   | else if ( teamalsoknownas(A, I), athleteplaysforteam(J, I) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( athleteledsportsteam(K, A) )
+%   | | | then return -0.20155351602202756;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0.11996431637302332;  // std dev = 5,782, 155,000 (wgt'ed) examples reached here.  /* #neg=106 #pos=49 */
+WILL Produced-Tree #4
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(C, A) )
+%   then if ( teamplaysinleague(A, D) )
+%   | then if ( teamalsoknownas(A, E) )
+%   | | then return 0.1434120395678618;  // std dev = 2,786, 34,000 (wgt'ed) examples reached here.  /* #neg=22 #pos=12 */
+%   | | else return 0.09955194309605842;  // std dev = 1,857, 17,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=5 */
+%   | else return 0.14686013132245343;  // std dev = 2,104, 19,000 (wgt'ed) examples reached here.  /* #neg=12 #pos=7 */
+%   else if ( teamplaysagainstteam(A, F) )
+%   | then if ( teamalsoknownas(A, G) )
+%   | | then return 0.09851786405668887;  // std dev = 2,309, 24,000 (wgt'ed) examples reached here.  /* #neg=16 #pos=8 */
+%   | | else return 0.1210688014781366;  // std dev = 6,044, 165,000 (wgt'ed) examples reached here.  /* #neg=110 #pos=55 */
+%   | else if ( teamalsoknownas(H, A) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( athleteplaysforteam(I, A) )
+%   | | | then return 0.03910240405033236;  // std dev = 1,211, 8,000 (wgt'ed) examples reached here.  /* #neg=6 #pos=2 */
+%   | | | else return 0.13264014624824097;  // std dev = 5,232, 122,000 (wgt'ed) examples reached here.  /* #neg=80 #pos=42 */
+WILL Produced-Tree #5
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(C, A) )
+%   then if ( teamplaysinleague(A, D) )
+%   | then return 0.10383909328486617;  // std dev = 3,364, 51,000 (wgt'ed) examples reached here.  /* #neg=34 #pos=17 */
+%   | else if ( teamalsoknownas(A, E) )
+%   | | then return 0.08836585897306758;  // std dev = 1,826, 15,000 (wgt'ed) examples reached here.  /* #neg=10 #pos=5 */
+%   | | else return 0.03143774522495135;  // std dev = 1,195, 7,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=2 */
+%   else if ( teamplaysagainstteam(A, F) )
+%   | then if ( teamalsoknownas(A, G) )
+%   | | then return 0.11065970186622921;  // std dev = 2,256, 22,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=8 */
+%   | | else return 0.09477163348054102;  // std dev = 6,073, 167,000 (wgt'ed) examples reached here.  /* #neg=112 #pos=55 */
+%   | else if ( teamplaysinleague(A, H) )
+%   | | then if ( teamplaysinleague(I, H) )
+%   | | | then return 0.07451344129370636;  // std dev = 4,141, 82,000 (wgt'ed) examples reached here.  /* #neg=57 #pos=25 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( teamalsoknownas(J, A) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.16632850127578172;  // std dev = 3,367, 47,000 (wgt'ed) examples reached here.  /* #neg=28 #pos=19 */
+WILL Produced-Tree #6
+% FOR teamplayssport(A, B):
+%   if ( teamalsoknownas(C, A) )
+%   then if ( teamalsoknownas(A, D), athleteplaysforteam(E, A) )
+%   | then return -0.0591599272793562;  // std dev = 1,279, 11,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=2 */
+%   | else return 0.1336504712550097;  // std dev = 3,668, 57,000 (wgt'ed) examples reached here.  /* #neg=35 #pos=22 */
+%   else if ( teamalsoknownas(F, A), athleteledsportsteam(G, F) )
+%   | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( athleteplaysforteam(H, A) )
+%   | | then if ( teamplaysinleague(A, I) )
+%   | | | then return 0.11500107243142586;  // std dev = 5,390, 124,000 (wgt'ed) examples reached here.  /* #neg=78 #pos=46 */
+%   | | | else return 0.10609698737841651;  // std dev = 1,155, 6,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=2 */
+%   | | else if ( athleteplaysforteam(J, K) )
+%   | | | then return 0.09495217783488341;  // std dev = 6,173, 168,000 (wgt'ed) examples reached here.  /* #neg=109 #pos=59 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #7
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C), athleteplaysforteam(D, C) )
+%   then if ( teamalsoknownas(C, E), teamalsoknownas(A, F) )
+%   | then return 0.07024274233664186;  // std dev = 2,569, 28,000 (wgt'ed) examples reached here.  /* #neg=18 #pos=10 */
+%   | else return 0.04603252279156595;  // std dev = 6,165, 176,000 (wgt'ed) examples reached here.  /* #neg=120 #pos=56 */
+%   else if ( athleteplaysforteam(G, A), teamalsoknownas(A, H) )
+%   | then if ( athleteplaysforteam(I, H) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( athleteledsportsteam(J, A), teamalsoknownas(H, K) )
+%   | | | then return -0.2467076852967487;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | | else return 0.014175529643440134;  // std dev = 0,795, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | else if ( teamplaysinleague(A, L) )
+%   | | then if ( teamplaysinleague(M, L) )
+%   | | | then return 0.060800387786158205;  // std dev = 4,943, 114,000 (wgt'ed) examples reached here.  /* #neg=77 #pos=37 */
+%   | | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else if ( teamalsoknownas(N, A) )
+%   | | | then return 0.11199945719633861;  // std dev = 1,898, 15,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=6 */
+%   | | | else return 0.0648526610358514;  // std dev = 3,703, 60,000 (wgt'ed) examples reached here.  /* #neg=39 #pos=21 */
+WILL Produced-Tree #8
+% FOR teamplayssport(A, B):
+%   if ( teamplaysinleague(C, D) )
+%   then if ( teamplaysinleague(E, D) )
+%   | then return 0.0433138955107983;  // std dev = 0,469, 398,000 (wgt'ed) examples reached here.  /* #neg=267 #pos=131 */
+%   | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+WILL Produced-Tree #9
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( teamplaysinleague(C, D), teamalsoknownas(E, C) )
+%   | then return 0.03166552544495163;  // std dev = 5,820, 154,000 (wgt'ed) examples reached here.  /* #neg=104 #pos=50 */
+%   | else return 0.09471962505784977;  // std dev = 3,561, 55,000 (wgt'ed) examples reached here.  /* #neg=34 #pos=21 */
+%   else if ( teamalsoknownas(F, A) )
+%   | then if ( teamplaysinleague(A, G), teamalsoknownas(A, H) )
+%   | | then return 0.0895289899253532;  // std dev = 2,326, 23,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=9 */
+%   | | else return 0.017971798045723044;  // std dev = 2,157, 21,000 (wgt'ed) examples reached here.  /* #neg=14 #pos=7 */
+%   | else if ( teamplaysinleague(A, I) )
+%   | | then return 0.021165233725905782;  // std dev = 4,143, 82,000 (wgt'ed) examples reached here.  /* #neg=57 #pos=25 */
+%   | | else if ( athleteledsportsteam(J, A) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return -0.02696826716364389;  // std dev = 3,691, 67,000 (wgt'ed) examples reached here.  /* #neg=48 #pos=19 */
+WILL Produced-Tree #10
+% FOR teamplayssport(A, B):
+%   if ( athleteledsportsteam(C, A) )
+%   then return 0.023667652160227374;  // std dev = 4,801, 105,000 (wgt'ed) examples reached here.  /* #neg=71 #pos=34 */
+%   else if ( teamalsoknownas(D, A), athleteledsportsteam(E, D) )
+%   | then if ( teamplaysagainstteam(D, F), athleteplaysforteam(G, F) )
+%   | | then if ( athleteplaysforteam(H, A) )
+%   | | | then return -0.25706830392081487;  // std dev = 0,000, 2,000 (wgt'ed) examples reached here.  /* #neg=2 */
+%   | | | else return 0.1212621755720694;  // std dev = 1,295, 7,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=3 */
+%   | | else return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | else if ( teamplaysagainstteam(A, I) )
+%   | | then return 0.03466245412438134;  // std dev = 4,860, 106,000 (wgt'ed) examples reached here.  /* #neg=70 #pos=36 */
+%   | | else if ( teamplaysagainstteam(A, J), teamplaysinleague(J, K) )
+%   | | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | | else return 0.042027367527010695;  // std dev = 6,142, 170,000 (wgt'ed) examples reached here.  /* #neg=112 #pos=58 */
+
+
+Results
+   AUC ROC   = 0.472084
+   AUC PR    = 0.002281
+   CLL	      = -0.368372
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total learning time: 6.96 seconds
+Total inference time: 103.07300000000001 seconds
+AUC ROC: 0.472084
+
+
+Results scoring model
+   AUC ROC   = 0.556665
+   AUC PR    = 0.003039
+   CLL	      = -0.368303
+   Precision = nan at threshold = 0.5
+   Recall    = 0.0
+   F1        = nan
+
+
+Total scoring time: 53.449 seconds
+Parameter learned model CLL: -0.368303
+
+
+Structure after Parameter Learning
+[['teamplayssport(A, B)', {'': 'teamalsoknownas(A, C)', 'false,false,false': 'athleteledsportsteam(I, A)', 'false,true': 'teamplaysinleague(E, D)', 'false,true,true': 'teamalsoknownas(E, F), athleteledsportsteam(G, E)', 'false,false': 'teamplaysagainstteam(A, H)', 'false': 'teamplaysinleague(A, D)'}, {'false,false,false,true': [0.0, 0, 0], 'true': [4.499, 67, 29], 'false,false,false,false': [3.509, 35, 19], 'false,true,true,true': [6.668, 119, 71], 'false,true,false': [0.0, 0, 0], 'false,true,true,false': [2.348, 26, 7], 'false,false,true': [0.412, 18, 5]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(C, A)', 'false,false,false': 'athleteplaysforteam(I, A)', 'true': 'teamplaysinleague(A, D)', 'false,false': 'teamalsoknownas(G, A), athleteledsportsteam(H, G)', 'false,true': 'teamplaysagainstteam(A, F)', 'false': 'teamalsoknownas(A, E)'}, {'false,false,false,true': [5.348, 82, 44], 'false,false,false,false': [5.706, 91, 51], 'false,true,true': [2.0, 8, 8], 'true,false': [2.029, 10, 7], 'false,true,false': [1.789, 16, 4], 'true,true': [3.478, 42, 17], 'false,false,true': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(A, C)', 'false,false,false': 'athleteledsportsteam(K, A)', 'true': 'teamalsoknownas(A, D)', 'false,true,false': 'athleteplaysforteam(H, F), athleteplaysforteam(H, A)', 'false,false': 'teamalsoknownas(A, I), athleteplaysforteam(J, I)', 'false,true': 'teamalsoknownas(G, A)', 'false': 'teamplaysinleague(A, E), teamalsoknownas(A, F)'}, {'false,false,false,true': [0.0, 1, 0], 'false,false,false,false': [5.782, 106, 49], 'false,true,false,false': [1.279, 9, 2], 'false,true,false,true': [0.0, 0, 0], 'true,false': [6.418, 138, 59], 'true,true': [2.846, 25, 12], 'false,false,true': [0.0, 0, 0], 'false,true,true': [2.341, 14, 9]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(C, A)', 'false,false,false': 'athleteplaysforteam(I, A)', 'true': 'teamplaysinleague(A, D)', 'false,false': 'teamalsoknownas(H, A)', 'true,true': 'teamalsoknownas(A, E)', 'false,true': 'teamalsoknownas(A, G)', 'false': 'teamplaysagainstteam(A, F)'}, {'true,true,true': [2.786, 22, 12], 'false,false,false,false': [5.232, 80, 42], 'true,false': [2.104, 12, 7], 'false,true,true': [2.309, 16, 8], 'true,true,false': [1.857, 12, 5], 'false,true,false': [6.044, 110, 55], 'false,false,false,true': [1.211, 6, 2], 'false,false,true': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(C, A)', 'false,false,false': 'teamalsoknownas(J, A)', 'true': 'teamplaysinleague(A, D)', 'true,false': 'teamalsoknownas(A, E)', 'false,false': 'teamplaysinleague(A, H)', 'false,true': 'teamalsoknownas(A, G)', 'false,false,true': 'teamplaysinleague(I, H)', 'false': 'teamplaysagainstteam(A, F)'}, {'true,false,true': [1.826, 10, 5], 'false,false,false,false': [3.367, 28, 19], 'false,false,true,false': [0.0, 0, 0], 'false,true,true': [2.256, 14, 8], 'false,false,false,true': [0.0, 0, 0], 'false,true,false': [6.073, 112, 55], 'true,false,false': [1.195, 5, 2], 'true,true': [3.364, 34, 17], 'false,false,true,true': [4.141, 57, 25]}], ['teamplayssport(A, B)', {'': 'teamalsoknownas(C, A)', 'false,false,false': 'athleteplaysforteam(J, K)', 'true': 'teamalsoknownas(A, D), athleteplaysforteam(E, A)', 'false,false': 'athleteplaysforteam(H, A)', 'false,false,true': 'teamplaysinleague(A, I)', 'false': 'teamalsoknownas(F, A), athleteledsportsteam(G, F)'}, {'false,false,false,true': [6.173, 109, 59], 'false,true': [0.0, 0, 0], 'false,false,false,false': [0.0, 0, 0], 'true,false': [3.668, 35, 22], 'false,false,true,false': [1.155, 4, 2], 'true,true': [1.279, 9, 2], 'false,false,true,true': [5.39, 78, 46]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(A, C), athleteplaysforteam(D, C)', 'false,false,false': 'teamalsoknownas(N, A)', 'true': 'teamalsoknownas(C, E), teamalsoknownas(A, F)', 'false,true,false': 'athleteledsportsteam(J, A), teamalsoknownas(H, K)', 'false,false': 'teamplaysinleague(A, L)', 'false,true': 'athleteplaysforteam(I, H)', 'false,false,true': 'teamplaysinleague(M, L)', 'false': 'athleteplaysforteam(G, A), teamalsoknownas(A, H)'}, {'false,false,false,true': [1.898, 9, 6], 'false,true,true': [0.0, 0, 0], 'false,false,true,false': [0.0, 0, 0], 'false,true,false,false': [0.795, 3, 1], 'false,true,false,true': [0.0, 1, 0], 'true,false': [6.165, 120, 56], 'false,false,false,false': [3.703, 39, 21], 'true,true': [2.569, 18, 10], 'false,false,true,true': [4.943, 77, 37]}], ['teamplayssport(A, B)', {'': 'teamplaysinleague(C, D)', 'true': 'teamplaysinleague(E, D)'}, {'true,true': [0.469, 267, 131], 'true,false': [0.0, 0, 0], 'false': [0.0, 0, 0]}], ['teamplayssport(A, B)', {'': 'teamplaysagainstteam(A, C)', 'false,false,false': 'athleteledsportsteam(J, A)', 'true': 'teamplaysinleague(C, D), teamalsoknownas(E, C)', 'false,false': 'teamplaysinleague(A, I)', 'false,true': 'teamplaysinleague(A, G), teamalsoknownas(A, H)', 'false': 'teamalsoknownas(F, A)'}, {'false,false,false,true': [0.0, 0, 0], 'false,false,false,false': [3.691, 48, 19], 'false,true,true': [2.326, 14, 9], 'true,false': [3.561, 34, 21], 'false,true,false': [2.157, 14, 7], 'true,true': [5.82, 104, 50], 'false,false,true': [4.143, 57, 25]}], ['teamplayssport(A, B)', {'': 'athleteledsportsteam(C, A)', 'false,false,false': 'teamplaysagainstteam(A, J), teamplaysinleague(J, K)', 'false,true': 'teamplaysagainstteam(D, F), athleteplaysforteam(G, F)', 'false,true,true': 'athleteplaysforteam(H, A)', 'false,false': 'teamplaysagainstteam(A, I)', 'false': 'teamalsoknownas(D, A), athleteledsportsteam(E, D)'}, {'false,false,false,true': [0.0, 0, 0], 'true': [4.801, 71, 34], 'false,false,false,false': [6.142, 112, 58], 'false,true,true,true': [0.0, 2, 0], 'false,true,false': [0.0, 0, 0], 'false,true,true,false': [1.295, 4, 3], 'false,false,true': [4.86, 70, 36]}]]
+[{'': [0.21082899305555683, 0.22440000000000201], 'false,false,false': [nan, 0.22805212620027385], 'false,true': [0.22743268515353243, nan], 'false,true,true': [0.23404432132963984, 0.16712580348943978], 'false,false': [0.1701323251417768, 0.22805212620027385], 'false': [0.22743268515353243, 0.2145387080452026]}, {'': [0.21596080864556644, 0.2275536555303724], 'false,false,false': [0.22699550760506287, 0.2292827422404632], 'false,true': [0.25000000000000017, 0.15999999999999998], 'false,false': [nan, 0.228242760597301], 'true': [0.2049956176199441, 0.2422720442937356], 'false': [0.2222222222222222, 0.228242760597301]}, {'': [0.21069003719072968, 0.21556382781658057], 'false,false,false': [0.0, 0.21565528592331512], 'false,true': [0.238185255198488, 0.14876033057851237], 'false,true,false': [nan, 0.14876033057851237], 'false,false': [nan, 0.21493128450405508], 'true': [0.21887957841304545, 0.2091116721494477], 'false': [0.21774989799512895, 0.21493128450405502]}, {'': [0.22369917807947381, 0.22189934847729656], 'false,false,false': [0.18341928841192193, 0.22438750574845429], 'true': [0.22018673338381395, 0.2328894717877174], 'false,false': [nan, 0.22237167023154997], 'true,true': [0.2282629006740404, 0.20275192676168338], 'false,true': [0.22222222222222224, 0.22138051563901828], 'false': [0.2215437758608658, 0.22237167023154997]}, {'': [0.22070599370353916, 0.22241515779906113], 'false,false,false': [nan, 0.24127495216719444], 'false,true': [0.23140495867768587, 0.22086986440542833], 'true,false': [0.22220605898371815, 0.2040816326530613], 'false,false': [0.209088930625751, 0.24127495216719444], 'true': [0.22190332297948887, 0.21714226437472084], 'false,false,true': [0.209088930625751, nan], 'false': [0.22212213484686086, 0.22276798169232492]}, {'': [0.2269963383208964, 0.22994414624009837], 'false,false,false': [0.22684706675594515, nan], 'true': [0.14876033057851246, 0.23608077484756695], 'false,false': [0.23372911326860432, 0.22684706675594515], 'false,false,true': [0.2342822391162835, 0.22222222222222218], 'false': [nan, 0.22994414624009837]}, {'': [0.21870654363601072, 0.21919787849197192], 'false,false,false': [0.24015680076561868, 0.22853453274843674], 'true': [0.23564688852630372, 0.21593103890214047], 'false,true,false': [0.0, 0.15790435174136608], 'false,false': [0.2143523095152461, 0.23121463761398472], 'false,true': [nan, 0.1372130896870975], 'false,false,true': [0.2143523095152461, nan], 'false': [0.1372130896870975, 0.22108721338250897]}, {'': [0.21975989154465933, nan], 'true': [0.21975989154465933, nan]}, {'': [0.22352302985216466, 0.21296270066634634], 'false,false,false': [nan, 0.2033297549874248], 'true': [0.21994773799226602, 0.23060429586556938], 'false,false': [0.20935785735779222, 0.2033297549874248], 'false,true': [0.2353273046116296, 0.22148678661762963], 'false': [0.22999906591810063, 0.20722057252947554]}, {'': [0.21954632473314456, 0.221893256542421], 'false,false,false': [nan, 0.22189171130691274], 'false,true': [0.21098172847955793, nan], 'false,true,true': [0.0, 0.23945467750567895], 'false,false': [0.2227884431290816, 0.22189171130691274], 'false': [0.21098172847955793, 0.2222489396480974]}]
+
+
+******************************************
+Performing Theory Revision
+******************************************
+Refining iteration 1
+********************************
+Candidate for revision
+2;;teamplayssport(A, B) :- teamplaysagainstteam(A, C).;true;true
+2;false,false;athleteledsportsteam(K, A).;true;true
+2;false;teamplaysinleague(A, E), teamalsoknownas(A, F).;true;true
+6;;teamplayssport(A, B) :- teamplaysagainstteam(A, C), athleteplaysforteam(D, C).;true;true
+6;false,true;athleteledsportsteam(J, A), teamalsoknownas(H, K).;true;true
+6;false;athleteplaysforteam(G, A), teamalsoknownas(A, H).;true;true
+9;;teamplayssport(A, B) :- athleteledsportsteam(C, A).;true;true
+9;false,true;athleteplaysforteam(H, A).;true;true
+9;false;teamalsoknownas(D, A), athleteledsportsteam(E, D).;true;true
+
+
+Refining candidate
+***************************
+WILL Produced-Tree #1
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then return 0.8581489350995104;  // std dev = 7,54e-07, 129,000 (wgt'ed) examples reached here.  /* #pos=129 */
+%   else if ( teamplaysinleague(A, E) )
+%   | then return -0.14185106490048838;  // std dev = 0,000, 196,000 (wgt'ed) examples reached here.  /* #neg=196 */
+%   | else if ( teamplaysagainstteam(F, A), teamalsoknownas(F, G) )
+%   | | then return 0.10814893509951219;  // std dev = 0,866, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | | else if ( teamalsoknownas(A, H) )
+%   | | | then return -0.1418510649004878;  // std dev = 0,000, 12,000 (wgt'ed) examples reached here.  /* #neg=12 */
+%   | | | else return -0.11243930019460538;  // std dev = 0,985, 34,000 (wgt'ed) examples reached here.  /* #neg=33 #pos=1 */
+WILL Produced-Tree #2
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( athleteledsportsteam(E, A), athleteplaysforteam(E, A) )
+%   | then if ( athleteledsportsteam(C, A) )
+%   | | then return 0.7194734122109545;  // std dev = 7,30e-08, 18,000 (wgt'ed) examples reached here.  /* #pos=18 */
+%   | | else if ( athleteplaysinleague(E, D), athleteplayssport(E, F) )
+%   | | | then return 0.0528067455442881;  // std dev = 0,816, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | | | else return 0.7194734122109548;  // std dev = 0,000, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | else return 0.7194734122109542;  // std dev = 1,88e-07, 103,000 (wgt'ed) examples reached here.  /* #pos=103 */
+%   else if ( teamalsoknownas(G, A), teamplaysagainstteam(A, H) )
+%   | then if ( athleteplaysforteam(I, A) )
+%   | | then return -0.1274505001041149;  // std dev = 0,029, 15,000 (wgt'ed) examples reached here.  /* #neg=15 */
+%   | | else return 0.06853777674443806;  // std dev = 0,868, 5,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=1 */
+%   | else if ( teamplaysagainstteam(J, A) )
+%   | | then return -0.1281853521190638;  // std dev = 0,104, 157,000 (wgt'ed) examples reached here.  /* #neg=157 */
+%   | | else if ( teamplaysinleague(A, K) )
+%   | | | then return -0.12544463852839116;  // std dev = 6,66e-08, 63,000 (wgt'ed) examples reached here.  /* #neg=63 */
+%   | | | else return -0.10687515631617425;  // std dev = 0,989, 47,000 (wgt'ed) examples reached here.  /* #neg=46 #pos=1 */
+WILL Produced-Tree #3
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C) )
+%   then if ( athleteplayssport(D, B), athleteplaysinleague(D, E) )
+%   | then if ( teamalsoknownas(F, A), teamplaysagainstteam(F, A) )
+%   | | then return 0.15536643674628486;  // std dev = 1,095, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | | else return 0.5286030523625062;  // std dev = 0,169, 69,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=67 */
+%   | else return -0.1063846698536262;  // std dev = 0,082, 134,000 (wgt'ed) examples reached here.  /* #neg=133 #pos=1 */
+%   else if ( teamplaysinleague(A, G), teamalsoknownas(A, H) )
+%   | then if ( athleteplayssport(I, B) )
+%   | | then if ( teamalsoknownas(J, A) )
+%   | | | then return 0.5553664367462848;  // std dev = 3,65e-08, 9,000 (wgt'ed) examples reached here.  /* #pos=9 */
+%   | | | else return 0.2220331034129516;  // std dev = 0,816, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | else return -0.11225788616380618;  // std dev = 0,000593, 28,000 (wgt'ed) examples reached here.  /* #neg=28 */
+%   | else if ( athleteledsportsteam(K, A) )
+%   | | then return -0.11204341538787202;  // std dev = 0,000, 1,000 (wgt'ed) examples reached here.  /* #neg=1 */
+%   | | else if ( athleteplayssport(L, B), athleteplaysinleague(L, M) )
+%   | | | then return 0.5349582734809794;  // std dev = 0,990, 49,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=48 */
+%   | | | else return -0.10479023828862644;  // std dev = 0,995, 94,000 (wgt'ed) examples reached here.  /* #neg=93 #pos=1 */
+WILL Produced-Tree #4
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( teamplaysagainstteam(A, E), teamalsoknownas(A, E) )
+%   | then return 0.19721389120645114;  // std dev = 0,896, 4,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=3 */
+%   | else if ( athleteledsportsteam(C, F) )
+%   | | then if ( teamplaysagainstteam(G, A), teamplaysagainstteam(F, G) )
+%   | | | then return 0.4295348227033447;  // std dev = 0,206, 62,000 (wgt'ed) examples reached here.  /* #pos=62 */
+%   | | | else return 0.4074799804484681;  // std dev = 0,998, 58,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=57 */
+%   | | else if ( teamplaysagainstteam(A, H), teamplaysagainstteam(H, A) )
+%   | | | then return 0.09070300902309598;  // std dev = 0,816, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | | else return 0.42180096364891756;  // std dev = 0,005, 5,000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   else if ( teamplaysinleague(A, I) )
+%   | then return -0.10193538917744167;  // std dev = 0,003, 182,000 (wgt'ed) examples reached here.  /* #neg=182 */
+%   | else if ( teamplaysagainstteam(J, A), teamalsoknownas(K, J) )
+%   | | then return -0.12445524022431725;  // std dev = 0,024, 9,000 (wgt'ed) examples reached here.  /* #neg=9 */
+%   | | else if ( teamalsoknownas(A, L), teamplaysagainstteam(A, M) )
+%   | | | then return 0.11742809144986746;  // std dev = 0,846, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | | | else return -0.08539997190370509;  // std dev = 0,992, 42,000 (wgt'ed) examples reached here.  /* #neg=41 #pos=1 */
+WILL Produced-Tree #5
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( teamplaysinleague(A, D) )
+%   | then return 0.3328229037760046;  // std dev = 0,233, 57,000 (wgt'ed) examples reached here.  /* #pos=57 */
+%   | else if ( teamalsoknownas(A, E) )
+%   | | then return 0.33476596440206735;  // std dev = 0,123, 23,000 (wgt'ed) examples reached here.  /* #pos=23 */
+%   | | else if ( athleteledsportsteam(F, A), athleteplaysinleague(F, G) )
+%   | | | then return 0.14121533090152733;  // std dev = 0,917, 5,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=4 */
+%   | | | else return 0.2858043084380819;  // std dev = 1,387, 47,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=45 */
+%   else if ( teamplaysagainstteam(H, A), teamalsoknownas(I, A) )
+%   | then if ( teamplaysinleague(A, J) )
+%   | | then return -0.09461885596678156;  // std dev = 0,024, 21,000 (wgt'ed) examples reached here.  /* #neg=21 */
+%   | | else return 0.12511058125904576;  // std dev = 0,818, 4,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=1 */
+%   | else if ( teamplaysagainstteam(K, A) )
+%   | | then return -0.09485511076081485;  // std dev = 0,074, 154,000 (wgt'ed) examples reached here.  /* #neg=154 */
+%   | | else if ( teamplaysinleague(A, L) )
+%   | | | then return -0.09310854651112035;  // std dev = 0,002, 58,000 (wgt'ed) examples reached here.  /* #neg=58 */
+%   | | | else return -0.07665426017482026;  // std dev = 0,989, 46,000 (wgt'ed) examples reached here.  /* #neg=45 #pos=1 */
+WILL Produced-Tree #6
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteledsportsteam(C, D) )
+%   then if ( teamplaysinleague(A, E), teamplaysinleague(D, E) )
+%   | then return 0.26677873498191534;  // std dev = 0,252, 83,000 (wgt'ed) examples reached here.  /* #pos=83 */
+%   | else if ( teamplaysinleague(A, F) )
+%   | | then if ( teamalsoknownas(A, G) )
+%   | | | then return 0.2669925973785443;  // std dev = 0,061, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return 0.016422717163269554;  // std dev = 1,230, 8,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=6 */
+%   | | else return 0.26522695458993506;  // std dev = 0,020, 27,000 (wgt'ed) examples reached here.  /* #pos=27 */
+%   else if ( teamplaysinleague(A, H) )
+%   | then if ( athleteplayssport(I, B), athleteplaysinleague(J, H) )
+%   | | then return -0.0205574961554497;  // std dev = 0,324, 7,000 (wgt'ed) examples reached here.  /* #neg=4 #pos=3 */
+%   | | else return -0.08675165036475595;  // std dev = 0,048, 204,000 (wgt'ed) examples reached here.  /* #neg=203 #pos=1 */
+%   | else if ( athleteplayssport(K, B) )
+%   | | then return 0.2858063510017668;  // std dev = 0,061, 3,000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | else if ( teamalsoknownas(L, A), teamalsoknownas(A, L) )
+%   | | | then return -0.007684427058890253;  // std dev = 0,869, 10,000 (wgt'ed) examples reached here.  /* #neg=9 #pos=1 */
+%   | | | else return -0.0743606645508456;  // std dev = 0,996, 46,000 (wgt'ed) examples reached here.  /* #neg=45 #pos=1 */
+WILL Produced-Tree #7
+% FOR teamplayssport(A, B):
+%   if ( teamplaysagainstteam(A, C), athleteplaysforteam(D, C) )
+%   then if ( athleteplayssport(E, B), athleteplaysinleague(E, F) )
+%   | then if ( athleteplaysforteam(E, G), teamplaysagainstteam(A, G) )
+%   | | then return 0.21912560889231963;  // std dev = 0,217, 58,000 (wgt'ed) examples reached here.  /* #pos=58 */
+%   | | else if ( athleteplaysforteam(H, A) )
+%   | | | then return -0.08954969384986249;  // std dev = 0,796, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | | else return 0.23509100833821153;  // std dev = 0,106, 5,000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   | else return -0.07496572708254239;  // std dev = 0,075, 144,000 (wgt'ed) examples reached here.  /* #neg=143 #pos=1 */
+%   else if ( athleteplaysforteam(I, A), teamalsoknownas(A, J) )
+%   | then if ( athleteledsportsteam(K, A), teamalsoknownas(J, L) )
+%   | | then return 0;  // std dev = 0,000, 0,000 (wgt'ed) examples reached here.
+%   | | else return -0.030048603581170674;  // std dev = 0,265, 6,000 (wgt'ed) examples reached here.  /* #neg=5 #pos=1 */
+%   | else if ( athleteplayssport(M, B), athleteplaysinleague(M, N) )
+%   | | then return 0.22405653744098625;  // std dev = 0,162, 63,000 (wgt'ed) examples reached here.  /* #pos=63 */
+%   | | else if ( teamalsoknownas(A, P) )
+%   | | | then return -0.08376352107159112;  // std dev = 0,076, 38,000 (wgt'ed) examples reached here.  /* #neg=38 */
+%   | | | else return -0.07243969766197673;  // std dev = 0,993, 98,000 (wgt'ed) examples reached here.  /* #neg=97 #pos=1 */
+WILL Produced-Tree #8
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( teamplaysinleague(A, D) )
+%   | then return 0.18155281296027814;  // std dev = 0,174, 57,000 (wgt'ed) examples reached here.  /* #pos=57 */
+%   | else if ( athleteledsportsteam(C, E), teamplaysagainstteam(E, A) )
+%   | | then if ( teamalsoknownas(E, F) )
+%   | | | then return 0.2062956861301246;  // std dev = 0,077, 6,000 (wgt'ed) examples reached here.  /* #pos=6 */
+%   | | | else return -0.3108608506919952;  // std dev = 0,973, 4,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2 */
+%   | | else if ( teamplaysagainstteam(G, A) )
+%   | | | then return 0.2063555418823364;  // std dev = 0,144, 17,000 (wgt'ed) examples reached here.  /* #pos=17 */
+%   | | | else return 0.12748052351514041;  // std dev = 1,646, 50,000 (wgt'ed) examples reached here.  /* #neg=3 #pos=47 */
+%   else if ( teamplaysagainstteam(A, H), teamalsoknownas(I, A) )
+%   | then if ( athleteplaysforteam(J, A) )
+%   | | then return -0.07351163072094995;  // std dev = 0,000, 18,000 (wgt'ed) examples reached here.  /* #neg=18 */
+%   | | else return 0.21723429576512152;  // std dev = 0,748, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | else if ( teamplaysinleague(A, K) )
+%   | | then return -0.0735605858010055;  // std dev = 0,009, 181,000 (wgt'ed) examples reached here.  /* #neg=181 */
+%   | | else return -0.06380157313422682;  // std dev = 0,134, 55,000 (wgt'ed) examples reached here.  /* #neg=54 #pos=1 */
+WILL Produced-Tree #9
+% FOR teamplayssport(A, B):
+%   if ( athleteplayssport(C, B), athleteplaysinleague(C, D) )
+%   then if ( teamplaysinleague(A, E) )
+%   | then if ( teamalsoknownas(F, A), athleteplaysforteam(G, A) )
+%   | | then return 0.03592142118334668;  // std dev = 0,915, 6,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | else return 0.16308842677809365;  // std dev = 0,220, 94,000 (wgt'ed) examples reached here.  /* #pos=94 */
+%   | else if ( teamplaysagainstteam(H, A), teamalsoknownas(H, I) )
+%   | | then return -0.1815642201935104;  // std dev = 0,814, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | | else if ( teamplaysagainstteam(J, A) )
+%   | | | then return 0.16849274246411355;  // std dev = 0,081, 7,000 (wgt'ed) examples reached here.  /* #pos=7 */
+%   | | | else return 0.11788117375838919;  // std dev = 0,976, 22,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=21 */
+%   else if ( teamplaysagainstteam(A, K), teamalsoknownas(A, L) )
+%   | then if ( teamalsoknownas(L, A), teamalsoknownas(K, L) )
+%   | | then return 0.21907727715706085;  // std dev = 0,705, 3,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=1 */
+%   | | else return -0.07211097472001553;  // std dev = 0,043, 24,000 (wgt'ed) examples reached here.  /* #neg=24 */
+%   | else if ( teamplaysagainstteam(M, A) )
+%   | | then return -0.0701041428787389;  // std dev = 0,062, 144,000 (wgt'ed) examples reached here.  /* #neg=144 */
+%   | | else return -0.06352171384801338;  // std dev = 0,093, 115,000 (wgt'ed) examples reached here.  /* #neg=114 #pos=1 */
+WILL Produced-Tree #10
+% FOR teamplayssport(A, B):
+%   if ( athleteledsportsteam(C, A) )
+%   then if ( athleteplayssport(D, B), athleteledsportsteam(D, E) )
+%   | then if ( athleteledsportsteam(F, A), athleteplaysinleague(F, G) )
+%   | | then return 0.14638773757242024;  // std dev = 0,031, 31,000 (wgt'ed) examples reached here.  /* #pos=31 */
+%   | | else return -0.14915031446212923;  // std dev = 0,786, 3,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=2 */
+%   | else return -0.06748668893581752;  // std dev = 0,050, 90,000 (wgt'ed) examples reached here.  /* #neg=89 #pos=1 */
+%   else if ( teamalsoknownas(H, A), athleteledsportsteam(I, H) )
+%   | then if ( athleteplaysforteam(J, A) )
+%   | | then return -0.06430972643904155;  // std dev = 0,000, 4,000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | else return 0.055326251117247774;  // std dev = 0,256, 5,000 (wgt'ed) examples reached here.  /* #neg=2 #pos=3 */
+%   | else if ( athleteplayssport(K, B), athleteplaysinleague(K, L) )
+%   | | then if ( teamplaysinleague(A, M), teamalsoknownas(N, A) )
+%   | | | then return 0.06711467549942776;  // std dev = 0,934, 12,000 (wgt'ed) examples reached here.  /* #neg=1 #pos=11 */
+%   | | | else return 0.1444272968372775;  // std dev = 0,146, 81,000 (wgt'ed) examples reached here.  /* #pos=81 */
+%   | | else if ( teamplaysinleague(A, P) )
+%   | | | then return -0.06486986075955496;  // std dev = 0,028, 121,000 (wgt'ed) examples reached here.  /* #neg=121 */
+%   | | | else return -0.04912083393747612;  // std dev = 1,297, 68,000 (wgt'ed) examples reached here.  /* #neg=66 #pos=2 */
+
+
+Results
+   AUC ROC   = 0.994103
+   AUC PR    = 0.339809
+   CLL	      = -0.083806
+   Precision = 0.200459 at threshold = 0.5
+   Recall    = 0.984962
+   F1        = 0.333121
+
+
+Total learning time: 141.399 seconds
+Total inference time: 40.057 seconds
+AUC ROC: 0.994103
+
+
+Results scoring model
+   AUC ROC   = 0.99662
+   AUC PR    = 0.452551
+   CLL	      = -0.083822
+   Precision = 0.193985 at threshold = 0.5
+   Recall    = 0.984733
+   F1        = 0.324121
+
+
+Total scoring time: 20.493 seconds
+Refined model CLL: -0.083822
+
+
+******************************************
+Best model found
+******************************************
+Results
+   AUC ROC   = 0.994103
+   AUC PR    = 0.339809
+   CLL	      = -0.083806
+   Precision = 0.200459 at threshold = 0.5
+   Recall    = 0.984962
+   F1        = 0.333121
+
+
+Total learning time: 222.301 seconds
+Total inference time: 40.057 seconds
+AUC ROC: 0.994103
+Total revision time: 222.301
+Best scored revision CLL: -0.083822
+
+
+Dataset: 46_nell_finances_nell_sports, Fold: 3, Type: Transfer (trRDN-B), Time: 06:42:31
+{'AUC ROC': 0.994103, 'F1': 0.333121, 'parameter': {'AUC ROC': 0.472084, 'F1': nan, 'Precision': [nan, 0.5], 'Learning time': 6.96, 'Inference time': 103.07300000000001, 'CLL': -0.368372, 'AUC PR': 0.002281, 'Recall': 0.0}, 'Precision': [0.200459, 0.5], 'Learning time': 222.301, 'Inference time': 40.057, 'CLL': -0.083806, 'AUC PR': 0.339809, 'Recall': 0.984962}
+
+
